@@ -126,9 +126,13 @@
 }
 
 /*Column Default style*/
+[class*="woolentor-products-columns-"] ul.products::before, [class*="woolentor-products-columns-"] ul.products::after{
+    display: none !important;
+}
 [class*="woolentor-products-columns-"] ul.products{
-    display: grid;
+    display: grid !important;
     column-gap: 20px;
+    list-style: none;
 }
 .woocommerce [class*="woolentor-products-columns-"] ul.products::before{
     display: none !important;

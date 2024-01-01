@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 2.7.6
+Stable tag: 2.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1087,6 +1087,12 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 Elementor Pro is not required. But you can use ShopLentor with Elementor free & Pro.
 
 == Changelog ==
+
+= Version: 2.7.7 - Date: 31-12-2023 =
+1. Solved : Header and Footer showing issue with Full site editing.
+2. Solved : Product image showing issue in single product template.
+3. Solved : Minor issue.
+4. Compatibility : Latest WordPress and WooCommerce version.
 
 = Version: 2.7.6 - Date: 18-12-2023 =
 * Solved : Template content render issue with default template.

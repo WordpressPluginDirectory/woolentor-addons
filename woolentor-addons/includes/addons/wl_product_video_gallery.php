@@ -214,8 +214,11 @@ class Woolentor_Wl_Product_Video_Gallery_Widget extends Widget_Base {
         } else{
             global $product;
         }
-
         if ( empty( $product ) ) { return; }
+        if ( $product && !is_a( $product, 'WC_Product' ) ) {
+            $product = wc_get_product( $post->ID );
+        }
+
         $gallery_images_ids = $product->get_gallery_image_ids() ? $product->get_gallery_image_ids() : array();
         if ( $product->get_image_id() ){
             array_unshift( $gallery_images_ids, $product->get_image_id() );

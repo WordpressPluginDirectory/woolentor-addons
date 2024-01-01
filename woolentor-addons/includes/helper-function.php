@@ -958,7 +958,7 @@ if( class_exists('WooCommerce') ){
     function woolentor_custom_product_badge( $show = 'yes' ){
         global $product;
         $custom_saleflash_text = get_post_meta( get_the_ID(), '_saleflash_text', true );
-        if( $show == 'yes' ){
+        if( $show == 'yes' && is_a( $product, 'WC_Product' ) ){
             if( !empty( $custom_saleflash_text ) && $product->is_in_stock() ){
                 if( $product->is_featured() ){
                     echo '<span class="ht-product-label ht-product-label-left hot">' . esc_html( $custom_saleflash_text ) . '</span>';

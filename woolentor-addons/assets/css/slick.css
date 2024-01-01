@@ -48,6 +48,10 @@
             transform: translate3d(0, 0, 0);
 }
 
+[dir=rtl] .slick-slider .slick-list {
+    direction: rtl;
+}
+
 .slick-track
 {
     position: relative;
@@ -55,6 +59,8 @@
     left: 0;
 
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .slick-track:before,
 .slick-track:after
@@ -77,10 +83,11 @@
     display: none;
     float: left;
 
-    height: 100%;
+    /* height: 100%; */
+    height: fit-content;
     min-height: 1px;
 }
-[dir='rtl'] .slick-slide
+[dir='rtl'] .slick-list .slick-slide
 {
     float: right;
 }

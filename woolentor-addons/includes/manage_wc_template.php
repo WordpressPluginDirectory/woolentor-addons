@@ -48,9 +48,13 @@ class Woolentor_Manage_WC_Template{
 
             $classes[] = $class_prefix.self::has_template( 'singleproductpage', '_selectproduct_layout' );
 
-        }elseif( is_checkout() && false !== self::has_template( 'productcheckoutpage' ) ){
+        }elseif ( (is_checkout() && false !== self::has_template( 'productcheckoutpage' ) && !is_wc_endpoint_url('order-received') && !is_checkout_pay_page()) || (isset($_REQUEST['wc-ajax']) &&  $_REQUEST['wc-ajax'] == 'update_order_review') ){
 
             $classes[] = $class_prefix.self::has_template( 'productcheckoutpage' );
+
+        }elseif( is_checkout() && is_wc_endpoint_url('order-received') && false !== self::has_template( 'productthankyoupage' ) ){
+
+            $classes[] = $class_prefix.self::has_template( 'productthankyoupage' );
 
         }elseif( is_shop() && false !== self::has_template( 'productarchivepage' ) ){
 
@@ -261,10 +265,14 @@ class Woolentor_Manage_WC_Template{
             $page_template_slug = get_post_meta( $template_id, '_wp_page_template', true );
 
             $page_template_slug = ( in_array( $page_template_slug, ['elementor_header_footer', 'elementor_canvas'] ) ? 'woolentor_fullwidth' : $page_template_slug );
-			$template = WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/page/'.$page_template_slug.'.php';
+			$template = !empty( $page_template_slug ) ? WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/page/'.$page_template_slug.'.php' : $template;
 
-			if( empty( $page_template_slug ) ) {
-				$template = WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/page/woolentor-default.php';
+			// if( empty( $page_template_slug ) ) {
+			// 	$template = WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/page/woolentor-default.php';
+			// }
+
+            if( empty( $page_template_slug ) ) {
+				$template = WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/page/default.php';
 			}
 
             add_action('woolentor/builder/content', function () use ( $template_id, $template_part ) {
@@ -282,7 +290,7 @@ class Woolentor_Manage_WC_Template{
 
             if( $document && $document::get_property('support_wp_page_templates') ) {
                 $page_template = $document->get_meta('_wp_page_template');
-                $page_template = ( in_array( $page_template, ['elementor_header_footer', 'elementor_canvas'] ) ? $page_template : 'elementor_header_footer');
+                $page_template = ( in_array( $page_template, ['elementor_header_footer', 'elementor_canvas'] ) ? $page_template : '');
 
                 $template_path = $template_module->get_template_path( $page_template );
 
@@ -296,9 +304,18 @@ class Woolentor_Manage_WC_Template{
                 }
             }
 
-            $template_module->set_print_callback(function () use ( $template_id, $template_part ){
-                include_once ( $this->get_template_part( $template_part, $template_id ) );
-            });
+            if( $template_path ) {
+                $template_module->set_print_callback(function () use ( $template_id, $template_part ){
+                    include_once ( $this->get_template_part( $template_part, $template_id ) );
+                });
+            } else{
+                if( !$this->is_elementor_editor_mode() ){
+                    $template = WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/page/default.php';
+                    add_action('woolentor/builder/content', function () use ( $template_id, $template_part ) {
+                        include_once ( $this->get_template_part( $template_part, $template_id ) );
+                    });
+                }
+            }
 
         }
 

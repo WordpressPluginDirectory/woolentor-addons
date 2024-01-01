@@ -61,7 +61,7 @@ class Woolentor_Backorder extends WC_Product{
      */
     public function enqueue_scripts(){
         if( is_cart() || is_checkout()){
-            wp_enqueue_style( 'woolentor-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', '', WOOLENTOR_VERSION, 'all' );
+            wp_enqueue_style( 'woolentor-backorder', plugin_dir_url( __FILE__ ) . 'assets/css/backorder.css', [], WOOLENTOR_VERSION, 'all' );
         }
     }
 
@@ -72,7 +72,7 @@ class Woolentor_Backorder extends WC_Product{
         global $typenow;
 
         if( $typenow == 'product' ){
-            wp_enqueue_style( 'woolentor-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', '', WOOLENTOR_VERSION, 'all' );
+            wp_enqueue_style( 'woolentor-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/css/backorder-admin.css', [], WOOLENTOR_VERSION, 'all' );
             wp_enqueue_script( 'woolentor-backorder-admin', plugin_dir_url( __FILE__ ) . 'assets/js/backorder-admin.js', array('jquery'), WOOLENTOR_VERSION, true );
         }
     }
