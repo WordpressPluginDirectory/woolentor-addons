@@ -69,6 +69,9 @@ class Woolentor_Admin_Init{
         add_action( 'wp_ajax_woolentor_save_opt_data', [ $this, 'save_data' ] );
         add_action( 'wp_ajax_woolentor_module_data', [ $this, 'module_data' ] );
 
+        // Ajax action for Repeater Custom Button
+        add_action( 'wp_ajax_woolentor_repeater_custom_action',[ $this, 'repeater_custom_action' ] );
+
     }
 
     /**
@@ -97,7 +100,7 @@ class Woolentor_Admin_Init{
             esc_html__( 'ShopLentor', 'woolentor' ), 
             self::MENU_CAPABILITY, 
             self::MENU_PAGE_SLUG, 
-            NULL, 
+            '', 
             WOOLENTOR_ADDONS_PL_URL.'includes/admin/assets/images/icons/menu-bar_20x20.png',
             100
         );
@@ -373,9 +376,7 @@ class Woolentor_Admin_Init{
             add_option( $section );
         }
         
-        $options_data  = [];
-
-        foreach( $fileds as $field_key => $filed ){
+        foreach( $fileds as $filed ){
             if ( array_key_exists( $filed, $data ) ) {
                 $value = $data[$filed];
             }else{
@@ -440,9 +441,9 @@ class Woolentor_Admin_Init{
             }
         }
 
-        $response_content = $message = $element_keys = $field_html = '';
+        $response_content = $message = $field_html = '';
         if( $subaction === 'get_data' ){
-            foreach( $section_fields as $key => $field ){
+            foreach( $section_fields as $field ){
                 ob_start();
                 Woolentor_Admin_Fields_Manager::instance()->add_field( $field, $section );
                 $field_html .= ob_get_clean();
@@ -457,6 +458,28 @@ class Woolentor_Admin_Init{
             'content' => $response_content,
             'fields'  => wp_json_encode( $fileds )
         ]);
+
+    }
+
+    /**
+     * Repeater Field Custom Button
+     */
+    public function repeater_custom_action(){
+
+        check_ajax_referer( 'woolentor_save_opt_nonce', 'nonce' );
+
+        $data = woolentor_clean( $_POST['data'] );
+        $callback = $data['callback'];
+        $module_settings = get_option( $data['option_section'] );
+        $dependent_value = !empty( $data['value'] ) ? $data['value'] : woolentor_get_option( $data['option_id'], $data['option_section'], false );
+
+        if ( is_callable( $callback ) ){
+            $response_data = call_user_func( $callback, [ 'depend_value' => $dependent_value, 'module_settings' => $module_settings ] );
+        }else{
+            $response_data = '';
+        }
+
+	    wp_send_json_success( $response_data );
 
     }
 

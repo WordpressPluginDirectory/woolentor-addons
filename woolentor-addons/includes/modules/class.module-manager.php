@@ -123,6 +123,21 @@ class Woolentor_Module_Manager{
             require_once( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/backorder/class.backorder.php' );
         }
 
+        // Currency Switcher
+        if( file_exists( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/currency-switcher/currency-switcher.php') ){
+            require_once( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/currency-switcher/currency-switcher.php' );
+            if( is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ){
+                if( file_exists(WOOLENTOR_ADDONS_PL_PATH_PRO .'includes/modules/currency-switcher/currency-switcher.php')){
+                    require_once( WOOLENTOR_ADDONS_PL_PATH_PRO .'includes/modules/currency-switcher/currency-switcher.php' );
+                }
+            }
+            if( woolentor_get_option( 'enable', 'woolentor_currency_switcher', 'off' ) == 'on' ){
+                \Woolentor\Modules\CurrencySwitcher\woolentor_currency_switcher( true );
+            } else {
+                \Woolentor\Modules\CurrencySwitcher\woolentor_currency_switcher( false );
+            }
+        }
+
         // Pro-Modules
         if( is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ){
 

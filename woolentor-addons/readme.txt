@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 2.7.7
+Stable tag: 2.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -770,6 +770,17 @@ Using the smart display conditions, you can control when and where your popup wi
 When it comes to keeping your visitors engaged through implementing eye-catching popups, this module can be really handy. You can use it to highlight special offers, create a sense of urgency, collect leads, or even turn visitors into potential customers.
 
 If you are looking for an effective solution to improve the engagement and conversion rates of your website, you should definitely try this module out.
+
+💱 CURRENCY SWITCHER
+Reach potential customers from multiple countries and expand your business to new heights With ShopLentor's Currency Switcher module. With this incredible module, you are no longer constrained to change the default currency of your store only.
+
+You can incorporate an intuitive currency switcher into your WooCoomerce store according to the needs of your customers from multiple countries. It enables them to effortlessly switch currencies to their preferred ones, regardless of your store's base currency.
+
+When it comes to scaling up your online business, the currency-switching features can be tremendously effective. Why? Because customers around the world will have the flexibility to view product prices and purchase their desired products in their local currencies.
+
+Apart from the currency-switching features, the module comes with a couple of useful customization and styling options to alter the look and feel to reflect your brand style.
+
+If you want to reach a wider audience while offering them a seamless shopping experience, you should definitely give the Currency Switcher module a try!
 
 = 🔔 Sales Notification =
 This feature allows showing the sales notification or sales popup to display real/custom WooCommerce orders. Furthermore, you can customize the design of the WooCommerce sales popup or live notification for WooCommerce from the module settings. Even though this recent sales popup WordPress module’s name suggests that is meant for displaying sales notifications, WooCommerce order notifications, or WooCommerce pop ups, nevertheless, you can also do other things like showing WooCommerce product announcements, WooCommerce announcements, WooCommerce product notices, or WooCommerce notices regarding WooCommerce product price drop or WooCommerce drop price. To achieve this, all you need to do is create a custom notification.

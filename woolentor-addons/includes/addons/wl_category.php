@@ -54,7 +54,7 @@ class Woolentor_Wl_Category_Widget extends Widget_Base {
                         'horizontal' => esc_html__('Horizontal','woolentor'),
                     ],
                     'label_block' => true,
-                    'description'   => wp_kses_post( 'Vertical layout are available in the pro version. (<a href="'.esc_url('https://hasthemes.com/plugins/woolentor-pro-woocommerce-page-builder/?fd').'" target="_blank">Get Pro</a>)', 'woolentor' ),
+                    'description'   => wp_kses_post( 'Vertical layout are available in the pro version. (<a href="'.esc_url('https://woolentor.com/pricing/?utm_source=admin&utm_medium=editor&utm_campaign=free').'" target="_blank">Get Pro</a>)' ),
                 ]
             );
 
@@ -221,7 +221,7 @@ class Woolentor_Wl_Category_Widget extends Widget_Base {
                             <div class="elementor-nerd-box-message">' .
                                 __( 'Product counter, Custom icon, Category Description option are available in the pro version', 'woolentor' ) .
                             '</div>
-                            <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="' . esc_url( 'https://hasthemes.com/plugins/woolentor-pro-woocommerce-page-builder/?fd' ) . '" target="_blank">' .
+                            <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="' . esc_url( 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=editor&utm_campaign=free' ) . '" target="_blank">' .
                                 __( 'Go Pro', 'woolentor' ) .
                             '</a>
                             </div>',

@@ -188,6 +188,16 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
             );
 
             $this->add_control(
+                'hidden_outofstock',
+                [
+                    'label' => esc_html__( 'Exclude Out Of Stock Item', 'woolentor' ),
+                    'type' => Controls_Manager::SWITCHER,
+                    'return_value' => 'yes',
+                    'default' => 'no',
+                ]
+            );
+
+            $this->add_control(
                 'producttab',
                 [
                     'label' => esc_html__( 'Product Tab', 'woolentor' ),
@@ -386,8 +396,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                         [
                             'name' => 'tabmenu_hover_border',
                             'label' => __( 'Border', 'woolentor' ),
-                            'selector' => '{{WRAPPER}} .ht-tab-menus li a:hover',
-                            'selector' => '{{WRAPPER}} .ht-tab-menus li a.htactive',
+                            'selector' => '{{WRAPPER}} .ht-tab-menus li a:hover, {{WRAPPER}} .ht-tab-menus li a.htactive',
                         ]
                     );
 
@@ -1312,6 +1321,20 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
             $args['order'] = $order;
         }
 
+         // Hide Out of Stock Product
+        /**
+         * [$hide_out_of_stock] Check ( WooCommerce > Settings > Products > Inventory )
+         */
+        $hide_out_of_stock = ( $settings['hidden_outofstock'] === 'yes' ) ? 'yes' : get_option( 'woocommerce_hide_out_of_stock_items', 'no' );
+        if( 'yes' === $hide_out_of_stock ){
+            $meta_query[] = array(
+                'key'     => '_stock_status',
+                'value'   => 'instock',
+                'compare' => '==',
+            );
+            $args['meta_query'] = $meta_query;
+        }
+
         $get_product_categories = $settings['woolentor_product_grid_categories']; // get custom field value
         $product_cats = str_replace(' ', '', $get_product_categories);
 
@@ -1391,7 +1414,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                     if( $fetchproduct->have_posts() ){
                                         ?>
                                             <li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#woolentortab<?php echo $tabuniqid.esc_attr($m);?>">
-                                                <?php echo esc_attr( $prod_cats->name,'woolentor' );?>
+                                                <?php echo esc_attr( $prod_cats->name );?>
                                             </a></li>
                                         <?php
                                     }

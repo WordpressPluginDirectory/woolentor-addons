@@ -54,7 +54,12 @@ class Blocks_init {
             return;
         }
 
-        $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ) ? WOOLENTOR_ADDONS_PL_PATH_PRO . 'blocks/' : WOOLENTOR_BLOCK_PATH . '/src/blocks/';
+        if ( isset( $block['location'] ) ) {
+            $block_dir = trailingslashit( $block['location'] );
+        } else {
+            $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ) ? WOOLENTOR_ADDONS_PL_PATH_PRO . 'blocks/' : WOOLENTOR_BLOCK_PATH . '/src/blocks/';
+        }
+
         $block_name  = str_replace('woolentor/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
         $block_file  = $block_dir . $block_name . '/index.php';
 

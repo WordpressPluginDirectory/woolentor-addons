@@ -539,6 +539,9 @@
   }
 
   /* For Repeater */
+  .woolenor-reapeater-fields-area {
+    text-align: left;
+  }
   .woolentor-admin-option.woolentor-repeater-heading:not(.woolentor-condition-on) {
     display: block !important;
     text-align: left;
@@ -584,20 +587,29 @@
     border-top: 0;
     background-color: #ffffff;
   }
-  button.woolentor-repeater-item-add {
+  button.woolentor-repeater-item-add, .woolentor-repeater-custom-action {
     padding: 5px 15px;
     font-size: 13px;
     cursor: pointer;
     margin-top: 10px;
     text-transform: uppercase;
     margin-right: 10px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     border: none;
     border-radius: 3px;
     transition: 0.4s;
   }
-  button.woolentor-repeater-item-add:hover {
+  .wp-core-ui .button-primary.woolentor-repeater-custom-action {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #007EFF;
+    border-color: #007EFF;
+    padding: 1px 10px;
+    box-shadow:none;
+  }
+  button.woolentor-repeater-item-add:hover, .wp-core-ui .button-primary.woolentor-repeater-custom-action:hover {
     border-color: #0065cc;
     background-color: #0065cc;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -2210,4 +2222,14 @@
 }
 .different-free-vs-pro .explore-pro-features a {
   display: inline-flex;
+}
+
+/* Currency Switcher Module */
+form[data-section=woolentor_currency_switcher] .woolenor-reapeater-fields-area+.woolentor-admin-option {
+  border-top: 1px solid #eaeaea;
+  margin-top: 20px;
+}
+.swal2-html-container {
+  font-size: 16px;
+  line-height: 26px;
 }

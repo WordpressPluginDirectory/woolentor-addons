@@ -417,6 +417,7 @@ class Assets_Management{
      * @return void
      */
     public function enqueue_elementor_editor(){
+        wp_enqueue_style('woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/css/woolentor-elementor-editor.css',['elementor-editor'], WOOLENTOR_VERSION );
         wp_enqueue_script( 'woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/js/woolentor-elementor-editor.js', ['jquery'], WOOLENTOR_VERSION, true );
 
         // Localized data for elementor editor

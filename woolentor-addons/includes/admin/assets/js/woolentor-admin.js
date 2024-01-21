@@ -500,7 +500,29 @@
             var $this            = $(this),
                 $hidden          =  $this.prev('.woolentor-repeater-hidden').clone(true),
                 $insert_location =  $this.closest('.woolenor-reapeater-fields-area').find('div.woolentor-option-repeater-item:not(.woolentor-repeater-hidden):last'),
-                $itemCount       =  $this.closest('.woolenor-reapeater-fields-area').find('.woolentor-option-repeater-item:not(.woolentor-repeater-hidden)').length;
+                $itemCount       =  $this.closest('.woolenor-reapeater-fields-area').find('.woolentor-option-repeater-item:not(.woolentor-repeater-hidden)').length,
+                $addLimit        =  typeof $this.attr('data-limit') !== 'undefined' ? parseInt($this.attr('data-limit')) : '';
+            
+            // If already reach adding limit
+            if( $addLimit != '' && $addLimit <= $itemCount ){
+
+                Swal.fire({
+                    title: 'Upgrade to Premium version',
+                    text: 'With the free version, you can add 2 currencies. To unlock more currencies and advanced features, please upgrade to the pro version.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#ddd',
+                    confirmButtonText: 'Upgrade Now',
+                    cancelButtonText: 'Not Now',
+                }).then((result) => {
+                    if ( result.isConfirmed ) {
+                        window.open('https://woolentor.com/pricing/?utm_source=admin&utm_medium=lockfeatures&utm_campaign=free', '_blank');
+                    }
+                })
+
+                return false;
+            }
             
             $hidden.attr('data-id', $itemCount );
             $('.woolentor-option-repeater-item-area .woolentor-option-repeater-item').removeClass('woolentor_active_repeater');
@@ -514,6 +536,9 @@
             $(document).trigger('repeater_field_added', [ $('.woolentor-module-setting-data .woolentor-option-repeater-item.woolentor_active_repeater') ] );
             $(document).trigger('repeater_field_item_added', [ $('.woolentor-module-setting-data .woolentor-option-repeater-item.woolentor_active_repeater') ] );
 
+            // Title Value update after add.
+            $('.woolentor-module-setting-data .woolentor-option-repeater-item.woolentor_active_repeater').find('.woolentor-repeater-title-field :input').trigger( 'change' );
+
             // Field Dependency
             $('.woolentor-option-repeater-item-area').children('.woolentor-option-repeater-item').children('.woolentor-option-repeater-fields').woolentor_conditions();
 
@@ -526,7 +551,8 @@
 
         // Change Heading using title field value
         $('.woolentor-repeater-title-field :input').on('keyup change',function( event ){
-            $(this).closest('.woolentor-option-repeater-fields').siblings('.woolentor-option-repeater-tools').find('.woolentor-option-repeater-item-title').html( $(this).val() );
+            let titleValue = event.currentTarget.tagName == 'SELECT' ? event.currentTarget.options[event.currentTarget.selectedIndex].text : $(this).val();
+            $(this).closest('.woolentor-option-repeater-fields').siblings('.woolentor-option-repeater-tools').find('.woolentor-option-repeater-item-title').html( titleValue );
         });
 
         // Hide Show Manage
@@ -578,6 +604,145 @@
                 }
             });
         }
+
+        /**
+         * Repeater Custom Button
+         */
+        $('.woolentor-repeater-custom-action').on('click', function(){
+
+            let $this = $(this),
+                $fieldsArea = $this.siblings('.woolentor-option-repeater-item-area'), 
+                $data = typeof $this.attr('data-customaction') !== 'undefined' ? JSON.parse( $this.attr('data-customaction') ) : '',
+                $fieldValue = $( document ).find( $data['option_selector'] ),
+                $moduleSaveButton = $('.woolentor-admin-module-save');
+            
+            if( typeof $fieldValue !== 'undefined' ){
+                $data = {...$data, value: $fieldValue.val()}
+            }
+
+            $.ajax( {
+                url: WOOLENTOR_ADMIN.ajaxurl,
+                type: 'POST',
+                data: {
+                    nonce  : WOOLENTOR_ADMIN.nonce,
+                    action : 'woolentor_repeater_custom_action',
+                    data : $data
+                },
+
+                beforeSend: function(){
+                    $this.removeClass('disabled').addClass('updating-message');
+                    // Enable Module Data save button
+                    $moduleSaveButton.removeClass('disabled').attr('disabled', false).text( WOOLENTOR_ADMIN.message.btntxt );
+                },
+
+                success: function( response ) {
+                    $this.removeClass('updating-message');
+                    $(document).trigger('repeater_custom_action_start', [ $data, $fieldsArea, response.data ] );
+                    // Save Module Data
+                    $moduleSaveButton.trigger('click');
+                },
+
+                complete: function( response ) {
+                    $this.removeClass('updating-message');
+                    // Save Module Data
+                    $moduleSaveButton.trigger('click');
+                },
+
+                error: function(errorThrown){
+                    console.log(errorThrown);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong! Try again later.",
+                    });
+                }
+    
+            });
+
+        });
+
+
+        
+        /**
+         * For Currency Switcher Module
+         */
+        $( document ).on( 'change', '.wlcs-currency-selection .woolentor-admin-select select', function ( e ) {
+            let thisField = $( this ),
+                item = thisField.closest( '.woolentor-option-repeater-item' ),
+                fieldsArea = item.closest( '.woolenor-reapeater-fields-area' ),
+                uniqueIdWrap = item.find( '.wlcs-currency-selection' );
+
+            if ( ( true === uniqueIdWrap.hasClass( 'wlcs-currency-selection-field' ) ) && ( 'undefined' !== typeof fieldsArea ) ) {
+                $( document ).trigger( 'country_default_select_refresh', [ fieldsArea ] );
+            }
+        } );
+        $( document ).on( 'repeater_field_item_removed', function ( e, item, fieldsArea ) {
+            let uniqueIdWrap = item.find( '.wlcs-currency-selection' );
+            if ( ( true === uniqueIdWrap.hasClass( 'wlcs-currency-selection-field' ) ) && ( 'undefined' !== typeof fieldsArea ) ) {
+                $( document ).trigger( 'country_default_select_refresh', [ fieldsArea ] );
+            }
+        } );
+
+        /**
+         * Change Default Currency Switcher value select refresh.
+         */
+        $( document ).on( 'country_default_select_refresh', function ( e, itemsArea ) {
+            if ( 0 < itemsArea.length ) {
+                let items = itemsArea.find( '.woolentor-option-repeater-item:not(.woolentor-repeater-hidden)' ),
+                    selects = $( document ).find( '.wlcs-default-selection .woolentor-admin-select select' ),
+                    options = {};
+
+                $.each( items, function () {
+                    let thisItem = $( this ),
+                        selectItem = thisItem.find( '.wlcs-currency-selection .woolentor-admin-select select option:selected' ),
+                        label = selectItem.text(),
+                        currencyCode = selectItem.val(),
+                        title = '';
+
+                    if ( ( 'undefined' !== typeof label ) ) {
+                        label = label.trim();
+                        if ( 0 < label.length ) {
+                            title = label;
+                        }
+                        options[ currencyCode ] = title;
+                    }
+                } );
+
+                $.each( selects, function() {
+                    let thisSelect = $( this ),
+                        optionsHTML = '',
+                        selectValue = thisSelect.val();
+
+                    $.each( options, function ( optionId, optionTitle ) {
+                        optionsHTML += '<option value="' + optionId + '">' + optionTitle + '</option>';
+                    } );
+
+                    thisSelect.html( optionsHTML ).val( selectValue ).change();
+
+                } );
+
+            }
+        } );
+
+        // Currency Exchange Rate Field update
+        $( document ).on( 'repeater_custom_action_start', function ( e, buttonData, itemsArea, response ) {
+            let repeaterFields = itemsArea.children();
+            repeaterFields.map( ( index, child ) => {
+                let currencyCode = $(child).find('.wlcs-currency-selection .woolentor-admin-select select').val();
+                if( response[currencyCode] ){
+                    const exchangeRate = parseFloat(response[currencyCode]).toFixed(2);
+                    $(child).find('.wlcs-currency-dynamic-exchange-rate .woolentor-admin-number input').val(exchangeRate);
+                }
+            });
+
+            Swal.fire({
+                title: "Success!",
+                text: "The exchange rates for every added currency have been updated based on the selected default currency.",
+                icon: "success"
+            });
+
+        });
+
 
     }
     woolentor_repeater_field();

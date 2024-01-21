@@ -12,6 +12,14 @@ function woolentor_is_woocommerce() {
 }
 
 /**
+ * [woolentor_is_pro]
+ * @return [boolean]
+ */
+function woolentor_is_pro() {
+    return class_exists( '\WooLentorPro\Base' );
+}
+
+/**
 * Elementor Version check
 * @return [boolean]
 */

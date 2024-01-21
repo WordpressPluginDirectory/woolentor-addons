@@ -333,6 +333,10 @@ class Woolentor_Manage_WC_Template{
         }
         elseif( $slug === 'singleproduct' ){
             if ( self::has_template( 'singleproductpage', '_selectproduct_layout' ) ) {
+                global $product, $post;
+                if ( $product && !is_a( $product, 'WC_Product' ) ) {
+                    $product = wc_get_product( $post->ID );
+                }
                 $template = WOOLENTOR_ADDONS_PL_PATH . 'wl-woo-templates/single-product.php';
             }
         }

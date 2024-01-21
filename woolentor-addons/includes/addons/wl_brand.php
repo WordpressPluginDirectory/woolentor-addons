@@ -62,7 +62,7 @@ class Woolentor_Wl_Brand_Widget extends Widget_Base {
                         'default' => esc_html__('Default','woolentor'),
                     ],
                     'label_block' => true,
-                    'description' => sprintf( __( 'Slider layouts are available in the pro version. <a href="%s" target="_blank">Get Pro</a>', 'woolentor' ), esc_url( 'https://hasthemes.com/plugins/woolentor-pro-woocommerce-page-builder/?fd' ) ),
+                    'description' => sprintf( __( 'Slider layouts are available in the pro version. <a href="%s" target="_blank">Get Pro</a>', 'woolentor' ), esc_url( 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=editor&utm_campaign=free' ) ),
                 ]
             );
 
@@ -225,7 +225,7 @@ class Woolentor_Wl_Brand_Widget extends Widget_Base {
                             <div class="elementor-nerd-box-message">' .
                                 __( 'Purchase our premium version to unlock these pro features!', 'woolentor' ) .
                             '</div>
-                            <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="' . esc_url( 'https://hasthemes.com/plugins/woolentor-pro-woocommerce-page-builder/?fd' ) . '" target="_blank">' .
+                            <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="' . esc_url( 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=editor&utm_campaign=free' ) . '" target="_blank">' .
                                 __( 'Go Pro', 'woolentor' ) .
                             '</a>
                             </div>',
@@ -368,7 +368,7 @@ class Woolentor_Wl_Brand_Widget extends Widget_Base {
                         <div class="elementor-nerd-box-message">' .
                             __( 'Purchase our premium version to unlock these pro features!', 'woolentor' ) .
                         '</div>
-                        <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="' . esc_url( 'https://hasthemes.com/plugins/woolentor-pro-woocommerce-page-builder/?fd' ) . '" target="_blank">' .
+                        <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-go-pro" href="' . esc_url( 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=editor&utm_campaign=free' ) . '" target="_blank">' .
                             __( 'Go Pro', 'woolentor' ) .
                         '</a>
                         </div>',
