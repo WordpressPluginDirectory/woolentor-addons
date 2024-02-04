@@ -157,6 +157,14 @@ span.woolentor-reset-btn:hover{
 .woocommerce-checkout .woolentor_block_checkout_payment #payment div.form-row{
     overflow: hidden;
 }
+
+.woocommerce-page [class*="woolentorblock-"] table{
+    width: 100% !important;
+}
+.block-editor-iframe__body [class*="woolentorblock-"] img{
+    width: 100%;
+    height: auto;
+}
 /* Editor Field and component style */
 
 /* Section Title */

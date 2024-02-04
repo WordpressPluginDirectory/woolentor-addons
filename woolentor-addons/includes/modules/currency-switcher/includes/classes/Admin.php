@@ -39,6 +39,7 @@ class Admin {
      */
     private function includes(){
         require_once( __DIR__. '/Admin/Fields.php' );
+        require_once( __DIR__. '/Admin/Actions.php' );
     }
 
     /**
@@ -48,6 +49,9 @@ class Admin {
      */
     public function init(){
         Admin\Fields::instance();
+        if( ENABLED ){
+            Admin\Actions::instance();
+        }
     }
 
     /**

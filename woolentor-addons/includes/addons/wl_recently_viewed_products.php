@@ -112,6 +112,18 @@ class Woolentor_Wl_Recently_Viewed_Products_Widget extends Widget_Base {
                 ]
             );
 
+            $this->add_control(
+                'same_height_box',
+                [
+                    'label'         => __( 'Same Height Box ?', 'woolentor' ),
+                    'type'          => Controls_Manager::SWITCHER,
+                    'label_on'      => __( 'Yes', 'woolentor' ),
+                    'label_off'     => __( 'No', 'woolentor' ),
+                    'return_value'  => 'yes',
+                    'default'       => 'no',
+                ]
+            );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -723,6 +735,7 @@ class Woolentor_Wl_Recently_Viewed_Products_Widget extends Widget_Base {
     protected function render( $instance = [] ) {
 
         $settings   = $this->get_settings_for_display();
+        $same_height_box = $this->get_settings_for_display('same_height_box');
 
         $column = $settings['grid_column'];
         $collumval = 'wl-col-1';
@@ -762,7 +775,7 @@ class Woolentor_Wl_Recently_Viewed_Products_Widget extends Widget_Base {
         $products = new \WP_Query( $args );
 
         if ( $products->have_posts() ) {
-            echo '<div class="wl-row">';
+            echo '<div class="wl-row '.( $same_height_box == 'yes' ? 'woolentor-product-same-height' : '' ).'">';
             while( $products->have_posts() ): $products->the_post();
                 ?>
                     <div class="<?php echo esc_attr( $collumval ); ?>">

@@ -307,12 +307,38 @@
 
     // For Editor Mode Slider
     document.addEventListener( 'WoolentorEditorModeSlick', function( event ) {
-        window.setTimeout( WooLentorBlocks.initSlickSlider( $(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`) ), 1000 );
+        let editorMainArea = $('.block-editor__container'),
+            editorIframe = $('iframe.edit-site-visual-editor__editor-canvas'),
+            productSliderDiv = editorIframe.length > 0 ? editorIframe.contents().find('body.block-editor-iframe__body').find(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`) : editorMainArea.find(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`);
+        window.setTimeout( WooLentorBlocks.initSlickSlider( productSliderDiv ), 1000 );
     }, false );
 
     // For Editor Mode Nav For As Slider
     document.addEventListener( 'WoolentorEditorModeNavForSlick', function( event ) {
-        window.setTimeout( WooLentorBlocks.initSlickNavForAsSlider( $(`.woolentorblock-editor-${event.detail.uniqid} .woolentor-block-slider-navforas`) ), 1000 );
+        let editorMainArea = $('.block-editor__container'),
+            editorIframe = $('iframe.edit-site-visual-editor__editor-canvas'),
+            navForAsSliderDiv = editorIframe.length > 0 ? editorIframe.contents().find('body.block-editor-iframe__body').find(`.woolentorblock-editor-${event.detail.uniqid} .woolentor-block-slider-navforas`) : editorMainArea.find(`.woolentorblock-editor-${event.detail.uniqid} .woolentor-block-slider-navforas`);
+        window.setTimeout( WooLentorBlocks.initSlickNavForAsSlider( navForAsSliderDiv ), 1000 );
+        // window.setTimeout( WooLentorBlocks.initSlickNavForAsSlider( $(`.woolentorblock-editor-${event.detail.uniqid} .woolentor-block-slider-navforas`) ), 1000 );
     }, false );
 
 })(jQuery, window);
+
+// Backup For JS
+// document.addEventListener( 'WoolentorEditorModeSlick', function( event ) {
+
+    // let iframe = $('iframe.edit-site-visual-editor__editor-canvas');
+    // let productSliderDiv = iframe.length > 0 ? iframe.contents().find('body.block-editor-iframe__body').find(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`) : $(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`);
+    // window.setTimeout( WooLentorBlocks.initSlickSlider( productSliderDiv ), 1000 );
+    // window.setTimeout( WooLentorBlocks.initSlickSlider( $(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`) ), 1000 ); // age aita silo
+
+    // window.setTimeout( WooLentorBlocks.initSlickSlider( $(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`) ), 5000 );
+
+    // let iframe = $('iframe.edit-site-visual-editor__editor-canvas');
+    // console.log($(`iframe.edit-site-visual-editor__editor-canvas .woolentorblock-editor-${event.detail.uniqid}`));
+
+    // iframe.contents().find($(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`)).html();
+
+    // console.log( iframe.contents().find('body.block-editor-iframe__body').find(`.woolentorblock-editor-${event.detail.uniqid} .product-slider`) );
+
+// }, false );

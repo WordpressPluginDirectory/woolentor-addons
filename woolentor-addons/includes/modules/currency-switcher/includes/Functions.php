@@ -21,7 +21,7 @@ function woolentor_currency_list(){
 function woolentor_default_currency(){
     $wc_currency   = get_woocommerce_currency();
     $default_currency = woolentor_get_option( 'default_currency', 'woolentor_currency_switcher', $wc_currency );
-    return $default_currency;
+    return !empty( $default_currency ) ? $default_currency : $wc_currency;
 }
 
 /**

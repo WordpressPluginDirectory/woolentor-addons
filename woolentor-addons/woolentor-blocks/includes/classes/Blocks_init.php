@@ -40,7 +40,6 @@ class Blocks_init {
      * Prepare Block Data
      *
      * @param [array] $block
-     * @return void
      */
     public function prepare_block_data( $block ){
 
@@ -159,7 +158,8 @@ class Blocks_init {
             $query_arr = [];
         }
 
-        $post_add_new_screen = basename( $_SERVER['PHP_SELF'] ) === 'post-new.php' ? true : false;
+        $basename = basename( $_SERVER['PHP_SELF'] );
+        $post_add_new_screen = ( $basename === 'post-new.php' || $basename === 'site-editor.php' ) ? true : false;
         if( $post_add_new_screen === false ){
             if( is_admin() && empty( $query_arr['action'] ) ){
                 return;
@@ -184,7 +184,6 @@ class Blocks_init {
      * Manage Template type
      *
      * @param [string] $type
-     * @return String
      */
     public function get_template_type( $type ){
 

@@ -44,7 +44,7 @@ class Scripts {
 		wp_enqueue_script(
 		    'woolentor-block-main',
 		    WOOLENTOR_BLOCK_URL . '/src/assets/js/script.js',
-		    array(),
+		    array('jquery'),
 		    WOOLENTOR_VERSION,
 		    true
 		);
@@ -63,7 +63,7 @@ class Scripts {
 		    WOOLENTOR_VERSION
 		);
 
-		if ( woolentorBlocks_Has_Blocks( woolentorBlocks_get_ID() ) || woolentorBlocks_is_gutenberg_page() ){
+		if ( woolentorBlocks_Has_Blocks( woolentorBlocks_get_ID() ) || woolentorBlocks_is_gutenberg_page() || (is_front_page() || is_home()) ){
 			$this->load_css();
 		}
 
@@ -94,8 +94,8 @@ class Scripts {
 			// Third-Party Scripts
 			$this->load_extra_scripts();
 
-			wp_enqueue_style( 'woolentor-block-template-library', WOOLENTOR_BLOCK_URL . '/src/assets/css/template-library.css', false, WOOLENTOR_VERSION, 'all' );
-			wp_enqueue_style( 'woolentor-block-editor-style', WOOLENTOR_BLOCK_URL . '/src/assets/css/editor-style.css', false, WOOLENTOR_VERSION, 'all' );
+			wp_enqueue_style( 'woolentor-block-template-library', WOOLENTOR_BLOCK_URL . '/src/assets/css/template-library.css', [], WOOLENTOR_VERSION, 'all' );
+			wp_enqueue_style( 'woolentor-block-editor-style', WOOLENTOR_BLOCK_URL . '/src/assets/css/editor-style.css', [], WOOLENTOR_VERSION, 'all' );
 
 			$dependencies = require_once( WOOLENTOR_BLOCK_PATH . '/build/blocks-woolentor.asset.php' );
 			wp_enqueue_script(
@@ -123,7 +123,7 @@ class Scripts {
 			);
 
 			// My Account MenuList
-			if( get_post_type() === 'woolentor-template' ){
+			if( (get_post_type() === 'woolentor-template') || (basename( $_SERVER['PHP_SELF'] ) === 'site-editor.php') ){
 				$editor_localize_data['myaccountmenu'] = function_exists('wc_get_account_menu_items') ? ( wc_get_account_menu_items() + ['customadd' => esc_html__( 'Custom', 'woolentor' )] ) : [];
 			}
 
@@ -156,6 +156,17 @@ class Scripts {
 
 		$blocks_list 	= Blocks_init::$blocksList;
 		$generate_list 	= [];
+
+		// If FSE Screen
+		if( basename( $_SERVER['PHP_SELF'] ) === 'site-editor.php' ){
+			foreach ( $blocks_list as $key => $block ) {
+				$generate_list = array_merge( $generate_list, $blocks_list[$key] );
+			}
+			return array(
+				'block_list' 	=> $generate_list,
+				'template_type' => ''
+			);
+		}
 		
 		if( get_post_type() === 'woolentor-template' ){
             $tmpType = Blocks_init::instance()->get_template_type( get_post_meta( get_the_ID(), 'woolentor_template_meta_type', true ) );
@@ -170,7 +181,7 @@ class Scripts {
         $template_wise  = ( $is_builder == true && $tmpType !== '' && array_key_exists( $tmpType, $blocks_list ) ) ? $blocks_list[$tmpType] : [];
 
 		if( $tmpType === '' ){
-			$generate_list = $common_block;  
+			$generate_list = $common_block;
         }else{
             $generate_list = array_merge( $template_wise, $common_block, $builder_common );
         }

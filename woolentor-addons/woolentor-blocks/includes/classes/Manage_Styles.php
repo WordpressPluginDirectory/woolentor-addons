@@ -143,7 +143,7 @@ class Manage_Styles {
 
 				update_post_meta( $post_id, '_woolentor_css', $all_block_css );
 				if ( ! $wp_filesystem->put_contents( $dirname . $filename, $all_block_css ) ) {
-					throw new Exception( __('You are not permitted to save CSS.', 'woolentor' ) ); 
+					throw new \Exception( __('You are not permitted to save CSS.', 'woolentor' ) ); 
 				}
 				return [
 					'success' => true,
@@ -160,7 +160,7 @@ class Manage_Styles {
 					'message' => __('WooLentor Blocks CSS Delete.', 'woolentor' )
 				];
 			}
-		} catch( Exception $e ){
+		} catch( \Exception $e ){
 			return [
 				'success' => false,
 				'message' => $e->getMessage()
@@ -196,7 +196,7 @@ class Manage_Styles {
 			update_post_meta( $post_id, '_woolentor_active', 'yes' );
 			
 			if ( ! $wp_filesystem->put_contents( $dirname . $filename, $css ) ) {
-				throw new Exception( __('You are not permitted to save CSS.', 'woolentor' ) );
+				throw new \Exception( __('You are not permitted to save CSS.', 'woolentor' ) );
 			}
 
 			wp_send_json_success(
@@ -304,22 +304,22 @@ class Manage_Styles {
 				$reusable_dir_path = $upload_css_dir_url."woolentor-addons/woolentor-css-{$id}.css";
 				if (file_exists( $reusable_dir_path )) {
                     $css_file_url = $css_dir_url . "woolentor-addons/woolentor-css-{$id}.css";
-				    wp_enqueue_style( "woolentor-post-{$id}", $css_file_url, false, WOOLENTOR_VERSION, 'all' );
+				    wp_enqueue_style( "woolentor-post-{$id}", $css_file_url, [], WOOLENTOR_VERSION, 'all' );
 				}else{
 					$css = get_post_meta( $id, '_woolentor_css', true );
                     if( $css ) {
-                        wp_enqueue_style( "woolentor-post-{$id}", $css, false, WOOLENTOR_VERSION );
+                        wp_enqueue_style( "woolentor-post-{$id}", $css, [], WOOLENTOR_VERSION );
                     }
 				}
             }
 
 			if ( file_exists( $css_file_path ) ) {
 				$css_file_url = $css_dir_url . "woolentor-addons/woolentor-css-{$post_id}.css";
-				wp_enqueue_style( "woolentor-post-{$post_id}", $css_file_url, false, WOOLENTOR_VERSION, 'all' );
+				wp_enqueue_style( "woolentor-post-{$post_id}", $css_file_url, [], WOOLENTOR_VERSION, 'all' );
 			} else {
 				$css = get_post_meta( $post_id, '_woolentor_css', true );
 				if( $css ) {
-					wp_enqueue_style( "woolentor-post-{$post_id}", $css, false, WOOLENTOR_VERSION );
+					wp_enqueue_style( "woolentor-post-{$post_id}", $css, [], WOOLENTOR_VERSION );
 				}
 			}
 		}

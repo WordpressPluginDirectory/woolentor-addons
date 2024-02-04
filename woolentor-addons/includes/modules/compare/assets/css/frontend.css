@@ -1,4 +1,7 @@
 /* Button Style */
+.wp-block-woolentor-evercompare{
+    display: block;
+}
 .products a.htcompare-shop-top_thumbnail{
     position: absolute !important;
     top: 0;

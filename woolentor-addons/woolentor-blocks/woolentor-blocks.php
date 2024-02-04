@@ -58,7 +58,6 @@ if ( ! class_exists( 'WooLentorBlocks' ) ) :
 	     *
 	     * @param  string $name
 	     * @param  string|bool $value
-	     * @return type
 	     */
 	    private function define( $name, $value ) {
 	        if ( ! defined( $name ) ) {

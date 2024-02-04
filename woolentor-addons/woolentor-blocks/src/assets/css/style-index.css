@@ -344,6 +344,12 @@
     display: none !important;
 }
 
+/** Product Tab **/
+.woolentor-product-tab-area img{
+    width: 100%;
+    height: auto;
+}
+
 /** Product Grid **/
 .woolentor_block_product_grid [class*="woolentor-"] i.fa-heart{
     font-family: 'FontAwesome';

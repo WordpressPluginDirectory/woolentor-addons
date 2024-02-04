@@ -1,9 +1,9 @@
-=== ShopLentor – WooCommerce Builder for Elementor & Gutenberg +10 Modules – All in One Solution (formerly WooLentor) ===
+=== ShopLentor – WooCommerce Builder for Elementor & Gutenberg +12 Modules – All in One Solution (formerly WooLentor) ===
 Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasib
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 2.7.8
+Stable tag: 2.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -771,6 +771,8 @@ When it comes to keeping your visitors engaged through implementing eye-catching
 
 If you are looking for an effective solution to improve the engagement and conversion rates of your website, you should definitely try this module out.
 
+[More Details](https://woolentor.com/popup-builder/)
+
 💱 CURRENCY SWITCHER
 Reach potential customers from multiple countries and expand your business to new heights With ShopLentor's Currency Switcher module. With this incredible module, you are no longer constrained to change the default currency of your store only.
 
@@ -781,6 +783,8 @@ When it comes to scaling up your online business, the currency-switching feature
 Apart from the currency-switching features, the module comes with a couple of useful customization and styling options to alter the look and feel to reflect your brand style.
 
 If you want to reach a wider audience while offering them a seamless shopping experience, you should definitely give the Currency Switcher module a try!
+
+[More Details](https://woolentor.com/woocommerce-multi-currency/)
 
 = 🔔 Sales Notification =
 This feature allows showing the sales notification or sales popup to display real/custom WooCommerce orders. Furthermore, you can customize the design of the WooCommerce sales popup or live notification for WooCommerce from the module settings. Even though this recent sales popup WordPress module’s name suggests that is meant for displaying sales notifications, WooCommerce order notifications, or WooCommerce pop ups, nevertheless, you can also do other things like showing WooCommerce product announcements, WooCommerce announcements, WooCommerce product notices, or WooCommerce notices regarding WooCommerce product price drop or WooCommerce drop price. To achieve this, all you need to do is create a custom notification.
@@ -927,6 +931,8 @@ The WooCommerce email customizer is one of the most useful Elementor modules in 
 This WordPress email customizer or email customizer WooCommerce offers the functionality of a WooCommerce email customizer plugin. Users can use this WooCommerce email customizer module as a WooCommerce email template customizer, email template customizer for WooCommerce, or email customizer WordPress to customize the look and feel of the WooCommerce emails to match their branding.
 
 In short, you can leverage this powerful WooCommerce email customizer module as a WooCommerce email builder, email template builder, responsive email builder, visual email builder, email template designer, WooCommerce email designer, etc. to create stunning Elementor email templates or WooCommerce email templates.
+
+[More Details](https://woolentor.com/builder/email-customizer-template/)
 
 = 🤖 WooCommerce Email Marketing Automation =
 ShopLentor's WooCommerce email marketing automation module is extremely powerful. This module allows for the automated email sequences or WooCommerce automated emails to new customers, current clients, post-purchase emails, and more. WooCommerce Email marketing automation or may help promote online store sales through email marketing automation for WooCommerce. Within WooCommerce, this email automation or email workflow automation module enables the development of email automation workflow systems that include Triggers, Rules, and Actions in multiple combinations. ShopLentor's WooCommerce email sequences or email marketing automation module is the perfect tool for online store owners who are looking to take their business to the next level. With this automated email WooCommerce or email automation module, you'll be able to create sophisticated automated email marketing campaigns, automated email marketing campaigns, or email marketing automation campaigns that will engage your customers and boost your sales. So don't wait any longer, leverage ShopLentor's WooCommerce email marketing automation module today!
@@ -1099,11 +1105,27 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.7.9 - Date: 04-02-2024 =
+* Added :  Support to all block in Full Site editing screen.
+* Added : Same Hight grid option in Recently view product addon.
+* Solved : Required field validation issue with Shopify like checkout module.
+* Solved : Default currency set issue in Multi Currency Switcher module.
+* Solved : Hidden product display issue with Ajax search Module.
+* Compatibility : Latest WordPress and WooCommerce version.
+
+= Version: 2.7.8 - Date: 21-01-2024 =
+* Added : Multi Currency Module.
+* Added : Elementor Widget for Multi Currency Switcher.
+* Added :  Exclude Out Of Stock product option in Product tab addon.
+* Solved : Single product template render issue with Dokan.
+* Solved : Minor Issues.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.7.7 - Date: 31-12-2023 =
-1. Solved : Header and Footer showing issue with Full site editing.
-2. Solved : Product image showing issue in single product template.
-3. Solved : Minor issue.
-4. Compatibility : Latest WordPress and WooCommerce version.
+* Solved : Header and Footer showing issue with Full site editing.
+* Solved : Product image showing issue in single product template.
+* Solved : Minor issue.
+* Compatibility : Latest WordPress and WooCommerce version.
 
 = Version: 2.7.6 - Date: 18-12-2023 =
 * Solved : Template content render issue with default template.

@@ -1,4 +1,7 @@
 /* Slider */
+.wp-embed-responsive .wp-block {
+    outline: 0;
+}
 .slick-slider
 {
     position: relative;

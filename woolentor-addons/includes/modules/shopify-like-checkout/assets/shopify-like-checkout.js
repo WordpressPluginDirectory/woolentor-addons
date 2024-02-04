@@ -60,6 +60,31 @@
             $checkout_box.update_step_class( step );
         }
     });
+
+    // Prepare Form data
+    function serializeFormData(){
+
+        let checkoutForm = $('.woolentor-checkout__section.woolentor-step--info').parents('.woocommerce-checkout');
+        let formSerializeArrayData = checkoutForm.serializeArray();
+
+        let allFieldNames = ( function(){
+            let names = [],
+                l = formSerializeArrayData.length - 1;
+            for(; l>=0; l--){
+                names.push( formSerializeArrayData[l].name );
+            }
+            
+            return names;
+        })();
+        
+        $('.woolentor-checkout__section.woolentor-step--info').find('input[type="checkbox"]:not(:checked)').each(function(){
+            if( $.inArray( this.name, allFieldNames ) === -1 ){
+                formSerializeArrayData.push( { name: this.name, value: '' } );
+            }
+        });
+        
+        return formSerializeArrayData;
+    }
     
     // Validate the address fields
     function validate_address( step ){
@@ -79,7 +104,7 @@
             url  : woolentor_slc_params.ajax_url,
             data : {
                 'action': 'validate_1st_step',
-                'fields': $('.woolentor-checkout__section.woolentor-step--info').find(':input').serialize(),
+                'fields': serializeFormData(), // Instance of "$('.woolentor-checkout__section.woolentor-step--info').find(':input').serialize()"
                 'nonce' : woolentor_slc_params.nonce
             },
             dataType:   'json',

@@ -436,8 +436,8 @@ class Woolentor_Shopify_Like_Checkout extends \WC_Checkout{
             ));
         }
 
-        $posted_data = $post_data['fields'];
-        parse_str($posted_data, $posted_data);
+        $posted_data = array_column( $post_data['fields'], 'value', 'name');
+        // parse_str($posted_data, $posted_data);
 
         $posted_data = $this->wl_get_posted_data($posted_data);
 

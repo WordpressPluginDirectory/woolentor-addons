@@ -43,7 +43,7 @@ class Fields {
                 'section'  => 'woolentor_currency_switcher',
                 'option_id'=> 'enable',
                 'require_settings'  => true,
-                'documentation' => esc_url('https://woolentor.com/doc/'),
+                'documentation' => esc_url('https://woolentor.com/doc/currency-switcher-for-woocommerce/'),
                 'setting_fields' => array(
                     
                     array(

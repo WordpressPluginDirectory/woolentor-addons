@@ -55,13 +55,21 @@ class WooLentor_Ajax_Search_Base{
 	
 			$args['tax_query'] = array(
 				array(
-					'taxonomy'      => 'product_cat',
-					'field'         => 'term_id',
-					'terms'         => $clean_data,
-					'operator'      => 'IN'
+					'taxonomy'  => 'product_cat',
+					'field'     => 'term_id',
+					'terms'     => $clean_data,
+					'operator'  => 'IN'
 				)
 			);
 		}
+
+		// Exclude Hidden Product
+		$args['tax_query'][] = array(
+			'taxonomy' 	=> 'product_visibility',
+			'field' 	=> 'name',
+			'terms' 	=> 'exclude-from-catalog',
+			'operator' 	=> 'NOT IN',
+		);
 
 		$query = new WP_Query( $args );
 

@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $uniqClass 	 = 'woolentorblock-'.$settings['blockUniqId'];
-$areaClasses = array( $uniqClass, 'woolentor_block_product_reviews' );
+$areaClasses = array( $uniqClass, 'woolentor_block_product_reviews', 'woocommerce woocommerce-page single-product woocommerce-js' );
 !empty( $settings['align'] ) ? $areaClasses[] = 'align'.$settings['align'] : '';
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
 

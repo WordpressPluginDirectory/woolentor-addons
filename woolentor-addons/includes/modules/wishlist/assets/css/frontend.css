@@ -1,4 +1,7 @@
 /* Wishlist Button */
+.wp-block-woolentor-wishsuite{
+    display: block;
+}
 a.wishsuite-addtocart.loading{
     opacity: .25;
     padding-right: 2.618em;

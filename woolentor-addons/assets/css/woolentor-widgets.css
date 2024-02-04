@@ -7393,6 +7393,14 @@ div[class*="woolentor-single-select-drop"] .select2-results__option::before {
 }
 
 /* Recently Viewed Product */
+.woolentor-product-same-height .woolentor-recently-viewed-product {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.woolentor-product-same-height .woolentor-recently-viewed-product .woolentor-recently-view-content {
+  flex: 1 0;
+}
 .woolentor-recently-viewed-product {
   margin-bottom: 20px;
   overflow: hidden;

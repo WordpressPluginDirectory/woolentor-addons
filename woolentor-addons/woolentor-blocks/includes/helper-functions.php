@@ -64,6 +64,20 @@ function woolentorBlocks_edit_mode(){
 }
 
 /**
+* Checked Current theme is FSE
+*/
+function woolentorBlocks_current_theme_is_fse() {
+	if ( function_exists( 'wp_is_block_theme' ) ) {
+		return (bool) wp_is_block_theme();
+	}
+	if ( function_exists( 'gutenberg_is_fse_theme' ) ) {
+		return (bool) gutenberg_is_fse_theme();
+	}
+
+	return false;
+}
+
+/**
  * Generate CSS
  *
  * @param [array] $settings
@@ -253,7 +267,27 @@ function woolentorBlocks_get_ID(){
     }else{
         $post_id = '';
     }
-    return $post_id != '' ? $post_id : get_the_ID();
+    return $post_id != '' ? $post_id : woolentorBlocks_Current_Template_Id();
+}
+
+/**
+ * Get Current FSE Template ID OR Post id.
+ */
+function woolentorBlocks_Current_Template_Id(){
+    global $_wp_current_template_id, $_wp_current_template_content, $wp_embed, $wp_query;
+    $template_slug = explode( '//', $_wp_current_template_id );
+    return (woolentorBlocks_current_theme_is_fse() && isset($template_slug[1])) ? $template_slug[1] : get_the_ID();
+}
+
+/**
+ * Check has WooLentor blocks
+ *
+ * @return bool
+ */
+function woolentorBlocks_Has_Blocks( $id ){
+    $content = get_the_content( null, false, $id );
+    $blocks  = parse_blocks( $content );
+    return woolentorBlocks_Search_Wl_block( $blocks );
 }
 
 /**
@@ -261,11 +295,9 @@ function woolentorBlocks_get_ID(){
  *
  * @return bool
  */
-function woolentorBlocks_Has_Blocks( $id ){
-    $content    = get_the_content( null, false, $id );
+function woolentorBlocks_Search_Wl_block( $blocks ) {
     $has_block  = false;
-    $blocks = parse_blocks( $content );
-    foreach ($blocks as $key => $value) {
+    foreach ( $blocks as $value ) {
         if( isset( $value['blockName'] ) ) {
             $block_name = explode( '/', $value['blockName'] );
             if( $block_name[0] === 'woolentor' ){
@@ -273,9 +305,12 @@ function woolentorBlocks_Has_Blocks( $id ){
                 break;
             }
         }
+        // Check InnerBlocks
+        if( !empty( $value['innerBlocks'] ) ){
+            $has_block = woolentorBlocks_Search_Wl_block( $value['innerBlocks'] );
+        }
     }
     return $has_block;
-
 }
 
 /**
@@ -284,11 +319,13 @@ function woolentorBlocks_Has_Blocks( $id ){
  * @return array
  */
 function woolentorBlocks_reusable_id( $post_id ){
+    global $_wp_current_template_content;
     $reusable_id = [];
     if( $post_id ){
         $post = get_post( $post_id );
-        if ( has_blocks( $post->post_content ) ) {
-            $blocks = parse_blocks( $post->post_content );
+        $post_content = $post !== null ? $post->post_content : $_wp_current_template_content;
+        if ( has_blocks( $post_content ) ) {
+            $blocks = parse_blocks( $post_content );
             foreach ($blocks as $key => $value) {
                 if( isset( $value['attrs']['ref'] ) ) {
                     $reusable_id[] = $value['attrs']['ref'];
