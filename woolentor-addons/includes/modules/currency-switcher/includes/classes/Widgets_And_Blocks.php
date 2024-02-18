@@ -33,7 +33,7 @@ class Widgets_And_Blocks {
         add_filter( 'woolentor_widget_list', [ $this, 'widget_list' ] );
 
         // Guttenberg Block
-        // add_filter('woolentor_block_list', [ $this, 'block_list' ] );
+        add_filter('woolentor_block_list', [ $this, 'block_list' ] );
 
     }
 
@@ -61,6 +61,7 @@ class Widgets_And_Blocks {
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
+            'location' => BLOCKS_PATH,
         ];
 
         return $block_list;

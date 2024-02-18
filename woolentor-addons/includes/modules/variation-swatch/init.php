@@ -96,7 +96,9 @@ final class Swatchly {
 
         new Swatchly\Frontend();
         new Swatchly\Frontend\Woo_Config();
-        new Swatchly\Admin();
+        if( is_admin() || defined( 'DOING_AJAX' ) ){
+            new Swatchly\Admin();
+        }
 
     }
 }

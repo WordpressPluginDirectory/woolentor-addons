@@ -3,15 +3,28 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Woolentor_Template_Library_Manager{
 
-    const TRANSIENT_KEY = 'woolentor_template_info';
-    const TRANSIENT_GUTENBERG_KEY = 'woolentor_gutenberg_template_info';
+    // Remote URL
+    const REST_ROUTE_URL = 'https://library.shoplentor.com/wp-json/woolentor';
 
-    public static $endpoint = 'https://library.shoplentor.com/wp-json/woolentor/v1/templates';
-    public static $templateapi = 'https://library.shoplentor.com/wp-json/woolentor/v1/templates/%s';
+    // Transient Key
+    const TRANSIENT_KEYES = [
+        'template'  => 'woolentor_template_info',
+        'gutenberg' => 'woolentor_gutenberg_template_info',
+        'pattern'   => 'woolentor_gutenberg_patterns_info'
+    ];
 
-    public static $endpoint_gutenberg = 'https://library.shoplentor.com/wp-json/woolentor/v1/gutenbergtemplates';
+    // API Endpoint
+    const API_ENDPOINT = [
+        'template'      => 'v1/templates',
+        'singletemplate'=> 'v1/templates/%s',
+        'gutenberg'     => 'v1/gutenbergtemplates',
+        'pattern'       => 'v1/gutenbergpatterns'
+    ];
 
     private static $_instance = null;
+    /**
+     * Class Instance
+     */
     public static function instance(){
         if( is_null( self::$_instance ) ){
             self::$_instance = new self();
@@ -19,53 +32,116 @@ class Woolentor_Template_Library_Manager{
         return self::$_instance;
     }
 
-    // Get Endpoint
+    /**
+     * Get Template Endpoint
+     */
     public static function get_api_endpoint(){
         if( is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') && function_exists('woolentor_pro_template_endpoint') ){
-            self::$endpoint = woolentor_pro_template_endpoint();
+            return woolentor_pro_template_endpoint();
         }
-        return self::$endpoint;
+        return self::get_remote_url('template');
     }
 
-    // Get Endpoint
-    public static function get_gutenberg_api_endpoint(){
-        return self::$endpoint_gutenberg;
-    }
-    
-    // Get Template API
+    /**
+     * Get Template API
+     * @todo We will remove in Future
+     */
     public static function get_api_templateapi(){
         if( is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') && function_exists('woolentor_pro_template_url') ){
-            self::$templateapi = woolentor_pro_template_url();
+            return woolentor_pro_template_url();
         }
-        return self::$templateapi;
+        return self::get_remote_url('singletemplate');
     }
 
-    // Set data to transient
+    /**
+     * Get Remote URL
+     *
+     * @param [type] $name
+     */
+    public static function get_remote_url( $name ){
+        return sprintf('%s/%s', self::REST_ROUTE_URL, self::API_ENDPOINT[$name]);
+    }
+
+    /**
+     * Set data to transient
+     *
+     * @param string $url
+     * @param string $transient_key
+     * @param boolean $force_update
+     * @return void
+     */
     public static function set_templates_info( $url = '', $transient_key = '', $force_update = false ) {
         $transient = get_transient( $transient_key );
         if ( ! $transient || $force_update ) {
             $info = self::get_content_remote_request( $url );
-            set_transient( $transient_key, wp_json_encode( $info ) , DAY_IN_SECONDS );
+            set_transient( $transient_key, wp_json_encode( $info ), WEEK_IN_SECONDS );
         }
     }
 
-    // Get Template data
-    public static function get_templates_info( $force_update = false ) {
-        if ( !get_transient( self::TRANSIENT_KEY ) || $force_update ) {
-            self::set_templates_info( self::get_api_endpoint(), self::TRANSIENT_KEY, true );
+    /**
+     * Get Remote Template List
+     *
+     * @param [type] $type
+     * @param [type] $endpoint
+     * @param boolean $force_update
+     * @return void
+     */
+    public static function get_template_remote_data( $type, $endpoint = null, $force_update = false ){
+        $transient_key  = self::TRANSIENT_KEYES[$type];
+        $endpoint       = $endpoint !== null ? $endpoint : self::get_remote_url($type);
+        if ( !get_transient( $transient_key ) || $force_update ) {
+            self::set_templates_info( $endpoint, $transient_key, true );
         }
-        return is_array( get_transient( self::TRANSIENT_KEY ) ) ? get_transient( self::TRANSIENT_KEY ) : json_decode( get_transient( self::TRANSIENT_KEY ), JSON_OBJECT_AS_ARRAY );
+        return is_array( get_transient( $transient_key ) ) ? get_transient( $transient_key ) : json_decode( get_transient( $transient_key ), JSON_OBJECT_AS_ARRAY );
     }
 
-    // Get Gutenberg Template data
-    public static function get_gutenberg_templates_info( $force_update = false ) {
-        if ( !get_transient( self::TRANSIENT_GUTENBERG_KEY ) || $force_update ) {
-            self::set_templates_info( self::get_gutenberg_api_endpoint(), self::TRANSIENT_GUTENBERG_KEY, true );
-        }
-        return is_array( get_transient( self::TRANSIENT_GUTENBERG_KEY ) ) ? get_transient( self::TRANSIENT_GUTENBERG_KEY ) : json_decode( get_transient( self::TRANSIENT_GUTENBERG_KEY ), JSON_OBJECT_AS_ARRAY );
+    /**
+     * Get Template List
+     *
+     * @param boolean $force_update
+     * @return void
+     */
+    public static function get_templates_info($force_update = false) {
+        return self::get_template_remote_data('template', self::get_api_endpoint(), $force_update);
     }
 
-    // Request remote data
+    /**
+     * Get Gutenberg Template List
+     *
+     * @param boolean $force_update
+     * @return void
+     */
+    public static function get_gutenberg_templates_info($force_update = false) {
+        return self::get_template_remote_data('gutenberg', $force_update);
+    }
+
+    /**
+     * Get Gutenberg Patterns list
+     *
+     * @param boolean $force_update
+     * @return void
+     */
+    public static function get_gutenberg_patterns_info($force_update = false) {
+        return self::get_template_remote_data('pattern', $force_update);
+    }
+
+    /**
+     * Get Template content by Template ID
+     *
+     * @param [type] $type template | gutenberg | pattern
+     * @param [type] $template_id
+     */
+    public static function get_template_data( $type, $template_id ){
+        $templateurl    = sprintf( '%s/%s', self::get_remote_url($type), $template_id);
+        $response_data  = self::get_content_remote_request( $templateurl );
+        return $response_data;
+    }
+
+    /**
+     * Handle remote request
+     *
+     * @param [type] $request_url
+     */
     public static function get_content_remote_request( $request_url ){
         global $wp_version;
 

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 05:19+0000\n"
+"POT-Creation-Date: 2024-02-18 06:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgid "\"%1$s\" has been added to your cart. %2$s"
 msgstr ""
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: includes/base.php:167
+#: includes/base.php:174
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
@@ -47,14 +47,14 @@ msgstr ""
 msgid "#"
 msgstr ""
 
-#: includes/base.php:142
+#: includes/base.php:149
 #, php-format
 msgid ""
 "%1$sShopLentor Addons for Elementor%2$s requires %1$s\"WooCommerce\"%2$s "
 "plugin to be active. Please activate WooCommerce to continue."
 msgstr ""
 
-#: includes/base.php:146
+#: includes/base.php:153
 #, php-format
 msgid ""
 "%1$sShopLentor Addons for Elementor%2$s requires %1$s\"WooCommerce\"%2$s "
@@ -182,19 +182,19 @@ msgstr ""
 msgid "Action Button Style"
 msgstr ""
 
-#: includes/admin/include/template-library.php:191
-#: includes/admin/include/template-library.php:244
+#: includes/admin/include/template-library.php:190
+#: includes/admin/include/template-library.php:243
 #: includes/admin/include/class.extension-manager.php:159
 #: includes/admin/include/class.extension-manager.php:226
 msgid "Activate"
 msgstr ""
 
-#: includes/base.php:141
+#: includes/base.php:148
 msgid "Activate WooCommerce"
 msgstr ""
 
-#: includes/admin/include/template-library.php:203
-#: includes/admin/include/template-library.php:255
+#: includes/admin/include/template-library.php:202
+#: includes/admin/include/template-library.php:254
 #: includes/admin/include/class.extension-manager.php:170
 #: includes/admin/include/class.extension-manager.php:237
 msgid "Activated"
@@ -261,12 +261,12 @@ msgstr ""
 
 #: includes/helper-function.php:1318 includes/helper-function.php:1319
 #: includes/helper-function.php:1342
-#: woolentor-blocks/includes/helper-functions.php:567
-#: woolentor-blocks/includes/helper-functions.php:568
-#: woolentor-blocks/includes/helper-functions.php:584
-#: woolentor-blocks/production/includes/helper-functions.php:567
-#: woolentor-blocks/production/includes/helper-functions.php:568
-#: woolentor-blocks/production/includes/helper-functions.php:584
+#: woolentor-blocks/includes/helper-functions.php:593
+#: woolentor-blocks/includes/helper-functions.php:594
+#: woolentor-blocks/includes/helper-functions.php:610
+#: woolentor-blocks/production/includes/helper-functions.php:593
+#: woolentor-blocks/production/includes/helper-functions.php:594
+#: woolentor-blocks/production/includes/helper-functions.php:610
 msgid "Add to Compare"
 msgstr ""
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Area Padding"
 msgstr ""
 
-#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:242
+#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:254
 msgid "Arrow Color"
 msgstr ""
 
@@ -733,6 +733,7 @@ msgstr ""
 #: includes/addons/wl_category_grid.php:864
 #: includes/addons/wl_category_grid.php:938
 #: includes/addons/wl_category_grid.php:1038
+#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:221
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:455
 msgid "Background Color"
 msgstr ""
@@ -920,7 +921,7 @@ msgstr ""
 #: includes/modules/popup-builder/includes/widgets/wl_popup_trigger_button.php:207
 #: includes/modules/popup-builder/includes/widgets/wl_popup_trigger_button.php:324
 #: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:157
-#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:231
+#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:246
 msgid "Border"
 msgstr ""
 
@@ -1226,8 +1227,8 @@ msgid "Buy"
 msgstr ""
 
 #: classes/class.assest_management.php:369
-#: includes/admin/include/template-library.php:211
-#: includes/admin/include/template-library.php:263
+#: includes/admin/include/template-library.php:210
+#: includes/admin/include/template-library.php:262
 #: includes/admin/include/class.extension-manager.php:190
 #: includes/admin/templates/dashboard-popup.php:14
 msgid "Buy Now"
@@ -1369,6 +1370,10 @@ msgstr ""
 
 #: includes/admin/include/settings_field_manager_default.php:304
 msgid "Check All"
+msgstr ""
+
+#: includes/modules/variation-swatch/includes/Admin/Attribute_Taxonomy_Metabox.php:296
+msgid "Checking this will allow you to set multiple colors."
 msgstr ""
 
 #: includes/admin/templates/dashboard-freevspro.php:189
@@ -1647,9 +1652,9 @@ msgid "Comment count"
 msgstr ""
 
 #: includes/helper-function.php:1342
-#: woolentor-blocks/includes/helper-functions.php:584
+#: woolentor-blocks/includes/helper-functions.php:610
 #: includes/addons/wb_product_add_to_cart.php:1278
-#: woolentor-blocks/production/includes/helper-functions.php:584
+#: woolentor-blocks/production/includes/helper-functions.php:610
 #: woolentor-blocks/src/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/production/src/blocks/product-addtocart/manager.php:115
 #: includes/modules/compare/includes/classes/Admin/Dashboard.php:59
@@ -2150,7 +2155,7 @@ msgstr ""
 msgid "Do you want to individual icon ?"
 msgstr ""
 
-#: includes/base.php:252 includes/admin/include/admin_field-manager.php:353
+#: includes/base.php:259 includes/admin/include/admin_field-manager.php:353
 #: includes/admin/include/admin_field-manager.php:488
 #: includes/admin/templates/dashboard-widget.php:94
 #: includes/admin/templates/dashboard-welcome.php:19
@@ -2178,11 +2183,11 @@ msgstr ""
 msgid "Edge"
 msgstr ""
 
-#: includes/admin/include/template-library.php:137
+#: includes/admin/include/template-library.php:136
 msgid "Edit Page"
 msgstr ""
 
-#: includes/admin/include/template-library.php:137
+#: includes/admin/include/template-library.php:136
 #: includes/admin/include/class.template_cpt.php:56
 msgid "Edit Template"
 msgstr ""
@@ -2390,7 +2395,7 @@ msgstr ""
 msgid "Extra Option"
 msgstr ""
 
-#: includes/base.php:253
+#: includes/base.php:260
 msgid "Facebook Group"
 msgstr ""
 
@@ -2652,8 +2657,8 @@ msgstr ""
 msgid "Front Page"
 msgstr ""
 
-#: woolentor-blocks/includes/helper-functions.php:344
-#: woolentor-blocks/production/includes/helper-functions.php:344
+#: woolentor-blocks/includes/helper-functions.php:370
+#: woolentor-blocks/production/includes/helper-functions.php:370
 msgid "Full"
 msgstr ""
 
@@ -2687,7 +2692,7 @@ msgstr ""
 msgid "Get Support"
 msgstr ""
 
-#: includes/base.php:240 includes/addons/wl_category.php:225
+#: includes/base.php:247 includes/addons/wl_category.php:225
 #: includes/addons/wl_brand.php:229 includes/addons/wl_brand.php:372
 msgid "Go Pro"
 msgstr ""
@@ -3228,14 +3233,14 @@ msgstr ""
 msgid "Insert into Template"
 msgstr ""
 
-#: includes/admin/include/template-library.php:197
-#: includes/admin/include/template-library.php:250
+#: includes/admin/include/template-library.php:196
+#: includes/admin/include/template-library.php:249
 #: includes/admin/include/class.extension-manager.php:165
 #: includes/admin/include/class.extension-manager.php:232
 msgid "Install Now"
 msgstr ""
 
-#: includes/base.php:145
+#: includes/base.php:152
 msgid "Install WooCommerce"
 msgstr ""
 
@@ -3884,13 +3889,13 @@ msgstr ""
 msgid "Nonce Varification fail"
 msgstr ""
 
-#: includes/admin/include/template-library.php:156
-#: includes/admin/include/template-library.php:287
-#: includes/admin/include/template-library.php:332
+#: includes/admin/include/template-library.php:155
+#: includes/admin/include/template-library.php:286
+#: includes/admin/include/template-library.php:331
 #: includes/admin/include/class.template-manager.php:514
-#: includes/admin/include/class.template-manager.php:691
-#: includes/admin/include/class.template-manager.php:729
-#: includes/admin/include/class.template-manager.php:838
+#: includes/admin/include/class.template-manager.php:690
+#: includes/admin/include/class.template-manager.php:728
+#: includes/admin/include/class.template-manager.php:837
 #: includes/modules/sales-notification/class.sale_notification.php:36
 msgid "Nonce Varification Faild !"
 msgstr ""
@@ -4273,7 +4278,7 @@ msgstr ""
 msgid "Peter Rose"
 msgstr ""
 
-#: includes/base.php:169
+#: includes/base.php:176
 msgid "PHP"
 msgstr ""
 
@@ -4334,11 +4339,11 @@ msgid ""
 "Please select some product options before adding this product to your cart."
 msgstr ""
 
-#: includes/admin/include/template-library.php:296
+#: includes/admin/include/template-library.php:295
 msgid "Plugin Not Found"
 msgstr ""
 
-#: includes/admin/include/template-library.php:316
+#: includes/admin/include/template-library.php:315
 msgid "Plugin Successfully Activated"
 msgstr ""
 
@@ -4526,8 +4531,8 @@ msgid "Product Add To Cart"
 msgstr ""
 
 #: includes/helper-function.php:1320
-#: woolentor-blocks/includes/helper-functions.php:569
-#: woolentor-blocks/production/includes/helper-functions.php:569
+#: woolentor-blocks/includes/helper-functions.php:595
+#: woolentor-blocks/production/includes/helper-functions.php:595
 msgid "Product Added"
 msgstr ""
 
@@ -4837,7 +4842,7 @@ msgstr ""
 msgid "Products reviews"
 msgstr ""
 
-#: includes/base.php:202 woolentor-blocks/includes/classes/Blocks_List.php:68
+#: includes/base.php:209 woolentor-blocks/includes/classes/Blocks_List.php:68
 #: woolentor-blocks/production/includes/classes/Blocks_List.php:68
 msgid "Promo Banner"
 msgstr ""
@@ -4926,7 +4931,7 @@ msgstr ""
 msgid "Range Slider"
 msgstr ""
 
-#: includes/base.php:254
+#: includes/base.php:261
 msgid "Rate the plugin"
 msgstr ""
 
@@ -5435,7 +5440,7 @@ msgstr ""
 msgid "Set the initial stock amount from"
 msgstr ""
 
-#: includes/base.php:237 includes/addons/wl_recently_viewed_products.php:42
+#: includes/base.php:244 includes/addons/wl_recently_viewed_products.php:42
 #: includes/addons/wb_product_add_to_cart.php:73
 #: includes/admin/admin-init.php:110 includes/admin/admin-init.php:111
 #: includes/admin/templates/dashboard-gutenberg.php:15
@@ -5514,8 +5519,10 @@ msgstr ""
 msgid "Shopify Style Checkout"
 msgstr ""
 
-#: classes/class.widgets_control.php:40 includes/base.php:168
+#: classes/class.widgets_control.php:40 includes/base.php:175
 #: includes/admin/admin-init.php:99 includes/admin/admin-init.php:100
+#: woolentor-blocks/includes/classes/Block_Patterns_Init.php:55
+#: woolentor-blocks/production/includes/classes/Block_Patterns_Init.php:55
 msgid "ShopLentor"
 msgstr ""
 
@@ -5881,9 +5888,9 @@ msgid ""
 msgstr ""
 
 #: includes/admin/include/class.template-manager.php:601
-#: includes/admin/include/class.template-manager.php:710
-#: includes/admin/include/class.template-manager.php:754
-#: includes/admin/include/class.template-manager.php:878
+#: includes/admin/include/class.template-manager.php:709
+#: includes/admin/include/class.template-manager.php:753
+#: includes/admin/include/class.template-manager.php:877
 msgid "Some thing is worng !"
 msgstr ""
 
@@ -5932,7 +5939,7 @@ msgid ""
 "Sorry, this product is unavailable. Please choose a different combination."
 msgstr ""
 
-#: includes/admin/include/template-library.php:341
+#: includes/admin/include/template-library.php:340
 msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
@@ -6302,7 +6309,7 @@ msgstr ""
 msgid "Template Builder"
 msgstr ""
 
-#: includes/admin/include/class.template-manager.php:871
+#: includes/admin/include/class.template-manager.php:870
 msgid "Template has been imported"
 msgstr ""
 
@@ -6311,7 +6318,7 @@ msgid "Template has been inserted"
 msgstr ""
 
 #: includes/admin/include/class.template-manager.php:636
-#: includes/admin/include/class.template-manager.php:746
+#: includes/admin/include/class.template-manager.php:745
 msgid "Template has been updated"
 msgstr ""
 
@@ -6419,6 +6426,22 @@ msgstr ""
 msgid "The Basics Of Western Astrology Explained"
 msgstr ""
 
+#: woolentor-blocks/includes/classes/Block_Patterns_Init.php:121
+#: woolentor-blocks/production/includes/classes/Block_Patterns_Init.php:121
+#, php-format
+msgid ""
+"The block pattern fails to register because the \"Slug\" field is missing in "
+"this pattern \"%s\""
+msgstr ""
+
+#: woolentor-blocks/includes/classes/Block_Patterns_Init.php:136
+#: woolentor-blocks/production/includes/classes/Block_Patterns_Init.php:136
+#, php-format
+msgid ""
+"The block pattern fails to register because the \"Title\" field is missing "
+"in this pattern \"%s\""
+msgstr ""
+
 #: classes/class.default_data.php:288
 msgid "The description does not set this product."
 msgstr ""
@@ -6445,7 +6468,7 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: includes/admin/include/template-library.php:352
+#: includes/admin/include/template-library.php:351
 msgid "Theme Activated"
 msgstr ""
 
@@ -6741,7 +6764,7 @@ msgstr ""
 #: includes/addons/wb_product_tags.php:52
 #: includes/modules/popup-builder/includes/widgets/wl_popup_trigger_button.php:197
 #: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:148
-#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:222
+#: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:237
 msgid "Typography"
 msgstr ""
 

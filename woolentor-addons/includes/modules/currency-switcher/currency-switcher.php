@@ -47,6 +47,7 @@ class Currency_Switcher{
         define( 'Woolentor\Modules\CurrencySwitcher\MODULE_FILE', __FILE__ );
         define( 'Woolentor\Modules\CurrencySwitcher\MODULE_PATH', __DIR__ );
         define( 'Woolentor\Modules\CurrencySwitcher\WIDGETS_PATH', MODULE_PATH. "/includes/widgets" );
+        define( 'Woolentor\Modules\CurrencySwitcher\BLOCKS_PATH', MODULE_PATH. "/includes/blocks" );
         define( 'Woolentor\Modules\CurrencySwitcher\MODULE_URL', plugins_url( '', MODULE_FILE ) );
         define( 'Woolentor\Modules\CurrencySwitcher\MODULE_ASSETS', MODULE_URL . '/assets' );
         define( 'Woolentor\Modules\CurrencySwitcher\ENABLED', self::$_enabled );
@@ -104,7 +105,9 @@ class Currency_Switcher{
         }
 
         // Register Widget and blocks
-        Widgets_And_Blocks::instance();
+        if( self::$_enabled ){
+            Widgets_And_Blocks::instance();
+        }
 
     }
 

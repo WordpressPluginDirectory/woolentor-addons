@@ -95,8 +95,7 @@ class Woolentor_Template_Library{
                 $page_title         = sanitize_text_field( $_REQUEST['pagetitle'] );
                 $template_type      = sanitize_text_field( $_REQUEST['templatetype'] ); //other
 
-                $templateurl    = sprintf( \Woolentor_Template_Library_Manager::get_api_templateapi(), $template_id );
-                $response_data  = \Woolentor_Template_Library_Manager::get_content_remote_request( $templateurl );
+                $response_data  = \Woolentor_Template_Library_Manager::get_template_data('template', $template_id );
                 $defaulttitle   = ucfirst( $template_parentid ) .' -> '.$template_title;
 
 

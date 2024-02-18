@@ -7,6 +7,12 @@ if ( ! class_exists( 'WooLentorBlocks' ) ) :
 	final class WooLentorBlocks{
 
 		/**
+		 * [$pattern_info]
+		 * @var array
+		 */
+		public static $pattern_info = [];
+
+		/**
 		 * [$_instance]
 		 * @var null
 		 */
@@ -36,6 +42,12 @@ if ( ! class_exists( 'WooLentorBlocks' ) ) :
 		 * Initialize
 		 */
 		public function init(){
+			// Pattern Remote Info
+			if( woolentorBlocks_gutenberg_edit_screen() ){
+				if( is_admin() && class_exists('\Woolentor_Template_Library_Manager') ){
+					self::$pattern_info = \Woolentor_Template_Library_Manager::instance()->get_gutenberg_patterns_info();
+				}
+			}
 			$this->dependency_class_instance();
 		}
 
@@ -84,6 +96,9 @@ if ( ! class_exists( 'WooLentorBlocks' ) ) :
 			WooLentorBlocks\Manage_Styles::instance();
 			WooLentorBlocks\Actions::instance();
 			WooLentorBlocks\Blocks_init::instance();
+			if( class_exists('\WooLentorBlocks\Block_Patterns_init') ){
+				\WooLentorBlocks\Block_Patterns_init::instance();
+			}
 		}
 
 

@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1104,6 +1104,12 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 Elementor Pro is not required. But you can use ShopLentor with Elementor free & Pro.
 
 == Changelog ==
+
+= Version: 2.8.1 - Date: 18-02-2024 =
+* Added : Currency Switcher Block for Gutenberg.
+* Solved : Editor mode background image showing issue in Image marker block.
+* Solved : Null value passing warning issue in variation swatch module.
+* Compatibility : Latest WordPress and WooCommerce version.
 
 = Version: 2.7.9 - Date: 04-02-2024 =
 * Added :  Support to all block in Full Site editing screen.

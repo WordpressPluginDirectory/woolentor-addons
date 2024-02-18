@@ -44,11 +44,18 @@ final class Base {
         add_action( 'init', [ $this, 'i18n' ] );
         add_action( 'plugins_loaded', [ $this, 'init' ] );
 
+        // Installer
+        if( is_admin() ){
+            require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.installer.php' );
+        }
         // WooLentor Template CPT Manager
         require( WOOLENTOR_ADDONS_PL_PATH. 'includes/admin/include/class.template-manager.php' );
 
         // Register Plugin Active Hook
         register_activation_hook( WOOLENTOR_ADDONS_PL_ROOT, [ $this, 'plugin_activate_hook' ] );
+        if( empty( get_option('woolentor_version', '') ) ){
+            $this->plugin_activate_hook();
+        }
 
         // Register Plugin Deactive Hook
         register_deactivation_hook( WOOLENTOR_ADDONS_PL_ROOT, [ $this, 'plugin_deactivation_hook'] );
@@ -263,8 +270,9 @@ final class Base {
     * @return [void]
     */
     public function plugin_activate_hook() {
-        add_option( 'woolentor_do_activation_redirect', TRUE );
-        flush_rewrite_rules();
+        if( class_exists('\WooLentor\Installer') ){
+            \WooLentor\Installer::instance();
+        }
     }
 
     /**

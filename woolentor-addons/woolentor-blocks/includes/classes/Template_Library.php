@@ -72,9 +72,8 @@ class Template_Library {
         if ( !isset( $params['template_id'] ) ) {
             return rest_ensure_response( $response_data );
         }
-
-        $templateurl    = sprintf( \Woolentor_Template_Library_Manager::get_gutenberg_api_endpoint().'/%s', $params['template_id'] );
-        $response_data  = \Woolentor_Template_Library_Manager::get_content_remote_request( $templateurl );
+        
+        $response_data  = \Woolentor_Template_Library_Manager::get_template_data( 'gutenberg', $params['template_id'] );
 
         return rest_ensure_response( $response_data );
 

@@ -215,6 +215,21 @@ class Woolentor_Wl_Currency_Switcher_Widget extends Widget_Base{
                 ]
             );
 
+            $this->add_control(
+                'currenct_currency_bg_color',
+                [
+                    'label' => __( 'Background Color', 'woolentor' ),
+                    'type' => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .woolentor-selected-currency-wrap span.woolentor-selected-currency' => 'background-color: {{VALUE}};',
+                        '{{WRAPPER}} .woolentor-currency-dropdown.list-style ul li.active-currency' => 'background-color: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'currency_style' => 'list',
+                    ],
+                ]
+            );
+
             $this->add_group_control(
                 Group_Control_Typography::get_type(),
                 [
@@ -229,10 +244,7 @@ class Woolentor_Wl_Currency_Switcher_Widget extends Widget_Base{
                 [
                     'name' => 'currenct_currency_border',
                     'label' => __( 'Border', 'woolentor' ),
-                    'selector' => '{{WRAPPER}} .woolentor-selected-currency-wrap',
-                    'condition' => [
-                        'currency_style' => 'dropdown',
-                    ],
+                    'selector' => '{{WRAPPER}} .woolentor-selected-currency-wrap, {{WRAPPER}} .woolentor-currency-dropdown.list-style ul li.active-currency',
                 ]
             );
 

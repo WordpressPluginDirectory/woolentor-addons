@@ -1,3 +1,6 @@
+.wp-block-woolentor-freewidget{
+    display: block;
+}
 .woolentor-selected-currency-wrap {
     padding: 6px 10px;
     border: 1px solid rgba(129, 129, 129, 0.2);

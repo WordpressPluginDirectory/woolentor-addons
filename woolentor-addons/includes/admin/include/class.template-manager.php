@@ -503,7 +503,7 @@ class Woolentor_Template_Manager{
     /**
 	 * Store Template
 	 *
-	 * @return int || JSON Data
+	 * @return void
 	 */
 	public function template_store_request(){
 		if ( isset( $_POST ) ) {
@@ -556,7 +556,7 @@ class Woolentor_Template_Manager{
 	 * Template Insert
 	 *
 	 * @param [array] $data
-	 * @return JSON
+	 * @return void
 	 */
 	public function insert( $data ){
 
@@ -609,7 +609,7 @@ class Woolentor_Template_Manager{
 	 * Template Update
 	 *
 	 * @param [array] $data
-	 * @return JSON
+	 * @return void
 	 */
 	public function update( $data ){
 
@@ -643,15 +643,14 @@ class Woolentor_Template_Manager{
 	/**
 	 * Sample Desing Importer
 	 *
-	 * @return JSON
+	 * @return void
 	 */
 	public function sampleTemplateImport($data, $post_id){
 
 		if( !empty( $data['sampletmpid'] ) ){
 
-			$templateurl = ($data['sampletmpbuilder'] == 'elementor') ? sprintf( Woolentor_Template_Library_Manager::get_api_templateapi(), $data['sampletmpid'] ) : sprintf( Woolentor_Template_Library_Manager::get_gutenberg_api_endpoint().'/%s', $data['sampletmpid'] );
-			$response_data  = Woolentor_Template_Library_Manager::get_content_remote_request( $templateurl );
-			
+			$response_data = ($data['sampletmpbuilder'] == 'elementor') ? Woolentor_Template_Library_Manager::get_template_data('template', $data['sampletmpid']) : Woolentor_Template_Library_Manager::get_template_data('gutenberg', $data['sampletmpid']);
+
 			$this->popBuilderSettings( $response_data, $post_id );
 
 			if( $data['sampletmpbuilder'] == 'elementor' ){
@@ -680,7 +679,7 @@ class Woolentor_Template_Manager{
     /**
 	 * Get Template data by id
 	 *
-	 * @return JSON
+	 * @return void
 	 */
 	public function get_post_By_id(){
 		if ( isset( $_POST ) ) {

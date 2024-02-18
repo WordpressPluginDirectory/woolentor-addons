@@ -146,6 +146,9 @@ class Scripts {
 		}
 		wp_enqueue_style('wishsuite-frontend');
 		wp_enqueue_style('evercompare-frontend');
+		if( defined('\Woolentor\Modules\CurrencySwitcher\MODULE_ASSETS') ){
+			wp_enqueue_style('woolentor-currency-switcher', \Woolentor\Modules\CurrencySwitcher\MODULE_ASSETS . '/css/frontend.css', [], WOOLENTOR_VERSION );
+		}
 
 	}
 

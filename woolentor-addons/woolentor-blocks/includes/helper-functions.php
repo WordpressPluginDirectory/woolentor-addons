@@ -206,6 +206,29 @@ function woolentorBlocks_is_gutenberg_page() {
 }
 
 /**
+ * Check Gutenberg Edit Screen if dose not work 'woolentorBlocks_is_gutenberg_page' this function then we will use it.
+ */
+function woolentorBlocks_gutenberg_edit_screen(){
+    if( isset( $_SERVER['QUERY_STRING'] ) ){
+        parse_str( $_SERVER['QUERY_STRING'], $query_arr );
+    } else {
+        $query_arr = [];
+    }
+
+    $basename = basename( $_SERVER['PHP_SELF'] );
+    $post_add_new_screen = ( $basename === 'post-new.php' || $basename === 'site-editor.php' ) ? true : false;
+    if( $post_add_new_screen === false ){
+        if( is_admin() && empty( $query_arr['action'] ) ){
+            return false;
+        }else{
+            return true;
+        }
+    }else{
+        return true;
+    }
+}
+
+/**
  * current page blocks
  */
 function woolentorBlocks_check_inner_blocks( $block ) {
@@ -275,8 +298,11 @@ function woolentorBlocks_get_ID(){
  */
 function woolentorBlocks_Current_Template_Id(){
     global $_wp_current_template_id, $_wp_current_template_content, $wp_embed, $wp_query;
+    if( empty( $_wp_current_template_id ) ){
+        return get_the_ID();
+    }
     $template_slug = explode( '//', $_wp_current_template_id );
-    return (woolentorBlocks_current_theme_is_fse() && isset($template_slug[1])) ? $template_slug[1] : get_the_ID();
+    return (woolentorBlocks_current_theme_is_fse() && isset($template_slug[1]) && $template_slug[1] != 'page') ? $template_slug[1] : get_the_ID();
 }
 
 /**
@@ -593,7 +619,7 @@ function woolentorBlocks_compare_button( $button_arg = array() ){
 /**
  * Ratting Generate
  *
- * @param array $ratting_num
+ * @param int $ratting_num
  */
 function woolentorBlocks_ratting( $ratting_num ){
     if( !empty( $ratting_num ) ){

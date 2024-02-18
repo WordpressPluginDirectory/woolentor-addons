@@ -173,8 +173,8 @@ class Attribute_Taxonomy_Metabox{
 	/**
 	 * It adds a new field to the edit screen of the taxonomy
 	 * 
-	 * @param tag The term object.
-	 * @param taxonomy The taxonomy slug.
+	 * @param object The term object.
+	 * @param string The taxonomy slug.
 	 */
 	public function edit_screen_custom_fields_html($tag, $taxonomy){
 		$swatch_type = $this->get_taxonomy_swatch_type( $taxonomy );
@@ -293,7 +293,7 @@ class Attribute_Taxonomy_Metabox{
 				<?php else: ?>
 					<input type="checkbox" name="<?php echo esc_attr($field['id']) ?>" class="swatchly-cs--input" data-depend-id="swatchly_enable_multi_color" <?php checked($enable_multi_color, 1) ?>>
 				<?php endif; ?>
-				<span class="swatchly-cs--text"><?php echo esc_html('Checking this will allow you to set multiple colors.', 'woolentor') ?></span>
+				<span class="swatchly-cs--text"><?php echo esc_html__('Checking this will allow you to set multiple colors.', 'woolentor') ?></span>
 			</label>
 			<?php
 		} elseif( $field['type'] == 'select' ){
@@ -317,7 +317,7 @@ class Attribute_Taxonomy_Metabox{
 	/**
 	 * It saves meta values to the database
 	 * 
-	 * @param term_id The ID of the term you're saving the meta for.
+	 * @param int The ID of the term you're saving the meta for.
 	 */
 	public function save_term_meta( $term_id ){
 		$post_data = wp_unslash($_POST);
@@ -390,7 +390,9 @@ class Attribute_Taxonomy_Metabox{
      */
     public function get_taxonomy_swatch_type( $taxonomy ){
         global $wpdb;
-
+		if( empty( $taxonomy ) ){
+			return null;
+		}
         $attr = substr( $taxonomy, 3 );
         $attr = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "woocommerce_attribute_taxonomies WHERE attribute_name = %s", $attr ) );
         $swatch_type = isset($attr->attribute_type) ? $attr->attribute_type : '';
