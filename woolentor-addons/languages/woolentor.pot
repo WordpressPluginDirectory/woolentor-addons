@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-18 06:07+0000\n"
+"POT-Creation-Date: 2024-03-03 05:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -234,8 +234,8 @@ msgstr ""
 
 #: includes/addons/wl_recently_viewed_products.php:406
 #: includes/addons/wb_wishsuite_table.php:347
-#: woolentor-blocks/includes/classes/Api/Api.php:191
-#: woolentor-blocks/production/includes/classes/Api/Api.php:191
+#: woolentor-blocks/includes/classes/Api/Api.php:223
+#: woolentor-blocks/production/includes/classes/Api/Api.php:223
 msgid "Add To Cart"
 msgstr ""
 
@@ -259,8 +259,8 @@ msgstr ""
 msgid "Add to Cart Button Text"
 msgstr ""
 
-#: includes/helper-function.php:1318 includes/helper-function.php:1319
-#: includes/helper-function.php:1342
+#: includes/helper-function.php:1332 includes/helper-function.php:1333
+#: includes/helper-function.php:1356
 #: woolentor-blocks/includes/helper-functions.php:593
 #: woolentor-blocks/includes/helper-functions.php:594
 #: woolentor-blocks/includes/helper-functions.php:610
@@ -1644,14 +1644,14 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: includes/helper-function.php:1275 includes/addons/product_flash_sale.php:137
+#: includes/helper-function.php:1289 includes/addons/product_flash_sale.php:137
 #: includes/addons/product_image_accordion.php:150
 #: includes/addons/product_accordion.php:171
 #: includes/addons/product_curvy.php:206 includes/addons/product_tabs.php:165
 msgid "Comment count"
 msgstr ""
 
-#: includes/helper-function.php:1342
+#: includes/helper-function.php:1356
 #: woolentor-blocks/includes/helper-functions.php:610
 #: includes/addons/wb_product_add_to_cart.php:1278
 #: woolentor-blocks/production/includes/helper-functions.php:610
@@ -1970,7 +1970,7 @@ msgstr ""
 msgid "Data Saved successfully!"
 msgstr ""
 
-#: includes/helper-function.php:1272 includes/addons/product_flash_sale.php:134
+#: includes/helper-function.php:1286 includes/addons/product_flash_sale.php:134
 #: includes/addons/wb_product_upsell.php:66
 #: includes/addons/wb_archive_product.php:127
 #: includes/addons/product_image_accordion.php:147
@@ -2003,7 +2003,7 @@ msgstr ""
 msgid "Default Currency"
 msgstr ""
 
-#: includes/helper-function.php:1068
+#: includes/helper-function.php:1082
 msgid "Default sorting"
 msgstr ""
 
@@ -2139,7 +2139,7 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: includes/helper-function.php:637
+#: includes/helper-function.php:651
 msgid "div"
 msgstr ""
 
@@ -2484,7 +2484,7 @@ msgstr ""
 msgid "FAQ Title"
 msgstr ""
 
-#: includes/helper-function.php:1277
+#: includes/helper-function.php:1291
 msgid "Featured"
 msgstr ""
 
@@ -2715,27 +2715,27 @@ msgstr ""
 msgid "Gutenberg"
 msgstr ""
 
-#: includes/helper-function.php:630
+#: includes/helper-function.php:644
 msgid "H1"
 msgstr ""
 
-#: includes/helper-function.php:631
+#: includes/helper-function.php:645
 msgid "H2"
 msgstr ""
 
-#: includes/helper-function.php:632
+#: includes/helper-function.php:646
 msgid "H3"
 msgstr ""
 
-#: includes/helper-function.php:633
+#: includes/helper-function.php:647
 msgid "H4"
 msgstr ""
 
-#: includes/helper-function.php:634
+#: includes/helper-function.php:648
 msgid "H5"
 msgstr ""
 
-#: includes/helper-function.php:635
+#: includes/helper-function.php:649
 msgid "H6"
 msgstr ""
 
@@ -2826,7 +2826,7 @@ msgstr ""
 msgid "Here"
 msgstr ""
 
-#: includes/helper-function.php:1199 includes/helper-function.php:1217
+#: includes/helper-function.php:1213 includes/helper-function.php:1231
 msgid "here"
 msgstr ""
 
@@ -3084,7 +3084,7 @@ msgstr ""
 msgid "Icon Width"
 msgstr ""
 
-#: includes/helper-function.php:1271 includes/addons/product_flash_sale.php:133
+#: includes/helper-function.php:1285 includes/addons/product_flash_sale.php:133
 #: includes/addons/product_image_accordion.php:146
 #: includes/addons/product_accordion.php:167
 #: includes/addons/wl_category.php:152 includes/addons/product_curvy.php:202
@@ -3761,7 +3761,7 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: includes/helper-function.php:1273 includes/addons/product_flash_sale.php:135
+#: includes/helper-function.php:1287 includes/addons/product_flash_sale.php:135
 #: includes/addons/wl_testimonial.php:82 includes/addons/wl_testimonial.php:576
 #: includes/addons/product_image_accordion.php:148
 #: includes/addons/product_accordion.php:169
@@ -3851,7 +3851,7 @@ msgstr ""
 msgid "No Order label"
 msgstr ""
 
-#: includes/helper-function.php:1518
+#: includes/helper-function.php:1532
 msgid "No products were found matching your selection."
 msgstr ""
 
@@ -3867,7 +3867,7 @@ msgstr ""
 msgid "No Results Found"
 msgstr ""
 
-#: includes/helper-function.php:451
+#: includes/helper-function.php:465
 msgid "No saved templates found."
 msgstr ""
 
@@ -3892,15 +3892,15 @@ msgstr ""
 #: includes/admin/include/template-library.php:155
 #: includes/admin/include/template-library.php:286
 #: includes/admin/include/template-library.php:331
-#: includes/admin/include/class.template-manager.php:514
-#: includes/admin/include/class.template-manager.php:690
-#: includes/admin/include/class.template-manager.php:728
-#: includes/admin/include/class.template-manager.php:837
+#: includes/admin/include/class.template-manager.php:521
+#: includes/admin/include/class.template-manager.php:704
+#: includes/admin/include/class.template-manager.php:749
+#: includes/admin/include/class.template-manager.php:865
 #: includes/modules/sales-notification/class.sale_notification.php:36
 msgid "Nonce Varification Faild !"
 msgstr ""
 
-#: includes/helper-function.php:1270 includes/addons/product_flash_sale.php:132
+#: includes/helper-function.php:1284 includes/addons/product_flash_sale.php:132
 #: includes/addons/product_image_accordion.php:145
 #: includes/addons/product_accordion.php:166
 #: includes/addons/product_curvy.php:201
@@ -4150,7 +4150,7 @@ msgid ""
 "the pro version."
 msgstr ""
 
-#: includes/helper-function.php:991 includes/helper-function.php:1039
+#: includes/helper-function.php:1005 includes/helper-function.php:1053
 msgid "Out of stock"
 msgstr ""
 
@@ -4158,7 +4158,7 @@ msgstr ""
 msgid "Out of Stock Badge Color"
 msgstr ""
 
-#: includes/helper-function.php:636
+#: includes/helper-function.php:650
 msgid "p"
 msgstr ""
 
@@ -4420,7 +4420,7 @@ msgstr ""
 msgid "Post Duplicator"
 msgstr ""
 
-#: includes/admin/include/class.template-manager.php:548
+#: includes/admin/include/class.template-manager.php:555
 msgid "Post request dose not found"
 msgstr ""
 
@@ -4530,7 +4530,7 @@ msgstr ""
 msgid "Product Add To Cart"
 msgstr ""
 
-#: includes/helper-function.php:1320
+#: includes/helper-function.php:1334
 #: woolentor-blocks/includes/helper-functions.php:595
 #: woolentor-blocks/production/includes/helper-functions.php:595
 msgid "Product Added"
@@ -4682,7 +4682,7 @@ msgstr ""
 msgid "Product Per Page"
 msgstr ""
 
-#: classes/class.widgets_control.php:349 includes/helper-function.php:1278
+#: classes/class.widgets_control.php:349 includes/helper-function.php:1292
 #: includes/addons/product_flash_sale.php:466
 #: includes/addons/product_image_accordion.php:411
 #: includes/addons/product_accordion.php:490
@@ -4911,7 +4911,7 @@ msgstr ""
 msgid "Qunantity Text Color"
 msgstr ""
 
-#: includes/helper-function.php:1276 includes/addons/product_flash_sale.php:138
+#: includes/helper-function.php:1290 includes/addons/product_flash_sale.php:138
 #: includes/addons/wb_product_upsell.php:71
 #: includes/addons/wb_archive_product.php:132
 #: includes/addons/product_image_accordion.php:151
@@ -5252,7 +5252,7 @@ msgstr ""
 msgid "Sale Tag"
 msgstr ""
 
-#: includes/helper-function.php:988 includes/helper-function.php:1034
+#: includes/helper-function.php:1002 includes/helper-function.php:1048
 msgid "Sale!"
 msgstr ""
 
@@ -5355,7 +5355,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: includes/helper-function.php:428
+#: includes/helper-function.php:442
 #: includes/modules/variation-swatch/includes/Admin/Woo_Config.php:30
 msgid "Select"
 msgstr ""
@@ -5403,7 +5403,7 @@ msgstr ""
 msgid "Select Table"
 msgstr ""
 
-#: includes/helper-function.php:453 includes/addons/wl_faq.php:97
+#: includes/helper-function.php:467 includes/addons/wl_faq.php:97
 msgid "Select Template"
 msgstr ""
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Set featured image"
 msgstr ""
 
-#: includes/helper-function.php:1199 includes/helper-function.php:1217
+#: includes/helper-function.php:1213 includes/helper-function.php:1231
 msgid "Set the initial stock amount from"
 msgstr ""
 
@@ -5856,7 +5856,7 @@ msgstr ""
 msgid "Social Share"
 msgstr ""
 
-#: includes/helper-function.php:1212
+#: includes/helper-function.php:1226
 msgid "Sold"
 msgstr ""
 
@@ -5887,10 +5887,10 @@ msgid ""
 "& adjust the compare button for the single product page."
 msgstr ""
 
-#: includes/admin/include/class.template-manager.php:601
-#: includes/admin/include/class.template-manager.php:709
-#: includes/admin/include/class.template-manager.php:753
-#: includes/admin/include/class.template-manager.php:877
+#: includes/admin/include/class.template-manager.php:608
+#: includes/admin/include/class.template-manager.php:723
+#: includes/admin/include/class.template-manager.php:774
+#: includes/admin/include/class.template-manager.php:905
 msgid "Some thing is worng !"
 msgstr ""
 
@@ -5950,23 +5950,23 @@ msgstr ""
 msgid "Sort By"
 msgstr ""
 
-#: includes/helper-function.php:1070
+#: includes/helper-function.php:1084
 msgid "Sort by average rating"
 msgstr ""
 
-#: includes/helper-function.php:1071
+#: includes/helper-function.php:1085
 msgid "Sort by latest"
 msgstr ""
 
-#: includes/helper-function.php:1069
+#: includes/helper-function.php:1083
 msgid "Sort by popularity"
 msgstr ""
 
-#: includes/helper-function.php:1073
+#: includes/helper-function.php:1087
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: includes/helper-function.php:1072
+#: includes/helper-function.php:1086
 msgid "Sort by price: low to high"
 msgstr ""
 
@@ -5989,7 +5989,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: includes/helper-function.php:638
+#: includes/helper-function.php:652
 msgid "span"
 msgstr ""
 
@@ -6309,16 +6309,16 @@ msgstr ""
 msgid "Template Builder"
 msgstr ""
 
-#: includes/admin/include/class.template-manager.php:870
+#: includes/admin/include/class.template-manager.php:898
 msgid "Template has been imported"
 msgstr ""
 
-#: includes/admin/include/class.template-manager.php:572
+#: includes/admin/include/class.template-manager.php:579
 msgid "Template has been inserted"
 msgstr ""
 
-#: includes/admin/include/class.template-manager.php:636
-#: includes/admin/include/class.template-manager.php:745
+#: includes/admin/include/class.template-manager.php:643
+#: includes/admin/include/class.template-manager.php:766
 msgid "Template has been updated"
 msgstr ""
 
@@ -6524,7 +6524,7 @@ msgstr ""
 msgid "Thumbnails Position"
 msgstr ""
 
-#: includes/helper-function.php:1274 includes/addons/wl_faq.php:68
+#: includes/helper-function.php:1288 includes/addons/wl_faq.php:68
 #: includes/addons/wl_faq.php:342 includes/addons/product_flash_sale.php:136
 #: includes/addons/product_flash_sale.php:772
 #: includes/addons/wl_product_horizontal_filter.php:249
@@ -6637,7 +6637,7 @@ msgstr ""
 msgid "Top On Image"
 msgstr ""
 
-#: includes/helper-function.php:1280
+#: includes/helper-function.php:1294
 msgid "Top Rated"
 msgstr ""
 
@@ -6647,7 +6647,7 @@ msgstr ""
 msgid "Top Rated Products"
 msgstr ""
 
-#: includes/helper-function.php:1279
+#: includes/helper-function.php:1293
 msgid "Top Seller"
 msgstr ""
 
@@ -7669,6 +7669,13 @@ msgstr ""
 #: woolentor-blocks/production/includes/classes/Manage_Styles.php:146
 #: woolentor-blocks/production/includes/classes/Manage_Styles.php:199
 msgid "You are not permitted to save CSS."
+msgstr ""
+
+#: includes/admin/include/class.template-manager.php:513
+#: includes/admin/include/class.template-manager.php:696
+#: includes/admin/include/class.template-manager.php:741
+#: includes/admin/include/class.template-manager.php:857
+msgid "You are unauthorize to adding template!"
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:350

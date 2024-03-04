@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 2.8.1
+Stable tag: 2.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1104,6 +1104,12 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 Elementor Pro is not required. But you can use ShopLentor with Elementor free & Pro.
 
 == Changelog ==
+
+= Version: 2.8.2 - Date: 04-03-2024 =
+* Solved : Wishlist button class rendering issue.
+* Solved : Product id fetching issue in compare button shortcode.
+* Soled : Single Product default image show with FSE Theme. 
+* Compatibility : Latest WordPress and WooCommerce version.
 
 = Version: 2.8.1 - Date: 18-02-2024 =
 * Added : Currency Switcher Block for Gutenberg.

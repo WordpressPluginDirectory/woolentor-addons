@@ -781,7 +781,7 @@ class Woolentor_Special_Day_Offer_Widget extends Widget_Base {
         // URL Generate
         if ( ! empty( $settings['banner_link']['url'] ) ) {
             
-            $this->add_render_attribute( 'url', 'href', $settings['banner_link']['url'] );
+            $this->add_render_attribute( 'url', 'href', esc_url($settings['banner_link']['url']) );
             if ( $settings['banner_link']['is_external'] ) {
                 $this->add_render_attribute( 'url', 'target', '_blank' );
             }
@@ -802,7 +802,7 @@ class Woolentor_Special_Day_Offer_Widget extends Widget_Base {
                 </div>
                 <?php
                     if( !empty($settings['banner_badge_image']['url']) ){
-                        echo '<div class="wlbanner-badgeimage"><img src="' . $settings['banner_badge_image']['url'] . '"></div>';
+                        echo '<div class="wlbanner-badgeimage"><img src="' . esc_url($settings['banner_badge_image']['url']) . '"></div>';
                     }
                 ?>
                 <div class="banner-content">

@@ -86,6 +86,20 @@ function woolentor_build_page_content( $page_id ){
 }
 
 /**
+* Checked Current theme is FSE
+*/
+function woolentor_current_theme_is_fse() {
+	if ( function_exists( 'wp_is_block_theme' ) ) {
+		return (bool) wp_is_block_theme();
+	}
+	if ( function_exists( 'gutenberg_is_fse_theme' ) ) {
+		return (bool) gutenberg_is_fse_theme();
+	}
+
+	return false;
+}
+
+/**
  * [movepro_render_icon]
  * @param  array  $settings 
  * @param  string $new_icon  new icon id

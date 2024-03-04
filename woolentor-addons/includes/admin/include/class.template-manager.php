@@ -508,6 +508,13 @@ class Woolentor_Template_Manager{
 	public function template_store_request(){
 		if ( isset( $_POST ) ) {
 
+			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
+				$errormessage = array(
+					'message'  => __('You are unauthorize to adding template!','woolentor')
+				);
+				wp_send_json_error( $errormessage );
+			}
+
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'woolentor_tmp_nonce' ) ) {
 				$errormessage = array(
@@ -684,6 +691,13 @@ class Woolentor_Template_Manager{
 	public function get_post_By_id(){
 		if ( isset( $_POST ) ) {
 
+			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
+				$errormessage = array(
+					'message'  => __('You are unauthorize to adding template!','woolentor')
+				);
+				wp_send_json_error( $errormessage );
+			}
+
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'woolentor_tmp_nonce' ) ) {
 				$errormessage = array(
@@ -721,6 +735,13 @@ class Woolentor_Template_Manager{
 	public function manage_template_status(){
 
 		if ( isset( $_POST ) ) {
+
+			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
+				$errormessage = array(
+					'message'  => __('You are unauthorize to adding template!','woolentor')
+				);
+				wp_send_json_error( $errormessage );
+			}
 
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'woolentor_tmp_nonce' ) ) {
@@ -830,6 +851,13 @@ class Woolentor_Template_Manager{
 	 */
 	public function template_import(){
 		if ( isset( $_POST ) ) {
+			
+			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
+				$errormessage = array(
+					'message'  => __('You are unauthorize to adding template!','woolentor')
+				);
+				wp_send_json_error( $errormessage );
+			}
 			
 			$nonce = $_POST['nonce'];
 			if ( ! wp_verify_nonce( $nonce, 'woolentor_tmp_nonce' ) ) {

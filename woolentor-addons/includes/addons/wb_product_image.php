@@ -150,7 +150,7 @@ class Woolentor_Wb_Product_Image_Widget extends Widget_Base {
             if( $current_theme->get( 'TextDomain' ) == 'woostify' ){
                 do_action( 'woocommerce_before_single_product_summary' );
                 echo '</div></div></div>';
-            }elseif( $current_theme->get( 'TextDomain' ) == 'blocksy' ){
+            }elseif( $current_theme->get( 'TextDomain' ) == 'blocksy' || woolentor_current_theme_is_fse()){
                 woocommerce_show_product_sale_flash();
                 woocommerce_show_product_images();
             }else{

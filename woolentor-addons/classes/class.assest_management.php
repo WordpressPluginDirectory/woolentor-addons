@@ -418,7 +418,7 @@ class Assets_Management{
      */
     public function enqueue_elementor_editor(){
         wp_enqueue_style('woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/css/woolentor-elementor-editor.css',['elementor-editor'], WOOLENTOR_VERSION );
-        wp_enqueue_script( 'woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/js/woolentor-elementor-editor.js', ['jquery'], WOOLENTOR_VERSION, true );
+        // wp_enqueue_script( 'woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/js/woolentor-elementor-editor.js', ['jquery'], WOOLENTOR_VERSION, false );
 
         // Localized data for elementor editor
         wp_localize_script(

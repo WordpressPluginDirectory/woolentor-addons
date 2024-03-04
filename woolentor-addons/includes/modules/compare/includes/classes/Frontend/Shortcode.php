@@ -42,6 +42,7 @@ class Shortcode {
         wp_enqueue_script( 'evercompare-frontend' );
 
         global $product;
+        $product_id = is_a( $product, 'WC_Product' ) ? $product->get_id() : get_the_ID();
 
         // Fetch option data
         $button_text        = woolentor_get_option( 'button_text','ever_compare_settings_tabs', 'Compare' );
@@ -75,7 +76,7 @@ class Shortcode {
 
         // Shortcode atts
         $default_atts = array(
-            'product_id'        => $product->get_id(),
+            'product_id'        => $product_id,
             'button_url'        => Manage_Compare::instance()->get_compare_page_url(),
             'button_class'      => implode(' ', $button_class ),
             'button_text'       => $button_icon.$button_text,

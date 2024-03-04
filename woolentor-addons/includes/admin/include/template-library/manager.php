@@ -112,7 +112,7 @@ class Woolentor_Template_Library_Manager{
      * @return void
      */
     public static function get_gutenberg_templates_info($force_update = false) {
-        return self::get_template_remote_data('gutenberg', $force_update);
+        return self::get_template_remote_data('gutenberg', self::get_remote_url('gutenberg'), $force_update);
     }
 
     /**
@@ -122,7 +122,7 @@ class Woolentor_Template_Library_Manager{
      * @return void
      */
     public static function get_gutenberg_patterns_info($force_update = false) {
-        return self::get_template_remote_data('pattern', $force_update);
+        return self::get_template_remote_data('pattern', self::get_remote_url('pattern'), $force_update);
     }
 
     /**

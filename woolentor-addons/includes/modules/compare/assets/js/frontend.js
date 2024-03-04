@@ -107,6 +107,7 @@
 
   // Close popup
   $body.on("click", ".htcompare-popup-close", function (e) {
+    $(this).parents(".htcompare-popup.open").removeClass("open");
     $popup.removeClass("open");
   });
 
