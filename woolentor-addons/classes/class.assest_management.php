@@ -353,7 +353,7 @@ class Assets_Management{
                 'version'          => WOOLENTOR_VERSION,
                 'pluginURL'        => plugin_dir_url( __FILE__ ),
                 'alldata'          => !empty( base::$template_info['templates'] ) ? base::$template_info['templates'] : array(),
-                'prolink'          => 'https://woolentor.com/pricing/',
+                'prolink'          => 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=library',
                 'prolabel'         => esc_html__( 'Pro', 'woolentor' ),
                 'loadingimg'       => WOOLENTOR_ADDONS_PL_URL . 'includes/admin/assets/images/loading.gif',
                 'message'          =>[
@@ -418,7 +418,7 @@ class Assets_Management{
      */
     public function enqueue_elementor_editor(){
         wp_enqueue_style('woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/css/woolentor-elementor-editor.css',['elementor-editor'], WOOLENTOR_VERSION );
-        // wp_enqueue_script( 'woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/js/woolentor-elementor-editor.js', ['jquery'], WOOLENTOR_VERSION, false );
+        wp_enqueue_script( 'woolentor-elementor-editor', WOOLENTOR_ADDONS_PL_URL . 'assets/js/woolentor-elementor-editor.js', ['elementor-editor', 'jquery'], WOOLENTOR_VERSION, true );
 
         // Localized data for elementor editor
         wp_localize_script(

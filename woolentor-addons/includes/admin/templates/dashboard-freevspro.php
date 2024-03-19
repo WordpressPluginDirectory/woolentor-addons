@@ -201,7 +201,7 @@
                 <p class="woolentor-admin-header-text"><?php echo esc_html__('Discover all the differences between the free and premium versions.','woolentor');?></p>
             </div>
             <div class="woolentor-admin-header-actions">
-                <a class="woolentor-admin-btn enable" href="https://woolentor.com/pricing/?utm_source=admin&utm_medium=notice&utm_campaign=free" target="_blank"><?php echo esc_html__('Upgrade Now','woolentor'); ?></a>
+                <a class="woolentor-admin-btn enable" href="https://woolentor.com/pricing/?utm_source=admin&utm_medium=freevspro&utm_campaign=free" target="_blank"><?php echo esc_html__('Upgrade Now','woolentor'); ?></a>
             </div>
         </div>
         <!-- Header End -->

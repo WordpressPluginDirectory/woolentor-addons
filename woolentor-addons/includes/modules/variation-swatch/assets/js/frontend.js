@@ -221,6 +221,10 @@
 		if(product_thumbnail_selector){
 			$product_thumbnail = $(this).find(product_thumbnail_selector);
 
+			if( !$product_thumbnail.length && $(this).closest('.product').find(product_thumbnail_selector).length ){
+				$product_thumbnail = $(this).closest('.product').find(product_thumbnail_selector);
+			}
+
 			return $product_thumbnail;
 		}
 
@@ -579,10 +583,30 @@
 								}
 							}
 						})
+						.on('found_variation', function(e, variation){
+							// some user use single product add to cart button in the product loop
+							// so we need to change the image for the product loop
+							if( !swatchly_params.is_product ){
+								var $product_thumbnail = $(this).get_product_image_selector();
+
+								let $el_product = $(this).closest('.product');
+								$el_product.backup_product_image();
+	
+								$product_thumbnail.attr('src', variation.image.url);
+								$product_thumbnail.attr('srcset', variation.image.srcset);
+							}
+						})
 						.on( 'click', '.reset_variations', function () {
 							$el_variation_form.find( '.swatchly-selected' ).removeClass( 'swatchly-selected' );
 							$el_variation_form.find( '.swatchly-disabled' ).removeClass( 'swatchly-disabled' );
 							$el_variation_form.find('.swatchly_selected_variation_name').text( '' );
+
+							// some user use single product add to cart button in the product loop
+							// so we need to reset the image for the product loop
+							if( !swatchly_params.is_product ){
+								let $el_product = $(this).closest('.product');
+								$el_product.reset_to_default_image()
+							}
 						}); // on click div.swatchly-swatch
 					});
 				}

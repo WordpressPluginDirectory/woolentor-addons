@@ -287,6 +287,7 @@ class Woolentor_Manage_WC_Template{
             // The code snippet originates in Elementor, specifically in /elementor/modules/page-templates/module.php at line 82.
             $document        = \Elementor\Plugin::$instance->documents->get_doc_for_frontend($template_id);
             $template_module = \Elementor\Plugin::$instance->modules_manager->get_modules('page-templates');
+            $template_path = 0;
 
             if( $document && $document::get_property('support_wp_page_templates') ) {
                 $page_template = $document->get_meta('_wp_page_template');

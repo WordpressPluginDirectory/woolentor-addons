@@ -192,7 +192,7 @@ final class Base {
      */
     public function admin_promo_notice(){
 
-        if( !isset( self::$template_info['notices'] ) && !is_array( self::$template_info['notices'] ) ){
+        if( !isset( self::$template_info['notices'] ) || !is_array( self::$template_info['notices'] ) ){
             return;
         }
 
@@ -244,7 +244,7 @@ final class Base {
         $settings_link = '<a href="'.admin_url('admin.php?page=woolentor').'">'.esc_html__( 'Settings', 'woolentor' ).'</a>'; 
         array_unshift( $links, $settings_link );
         if( !is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') ){
-            $links['woolentorgo_pro'] = sprintf('<a href="https://woolentor.com/pricing/?utm_source=admin&utm_medium=notice&utm_campaign=free" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro','woolentor') . '</a>');
+            $links['woolentorgo_pro'] = sprintf('<a href="https://woolentor.com/pricing/?utm_source=admin&utm_medium=gopro&utm_campaign=free" target="_blank" style="color: #39b54a; font-weight: bold;">' . esc_html__('Go Pro','woolentor') . '</a>');
         }
         return $links; 
     }
@@ -420,7 +420,7 @@ final class Base {
 /**
  * Initializes the main plugin
  *
- * @return \Base
+ * @return Base
  */
 function woolentor() {
     return Base::instance();

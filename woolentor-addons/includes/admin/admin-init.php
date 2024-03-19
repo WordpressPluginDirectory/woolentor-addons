@@ -489,7 +489,7 @@ class Woolentor_Admin_Init{
      * @return void
      */
     public function offer_notice(){
-        if( !isset( \WooLentor\Base::$template_info['notices'] ) && !is_array( \WooLentor\Base::$template_info['notices'] ) ){
+        if( !isset( \WooLentor\Base::$template_info['notices'] ) || !is_array( \WooLentor\Base::$template_info['notices'] ) ){
             return;
         }
 

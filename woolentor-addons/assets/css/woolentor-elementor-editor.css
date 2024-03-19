@@ -1,3 +1,18 @@
+/* CSS For Promosion Widget Button */
+.woolentor-elementor-pro-hide{
+    display: none;
+}
+a.woolentor-pro-dialog-button-action{
+    display: none !important;
+}
+.woolentor-pro-widget a.woolentor-pro-dialog-button-action{
+    display: inline-block !important;
+}
+.elementor-button.go-pro.dialog-button.dialog-action.dialog-buttons-action.woolentor-elementor-pro-hide {
+    display: none !important;
+}
+
+/* CSS For Disable Field Control */
 .woolentor-disable-control .elementor-control-input-wrapper{
     pointer-events: none !important;
     opacity: 0.4;

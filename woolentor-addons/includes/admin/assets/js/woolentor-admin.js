@@ -32,22 +32,37 @@
         }
     })
     if (localStorage.wlActiveTab !== undefined && localStorage.wlActiveTab !== null ) {
-        const $wlActiveTab = localStorage.getItem('wlActiveTab')
+        const $wlActiveTab = localStorage.getItem('wlActiveTab');
+        let hasActiveElement = false;
         $('.woolentor-admin-main-nav-btn').each(function() {
             const $this = $(this),
                 $siblingsBtn = $this.closest('li').siblings().find('.woolentor-admin-main-nav-btn')
-            if($this.attr('href') === $wlActiveTab) {
-                $this.addClass('wlactive')
-                $siblingsBtn.removeClass('wlactive')
+            if( $this.attr('href') === $wlActiveTab ) {
+                $this.addClass('wlactive');
+                $siblingsBtn.removeClass('wlactive');
+                hasActiveElement = true;
+                return false;
             }
-        })
-        $($wlActiveTab).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
+        });
+        if( hasActiveElement ){
+            $($wlActiveTab).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
+        }else{
+            var $defaultIndex = $('.woolentor-admin-main-nav-btn').length;
+            if( $defaultIndex > 0){
+                const $firstTab = $('.woolentor-admin-main-nav-btn')[$defaultIndex -1 ],
+                    $target = $firstTab.hash;
+                $firstTab.classList.add('wlactive');
+                $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide();
+            }
+        }
     } else {
-        var $defaultIndex = $('.woolentor-admin-main-nav-btn').length-1;
-        const $firstTab = $('.woolentor-admin-main-nav-btn')[$defaultIndex],
-            $target = $firstTab.hash
-        $firstTab.classList.add('wlactive')
-        $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
+        var $defaultIndex = $('.woolentor-admin-main-nav-btn').length;
+        if( $defaultIndex > 0){
+            const $firstTab = $('.woolentor-admin-main-nav-btn')[$defaultIndex-1],
+                $target = $firstTab.hash
+            $firstTab.classList.add('wlactive')
+            $($target).addClass('wlactive').show().siblings().removeClass('wlactive').hide()
+        }
     }
 
     /* Number Input */

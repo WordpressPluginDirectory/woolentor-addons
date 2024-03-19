@@ -7819,6 +7819,7 @@ div[class*="woolentor-single-select-drop"] .select2-results__option::before {
 
   [class*="woolentorducts-columns-"] ul.products li.product {
     width: 100% !important;
+    margin-right: 0 !important;
   }
   .woolentorducts-columns-mobile-1 ul.products li.product {
     width: 100% !important;

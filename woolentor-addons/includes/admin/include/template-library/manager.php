@@ -68,7 +68,6 @@ class Woolentor_Template_Library_Manager{
      * @param string $url
      * @param string $transient_key
      * @param boolean $force_update
-     * @return void
      */
     public static function set_templates_info( $url = '', $transient_key = '', $force_update = false ) {
         $transient = get_transient( $transient_key );
@@ -84,7 +83,6 @@ class Woolentor_Template_Library_Manager{
      * @param [type] $type
      * @param [type] $endpoint
      * @param boolean $force_update
-     * @return void
      */
     public static function get_template_remote_data( $type, $endpoint = null, $force_update = false ){
         $transient_key  = self::TRANSIENT_KEYES[$type];
@@ -99,7 +97,6 @@ class Woolentor_Template_Library_Manager{
      * Get Template List
      *
      * @param boolean $force_update
-     * @return void
      */
     public static function get_templates_info($force_update = false) {
         return self::get_template_remote_data('template', self::get_api_endpoint(), $force_update);
@@ -109,7 +106,6 @@ class Woolentor_Template_Library_Manager{
      * Get Gutenberg Template List
      *
      * @param boolean $force_update
-     * @return void
      */
     public static function get_gutenberg_templates_info($force_update = false) {
         return self::get_template_remote_data('gutenberg', self::get_remote_url('gutenberg'), $force_update);
@@ -119,7 +115,6 @@ class Woolentor_Template_Library_Manager{
      * Get Gutenberg Patterns list
      *
      * @param boolean $force_update
-     * @return void
      */
     public static function get_gutenberg_patterns_info($force_update = false) {
         return self::get_template_remote_data('pattern', self::get_remote_url('pattern'), $force_update);

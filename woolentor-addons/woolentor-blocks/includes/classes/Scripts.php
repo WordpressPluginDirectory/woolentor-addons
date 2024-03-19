@@ -119,7 +119,7 @@ class Scripts {
 				'sampledata'	=> is_admin() ? Sample_Data::instance()->get_sample_data( false, 'sampledata/product' ) : array(),
 				'prostatus'		=> is_admin() ? is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') : false,
 				'templatelist'	=> is_admin() ? \Woolentor_Template_Library_Manager::get_gutenberg_templates_info() : array(),
-				'prolink'		=> 'https://woolentor.com/pricing/',
+				'prolink'		=> 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=gtlibrary',
 			);
 
 			// My Account MenuList

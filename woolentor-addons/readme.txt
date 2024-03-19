@@ -2,8 +2,8 @@
 Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasib
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
-Tested up to: 6.4
-Stable tag: 2.8.2
+Tested up to: 6.5
+Stable tag: 2.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1105,6 +1105,13 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.8.3 - Date: 19-03-2024 =
+* Solved : PHP 8.2 Version Compatibility in Variation swatch module.
+* Solved : Image change issue with Variation swatch module.
+* Solved : Spacing issue with archive default layout in Mobile device.
+* Solved : Promotional Widget showing issue in Elementor Editor mode.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.8.2 - Date: 04-03-2024 =
 * Solved : Wishlist button class rendering issue.
 * Solved : Product id fetching issue in compare button shortcode.
@@ -1728,106 +1735,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 = Version: 1.6.7 - Date: 2020-07-22 =
 * Image marker addon added.
 * Customer Review addon added.
-
-= Version: 1.6.6 - Date: 2020-07-04 =
-* Add to cart text showing option added in universal layout.
-
-= Version: 1.6.5 - Date: 2020-06-28 =
-* QR Code Generator Addon Added.
-
-= Version: 1.6.4 - Date: 2020-06-27 =
-* Stock Management Progress Bar Option added in universal product layout.
-
-= Version: 1.6.3 - Date: 2020-06-17 =
-* Post Duplicator Option Added.
-
-= Version: 1.6.2 - Date: 2020-05-30 =
-* Category View Addon Added.
-* Brand Logo Addon Added.
-
-= Version: 1.6.0 - Date: 2020-05-06 =
-* Editor Mode default data show.
-* 10 Home page added in template library.
-* Side Mini Cart added.
-* Cross Sale, Upsale Slider issue solved.
-* Default color setting add for universal layout.
-
-= Version: 1.5.8 - Date: 2020-04-24 =
-* Template Library Improve.
-* Mobile and Tablet Column support in Universal Layout.
-* AJAX search autocomplete problem solved. Add CSS clear the 'X' from Chrome and Internet Explorer (thanks to Thomas FABOUX)
-* Admin Promo banner AJAX dismiss added.
-
-= Version: 1.5.7 - Date: 2020-04-12 =
-* Quickview Icon Issue Solved
-* Product tab showing issue solved
-
-= Version: 1.5.3 - Date: 2020-02-17 =
-* WooCommerce Brand Plugins Compatibility
-* Full width Page Container Padding Issue solved
-* 10 Home Page Added In library
-
-= Version: 1.5.2 - Date: 2020-01-11 =
-* QuickView Loader Added
-* Tab Menu Ordering Issue solved
-* Template Library QuickView Added
-
-= Version: 1.5.1 - Date: 2019-12-29 =
-* TI Wishlist Compatibility
-* QuickView Loader Added
-* Universal Layout Pagination and Navigation Position Options added
-* QuickView Uniqe Classes
-* Universal Layout a Features product showing issue solved
-* QuickView Content Overlapping issue Solved
-* Action Button style option added in WL: Product Tab Addons
-* Product Tab layout a features product showing issue solved
-* Options page responsive issue solved
-
-= Version: 1.5.0 - Date: 2019-12-08 =
-* Universal layout Hide options ( Title, Price, ratting )
-* Universal layout spacing options add in ( Title, Price, ratting, category )
-* Universal layout Tab Menu area spacing controll options added
-* Universal layout Slider column width issue solved
-* Product Out of stock status added
-* Single Prodcut AJAX Add to cart
-
-= Version: 1.4.9 - Date: 2019-11-29 =
-* AJAX Search Form Added ( Widgets, Elementor Addons, Shortcode )
-* Archive page product render issue fixed
-* Show thumbnails image first for thumbnials slider ( Univarsel layout, archive layout, Advance image thumbnails )
-
-= Version: 1.4.7 - Date: 2019-11-12 =
-* Elementor Product Load limit Option added.
-
-= Version: 1.4.6 - Date: 2019-11-03 =
-* Call For Price Addon Added.
-* Suggest Price Addon Added.
-
-= Version: 1.4.5 - Date: 2019-10-25 =
-* Special Day Offer Addons Added.
-
-= Version: 1.4.4 - Date: 2019-10-10 =
-* Universal Layout custom order issue solved.
-* Tab With Thumbnails Slider image load issue solved.
-
-= Version: 1.4.0 - Date: 2019-09-09 =
-* Sales Notification Added.
-
-= Version: 1.3.3 - Date: 2019-09-04 =
-* Rename Label added (Limited for Free Version and Full Options for Pro version).
-* Licensing Option for Plugins update (Pro).
-<a href="https://hasthemes.com/rename-label-for-woocommerce-pages-and-licensing-option-for-pro-version">Details in Video</a>
-
-= Version: 1.3.2 - Date: 2019-09-01 =
-* <a href="https://hasthemes.com/video-in-product-gallery-for-woolentor-elementor-page-builder/">Videos in Product Gallery (According to a Customer Request)</a>
-
-= Version: 1.2.2 - Date: 2019-07-15 =
-* Include Template Library.
-
-= Version: 1.2.1 - Date: 2019-06-8 =
-* Stock Progress bar ( Pro ).
-* Product Title Character Limit option added ( Pro ).
-* Enable/Disable All Elements Toggle button ( Pro ).
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

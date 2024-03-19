@@ -26,7 +26,7 @@ class Attribute_Taxonomy_Metabox{
 			'description' => '',
 		);
 
-        $this->taxonomy	= isset( $_GET['taxonomy'] ) ? sanitize_text_field( $_GET['taxonomy'] ) : '';
+        $this->taxnow = isset( $_GET['taxonomy'] ) ? sanitize_text_field( $_GET['taxonomy'] ) : '';
 		$swatch_type = $this->get_taxonomy_swatch_type( $this->taxnow );
 
 		$prefix      			  = 'swatchly_taxonomy_meta';

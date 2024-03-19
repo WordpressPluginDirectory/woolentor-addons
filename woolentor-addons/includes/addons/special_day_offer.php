@@ -808,20 +808,20 @@ class Woolentor_Special_Day_Offer_Widget extends Widget_Base {
                 <div class="banner-content">
                     <?php
                         if( !empty( $settings['banner_title'] ) ){
-                            echo '<h2>'.$settings['banner_title'].'</h2>';
+                            echo '<h2>'.esc_html__($settings['banner_title'],'woolentor').'</h2>';
                         }
                         if( !empty( $settings['banner_sub_title'] ) ){
-                            echo '<h6>'.$settings['banner_sub_title'].'</h6>';
+                            echo '<h6>'.esc_html__($settings['banner_sub_title'],'woolentor').'</h6>';
                         }
                         if( !empty( $settings['banner_offer'] ) ){
-                            echo '<h5>'.$settings['banner_offer'].'<span>'.$settings['banner_offer_tag_line'].'</span></h5>';
+                            echo '<h5>'.esc_html__($settings['banner_offer'],'woolentor').'<span>'.esc_html__($settings['banner_offer_tag_line'],'woolentor').'</span></h5>';
                         }
                         if( !empty( $settings['banner_description'] ) ){
-                            echo '<p>'.$settings['banner_description'].'</p>';
+                            echo '<p>'.esc_html__($settings['banner_description'],'woolentor').'</p>';
                         }
 
                         if( !empty( $settings['banner_button_txt'] ) ){
-                            echo '<a '.$this->get_render_attribute_string( 'url' ).'>'.esc_html__( $settings['banner_button_txt'],'woolentor' ).'</a>';
+                            echo '<a '.$this->get_render_attribute_string( 'url' ).'>'.esc_html__($settings['banner_button_txt'],'woolentor').'</a>';
                         }
                     ?>
                 </div>
