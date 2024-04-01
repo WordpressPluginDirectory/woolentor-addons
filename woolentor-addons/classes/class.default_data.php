@@ -255,17 +255,18 @@ class WooLentor_Default_Data{
                     ob_start();
                         do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-price':
                     ob_start();
                     if( !empty( $product->get_price_html() ) ){
-                        ?><p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></p><?php
+                        ?>
+                            <p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">
+                            <?php echo $product->get_price_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+                        <?php
                     }else{
                         echo '<p>'.esc_html__('Price does not set this product.','woolentor').'</p>';
                     }
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-short-description':
                     ob_start();
@@ -279,7 +280,6 @@ class WooLentor_Default_Data{
                         <?php
                     }
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-description':
                     ob_start();
@@ -290,12 +290,11 @@ class WooLentor_Default_Data{
                         echo wp_kses_post( $description );
                     }
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-rating':
                     ob_start();
                     if ( 'no' === get_option( 'woocommerce_enable_review_rating' ) ) {
-                        echo '<div class="wl-nodata">'.__('Rating does not enable.','woolentor').'</div>';
+                        echo '<div class="wl-nodata">'.esc_html__('Rating does not enable.','woolentor').'</div>';
                     }
                     $rating_count = $product->get_rating_count();
                     $review_count = $product->get_review_count();
@@ -304,7 +303,7 @@ class WooLentor_Default_Data{
                     if ( $rating_count > 0 ) : ?>
                         <div class="product">
                             <div class="woocommerce-product-rating">
-                                <?php echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok. ?>
+                                <?php echo wc_get_rating_html( $average, $rating_count ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 <?php if ( comments_open( self::$product_id ) ) : ?>
                                     <?php //phpcs:disable ?>
                                     <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woolentor' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
@@ -313,10 +312,9 @@ class WooLentor_Default_Data{
                             </div>
                         </div>
                     <?php else:?>
-                        <?php echo '<div class="wl-nodata">'.__('No Rating Available','woolentor').'</div>';?>
+                        <?php echo '<div class="wl-nodata">'.esc_html__('No Rating Available','woolentor').'</div>';?>
                     <?php endif;
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-image':
                     ob_start();
@@ -344,12 +342,12 @@ class WooLentor_Default_Data{
                                             $html .= '</div>';
                                         }
 
-                                        echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                                        echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $thumbnail_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
                                         $attachment_ids = $product->get_gallery_image_ids();
                                         if ( $attachment_ids && $product->get_image_id() ) {
                                             foreach ( $attachment_ids as $attachment_id ) {
-                                                echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                                                echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                             }
                                         }
                                     ?>
@@ -359,7 +357,6 @@ class WooLentor_Default_Data{
                         <?php
                     }
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-meta':
                     ob_start();
@@ -371,13 +368,13 @@ class WooLentor_Default_Data{
 
                                 <?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
 
-                                    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woolentor' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woolentor' ); ?></span></span>
+                                    <span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woolentor' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? esc_html($sku) : esc_html__( 'N/A', 'woolentor' ); ?></span></span>
 
                                 <?php endif; ?>
 
-                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woolentor' ) . ' ', '</span>' ); ?>
+                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woolentor' ) . ' ', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
-                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woolentor' ) . ' ', '</span>' ); ?>
+                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woolentor' ) . ' ', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
                                 <?php do_action( 'woocommerce_product_meta_end' ); ?>
 
@@ -385,7 +382,6 @@ class WooLentor_Default_Data{
                         </div>
                     <?php
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-sku':
                     ob_start();
@@ -393,52 +389,48 @@ class WooLentor_Default_Data{
                     if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) : ?>
                         <div class="woolentor_product_sku_info">
                             <span class="sku-title"><?php esc_html_e('SKU:', 'woolentor'); ?></span>
-                            <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woolentor' ); ?></span>
+                            <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? esc_html($sku) : esc_html__( 'N/A', 'woolentor' ); ?></span>
                         </div>
                     <?php endif;
 
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-tags':
                     ob_start();
 
                     if( has_term( '', 'product_tag', $product->get_id() ) ) {
-                        echo '<div class="woolentor_product_tags_info">';
-                            ?>
-                                <span class="tags-title"><?php echo sprintf( _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woolentor' ) ); ?></span>
-                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">', '</span>' ); ?>
-                            <?php
-                        echo '</div>';
+                        ?>
+                            <div class="woolentor_product_tags_info">
+                                <span class="tags-title"><?php echo sprintf( _n( '%s', '%s', count( $product->get_tag_ids() ), 'woolentor' ), esc_html__('Tag:','woolentor'), esc_html__('Tags:','woolentor') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                                <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            </div>
+                        <?php
                     }else{
                         echo esc_html__('Product tags does not exists.', 'woolentor');
                     }
 
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-categories':
                     ob_start();
 
                     if( has_term( '', 'product_cat', $product->get_id() ) ) {
-                        echo '<div class="woolentor_product_categories_info">';
-                            ?>
-                                <span class="categories-title"><?php echo sprintf( _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woolentor' ) ); ?></span>
-                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">', '</span>' ); ?>
-                            <?php
-                        echo '</div>';
+                        ?>
+                            <div class="woolentor_product_categories_info">
+                                <span class="categories-title"><?php echo sprintf( _n( '%s', '%s', count( $product->get_category_ids() ), 'woolentor' ), esc_html__('Category:','woolentor'), esc_html__('Categories:','woolentor') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span> 
+                                <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            </div>
+                        <?php
                     }else{
                         echo esc_html__('Product category does not exists.', 'woolentor');
                     }
 
                     return ob_get_clean();
-                    break;
 
                 case 'wl-product-additional-information':
                     ob_start();
                     wc_get_template( 'single-product/tabs/additional-information.php' );
                     return ob_get_clean();
-                    break;
 
                 case 'wl-product-data-tabs':
                     $post = get_post( $product->get_id() );
@@ -458,7 +450,6 @@ class WooLentor_Default_Data{
                         wc_get_template( 'single-product/tabs/tabs.php' );
                     echo '</div>';
                     return ob_get_clean();
-                    break;
                 
                 case 'wl-product-data-tabs2':
                     // setup_postdata( $product->get_id() );
@@ -469,7 +460,6 @@ class WooLentor_Default_Data{
                     }
                     wc_get_template( 'single-product/tabs/tabs.php' );
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-reviews':
                     ob_start();
@@ -477,7 +467,6 @@ class WooLentor_Default_Data{
                         comments_template();
                     }
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-stock':
                     ob_start();
@@ -489,7 +478,6 @@ class WooLentor_Default_Data{
                         echo '<p>'.esc_html__('Stock availability does not exist this product.','woolentor').'</p>';
                     }
                     return ob_get_clean();
-                    break;
 
                 case 'wl-single-product-upsell':
                     ob_start();
@@ -515,7 +503,6 @@ class WooLentor_Default_Data{
                     }
 
                     return ob_get_clean();
-                    break;
 
                 case 'wl-product-related':
                     ob_start();
@@ -544,11 +531,9 @@ class WooLentor_Default_Data{
                     }
 
                     return ob_get_clean();
-                    break;
 
                 default: 
                     return '';
-                    break;
 
             }
         }

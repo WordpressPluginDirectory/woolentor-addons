@@ -278,7 +278,7 @@ class Woolentor_Wl_Currency_Switcher_Widget extends Widget_Base{
             $shortcode_attributes['flag_style'] = $settings['flag_style'];
         }
 
-        echo woolentor_do_shortcode( 'woolentor_currency_switcher', $shortcode_attributes );
+        echo woolentor_do_shortcode( 'woolentor_currency_switcher', $shortcode_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     }
 }

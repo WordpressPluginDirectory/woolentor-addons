@@ -796,7 +796,7 @@ class Woolentor_Special_Day_Offer_Widget extends Widget_Base {
                 <div class="banner-thumb">
                     <a <?php echo $this->get_render_attribute_string( 'url' ); ?>>
                         <?php
-                            echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'banner_image_size', 'banner_image' );
+                            echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'banner_image_size', 'banner_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         ?>
                     </a>
                 </div>
@@ -821,7 +821,7 @@ class Woolentor_Special_Day_Offer_Widget extends Widget_Base {
                         }
 
                         if( !empty( $settings['banner_button_txt'] ) ){
-                            echo '<a '.$this->get_render_attribute_string( 'url' ).'>'.esc_html__($settings['banner_button_txt'],'woolentor').'</a>';
+                            echo '<a '.$this->get_render_attribute_string( 'url' ).'>'.esc_html__($settings['banner_button_txt'],'woolentor').'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
                     ?>
                 </div>

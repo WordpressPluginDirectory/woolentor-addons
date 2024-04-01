@@ -153,7 +153,7 @@ class Woolentor_Wb_Just_Table_Widget extends Widget_Base {
         $short_code_attributes = [
             'id' => $settings['table_id'],
         ];
-        echo woolentor_do_shortcode( 'JT_Product_Table', $short_code_attributes );
+        echo woolentor_do_shortcode( 'JT_Product_Table', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
 }

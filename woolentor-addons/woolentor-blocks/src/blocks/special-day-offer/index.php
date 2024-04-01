@@ -13,47 +13,40 @@ $classes 	 = array( 'wlspcial-banner' );
 
 !empty( $settings['contentPosition'] ) ? $classes[] = 'woolentor-banner-content-pos-'.$settings['contentPosition'] : '';
 
-$arrContextOptions = [
-	'ssl' => [
-		'verify_peer' => false,
-		'verify_peer_name' => false,
-	]
-];
-$default_img = file_get_contents( WOOLENTOR_BLOCK_URL . '/src/assets/images/banner-image.svg', false, stream_context_create($arrContextOptions) );
-
+$default_img_url = WOOLENTOR_BLOCK_URL . '/src/assets/images/banner-image.svg';
 $banner_url 	= !empty( $settings['bannerLink'] ) ? $settings['bannerLink'] : '#';
-$banner_image 	= !empty( $settings['bannerImage']['id'] ) ? wp_get_attachment_image( $settings['bannerImage']['id'], 'full' ) : $default_img;
+$banner_image 	= !empty( $settings['bannerImage']['id'] ) ? wp_get_attachment_image( $settings['bannerImage']['id'], 'full' ) : '<img src="'.esc_url($default_img_url).'" alt="'.esc_attr__("Banner Default image",'woolentor').'" />';
 $badge_image 	= !empty( $settings['badgeImage']['id'] ) ? wp_get_attachment_image( $settings['badgeImage']['id'], 'full' ) : '';
 
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
-	<div class="<?php echo implode(' ', $classes ); ?>">
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
+	<div class="<?php echo esc_attr(implode(' ', $classes )); ?>">
 		
 		<div class="banner-thumb">
 			<a href="<?php echo esc_url( $banner_url ); ?>">
-				<?php echo $banner_image; ?>
+				<?php echo $banner_image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</a>
 		</div>
 
 		<?php
 			if( !empty( $badge_image ) ){
-				echo '<div class="wlbanner-badgeimage">'.$badge_image.'</div>';
+				echo '<div class="wlbanner-badgeimage">'.$badge_image.'</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		?>
 
 		<div class="banner-content">
 			<?php
 				if( !empty( $settings['title'] ) ){
-					echo '<h2>'.$settings['title'].'</h2>';
+					echo '<h2>'.esc_html($settings['title']).'</h2>';
 				}
 				if( !empty( $settings['subTitle'] ) ){
-					echo '<h6>'.$settings['subTitle'].'</h6>';
+					echo '<h6>'.esc_html( $settings['subTitle'] ).'</h6>';
 				}
 				if( !empty( $settings['offerAmount'] ) ){
-					echo '<h5>'.$settings['offerAmount'].'<span>'.$settings['offerTagLine'].'</span></h5>';
+					echo '<h5>'.esc_html($settings['offerAmount']).'<span>'.esc_html( $settings['offerTagLine'] ).'</span></h5>';
 				}
 				if( !empty( $settings['bannerDescription'] ) ){
-					echo '<p>'.$settings['bannerDescription'].'</p>';
+					echo '<p>'.esc_html( $settings['bannerDescription'] ).'</p>';
 				}
 
 				if( !empty( $settings['buttonText'] ) ){

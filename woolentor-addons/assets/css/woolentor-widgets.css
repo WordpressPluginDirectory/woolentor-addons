@@ -1104,6 +1104,7 @@ li.woolentor-cart .button:before {
 }
 .ht-products.woocommerce a.added_to_cart {
   padding: 0;
+  display: block;
 }
 
 .ht-product-action ul li.woolentor-cart a.button {

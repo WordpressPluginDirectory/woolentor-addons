@@ -169,15 +169,15 @@ class Woolentor_Wb_Product_Tags_Widget extends Widget_Base {
         $product = wc_get_product();
         
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else{
             if ( empty( $product ) ) { return; }
 
             if( has_term( '', 'product_tag', $product->get_id() ) ) {
                 echo '<div class="woolentor_product_tags_info">';
                     ?>
-                        <span class="tags-title"><?php echo sprintf( _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woolentor' ) ); ?></span>
-                        <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">', '</span>' ); ?>
+                        <span class="tags-title"><?php echo sprintf( esc_html( _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woolentor' ) ) ); ?></span>
+                        <?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php
                     do_action( 'woocommerce_product_meta_end' );
                 echo '</div>';

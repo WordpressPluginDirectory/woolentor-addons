@@ -15,7 +15,7 @@ if ( empty( $product ) ) {
 if( $block['is_editor'] ){
 	echo '<div class="woocommerce woocommerce-page single-product woocommerce-js">';
 }
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	$post = get_post( $product->get_id() );
 	wc_get_template( 'single-product/tabs/tabs.php' );
 echo '</div>';

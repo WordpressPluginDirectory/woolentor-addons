@@ -972,18 +972,18 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                                 <span class="new-price"><?php woocommerce_template_loop_price();?></span>
                             </div>
                             <?php do_action( 'woolentor_addon_after_price' ); ?>
-                            <p><?php echo $content_count; ?> </p>
+                            <p><?php echo $content_count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> </p>
                             <div class="reading">
                                 <?php woocommerce_template_loop_rating(); ?>
                             </div>
                         </div>
                         <ul class="action">
                             <li class="wl_cart">
-                                <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'woolentor' );?></a>
+                                <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo __( $cart_btn, 'woolentor' );?></a>
                             </li>
                             <?php
                                 if( true === woolentor_has_wishlist_plugin() ){
-                                    echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>').'</li>';
+                                    echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             ?>                                    
                             <?php

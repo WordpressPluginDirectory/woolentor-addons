@@ -26,35 +26,35 @@
                                 echo '<span class="label">'.esc_html( $settings['quantityText'] ).'</span>';
                             }
                             echo '<div class="wl-quantity-cal">';
-                            echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>';
+                            echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     });
             
                     add_action( 'woocommerce_after_add_to_cart_quantity', function() use ($settings, $plus_icon) {
-                        echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>';
+                        echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         echo '</div>';
                         echo '</div>';
-                        echo '<div class="wl-cart-wrap '.$settings['buttonsPosition'].'">';
+                        echo '<div class="wl-cart-wrap '.esc_attr($settings['buttonsPosition']).'">';
                             if( '5' !== $settings['layoutStyle']){
                                 if( true === woolentor_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                                    echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                                    echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             }
                     } );
                 }else{
                     add_action( 'woocommerce_before_add_to_cart_quantity', function() use ($settings, $minus_icon) {
                         echo '<div class="wl-quantity-grouped-cal">';
-                            echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>';
+                            echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     });
             
                     add_action( 'woocommerce_after_add_to_cart_quantity', function() use ($settings, $plus_icon) {
-                            echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>';
+                            echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         echo '</div>';
                     } );
                     add_action( 'woocommerce_before_add_to_cart_button', function() use ($settings) {
-                        echo '<div class="wl-cart-wrap '.$settings['buttonsPosition'].'">';
+                        echo '<div class="wl-cart-wrap '.esc_attr($settings['buttonsPosition']).'">';
                         if( '5' !== $settings['layoutStyle']){
                             if( true === woolentor_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                                echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                                echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         }
                     });
@@ -64,7 +64,7 @@
                     if( 'simple' == $porduct_type || 'grouped' == $porduct_type || 'variable' == $porduct_type){
                         if( '5' === $settings['layoutStyle']){
                             if( true === woolentor_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                                echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                                echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         }
                         if( function_exists('woolentor_compare_button') && true === woolentor_exist_compare_plugin() && true !== $settings['hideCompareButton'] ){
@@ -81,7 +81,7 @@
                         echo "</div>";
                     }elseif ('external' == $porduct_type) {
                         if( true === woolentor_has_wishlist_plugin() && true !== $settings['hideWishlistButton'] ){
-                            echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                            echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
                         if( function_exists('woolentor_compare_button') && true === woolentor_exist_compare_plugin() && true !== $settings['hideCompareButton'] ){
                             echo '<span class="wl-cart-icon compare">';
@@ -100,7 +100,7 @@
                         <?php if( true === woolentor_has_wishlist_plugin() ): ?>
                             <li>
                                 <?php if( true !== $settings['hideWishlistButton'] ): ?>
-                                    <?php echo woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes'); ?>
+                                    <?php echo woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>

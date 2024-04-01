@@ -233,7 +233,7 @@ class Woolentor_Wl_Archive_Title_Widget extends Widget_Base {
         ?>
             <div class="woolentor-archive-data-area">
                 <?php
-                    echo sprintf( '%s %s %s', $image, $title, $description );
+                    echo sprintf( '%s %s %s', $image, $title, $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
             </div>
         <?php

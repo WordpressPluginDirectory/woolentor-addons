@@ -48,8 +48,8 @@ class Repeater_Helper{
     /**
      * Get sub_name options.
      * 
-     * @param name based on name we will get options.
-     * @param return type of the return value. array or html.
+     * Name based on name we will get options.
+     * return type of the return value. array or html.
      * 
      * @return array|string
      */
@@ -89,8 +89,8 @@ class Repeater_Helper{
     /**
      * Get sub id options.
      * 
-     * @param sub_name either string / post_type / taxonomy.
-     * @param return type of the return value. array or html.
+     * sub_name either string / post_type / taxonomy.
+     * return type of the return value. array or html.
      * 
      * @return array|string
      */
@@ -131,7 +131,7 @@ class Repeater_Helper{
         if( $return == 'html' ){
             $html .= '<select data-name="sub_id">';
             foreach ( $options as $key => $value ) {
-                $selected_sub_id  = isset($popup_settings['conditions'][$key]['sub_id']) ? $popup_settings['conditions'][$key]['sub_id'] : '';
+                // $selected_sub_id  = isset($popup_settings['conditions'][$key]['sub_id']) ? $popup_settings['conditions'][$key]['sub_id'] : '';
 
                 // $html .= '<option value="'. $key .'"'. selected( $selected_sub_id, $value ) .'>'. $value .'</option>';
                 $html .= '<option value="'. $key .'" '. selected( $selected_vlaue, $key, false ) .'>'. $value .'</option>';

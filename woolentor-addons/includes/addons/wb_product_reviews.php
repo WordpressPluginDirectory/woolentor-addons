@@ -66,7 +66,7 @@ class Woolentor_Wb_Product_Reviews_Widget extends Widget_Base {
         $product = wc_get_product();
 
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else{
             if ( empty( $product ) ) { return; }
             add_filter( 'comments_template', array( 'WC_Template_Loader', 'comments_template_loader' ) );

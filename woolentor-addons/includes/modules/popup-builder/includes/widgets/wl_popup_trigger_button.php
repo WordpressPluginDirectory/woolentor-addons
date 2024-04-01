@@ -405,7 +405,7 @@ class Woolentor_Wl_Popup_Trigger_Button_Widget extends Widget_Base{
             'redirect_url' => $redirect_url,
         ];
 
-        echo woolentor_do_shortcode( 'wlpb_trigger_button', $short_code_attributes );
+        echo woolentor_do_shortcode( 'wlpb_trigger_button', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     }
 }

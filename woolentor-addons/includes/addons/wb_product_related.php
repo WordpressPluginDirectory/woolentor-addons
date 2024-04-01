@@ -198,7 +198,7 @@ class Woolentor_Wb_Product_Related_Widget extends Widget_Base {
         $product = wc_get_product();
 
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name(), $settings );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name(), $settings ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else{
             if ( ! $product ) { return; }
             $args = [

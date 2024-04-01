@@ -49,6 +49,12 @@ class Ajax {
      * [add_to_wishlist] Product add ajax callback
      */
     public function add_to_wishlist(){
+        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wishSuite_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
         $id = sanitize_text_field( $_GET['id'] );
         $inserted = \WishSuite\Frontend\Manage_Wishlist::instance()->add_product( $id );
         if ( ! $inserted ) {
@@ -69,6 +75,12 @@ class Ajax {
      * @return [void]
      */
     public function remove_wishlist(){
+        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wishSuite_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
         $id = sanitize_text_field( $_GET['id'] );
         $deleted = \WishSuite\Frontend\Manage_Wishlist::instance()->remove_product( $id );
         if ( ! $deleted ) {
@@ -90,6 +102,13 @@ class Ajax {
      * @return [void]
      */
     public function variation_form_html( $id = false ){
+
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wishSuite_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
 
         if( isset( $_POST['id'] ) ) {
             $id = sanitize_text_field( (int) $_POST['id'] );
@@ -124,6 +143,13 @@ class Ajax {
      */
     public function insert_to_cart(){
 
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'wishSuite_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
+
         // phpcs:disable WordPress.Security.NonceVerification.Missing
         if ( ! isset( $_POST['product_id'] ) ) {
             return;
@@ -147,7 +173,7 @@ class Ajax {
                 'error' => true,
                 'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ),
             );
-            echo wp_send_json( $data );
+            echo wp_send_json_error( $data );
         }
         wp_send_json_success();
         

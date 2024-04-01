@@ -193,15 +193,15 @@ class Woolentor_Admin_Notice{
 				<?php
 					// Notice Image
 					if( !empty( $notice_arg['banner'] ) ){
-						printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( $notice_arg['banner']['url'] ), $notice_arg['banner']['image'] );
+						printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( $notice_arg['banner']['url'] ), $notice_arg['banner']['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 
 					// Notice Message
-					printf('<p>%1$s</p>', __( $notice_arg['message'] ) );
+					printf('<p>%1$s</p>', __( $notice_arg['message'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 					// If notice type custom and dismissible true
 					if ( true === $notice_arg['dismissible'] ) {
-						printf('%1$s', __( $notice_arg['dismissible_btn'] ) );
+						printf('%1$s', __( $notice_arg['dismissible_btn'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 
 					// Notice Action Button

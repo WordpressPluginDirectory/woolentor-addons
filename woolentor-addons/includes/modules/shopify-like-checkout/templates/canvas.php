@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 wp_body_open();
             }
             
-            echo woolentor_do_shortcode( 'woocommerce_checkout' );
+            echo woolentor_do_shortcode( 'woocommerce_checkout' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
             wp_footer(); 
         ?>

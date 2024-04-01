@@ -29,6 +29,7 @@
       data: {
         action: "ever_compare_add_to_compare",
         id: id,
+        nonce: evercompare.compare_nonce
       },
       dataType: "json",
       method: "GET",
@@ -70,6 +71,7 @@
       data: {
         action: "ever_compare_remove_from_compare",
         id: id,
+        nonce: evercompare.compare_nonce
       },
       dataType: "json",
       method: "GET",

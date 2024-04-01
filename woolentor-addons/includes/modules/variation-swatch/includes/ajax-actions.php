@@ -63,6 +63,14 @@ class Ajax_Actions{
      * AJAX add to cart.
      */
     public function ajax_add_to_cart() {
+
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'swatchly_none' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
+
         if ( ! isset( $_POST['product_id'] ) ) {
             return;
         }

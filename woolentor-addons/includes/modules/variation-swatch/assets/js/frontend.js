@@ -100,7 +100,8 @@
 	                action: 'swatchly_ajax_add_to_cart',
 	                product_id: productId,
 	                variation_id: variationId,
-	                variation: variation
+	                variation: variation,
+					nonce: swatchly_params.swatchly_none
 	            };
 
 	            $( document.body ).trigger( 'adding_to_cart', [ $thisbutton, data ] );

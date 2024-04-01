@@ -169,8 +169,9 @@ class Woolentor_Manage_WC_Template{
 
             if ( has_blocks( $content ) ) {
                 $blocks = parse_blocks( $content );
+                $embed = new WP_Embed();
                 foreach ( $blocks as $block ) {
-                    $output .= do_shortcode( render_block( $block ) );
+                    $output .= $embed->autoembed(do_shortcode( render_block( $block ) )); //phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
                 }
             }else{
                 $content = apply_filters( 'the_content', $content );
@@ -192,7 +193,7 @@ class Woolentor_Manage_WC_Template{
     public function set_shop_page_builder_content(){
         $archive_template_id = $this->archive_template_id();
         if( $archive_template_id != '0' ){
-            echo self::render_build_content( $archive_template_id );
+            echo self::render_build_content( $archive_template_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
     }
 
@@ -200,7 +201,7 @@ class Woolentor_Manage_WC_Template{
     public static function set_product_page_builder_content() {
         if ( self::has_template( 'singleproductpage', '_selectproduct_layout' ) ) {
             $wltemplateid = self::get_template_id( 'singleproductpage', '_selectproduct_layout' );
-            echo self::render_build_content( $wltemplateid );
+            echo self::render_build_content( $wltemplateid ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
     }
 

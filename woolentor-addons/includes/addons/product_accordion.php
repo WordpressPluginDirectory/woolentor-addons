@@ -246,8 +246,7 @@ class Woolentor_Product_Accordion_Widget extends Widget_Base {
                         'button_icon[value]!' => '',
                     ],
                     'selectors' => [ 
-                        '{{WRAPPER}} .wl_product-accordion .card-body .product-content .product-acontent-bottom .action a.action-item i'  => 'margin-left: {{SIZE}}{{UNIT}};',
-                        '{{WRAPPER}} .wl_product-accordion .card-body .product-content .product-acontent-bottom .action a.action-item i'   => 'margin-right: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .wl_product-accordion .card-body .product-content .product-acontent-bottom .action a.action-item i'  => 'margin-left: {{SIZE}}{{UNIT}}; margin-right:{{SIZE}}{{UNIT}};',
                     ],
                 ]
             );            
@@ -827,19 +826,19 @@ class Woolentor_Product_Accordion_Widget extends Widget_Base {
                 ?>                           
 
                             <div class="wl_product-accordion-card <?php if( $i ==1){echo esc_attr('active'); } ?>">
-                                <div class="wl_product-accordion-head <?php echo $tabuniqid; ?>">
+                                <div class="wl_product-accordion-head <?php echo esc_attr($tabuniqid); ?>">
                                     <span class="wl_product-accordion-head-text"><?php the_title(); ?></span>
                                     <span class="wl_product-accordion-head-indicator"><i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></span>
                                 </div>
-                                <div class="wl_product-accordion-body <?php echo $tabuniqid; ?> ">
+                                <div class="wl_product-accordion-body <?php echo esc_attr($tabuniqid); ?> ">
                                     <div class="wl_product-accordion-content">
                                         <div class="card-body">
                                             <div class="product-thumbnail">
-                                                <a href="<?php echo $product->get_permalink(); ?>"><?php echo $product->get_image($image_size); ?></a>
+                                                <a href="<?php echo esc_url($product->get_permalink()); ?>"><?php echo $product->get_image($image_size); ?></a>
                                             </div>
                                             <div class="product-content">
                                                 <div class="product-content-top">
-                                                    <p><?php echo $content_count; ?></p>
+                                                    <p><?php echo $content_count; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
                                                     <div class="reading">
                                                         <?php woocommerce_template_loop_rating(); ?>
                                                     </div>
@@ -850,11 +849,11 @@ class Woolentor_Product_Accordion_Widget extends Widget_Base {
                                                     </div>
                                                     <ul class="action">
                                                         <li class="btn_cart">
-                                                            <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'woolentor' );?></a>
+                                                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo __( $cart_btn, 'woolentor' );?></a>
                                                         </li>
                                                         <?php
                                                             if( true === woolentor_has_wishlist_plugin() ){
-                                                                echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>').'</li>';
+                                                                echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             }
                                                         
                                                             if( function_exists('woolentor_compare_button') && true === woolentor_exist_compare_plugin() && !Plugin::instance()->editor->is_edit_mode() ){
@@ -883,28 +882,28 @@ class Woolentor_Product_Accordion_Widget extends Widget_Base {
         </div>
 
         <script>
-                ;jQuery(document).ready(function($) {
-                    'use strict';
-                     (function HTProductAccordionFunction() {
-                        var HTProductAccordionHead = $('.wl_product-accordion-head.<?php echo $tabuniqid; ?>'),
-                            HTProductAccordionBody = $('.wl_product-accordion-body.<?php echo $tabuniqid; ?>');
-                        HTProductAccordionBody.hide()
-                        $('.wl_product-accordion-card.active').find('.wl_product-accordion-body.<?php echo $tabuniqid; ?>').slideDown();
-                        HTProductAccordionHead.on('click', function(e) {
-                            e.preventDefault();
-                            var $this = $(this);
+            ;jQuery(document).ready(function($) {
+                'use strict';
+                    (function HTProductAccordionFunction() {
+                    var HTProductAccordionHead = $('.wl_product-accordion-head.<?php echo esc_js($tabuniqid); ?>'),
+                        HTProductAccordionBody = $('.wl_product-accordion-body.<?php echo esc_js($tabuniqid); ?>');
+                    HTProductAccordionBody.hide()
+                    $('.wl_product-accordion-card.active').find('.wl_product-accordion-body.<?php echo esc_js($tabuniqid); ?>').slideDown();
+                    HTProductAccordionHead.on('click', function(e) {
+                        e.preventDefault();
+                        var $this = $(this);
 
-                            if ($this.parent('.wl_product-accordion-card').hasClass('active')) {
-                                $this.parent('.wl_product-accordion-card').removeClass('active').find('.wl_product-accordion-body.<?php echo $tabuniqid; ?>').slideUp();
-                            } else {
-                                $this.parent('.wl_product-accordion-card').addClass('active').find('.wl_product-accordion-body.<?php echo $tabuniqid; ?>').slideDown();
-                                $this.parent().siblings('.wl_product-accordion-card').removeClass('active').find('.wl_product-accordion-body.<?php echo $tabuniqid; ?>').slideUp();
-                            }
-                        })
-                     })();
+                        if ($this.parent('.wl_product-accordion-card').hasClass('active')) {
+                            $this.parent('.wl_product-accordion-card').removeClass('active').find('.wl_product-accordion-body.<?php echo esc_js($tabuniqid); ?>').slideUp();
+                        } else {
+                            $this.parent('.wl_product-accordion-card').addClass('active').find('.wl_product-accordion-body.<?php echo esc_js($tabuniqid); ?>').slideDown();
+                            $this.parent().siblings('.wl_product-accordion-card').removeClass('active').find('.wl_product-accordion-body.<?php echo esc_js($tabuniqid); ?>').slideUp();
+                        }
+                    })
+                    })();
 
-                });
-            </script>
+            });
+        </script>
                
         <?php
 

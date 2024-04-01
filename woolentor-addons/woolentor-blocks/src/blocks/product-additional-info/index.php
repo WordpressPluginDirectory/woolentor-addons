@@ -12,6 +12,6 @@ $product = wc_get_product();
 if ( empty( $product ) ) {
 	return;
 }
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	wc_get_template( 'single-product/tabs/additional-information.php' );
 echo '</div>';

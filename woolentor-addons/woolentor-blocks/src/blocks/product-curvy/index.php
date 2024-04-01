@@ -41,11 +41,11 @@ if( isset( $settings['layout'] ) ){
 }
 
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
 
 	<?php if( $products->have_posts() ): ?>
 
-		<div class="woolentor-grid <?php echo ( $settings['noGutter'] === true ? 'woolentor-no-gutters' : '' ); ?>">
+		<div class="woolentor-grid <?php echo ( $settings['noGutter'] === true ? esc_attr('woolentor-no-gutters') : '' ); ?>">
 			<?php
 				while( $products->have_posts() ) {
 					$products->the_post();
@@ -59,11 +59,11 @@ if( isset( $settings['layout'] ) ){
 
 					?>
 						<div class="woolentor-grid-column">
-							<div class="wl_single-product-item <?php echo $content_style; ?>">
+							<div class="wl_single-product-item <?php echo esc_attr($content_style); ?>">
 
 								<a href="<?php the_permalink(); ?>" class="product-thumbnail">
 									<div class="images">
-										<?php echo $product->get_image( 'full' ); //woocommerce_template_loop_product_thumbnail(); ?>
+										<?php echo $product->get_image( 'full' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 									</div>
 								</a>
 
@@ -82,7 +82,7 @@ if( isset( $settings['layout'] ) ){
 
 										<?php
 											if( $settings['showContent'] === true ){
-												echo '<p>'.$description.'</p>';
+												echo '<p>'.$description.'</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 											}
 										?>
 
@@ -95,11 +95,11 @@ if( isset( $settings['layout'] ) ){
 									</div>
 									<ul class="action">
 										<li class="wl_cart">
-											<a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( '<i class="fa fa-shopping-cart"></i>', 'woolentor' );?></a>
+											<a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( '<i class="fa fa-shopping-cart"></i>', 'woolentor' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 										</li>
 										<?php
 											if( true === woolentor_has_wishlist_plugin() ){
-												echo '<li>'.woolentor_add_to_wishlist_button('<i class="fa fa-heart-o"></i>','<i class="fa fa-heart"></i>').'</li>';
+												echo '<li>'.woolentor_add_to_wishlist_button('<i class="fa fa-heart-o"></i>','<i class="fa fa-heart"></i>').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 											}
 										?>                                    
 										<?php

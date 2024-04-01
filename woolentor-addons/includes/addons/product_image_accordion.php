@@ -758,7 +758,7 @@ class Woolentor_Product_Image_Accordion_Widget extends Widget_Base {
               ?>
 
         
-                <li style="background-image: url('<?php echo $image_url; ?>');">
+                <li style="background-image: url('<?php echo esc_url($image_url); ?>');">
                     <div class="accordion-product-content">
                         <div class="accordion-product-item">
                             <div class="product-content">
@@ -769,11 +769,11 @@ class Woolentor_Product_Image_Accordion_Widget extends Widget_Base {
                                 </div>
                                 <?php do_action( 'woolentor_addon_after_price' ); ?>
                                 <div class="action">
-                                        <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo $btna_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'woolentor' );?></a>
+                                        <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btna_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo $cart_btn; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
                                     <?php 
                                      
                                         if( true === woolentor_has_wishlist_plugin() ){
-                                            echo woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>');
+                                            echo woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         }
                                     
                                         if( function_exists('woolentor_compare_button') && true === woolentor_exist_compare_plugin() && !Plugin::instance()->editor->is_edit_mode() ){

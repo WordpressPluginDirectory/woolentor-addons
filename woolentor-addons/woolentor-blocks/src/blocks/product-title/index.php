@@ -12,4 +12,4 @@ $title_html_tag = woolentor_validate_html_tag( $settings['titleTag'] );
 // $title = $block['is_editor'] ? get_the_title( woolentorBlocks_get_last_product_id() ) : get_the_title();
 $title = get_the_title();
 
-echo sprintf( "<%s class='%s'>%s</%s>", $title_html_tag, implode(' ', $areaClasses ), $title, $title_html_tag  );
+echo sprintf( "<%s class='%s'>%s</%s>", $title_html_tag, esc_attr( implode(' ', $areaClasses ) ), $title, $title_html_tag  ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

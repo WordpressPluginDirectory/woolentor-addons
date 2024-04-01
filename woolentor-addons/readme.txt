@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.5
-Stable tag: 2.8.3
+Stable tag: 2.8.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,9 +102,9 @@ You can see the plugin demo here 👉 [Live Demo](https://woolentor.com/?utm_sou
 
 ==🔥 Premium Features: ==
 
-✅ 100+ WooCommerce Elementor Widgets / Elementor WooCommerce Widgets
-✅ 24 WooCommerce Modules 
-✅ 29 WordPress Gutenberg Blocks / WoCommerce Gutenberg Blocks
+✅ 125+ WooCommerce Elementor Widgets / Elementor WooCommerce Widgets
+✅ 26 WooCommerce Modules 
+✅ 62 WordPress Gutenberg Blocks / WoCommerce Gutenberg Blocks
 ✅ Custom WooCommerce Product Template Builder for Individual Product
 ✅ Individual Archive Page Builder / WooCommerce Template Builder
 ✅ WooCommerce Checkout Field Editor / Checkout Field Manager
@@ -258,8 +258,6 @@ There are options to manage WooCommerce category list and WooCommerce category i
 <strong>[WooCommerce Brands](https://woolentor.com/demo/brand-logo/)</strong> – Showcase brand logos within a grid or Woo carousel layout.  WooCommerce Brands widget lets you display brands in different layouts. WooCommerce product brands is a ShopLentor's widget (Elementor WooCommerce builder widget) that helps you to showcase product brands in your store. With this Woo builder widget for brand logo showcase, you can display the brand logos of your partners or sponsors within a rotating brand logo carousel or brand logo slider.
 
 A brand carousel or brand slider makes it easy for you to display the brand logos in a way that is creative and engaging. Not to mention, they can help you attract new customers and build brand loyalty. Aside from showcasing your partner’s logo, you can show the product brands or WooCommerce brands whose products you sell on your online storefront. Furthermore, the brand logo Carousel or brand logo slider is fully responsive and mobile-friendly. If you want to make your business trustworthy to your customers, this brand carousel or brands slider widget is worth considering.
-
-
 
 
 <strong>[WooCommerce Breadcrumbs](https://woolentor.com/demo/product-layout/)</strong> – Add WooCommerce breadcrumbs to your WooCommerce store so that visitors can clearly understand which page they are currently viewing by seeing the WooCommerce navigation links, WooCommerce pages links, or WooCommerce menu links of the WooCommerce breadcrumbs.
@@ -1105,6 +1103,12 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.8.4 - Date: 01-04-2024 =
+* Solved : Tag selection issue in recently view product addon.
+* Solved : Currency list showing issue in module setting.
+* Solved : Minor Issues.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.8.3 - Date: 19-03-2024 =
 * Solved : PHP 8.2 Version Compatibility in Variation swatch module.
 * Solved : Image change issue with Variation swatch module.
@@ -1687,54 +1691,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Fixed archive page broken issue.
 * Fixed search results page issue.
 * Fixed product ordering issue on the shop page.
-
-= Version: 1.7.8 - Date: 2020-12-27 =
-* Minor Bug fixed addon added
-
-= Version: 1.7.7 - Date: 2020-12-26 =
-* Store Features addon added
-* Faq addon added
-* Testimonial addon added
-* One page slider addon added
-* Category Grid addon added
-* Minor Bug fixed addon added
-
-= Version: 1.7.6 - Date: 2020-12-25 =
-* Capability to customize the search results page.
-* SG Optimizer plugin Compatibility.
-* Product filter issue solved.
-
-= Version: 1.7.5 - Date: 2020-12-05 =
-* Product Horizontal Filter Addon added.
-
-= Version: 1.7.4 - Date: 2020-11-25 =
-* Product Filter Addon added.
-
-= Version: 1.7.3 - Date: 2020-11-11 =
-* Template Library Improve
-* Rating improve
-* Style css improve
-
-= Version: 1.7.1 - Date: 2020-10-11 =
-* Capability With the latest WordPress and WooCommerce.
-* Spelling improve
-
-= Version: 1.7.0 - Date: 2020-09-15 =
-* Product Curvy addon added
-* Product accordion addon added
-* Product image with accordion added
-* Capability With the latest WordPress and WooCommerce.
-
-= Version: 1.6.9 - Date: 2020-01-02 =
-* Capability With the latest WordPress and WooCommerce.
-* Bug Fixing
-
-= Version: 1.6.8 - Date: 2020-08-13 =
-* Capability With the latest WordPress and WooCommerce.
-
-= Version: 1.6.7 - Date: 2020-07-22 =
-* Image marker addon added.
-* Customer Review addon added.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

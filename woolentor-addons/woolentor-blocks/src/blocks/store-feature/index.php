@@ -15,21 +15,21 @@ $classes = array( $uniqClass, 'woolentor-blocks ht-feature-wrap' );
 $store_image = !empty( $settings['featureImage']['id'] ) ? wp_get_attachment_image( $settings['featureImage']['id'], 'full' ) : '';
 
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
-	<div class="<?php echo implode(' ', $classes ); ?>">
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
+	<div class="<?php echo esc_attr(implode(' ', $classes )); ?>">
 		<div class="ht-feature-inner">
 			<?php
 				if( !empty( $store_image ) ){
-					echo '<div class="ht-feature-img">'.$store_image.'</div>';
+					echo '<div class="ht-feature-img">'.$store_image.'</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			?>
 			<div class="ht-feature-content">
 				<?php
 					if( !empty( $settings['title'] ) ){
-						echo '<h4>'.$settings['title'].'</h4>';
+						echo '<h4>'.esc_html($settings['title']).'</h4>';
 					}
 					if( !empty( $settings['subTitle'] ) ){
-						echo '<p>'.$settings['subTitle'].'</p>';
+						echo '<p>'.esc_html($settings['subTitle']).'</p>';
 					}
 				?>
 			</div>

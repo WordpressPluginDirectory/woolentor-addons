@@ -94,16 +94,16 @@ class Manage_Data {
 
         $sql = $args['number'] === -1 ? $wpdb->prepare(
             "SELECT * FROM {$wpdb->prefix}wishsuite_list
-            WHERE user_id = {$args['user_id']}
-            ORDER BY {$args['orderby']} {$args['order']}
+            WHERE user_id = %d
+            ORDER BY %s %s
             LIMIT %d, %d",
-            0,10000
+            $args['user_id'], $args['orderby'], $args['order'], 0, 10000
         ) : $wpdb->prepare(
             "SELECT * FROM {$wpdb->prefix}wishsuite_list
-            WHERE user_id = {$args['user_id']}
-            ORDER BY {$args['orderby']} {$args['order']}
+            WHERE user_id = %d
+            ORDER BY %s %s
             LIMIT %d, %d",
-            $args['offset'], $args['number']);
+            $args['user_id'], $args['orderby'], $args['order'], $args['offset'], $args['number']);
 
         $items = wp_cache_get( $cache_key, 'wishsuite' );
 

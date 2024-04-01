@@ -396,6 +396,7 @@ class Woolentor_Wl_Category_Widget extends Widget_Base {
         }
 
         $catargs = array(
+            'taxonomy'   => 'product_cat',
             'orderby'    => $orderby,
             'order'      => $order,
             'hide_empty' => ( 'yes' === $settings['hide_empty'] )
@@ -416,7 +417,7 @@ class Woolentor_Wl_Category_Widget extends Widget_Base {
         }else{
             $catargs['slug'] = '';
         }
-        $prod_categories = get_terms( 'product_cat', $catargs );
+        $prod_categories = get_terms( $catargs );
 
         if( $display_type == 'all_cat' || $display_type == 'all_cat_parent' ){
             $limitcount = $settings['limitcount'];
@@ -438,7 +439,7 @@ class Woolentor_Wl_Category_Widget extends Widget_Base {
         $counter = 0;
         $thumbnails = '';
 
-        echo '<div class="wl-row '.( $settings['no_gutters'] === 'yes' ? 'wlno-gutters' : '' ).' wl-layout-'.$settings['layout'].'">';
+        echo '<div class="wl-row '.( $settings['no_gutters'] === 'yes' ? 'wlno-gutters' : '' ).' wl-layout-'.esc_attr($settings['layout']).'">';
         foreach ( $prod_categories as $key => $prod_cat ):
             $counter++;
 
@@ -462,13 +463,13 @@ class Woolentor_Wl_Category_Widget extends Widget_Base {
                 <?php if( !empty($thumbnails) ):?>
                     <div class="wlsingle-categorie-img">
                         <a href="<?php echo esc_url( $term_link ); ?>" <?php echo wc_implode_html_attributes( $link_attributes ); ?>>
-                            <?php echo $thumbnails; ?>
+                            <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </a>
                     </div>
                 <?php endif; ?>
                 <div class="wlcategorie-content">
                     <h4><a href="<?php echo esc_url( $term_link ); ?>" <?php echo wc_implode_html_attributes( $link_attributes ); ?>><?php echo esc_html__( $prod_cat->name, 'woolentor' ); ?></a><sup>(<?php echo esc_html__( $prod_cat->count, 'woolentor' ); ?>)</sup></h4>
-                    <p><?php echo wp_trim_words( $prod_cat->description ); ?></p>
+                    <p><?php echo wp_trim_words( $prod_cat->description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
                 </div>
             </div>
         </div>

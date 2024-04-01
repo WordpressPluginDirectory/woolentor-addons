@@ -34,6 +34,6 @@ $args['related_products'] = array_filter( array_map( 'wc_get_product', wc_get_re
 	$args['posts_per_page'], $product->get_upsell_ids() ) ), 'wc_products_array_filter_visible' );
 $args['related_products'] = wc_products_array_orderby( $args['related_products'], $args['orderby'], $args['order'] );
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	wc_get_template( 'single-product/related.php', $args );
 echo '</div>';

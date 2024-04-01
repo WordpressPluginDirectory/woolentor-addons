@@ -11,7 +11,7 @@ $areaClasses = array( $uniqClass, 'product_stock_status' );
 $product = wc_get_product();
 if ( empty( $product ) ) { return; }
 if ( $product->get_manage_stock() ) {
-	echo '<div class="'.implode(' ', $areaClasses ).'">';
-		echo wc_get_stock_html( $product );
+	echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
+		echo wc_get_stock_html( $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo '</div>';
 }

@@ -29,9 +29,7 @@ class Woolentor_Sale_Notification{
 
         if ( isset( $_POST ) ) {
 
-			$nonce = $_POST['security'];
-
-			if ( ! wp_verify_nonce( $nonce, 'woolentor-ajax-request' ) ) {
+            if ( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'woolentor-ajax-request' ) ) {
 				$errormessage = array(
 					'message'  => __('Nonce Varification Faild !','woolentor')
 				);
@@ -50,7 +48,7 @@ class Woolentor_Sale_Notification{
                     'orderby'=> 'ID',
                     'order'  => 'DESC',
                     'date_query' => array (
-                        'after' => date('Y-m-d', strtotime('-'.woolentor_get_option('notification_uptodate','woolentor_sales_notification_tabs','5' ).' days'))
+                        'after' => gmdate('Y-m-d', strtotime('-'.woolentor_get_option('notification_uptodate','woolentor_sales_notification_tabs','5' ).' days'))
                     )
                 );
                 $posts = wc_get_orders( $query_args );
@@ -111,7 +109,7 @@ class Woolentor_Sale_Notification{
                 }
                 set_transient( $cachekey, $products, 60 ); // Cache the results for 1 minute
             }
-            echo( json_encode( $products ) );
+            echo( wp_json_encode( $products ) );
             wp_die();
         }
 
@@ -140,7 +138,7 @@ class Woolentor_Sale_Notification{
             'lname' => isset( $address['last_name']) && strlen($address['last_name'] ) > 0 ? ucfirst($address['last_name']) : '',
             'city' => isset( $address['city'] ) && strlen($address['city'] ) > 0 ? ucfirst($address['city']) : 'N/A',
             'state' => isset( $address['state']) && strlen($address['state'] ) > 0 ? ucfirst($address['state']) : 'N/A',
-            'country' =>  isset( $address['country']) && strlen($address['country'] ) > 0 ? WC()->countries->countries[$address['country']] : 'N/A',
+            'country' => isset( $address['country']) && strlen($address['country'] ) > 0 ? WC()->countries->countries[$address['country']] : 'N/A',
         );
         return $buyerinfo;
     }
@@ -244,13 +242,13 @@ class Woolentor_Sale_Notification{
             <script>
                 ;jQuery( document ).ready( function( $ ) {
 
-                    var notposition = '<?php echo $notposition; ?>',
-                        notlayout = ' '+'<?php echo $notlayout; ?>';
+                    var notposition = '<?php echo esc_js($notposition); ?>',
+                        notlayout = ' '+'<?php echo esc_js($notlayout); ?>';
                     
                     var displayItems = {
-                        city: '<?php echo $show_city; ?>',
-                        state: '<?php echo $show_state; ?>',
-                        country: '<?php echo $show_country; ?>'
+                        city: '<?php echo esc_js($show_city); ?>',
+                        state: '<?php echo esc_js($show_state); ?>',
+                        country: '<?php echo esc_js($show_country); ?>'
                     };
 
                     var other_text = {
@@ -262,15 +260,15 @@ class Woolentor_Sale_Notification{
 
                     var data = {
                         action: 'woolentor_purchased_products',
-                        security: '<?php echo $ajax_nonce; ?>',
+                        security: '<?php echo esc_js($ajax_nonce); ?>',
                         whatever: 1234
                     };
                     
-                    var intervaltime = <?php echo $intervaltime; ?>,
-                        duration = <?php echo $duration; ?>,
-                        showing_time = <?php echo $showing; ?>,
-                        inanimation = '<?php echo $inanimation; ?>',
-                        outanimation = '<?php echo $outanimation; ?>',
+                    var intervaltime = <?php echo esc_js($intervaltime); ?>,
+                        duration = <?php echo esc_js($duration); ?>,
+                        showing_time = <?php echo esc_js($showing); ?>,
+                        inanimation = '<?php echo esc_js($inanimation); ?>',
+                        outanimation = '<?php echo esc_js($outanimation); ?>',
                         i = 0;
 
                     

@@ -183,6 +183,10 @@ class Api
             return rest_ensure_response([]);
         }
 
+        if ( !function_exists('wp_strip_all_tags') ) {
+            require_once( ABSPATH . 'wp-includes/formatting.php' );
+        }
+
         $data = [];
         $loop = new \WP_Query(woolentorBlocks_Product_Query($request));
 
@@ -198,8 +202,8 @@ class Api
                 $item['time'] = get_the_date();
                 $item['title'] = get_the_title();
                 $item['permalink'] = get_permalink();
-                $item['excerpt'] = strip_tags(get_the_excerpt());
-                $item['content'] = strip_tags(get_the_content());
+                $item['excerpt'] = wp_strip_all_tags(get_the_excerpt());
+                $item['content'] = wp_strip_all_tags(get_the_content());
                 $item['price_sale'] = $product->get_sale_price();
                 $item['price_regular'] = $product->get_regular_price();
                 $item['on_sale'] = $product->is_on_sale();
@@ -235,7 +239,7 @@ class Api
 
                 $time = current_time('timestamp');
                 $time_to = strtotime($product->get_date_on_sale_to());
-                $item['deal'] = ($item['price_sale'] && $time_to > $time) ? date('Y/m/d', $time_to) : '';
+                $item['deal'] = ($item['price_sale'] && $time_to > $time) ? gmdate('Y/m/d', $time_to) : '';
 
                 // Images
                 if (has_post_thumbnail()) {

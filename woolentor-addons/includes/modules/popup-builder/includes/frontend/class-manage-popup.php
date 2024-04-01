@@ -151,7 +151,7 @@ class Manage_Popup {
         ?>
 
         <?php $popup_area_inline_css = Helper::generate_inline_css($popup_id, $popup_settings, 'popup_area');  ?>
-        <div id="wlpb-popup-id-<?php echo esc_attr($popup_id) ?>" class="wlpb-popup <?php echo esc_attr($this->get_popup_classes($popup_id, $popup_settings)) ?>" data-wlpb_popup_id="<?php echo esc_attr($popup_id) ?>" data-settings=<?php echo json_encode($this->get_data_settings( $popup_id, $popup_settings )) ?> style="<?php echo esc_attr($popup_area_inline_css) ?>">
+        <div id="wlpb-popup-id-<?php echo esc_attr($popup_id) ?>" class="wlpb-popup <?php echo esc_attr($this->get_popup_classes($popup_id, $popup_settings)) ?>" data-wlpb_popup_id="<?php echo esc_attr($popup_id) ?>" data-settings=<?php echo wp_json_encode($this->get_data_settings( $popup_id, $popup_settings )) ?> style="<?php echo esc_attr($popup_area_inline_css) ?>">
             <div class="wlpb-popup-inner <?php echo esc_attr($this->get_popup_inner_classes($popup_id, $popup_settings)) ?>">
 
                 <?php if( !$popup_settings['disable_overlay']): ?>

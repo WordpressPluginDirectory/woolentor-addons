@@ -16,6 +16,6 @@ $title          = ( $settings['showTitle'] == true && !empty( $data['title'] ) )
 $description    = ( $settings['showDescription'] == true && !empty( $data['desc'] ) ) ? sprintf( "<div class='woolentor-archive-desc'>%s</div>", wp_kses( $data['desc'], woolentor_get_html_allowed_tags('desc') )  ) : '';
 $image          = ( $settings['showImage'] == 'yes' && !empty( $data['image_url'] ) ) ? sprintf( "<div class='woolentor-archive-image'><img src='%s' alt='%s'></div>", esc_url( $data['image_url'] ), esc_attr( $data['title'] )  ) : '';
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
-	echo sprintf( '%s %s %s', $image, $title, $description );
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
+	echo sprintf( '%s %s %s', $image, $title, $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '</div>';

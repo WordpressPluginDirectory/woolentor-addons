@@ -175,7 +175,7 @@ class Woolentor_Wb_Product_Upsell_Widget extends Widget_Base {
         }
 
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name(), $settings );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name(), $settings ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }else{
             woocommerce_upsell_display( $product_per_page, $columns, $orderby, $order );
         }

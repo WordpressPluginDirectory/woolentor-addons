@@ -39,8 +39,8 @@ if( $settings['noGutter'] ){
     $rowClass[] = 'woolentor-no-gutters';
 }
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
-	echo '<div class="'.implode(' ', $rowClass ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
+	echo '<div class="'.esc_attr(implode(' ', $rowClass )).'">';
 		foreach ( $testimonial_list as $testimonial ){
 			?>
 				<div class="woolentor-grid-item">
@@ -60,15 +60,15 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							<div class="ht-client-info">
 								<?php
 									if( !empty( $testimonial['image'] ) ){
-										echo $testimonial['image'];
+										echo $testimonial['image']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									}
 
 									if( !empty( $testimonial['name'] ) ){
-										echo '<h4>'.$testimonial['name'].'</h4>';
+										echo '<h4>'.esc_html($testimonial['name']).'</h4>';
 									}
 
 									if( !empty( $testimonial['designation'] ) ){
-										echo '<span>'.$testimonial['designation'].'</span>';
+										echo '<span>'.esc_html($testimonial['designation']).'</span>';
 									}
 								?>
 							</div>
@@ -77,13 +77,13 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							<div class="ht-client-info-wrap-2">
 								<?php
 									if( !empty( $testimonial['image'] ) ){
-										echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] );
+										echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									}
 								?>
 								<div class="ht-client-info-3">
 									<?php
 										if( !empty( $testimonial['name'] ) || !empty( $testimonial['designation'] ) ){
-											echo sprintf('<h4>%1$s<span>%2$s</span></h4>', $testimonial['name'], $testimonial['designation'] );
+											echo sprintf('<h4>%1$s<span>%2$s</span></h4>', esc_html($testimonial['name']), esc_html($testimonial['designation']) );
 										}
 										if( !empty( $testimonial['ratting'] ) ){
 											echo '<div class="ht-client-rating">';
@@ -95,7 +95,7 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							</div>
 							<?php
 								if( !empty( $testimonial['message'] ) ){
-									echo  sprintf( '<div class="ht-client-content"><p class="ht-width-dec">%1$s</p></div>', $testimonial['message'] );
+									echo  sprintf( '<div class="ht-client-content"><p class="ht-width-dec">%1$s</p></div>', esc_html($testimonial['message']) );
 								}
 							?>
 
@@ -103,17 +103,17 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							<div class="ht-client-info-wrap ht-client-info-border">
 								<?php 
 									if( !empty( $testimonial['image'] ) ){
-										echo sprintf( '<div class="ht-client-img">%1$s</div>', $testimonial['image'] );
+										echo sprintf( '<div class="ht-client-img">%1$s</div>', $testimonial['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									}
 								?>
 								<div class="ht-client-info-2">
 									<?php
 										if( !empty( $testimonial['name'] ) ){
-											echo '<h4>'.$testimonial['name'].'</h4>';
+											echo '<h4>'.esc_html($testimonial['name']).'</h4>';
 										}
 
 										if( !empty( $testimonial['designation'] ) ){
-											echo '<span>'.$testimonial['designation'].'</span>';
+											echo '<span>'.esc_html($testimonial['designation']).'</span>';
 										}
 
 										if( !empty( $testimonial['ratting'] ) ){
@@ -126,7 +126,7 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							</div>
 							<?php
 								if( !empty( $testimonial['message'] ) ){
-									echo  sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', $testimonial['message'] );
+									echo  sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', esc_html($testimonial['message']) );
 								}
 							?>
 
@@ -134,13 +134,13 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							<div class="ht-client-info-wrap-2">
 								<?php 
 									if( !empty( $testimonial['image'] ) ){
-										echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] );
+										echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									}
 								?>
 								<div class="ht-client-info-3">
 									<?php
 										if( !empty( $testimonial['name'] ) || !empty( $testimonial['designation'] ) ){
-											echo sprintf('<h4>%1$s<span>%2$s</span></h4>', $testimonial['name'], $testimonial['designation'] );
+											echo sprintf('<h4>%1$s<span>%2$s</span></h4>', esc_html($testimonial['name']), esc_html($testimonial['designation']) );
 										}
 
 										if( !empty( $testimonial['ratting'] ) ){
@@ -153,7 +153,7 @@ echo '<div class="'.implode(' ', $areaClasses ).'">';
 							</div>
 							<?php
 								if( !empty( $testimonial['message'] ) ){
-									echo sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', $testimonial['message'] );
+									echo sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', esc_html($testimonial['message']) );
 								}
 							?>
 

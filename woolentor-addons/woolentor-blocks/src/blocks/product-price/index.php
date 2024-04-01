@@ -10,6 +10,6 @@ $areaClasses = array( $uniqClass, 'woolentor-product-price' );
 
 $product = wc_get_product();
 if ( empty( $product ) ) { return; }
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	woocommerce_template_single_price();
 echo '</div>';

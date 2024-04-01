@@ -319,7 +319,7 @@ class Woolentor_Wb_Product_Data_Tab_Widget extends Widget_Base {
         $settings   = $this->get_settings_for_display();
 
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }else{
             global $product;
             if ( empty( $product ) ) {

@@ -52,7 +52,7 @@ if( empty( $attachment_ids ) ){
                                 <div class="ht-quick-thumb-single">
                                     <?php
                                       $thumbnail_src = wp_get_attachment_image_src( $attachment_id, 'woocommerce_gallery_thumbnail' );
-                                      echo '<img src=" '.$thumbnail_src[0].' " alt="'.get_the_title().'">';
+                                      echo '<img src=" '.esc_url($thumbnail_src[0]).' " alt="'.esc_attr(get_the_title()).'">';
                                     ?>
                                 </div>
                             <?php

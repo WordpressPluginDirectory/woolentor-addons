@@ -717,8 +717,6 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                             'selectors' => [
                                 '{{WRAPPER}} .wl-addto-cart.wl-style-2 form.cart .wl-cart-icon:hover' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                                 '{{WRAPPER}} .wl-addto-cart.wl-style-5 form.cart .wl-cart-icon:hover' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
-                                '{{WRAPPER}} .wl-addto-cart.wl-style-2 form.cart .wl-cart-icon:hover' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
-                                '{{WRAPPER}} .wl-addto-cart.wl-style-5 form.cart .wl-cart-icon:hover' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
                             ],
                         ]
                     );
@@ -1186,20 +1184,20 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
             add_action( 'woocommerce_before_add_to_cart_quantity', function() use ($settings, $minus_icon) {
                echo '<div class="wl-quantity-wrap">';
                if(!empty($settings['advance_cart_quantity_text'])){
-                    echo '<span class="label">'.$settings['advance_cart_quantity_text'].'</span>';
+                    echo '<span class="label">'.esc_html($settings['advance_cart_quantity_text']).'</span>';
                }
                echo '<div class="wl-quantity-cal">';
-               echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>';
+               echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             });
 
             add_action( 'woocommerce_after_add_to_cart_quantity', function() use ($settings, $plus_icon) {
-               echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>';
+               echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                echo '</div>';
                echo '</div>';
-               echo '<div class="wl-cart-wrap '.$settings['product_wishlist_compare_btn_position'].'">';
+               echo '<div class="wl-cart-wrap '.esc_attr($settings['product_wishlist_compare_btn_position']).'">';
                 if( 'wl-style-5' !== $settings['single_product_advance_layout_style']){
                     if( true === woolentor_has_wishlist_plugin() && 'yes' !== $settings['hide_advance_cart_wishlist_icon'] ){
-                        echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                        echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     }
                 }
             } );
@@ -1210,14 +1208,14 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
             });
 
             add_action( 'woocommerce_after_add_to_cart_quantity', function() use ($settings, $plus_icon) {
-                echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>';
+                echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                echo '</div>';
             } );
             add_action( 'woocommerce_before_add_to_cart_button', function() use ($settings) {
-                echo '<div class="wl-cart-wrap '.$settings['product_wishlist_compare_btn_position'].'">';
+                echo '<div class="wl-cart-wrap '.esc_attr($settings['product_wishlist_compare_btn_position']).'">';
                 if( 'wl-style-5' !== $settings['single_product_advance_layout_style']){
                     if( true === woolentor_has_wishlist_plugin() && 'yes' !== $settings['hide_advance_cart_wishlist_icon'] ){
-                        echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                        echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     }
                 }
             });
@@ -1227,7 +1225,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
             if( 'simple' == $porduct_type || 'grouped' == $porduct_type || 'variable' == $porduct_type){
                 if( 'wl-style-5' === $settings['single_product_advance_layout_style']){
                     if( true === woolentor_has_wishlist_plugin() && 'yes' !== $settings['hide_advance_cart_wishlist_icon'] ){
-                        echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                        echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     }
                 }
                 if( function_exists('woolentor_compare_button') && true === woolentor_exist_compare_plugin() && 'yes' !== $settings['hide_advance_cart_compare_icon'] ){
@@ -1244,7 +1242,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                 echo "</div>";
             }elseif ('external' == $porduct_type) {
                 if( true === woolentor_has_wishlist_plugin() && 'yes' !== $settings['hide_advance_cart_wishlist_icon'] ){
-                    echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>';
+                    echo '<span class="wl-cart-icon wishlist">'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'no').'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 }
                 if( function_exists('woolentor_compare_button') && true === woolentor_exist_compare_plugin() && 'yes' !== $settings['hide_advance_cart_compare_icon'] ){
                     echo '<span class="wl-cart-icon compare">';
@@ -1263,7 +1261,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                     <?php if( true === woolentor_has_wishlist_plugin() ): ?>
                         <li>
                             <?php if( '' == $settings['hide_advance_cart_wishlist_text']): ?>
-                                <?php echo woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes'); ?>
+                                <?php echo woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             <?php endif; ?>
                         </li>
                     <?php endif; ?>
@@ -1278,7 +1276,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                                             'btn_text'=> esc_html__('Compare','woolentor'),
                                             'btn_added_txt'=> esc_html__('Already Compared','woolentor')
                                         )
-                                    ); 
+                                    ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 ?>
                             <?php endif; ?>
                         </li>
@@ -1312,11 +1310,11 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
         if ( Plugin::instance()->editor->is_edit_mode() ) {
             if('external' == $poduct_type){
                 echo '<div class="wl-addto-cart '.esc_attr( $poduct_type ).' '.esc_attr( $settings['product_wishlist_compare_btn_position']).' '.esc_attr( $product_layout_class ).'">';
-                    echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+                    echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 echo '</div>';
             }else{
                 echo '<div class="wl-addto-cart '.esc_attr( $poduct_type ).' '.esc_attr( $product_layout_class ).'">';
-                    echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+                    echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 echo '</div>';
             }
         }else{

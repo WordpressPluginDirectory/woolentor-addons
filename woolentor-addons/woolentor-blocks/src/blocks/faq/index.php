@@ -20,21 +20,21 @@ $accordion_settings = [
 $dataOptions = 'data-settings='.wp_json_encode( $accordion_settings );
 
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
-	<div class="<?php echo implode(' ', $classes ); ?>" id="<?php echo 'htwoolentor-faq-'.$settings['blockUniqId'] ?>" <?php echo $dataOptions; ?>>
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
+	<div class="<?php echo esc_attr(implode(' ', $classes )); ?>" id="<?php echo esc_attr('htwoolentor-faq-'.$settings['blockUniqId']); ?>" <?php echo esc_attr($dataOptions); ?>>
 
 		<?php
 			foreach ( $settings['faqList'] as $item ):
 				
-				$title = ( !empty( $item['title'] ) ? '<span class="htwoolentor-faq-head-text">'.$item['title'].'</span>' : '' );
+				$title = ( !empty( $item['title'] ) ? '<span class="htwoolentor-faq-head-text">'.esc_html($item['title']).'</span>' : '' );
 
 			?>
 				<div class="htwoolentor-faq-card">
 					<?php
 						if( $settings['iconPosition'] == 'right'){
-							echo sprintf( '<div class="htwoolentor-faq-head">%2$s %1$s</div>',$icon, $title );
+							echo sprintf( '<div class="htwoolentor-faq-head">%2$s %1$s</div>',$icon, $title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						}else{
-							echo sprintf( '<div class="htwoolentor-faq-head">%1$s %2$s</div>',$icon, $title );
+							echo sprintf( '<div class="htwoolentor-faq-head">%1$s %2$s</div>',$icon, $title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						}
 					?>
 					<div class="htwoolentor-faq-body">

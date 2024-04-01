@@ -111,6 +111,7 @@ class Assets {
         $option_data = array();
         $localize_data = array(
             'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+            'compare_nonce' => wp_create_nonce('compare_nonce'),
             'popup'         => ( woolentor_get_option( 'open_popup', 'ever_compare_settings_tabs', 'on' ) === 'on' ) ? 'yes' : 'no',
             'tableurl'      => Frontend\Manage_Compare::instance()->get_compare_page_url(),
             'option_data'   => $option_data,

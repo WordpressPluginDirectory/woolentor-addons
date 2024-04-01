@@ -173,14 +173,14 @@ class Woolentor_Extension_Manager{
 									?>
 
 									<!-- Extension Start -->
-									<div class="woolentor-admin-extension htwptemplata-plugin-<?php echo $data['slug']; ?>">
+									<div class="woolentor-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
 										<div class="woolentor-admin-extension-top">
 											<div class="woolentor-admin-extension-image">
-												<img src="<?php echo $data['image']; ?>" alt="<?php echo $plugin['name']; ?>">
+												<img src="<?php echo esc_url($data['image']); ?>" alt="<?php echo esc_attr($plugin['name']); ?>">
 											</div>
 											<div class="woolentor-admin-extension-content">
-												<h4 class="woolentor-admin-extension-title"><?php echo $plugin['name']; ?></h4>
-												<p class="woolentor-admin-extension-text"><?php echo wp_trim_words( $plugin['description'], 23, '....'); ?></p>
+												<h4 class="woolentor-admin-extension-title"><?php echo esc_html($plugin['name']); ?></h4>
+												<p class="woolentor-admin-extension-text"><?php echo esc_html(wp_trim_words( $plugin['description'], 23, '....')); ?></p>
 											</div>
 										</div>
 										<div class="woolentor-admin-extension-bottom">
@@ -190,7 +190,7 @@ class Woolentor_Extension_Manager{
 													echo '<a class="hover-effect-1 button button-primary" href="'.esc_url( $plugin['link'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'woolentor' ).'</a>';
 												}else{
 											?>
-												<button class="hover-effect-1 <?php echo $button_classes; ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo $button_text; ?></button>
+												<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
 											<?php } ?>
 										</div>
 									</div>
@@ -241,19 +241,19 @@ class Woolentor_Extension_Manager{
 
 			                ?>
 								<!-- Extension Start -->
-								<div class="woolentor-admin-extension htwptemplata-plugin-<?php echo $data['slug']; ?>">
+								<div class="woolentor-admin-extension htwptemplata-plugin-<?php echo esc_attr($data['slug']); ?>">
 									<div class="woolentor-admin-extension-top">
 										<div class="woolentor-admin-extension-image">
-											<img src="<?php echo $prepare_plugin[$data['slug']]['icons']['1x']; ?>" alt="<?php echo $prepare_plugin[$data['slug']]['name']; ?>">
+											<img src="<?php echo esc_url($prepare_plugin[$data['slug']]['icons']['1x']); ?>" alt="<?php echo esc_attr($prepare_plugin[$data['slug']]['name']); ?>">
 										</div>
 										<div class="woolentor-admin-extension-content">
-											<h4 class="woolentor-admin-extension-title"><?php echo $prepare_plugin[$data['slug']]['name']; ?></h4>
-											<p class="woolentor-admin-extension-text"><?php echo wp_trim_words( $prepare_plugin[$data['slug']]['description'], 23, '....'); ?></p>
+											<h4 class="woolentor-admin-extension-title"><?php echo esc_html($prepare_plugin[$data['slug']]['name']); ?></h4>
+											<p class="woolentor-admin-extension-text"><?php echo esc_html(wp_trim_words( $prepare_plugin[$data['slug']]['description'], 23, '....')); ?></p>
 										</div>
 									</div>
 									<div class="woolentor-admin-extension-bottom">
-										<p class="woolentor-admin-extension-info"><i class="wli wli-info"></i><?php printf( __( '%s Active Installations' ), $this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] ) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo $data['slug']; ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'woolentor' ); ?></a></p>
-										<button class="hover-effect-1 <?php echo $button_classes; ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo $button_text; ?></button>
+										<p class="woolentor-admin-extension-info"><i class="wli wli-info"></i><?php printf( esc_html__( '%s Active Installations', 'woolentor' ), esc_html($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] )) ); ?> <a href="<?php echo esc_url( admin_url() ) ?>/plugin-install.php?tab=plugin-information&plugin=<?php echo esc_attr($data['slug']); ?>&TB_iframe=true&width=772&height=577" class="thickbox open-plugin-details-modal"><?php echo esc_html__( 'More Details', 'woolentor' ); ?></a></p>
+										<button class="hover-effect-1 <?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
 									</div>
 								</div>
 								<!-- Extension End -->

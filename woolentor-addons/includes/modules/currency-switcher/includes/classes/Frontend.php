@@ -77,8 +77,7 @@ class Frontend {
      */
     public function save_current_currency(){
         
-        $nonce = $_POST['wpnonce'];
-        if ( ! wp_verify_nonce( $nonce, 'woolentor_cs_nonce' ) ) {
+		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( $_POST['wpnonce'], 'woolentor_cs_nonce' ) ){
             $errormessage = array(
                 'message'  => __('Nonce Varification Faild !','woolentor-pro')
             );

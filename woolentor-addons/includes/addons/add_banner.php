@@ -286,19 +286,19 @@ class Woolentor_Add_Banner_Widget extends Widget_Base {
                 <div class="woolentor-content">
                     <?php
                         if( !empty( $settings['bannersubtitle'] ) ){
-                            echo '<h3 class="banner_subtitle">'.$settings['bannersubtitle'].'</h3>';
+                            echo '<h3 class="banner_subtitle">'.esc_html($settings['bannersubtitle']).'</h3>';
                         }
                         if( !empty( $settings['bannertitle'] ) ){
-                            echo '<h2 class="banner_title">'.$settings['bannertitle'].'</h2>';
+                            echo '<h2 class="banner_title">'.esc_html($settings['bannertitle']).'</h2>';
                         }
                         if( !empty( $settings['buttontxt'] ) ){
-                            echo '<a class="banner_button" href="'.esc_url( $settings['buttonlink']['url'] ).'" '.$target.$nofollow.'>'.esc_html__( $settings['buttontxt'], 'woolentor' ).'</a>';
+                            echo '<a class="banner_button" href="'.esc_url( $settings['buttonlink']['url'] ).'" '.$target.$nofollow.'>'.esc_html__( $settings['buttontxt'], 'woolentor' ).'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
                     ?>
                 </div>
                 <div class="woolentor-banner-img">
                     <a href="<?php echo esc_url( $settings['buttonlink']['url'] );?>" <?php echo $target.$nofollow; ?> >
-                        <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'bannerimagesize', 'bannerimage' );?>
+                        <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'bannerimagesize', 'bannerimage' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </a>
                 </div>
             </div>

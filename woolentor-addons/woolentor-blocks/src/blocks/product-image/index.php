@@ -10,7 +10,7 @@ $areaClasses = array( $uniqClass, 'woolentor-product-image' );
 
 $product = wc_get_product();
 if ( empty( $product ) ) { return; }
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	/**
 	 * Hook: woocommerce_before_single_product_summary.
 	 *

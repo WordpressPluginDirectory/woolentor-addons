@@ -103,6 +103,7 @@ class Assets {
 
         $localize_data = array(
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),
+            'wsnonce'     => wp_create_nonce('wishSuite_nonce'),
             'option_data' => $option_data,
         );
 

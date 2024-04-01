@@ -10,7 +10,7 @@ $areaClasses = array( $uniqClass, 'woolentor-product-description' );
 
 $product = wc_get_product();
 if ( empty( $product ) ) { return; }
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	echo '<div class="woocommerce_product_description">';
 		the_content();
 	echo '</div>';

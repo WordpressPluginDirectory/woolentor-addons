@@ -128,13 +128,13 @@ class Woolentor_Template_Manager{
 
 		if( $column_name === 'type' ){
 			$tabs = '';
-			echo isset( self::get_template_type()[$tmpType] ) ? '<a class="column-tmptype" href="edit.php?post_type='.self::CPTTYPE.'&template_type='.$tmpType.'&tabs='.$tmpTypeGroup.'">'.self::get_template_type()[$tmpType]['label'].'</a>' : '-';
+			echo isset( self::get_template_type()[$tmpType] ) ? '<a class="column-tmptype" href="edit.php?post_type='.self::CPTTYPE.'&template_type='.$tmpType.'&tabs='.$tmpTypeGroup.'">'.self::get_template_type()[$tmpType]['label'].'</a>' : '-'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}elseif( $column_name === 'setdefault' ){
 
 			$value = $this->get_template_id( self::get_template_type()[$tmpType]['optionkey'] );
 			$checked = checked( $value, $post_id, false );
 
-			echo '<label class="woolentor-default-tmp-status-switch" id="woolentor-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="woolentor-status-'.esc_attr( $tmpType ).'" id="woolentor-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','woolentor').'</span><span>'.esc_html__('YES','woolentor').'</span></span><a>&nbsp;</a></label>';
+			echo '<label class="woolentor-default-tmp-status-switch" id="woolentor-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'"><input class="woolentor-status-'.esc_attr( $tmpType ).'" id="woolentor-default-tmp-status-'.esc_attr( $tmpType ).'-'.esc_attr( $post_id ).'" type="checkbox" value="'.esc_attr( $post_id ).'" '.$checked.'/><span><span>'.esc_html__('NO','woolentor').'</span><span>'.esc_html__('YES','woolentor').'</span></span><a>&nbsp;</a></label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 
@@ -374,11 +374,11 @@ class Woolentor_Template_Manager{
         ?>
             <div id="woolentor-template-tabs-wrapper" class="nav-tab-wrapper">
 				<div class="woolentor-menu-area">
-					<a class="nav-tab <?php echo $active_class; ?>" href="edit.php?post_type=<?php echo self::CPTTYPE; ?>"><?php echo __('All','woolentor');?></a>
+					<a class="nav-tab <?php echo esc_attr($active_class); ?>" href="edit.php?post_type=<?php echo esc_attr(self::CPTTYPE); ?>"><?php echo esc_html__('All','woolentor');?></a>
 					<?php
 						foreach( self::get_tabs() as $tabkey => $tab ){
 							$active_class = ( $current_type == $tabkey ? 'nav-tab-active' : '' );
-							echo '<a class="nav-tab '.$active_class.'" href="edit.php?post_type='.self::CPTTYPE.'&template_type='.$tabkey.'&tabs='.$tabkey.'">'.$tab['label'].'</a>';
+							echo '<a class="nav-tab '.esc_attr($active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($tabkey).'&tabs='.esc_attr($tabkey).'">'.esc_html($tab['label']).'</a>';
 						}
 					?>
 				</div>
@@ -400,11 +400,11 @@ class Woolentor_Template_Manager{
 					}
 
 					echo '<div class="woolentor-template-subtabs"><ul>';
-						echo '<li><a class="woolentor-sub-tab '.$sub_tab_active_class.'" href="edit.php?post_type='.self::CPTTYPE.'&template_type='.$current_type.'&tabs='.$current_type.'">'.self::get_tabs()[$current_type]['label'].'</a></li>';
+						echo '<li><a class="woolentor-sub-tab '.esc_attr($sub_tab_active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($current_type).'&tabs='.esc_attr($current_type).'">'.esc_html(self::get_tabs()[$current_type]['label']).'</a></li>';
 
 						foreach( self::get_tabs()[$current_type]['submenu'] as $subtabkey => $subtab ){
 							$sub_tab_active_class = ( $current_sub_tab == $subtabkey ? 'woolentor-sub-tab-active' : '' );
-							echo '<li><a class="woolentor-sub-tab '.$sub_tab_active_class.'" href="edit.php?post_type='.self::CPTTYPE.'&template_type='.$subtabkey.'&tabs='.$current_type.'&tab='.$subtabkey.'">'.$subtab['label'].'</a></li>';
+							echo '<li><a class="woolentor-sub-tab '.esc_attr($sub_tab_active_class).'" href="edit.php?post_type='.esc_attr(self::CPTTYPE).'&template_type='.esc_attr($subtabkey).'&tabs='.esc_attr($current_type).'&tab='.esc_attr($subtabkey).'">'.esc_html($subtab['label']).'</a></li>';
 						}
 
 					echo '</ul></div>';
@@ -508,17 +508,16 @@ class Woolentor_Template_Manager{
 	public function template_store_request(){
 		if ( isset( $_POST ) ) {
 
-			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
+			if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'woolentor_tmp_nonce' ) ){
 				$errormessage = array(
-					'message'  => __('You are unauthorize to adding template!','woolentor')
+					'message'  => __('Nonce Varification Faild !','woolentor')
 				);
 				wp_send_json_error( $errormessage );
 			}
 
-			$nonce = $_POST['nonce'];
-			if ( ! wp_verify_nonce( $nonce, 'woolentor_tmp_nonce' ) ) {
+			if( !(current_user_can('manage_options') || current_user_can('edit_others_posts')) ){
 				$errormessage = array(
-					'message'  => __('Nonce Varification Faild !','woolentor')
+					'message'  => __('You are unauthorize to adding template!','woolentor')
 				);
 				wp_send_json_error( $errormessage );
 			}

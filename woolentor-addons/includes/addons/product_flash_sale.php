@@ -1026,10 +1026,10 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
         $countdown_title    = $settings['countdown_title'];
         $data_customlavel   = [];
         if( $show_countdown == 'yes' ){
-            $data_customlavel['daytxt']     = ! empty( $settings['customlabel_days'] ) ? $settings['customlabel_days'] : __('Days', 'woolentor');
-            $data_customlavel['hourtxt']    = ! empty( $settings['customlabel_hours'] ) ? $settings['customlabel_hours'] : __('Hours', 'woolentor');
-            $data_customlavel['minutestxt'] = ! empty( $settings['customlabel_minutes'] ) ? $settings['customlabel_minutes'] : __('Min', 'woolentor');
-            $data_customlavel['secondstxt'] = ! empty( $settings['customlabel_seconds'] ) ? $settings['customlabel_seconds'] : __('Sec', 'woolentor');
+            $data_customlavel['daytxt']     = ! empty( $settings['customlabel_days'] ) ? esc_html($settings['customlabel_days']) : __('Days', 'woolentor');
+            $data_customlavel['hourtxt']    = ! empty( $settings['customlabel_hours'] ) ? esc_html($settings['customlabel_hours']) : __('Hours', 'woolentor');
+            $data_customlavel['minutestxt'] = ! empty( $settings['customlabel_minutes'] ) ? esc_html($settings['customlabel_minutes']) : __('Min', 'woolentor');
+            $data_customlavel['secondstxt'] = ! empty( $settings['customlabel_seconds'] ) ? esc_html($settings['customlabel_seconds']) : __('Sec', 'woolentor');
         }
 
         // Stock Progress bar
@@ -1156,11 +1156,11 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
 
 
                             <ul class="woolentor-flash-product-action">
-                                <li><a href="<?php echo $product->add_to_cart_url() ?>" data-quantity="1" class="woolentor-flash-product-action-btn <?php echo esc_attr($ajax_add_to_cart_class); ?>" data-product_id="<?php echo esc_attr($product_id); ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="<?php echo esc_url($product->add_to_cart_url()) ?>" data-quantity="1" class="woolentor-flash-product-action-btn <?php echo esc_attr($ajax_add_to_cart_class); ?>" data-product_id="<?php echo esc_attr($product_id); ?>"><i class="fa fa-shopping-cart"></i></a></li>
 
                                 <?php
                                     if( true === woolentor_has_wishlist_plugin() ){
-                                        echo '<li>'.woolentor_add_to_wishlist_button('<i class="fa fa-heart"></i>','<i class="fa fa-heart"></i>').'</li>';
+                                        echo '<li>'.woolentor_add_to_wishlist_button('<i class="fa fa-heart"></i>','<i class="fa fa-heart"></i>').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>   
 
@@ -1235,7 +1235,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                                     <?php
                                         if( $product->get_type() != 'variable' ){
                                             
-                                            echo '<div class="price">' .wc_format_sale_price( wc_get_price_to_display( $product ), \Woolentor_Flash_Sale::get_calculated_price($product_id, $deal) ) . $product->get_price_suffix() . '</div>';
+                                            echo '<div class="price">' .wc_format_sale_price( wc_get_price_to_display( $product ), \Woolentor_Flash_Sale::get_calculated_price($product_id, $deal) ) . $product->get_price_suffix() . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
                                         } elseif($product->get_type() == 'variable') {
                                             $price_min_o        = wc_get_price_to_display( $product, [ 'price' => $product->get_variation_regular_price( 'min' ) ] );
@@ -1245,7 +1245,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                                             $price_html       = wc_format_price_range( $price_min, $price_max );
 
                                             if($price_min == $price_max){
-                                                echo '<div class="price">' .wc_format_sale_price( $price_max_o, $price_max) . $product->get_price_suffix() . '</div>';
+                                                echo '<div class="price">' .wc_format_sale_price( $price_max_o, $price_max) . $product->get_price_suffix() . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                             } else{
                                                 echo '<div class="price">' .wp_kses_post($price_html) . '</div>';
                                             }
@@ -1267,7 +1267,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
             </div> <!-- /.ht-products -->
         <?php
         else:
-            echo '<strong>' . __( 'Unfortunately, no products were found in the deal you selected.', 'woolentor' ) . '</strong>';
+            echo '<strong>' . esc_html__( 'Unfortunately, no products were found in the deal you selected.', 'woolentor' ) . '</strong>';
         endif;
     }
 

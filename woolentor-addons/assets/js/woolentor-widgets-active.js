@@ -219,6 +219,7 @@
                 quantity: product_qty,
                 variation_id: variation_id,
                 variations: item,
+                nonce: woolentor_addons.ajax_nonce
             };
 
             $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
@@ -266,6 +267,7 @@
         var data = {
             id: productID,
             action: "woolentor_quickview",
+            nonce: woolentor_addons.ajax_nonce
         };
         $.ajax({
             url: woolentor_addons.woolentorajaxurl,

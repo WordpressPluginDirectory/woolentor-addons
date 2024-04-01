@@ -91,7 +91,7 @@ class Helper{
     /**
      * Sanitize data.
      * 
-     * @param var data to sanitize. Either array or string.
+     * data to sanitize. Either array or string.
      * 
      * @return string
      */

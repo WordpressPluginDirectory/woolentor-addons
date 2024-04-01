@@ -239,13 +239,13 @@ class Woolentor_Wl_Product_Video_Gallery_Widget extends Widget_Base {
                                     $video_url = get_post_meta( $gallery_attachment_id, 'woolentor_video_url', true );
                                     ?>
                                     <li class="<?php if( !empty( $video_url ) ){ echo 'wlvideothumb'; }?>">
-                                        <a class="<?php echo $tabactive; ?>" href="#wlvideo-<?php echo $j; ?>">
+                                        <a class="<?php echo esc_attr($tabactive); ?>" href="#wlvideo-<?php echo esc_attr($j); ?>">
                                             <?php
                                                 if( !empty( $video_url ) ){
                                                     echo '<span class="wlvideo-button"><i class="sli sli-control-play"></i></span>';
-                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
+                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                 }else{
-                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
+                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                 }
                                             ?>
                                         </a>
@@ -260,7 +260,7 @@ class Woolentor_Wl_Product_Video_Gallery_Widget extends Widget_Base {
                         <?php
                             if( woolentor_is_preview_mode() ){
                                 if ( $product->is_on_sale() ) { 
-                                    echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woolentor-pro' ) . '</span>', $post, $product ); 
+                                    echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woolentor-pro' ) . '</span>', $post, $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             }else{
                                 woolentor_show_product_sale_flash();
@@ -276,7 +276,7 @@ class Woolentor_Wl_Product_Video_Gallery_Widget extends Widget_Base {
                                 if( $i == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
                                 $video_url = get_post_meta( $gallery_attachment_id, 'woolentor_video_url', true );
                                 ?>
-                                <div class="video-cus-tab-pane <?php echo $tabactive; ?>" id="wlvideo-<?php echo $i; ?>">
+                                <div class="video-cus-tab-pane <?php echo esc_attr($tabactive); ?>" id="wlvideo-<?php echo esc_attr($i); ?>">
                                     <?php
                                         if( !empty( $video_url ) ){
                                             ?>
@@ -305,13 +305,13 @@ class Woolentor_Wl_Product_Video_Gallery_Widget extends Widget_Base {
                                     $video_url = get_post_meta( $gallery_attachment_id, 'woolentor_video_url', true );
                                     ?>
                                     <li class="<?php if( !empty( $video_url ) ){ echo 'wlvideothumb'; }?>">
-                                        <a class="<?php echo $tabactive; ?>" href="#wlvideo-<?php echo $j; ?>">
+                                        <a class="<?php echo esc_attr($tabactive); ?>" href="#wlvideo-<?php echo esc_attr($j); ?>">
                                             <?php
                                                 if( !empty( $video_url ) ){
                                                     echo '<span class="wlvideo-button"><i class="sli sli-control-play"></i></span>';
-                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
+                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                 }else{
-                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' );
+                                                    echo wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                 }
                                             ?>
                                         </a>

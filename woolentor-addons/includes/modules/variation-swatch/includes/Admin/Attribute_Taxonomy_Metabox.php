@@ -221,7 +221,7 @@ class Attribute_Taxonomy_Metabox{
 				}
 			}
 			?>
-			<div class="swatchly-cs-field swatchly-cs-field-<?php echo esc_attr($field['type']); ?> <?php echo $field['class'];?>" <?php echo esc_attr($data_controller) ?> <?php echo esc_attr($data_condition) ?> <?php echo esc_attr($data_value) ?>>
+			<div class="swatchly-cs-field swatchly-cs-field-<?php echo esc_attr($field['type']); ?> <?php echo esc_attr($field['class']);?>" <?php echo esc_attr($data_controller) ?> <?php echo esc_attr($data_condition) ?> <?php echo esc_attr($data_value) ?>>
 				<div class="swatchly-cs-title">
 					<h4><?php echo esc_html($field['title']) ?></h4>
 				</div>

@@ -871,24 +871,28 @@ class Woolentor_Wb_Product_Suggest_Price_Widget extends Widget_Base {
             <div class="wl-suggest-price">
                 <?php
                     if( isset( $_REQUEST['wlsubmit-'.$id] ) ){
-                        $name       = $_POST['wlname'];
-                        $email      = $_POST['wlemail'];
-                        $message    = $_POST['wlmessage'];
 
-                        //php mailer variables
-                        $sentto  = $settings['send_to_mail'];
-                        $subject = "Suggest For Price";
-                        $headers = 'From: '. $email . "\r\n" .
-                        'Reply-To: ' . $email . "\r\n";
+                        if ( ! isset( $_POST['woolentor_suggest_price_nonce_field'] ) || ! wp_verify_nonce( $_POST['woolentor_suggest_price_nonce_field'], 'woolentor_suggest_price_action' ) ){
+                            echo '<p class="wlsendmessage">'.esc_html__('Sorry, your nonce verification fail.','woolentor').'</p>';
+                        }else{
+                            $name     = $_POST['wlname'];
+                            $email    = $_POST['wlemail'];
+                            $message  = $_POST['wlmessage'];
 
-                        //Here put your Validation and send mail
-                        $sent = wp_mail( $sentto, $subject, strip_tags($message), $headers );
+                            //php mailer variables
+                            $sentto  = $settings['send_to_mail'];
+                            $subject = esc_html__("Suggest For Price",'woolentor');
+                            $headers = esc_html__('From: ','woolentor'). esc_html( $email ) . "\r\n" . esc_html__('Reply-To: ', 'woolentor') . esc_html( $email ) . "\r\n";
 
-                        if( $sent ) {
-                            echo '<p class="wlsendmessage">'.$settings['message_success'].'</p>';
-                        }
-                        else{
-                            echo '<p class="wlsendmessage">'.$settings['message_error'].'</p>';
+                            //Here put your Validation and send mail
+                            $sent = wp_mail( $sentto, $subject, wp_strip_all_tags($message), $headers );
+
+                            if( $sent ) {
+                                echo '<p class="wlsendmessage">'.esc_html( $settings['message_success'] ).'</p>';
+                            }
+                            else{
+                                echo '<p class="wlsendmessage">'.esc_html($settings['message_error']).'</p>';
+                            }
                         }
                     }
                 ?>
@@ -907,6 +911,7 @@ class Woolentor_Wb_Product_Suggest_Price_Widget extends Widget_Base {
                     <div class="wl-suggest-form-input">
                         <input <?php echo $this->get_render_attribute_string( 'user_submit' ); ?> >
                     </div>
+                    <?php wp_nonce_field( 'woolentor_suggest_price_action', 'woolentor_suggest_price_nonce_field' ); ?>
                 </form>
 
             </div>

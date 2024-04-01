@@ -34,6 +34,6 @@ if ( ! empty( $settings['perPage'] ) ) {
 	$product_per_page = $settings['perPage'];
 }
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	woocommerce_upsell_display( $product_per_page, $columns, $orderby, $order );
 echo '</div>';

@@ -608,14 +608,14 @@ class Woolentor_Wb_Customer_Review_Widget extends Widget_Base {
         echo '<div class="wl-row '.( $settings['no_gutters'] === 'yes' ? 'wlno-gutters' : '' ).'">';
         ?>
             <?php foreach ( $review_list as $review ): ?>
-            <div class="<?php echo esc_attr( esc_attr( $collumval ) ); ?>">
+            <div class="<?php echo esc_attr( $collumval ); ?>">
 
                 <?php if( $settings['review_layout'] == 2 || $settings['review_layout'] == 3 ): ?>
 
                 <div class="wl-customer-testimonal">
                     <?php
                         if( $review['image'] ){
-                            echo $review['image'];
+                            echo $review['image']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
                     ?>
                     <div class="content">
@@ -655,7 +655,7 @@ class Woolentor_Wb_Customer_Review_Widget extends Widget_Base {
                     <div class="clint-info">
                         <?php
                             if( $review['image'] ){
-                                echo $review['image'];
+                                echo $review['image']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
 
                             if( !empty( $review['name'] ) ){
@@ -680,7 +680,7 @@ class Woolentor_Wb_Customer_Review_Widget extends Widget_Base {
                     <div class="content">
                         <?php
                             if( $review['image'] ){
-                                echo $review['image'];
+                                echo $review['image']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             }
                         ?>
                         <div class="clint-info">

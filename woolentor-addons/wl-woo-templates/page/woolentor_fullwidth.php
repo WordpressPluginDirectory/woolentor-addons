@@ -19,7 +19,7 @@ $width = apply_filters( 'woolentor_builder_template_width', 1200 );
 		?><body <?php body_class(); ?>><?php
 	}
 ?>
-	<div class="woolentor-template-container" style="margin:0 auto; max-width:<?php echo $width ? $width.'px; padding: 0 15px;' : '100%;'; ?>">
+	<div class="woolentor-template-container" style="margin:0 auto; max-width:<?php echo $width ? esc_attr($width).'px; padding: 0 15px;' : '100%;'; ?>">
 		<?php
 			while ( have_posts() ) { 
 				the_post();

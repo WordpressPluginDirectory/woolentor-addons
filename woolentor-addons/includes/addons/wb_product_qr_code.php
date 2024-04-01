@@ -139,7 +139,7 @@ class Woolentor_Wb_Product_Qr_Code_Widget extends Widget_Base {
         ?>
         <div <?php echo $this->get_render_attribute_string( 'area_attr' ); ?> >
             <?php
-                echo sprintf('<img src="%1$s" alt="%2$s">', $image_src, $title );
+                echo sprintf('<img src="%1$s" alt="%2$s">', $image_src, $title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             ?>
         </div>
         <?php

@@ -276,8 +276,8 @@ class Woolentor_Shopify_Like_Checkout extends \WC_Checkout{
     /**
      * It returns an array of keys from the $fieldset array
      * 
-     * @param group The group name. e.g: shipping
-     * @param fieldset Array of fields that you want to get the keys from.
+     * Group The group name. e.g: shipping
+     * Fieldset Array of fields that you want to get the keys from.
      */
     public function get_address_field_keys( $group = '', $fieldset = array() ){
         if( $group && $fieldset ){
@@ -514,7 +514,7 @@ class Woolentor_Shopify_Like_Checkout extends \WC_Checkout{
                                     if($_product->get_image_id()){
                                         echo wp_kses_post(wp_get_attachment_image($_product->get_image_id()));
                                     } else {
-                                        echo wc_placeholder_img();
+                                        echo wc_placeholder_img(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                             </div>
@@ -523,13 +523,13 @@ class Woolentor_Shopify_Like_Checkout extends \WC_Checkout{
                         <div class="woolentor-checkout__product-description">
                             <span class="woolentor-checkout__product-name"><a href="<?php echo esc_url( get_permalink($_product->get_id()) ); ?>"><?php echo wp_kses_post($_product->get_name()); ?></a></span>
                             <span class="woolentor-checkout__product-meta">
-                                <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
+                                <?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </span>
                         </div>
                     </div>
                     <div class="woolentor-checkout__product-price-box">
                         <span class="woolentor-checkout__product-price">
-                            <?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, 1 ), $cart_item, $cart_item_key ); ?>
+                            <?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, 1 ), $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
                     </div>
                 </div>

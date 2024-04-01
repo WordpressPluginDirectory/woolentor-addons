@@ -30,8 +30,8 @@ class Helper{
      * @since 1.0.0
      *
      * @param string   $option_name Option name.
-     * @param null $default Default value.
-     * @param null $override_for Override global options for product list/product details page. Accepted values are: pl, sp
+     * @param $default Default value.
+     * @param $override_for Override global options for product list/product details page. Accepted values are: pl, sp
      *
      * @return string|null
      */
@@ -90,7 +90,7 @@ class Helper{
      *
      * @param int   $product_id Product ID.
      * @param string   $option_name Option name.
-     * @param null $default Default value.
+     * @param $default Default value.
      *
      * @return string|null
      */
@@ -134,7 +134,7 @@ class Helper{
      * @since 1.0.0
      *
      * @param string   $taxonomy Taxonomy name.
-     * @param null $product_id Product id.
+     * @param $product_id Product id.
      *
      * @return string
      */
@@ -167,8 +167,6 @@ class Helper{
     /**
      * It takes an option name, and returns a CSS string if the option is set
      * 
-     * @param opt_name The name of the option you want to retrieve.
-     * @param args 
      */
     public static function add_inline_css( $args ){
         /* Checking if the value is empty, if it is empty it will get the value from the get_option

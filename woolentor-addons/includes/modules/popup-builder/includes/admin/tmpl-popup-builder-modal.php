@@ -92,7 +92,7 @@ wp_enqueue_script('js-cookie');
         <div class="woolentor-template-edit-header">
             <h3 class="woolentor-template-edit-setting-title">
                 <span class="woolentor-template-edit-setting-image dashicons dashicons-admin-generic"></span>
-                <?php _e('Popup Settings', 'woolentor') ?>
+                <?php esc_html_e('Popup Settings', 'woolentor') ?>
             </h3>
             <span class="woolentor-template-edit-cross">
                 <svg version="1.1" width="18" height="28" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 496.096 496.096" style="enable-background:new 0 0 496.096 496.096;" xml:space="preserve">
@@ -105,11 +105,11 @@ wp_enqueue_script('js-cookie');
                 <div class="wlpb-tab-nav-wrap">
                     <span class="wlpb-tab-border"></span>
                     <ul class="wlpb-tab-nav">
-                        <li class="wlpb-active"><a href="#wlpb-conditions"><?php _e('Conditions', 'woolentor') ?></a></li>
-                        <li><a href="#wlpb-triggers"><?php _e('Triggers', 'woolentor') ?></a></li>
-                        <li><a href="#wlpb-general"><?php _e('General', 'woolentor') ?></a></li>
-                        <li><a href="#wlpb-advanced"><?php _e('Advanced', 'woolentor') ?></a></li>
-                        <li><a href="#wlpb-customize"><?php _e('Customize', 'woolentor') ?></a></li>
+                        <li class="wlpb-active"><a href="#wlpb-conditions"><?php esc_html_e('Conditions', 'woolentor') ?></a></li>
+                        <li><a href="#wlpb-triggers"><?php esc_html_e('Triggers', 'woolentor') ?></a></li>
+                        <li><a href="#wlpb-general"><?php esc_html_e('General', 'woolentor') ?></a></li>
+                        <li><a href="#wlpb-advanced"><?php esc_html_e('Advanced', 'woolentor') ?></a></li>
+                        <li><a href="#wlpb-customize"><?php esc_html_e('Customize', 'woolentor') ?></a></li>
                     </ul>
                 </div>
                 <div class="wlpb-tab-content">
@@ -135,10 +135,10 @@ wp_enqueue_script('js-cookie');
                                                     <?php if( Helper::is_pro_version_active() ): ?>
                                                     <div class="woolentor-admin-select wlpb-name">
                                                         <select data-name="namee" id="">
-                                                            <option value="entire_site" <?php selected($condition['name'], 'entire_site') ?>><?php _e('Entire Site', 'woolentor') ?></option>
-                                                            <option value="archives" <?php selected($condition['name'], 'archives') ?>><?php _e('Archives', 'woolentor') ?></option>
-                                                            <option value="singular" <?php selected($condition['name'], 'singular') ?>><?php _e('Singular', 'woolentor') ?></option>
-                                                            <option value="woocommerce" <?php selected($condition['name'], 'woocommerce') ?>> <?php _e('WooCommerce', 'woolentor') ?></option>
+                                                            <option value="entire_site" <?php selected($condition['name'], 'entire_site') ?>><?php esc_html_e('Entire Site', 'woolentor') ?></option>
+                                                            <option value="archives" <?php selected($condition['name'], 'archives') ?>><?php esc_html_e('Archives', 'woolentor') ?></option>
+                                                            <option value="singular" <?php selected($condition['name'], 'singular') ?>><?php esc_html_e('Singular', 'woolentor') ?></option>
+                                                            <option value="woocommerce" <?php selected($condition['name'], 'woocommerce') ?>> <?php esc_html_e('WooCommerce', 'woolentor') ?></option>
                                                         </select>
                                                     </div>
 
@@ -146,10 +146,10 @@ wp_enqueue_script('js-cookie');
 
                                                     <div class="woolentor-admin-select wlpb-name">
                                                         <select data-name="namee" id="">
-                                                            <option value="entire_site" <?php selected($condition['name'], 'entire_site') ?>><?php _e('Entire Site', 'woolentor') ?></option>
-                                                            <option value="singular" <?php selected($condition['name'], 'singular') ?>><?php _e('Singular', 'woolentor') ?></option>
-                                                            <option value="entire_site" disabled><?php _e('Archives (Pro)', 'woolentor') ?></option>
-                                                            <option value="entire_site" disabled><?php _e('WooCommerce (Pro)', 'woolentor') ?></option>
+                                                            <option value="entire_site" <?php selected($condition['name'], 'entire_site') ?>><?php esc_html_e('Entire Site', 'woolentor') ?></option>
+                                                            <option value="singular" <?php selected($condition['name'], 'singular') ?>><?php esc_html_e('Singular', 'woolentor') ?></option>
+                                                            <option value="entire_site" disabled><?php esc_html_e('Archives (Pro)', 'woolentor') ?></option>
+                                                            <option value="entire_site" disabled><?php esc_html_e('WooCommerce (Pro)', 'woolentor') ?></option>
                                                         </select>
                                                     </div>
                                                     <?php endif; ?>
@@ -183,7 +183,7 @@ wp_enqueue_script('js-cookie');
                                 </div>
                             </div>
                             <div class="wlpb-button-wrapper">
-                                <button class="wlpb-repeater-fields-add" type="button"><?php _e('+ Add Condition', 'woolentor') ?></button>
+                                <button class="wlpb-repeater-fields-add" type="button"><?php esc_html_e('+ Add Condition', 'woolentor') ?></button>
                             </div>
                         </div>
                     </div>
@@ -241,7 +241,7 @@ wp_enqueue_script('js-cookie');
                             if(!Helper::is_pro_version_active()):
                         ?>
                         <fieldset>
-                            <legend><?php _e('Pro', 'woolentor') ?></legend>
+                            <legend><?php esc_html_e('Pro', 'woolentor') ?></legend>
                         <?php endif; ?>
 
                             <div class="wplb-composite-field <?php echo esc_attr($opacity_class) ?>">
@@ -369,7 +369,7 @@ wp_enqueue_script('js-cookie');
                             if(!Helper::is_pro_version_active()):
                         ?>
                         <fieldset>
-                            <legend><?php _e('Pro', 'woolentor') ?></legend>
+                            <legend><?php esc_html_e('Pro', 'woolentor') ?></legend>
                         <?php endif; ?>
 
                             <!-- url_match -->
@@ -385,12 +385,12 @@ wp_enqueue_script('js-cookie');
                                     <div class="wplb-composite-field-inner-control wlpb-field">
                                         <div class="wplb-input-wrapper">
                                             <select name="url_match_type" id="url_match_type">
-                                                <option value="parameter" <?php selected( $url_match_type, 'parameter') ?>><?php _e('Parameter ', 'woolentor') ?></option>
-                                                <option value="query_string" <?php selected( $url_match_type, 'query_string') ?>><?php _e('Query String Is', 'woolentor') ?></option>                     
-                                                <option value="exact_match" <?php selected( $url_match_type, 'exact_match') ?>><?php _e('Is Exactly Matched', 'woolentor') ?></option>
-                                                <option value="contains" <?php selected( $url_match_type, 'contains') ?>><?php _e('Contains', 'woolentor') ?></option>
-                                                <option value="starts_with" <?php selected( $url_match_type, 'starts_with') ?>><?php _e(' Starts With', 'woolentor') ?></option>
-                                                <option value="ends_with" <?php selected( $url_match_type, 'ends_with') ?>><?php _e('Ends With', 'woolentor') ?></option>
+                                                <option value="parameter" <?php selected( $url_match_type, 'parameter') ?>><?php esc_html_e('Parameter ', 'woolentor') ?></option>
+                                                <option value="query_string" <?php selected( $url_match_type, 'query_string') ?>><?php esc_html_e('Query String Is', 'woolentor') ?></option>                     
+                                                <option value="exact_match" <?php selected( $url_match_type, 'exact_match') ?>><?php esc_html_e('Is Exactly Matched', 'woolentor') ?></option>
+                                                <option value="contains" <?php selected( $url_match_type, 'contains') ?>><?php esc_html_e('Contains', 'woolentor') ?></option>
+                                                <option value="starts_with" <?php selected( $url_match_type, 'starts_with') ?>><?php esc_html_e(' Starts With', 'woolentor') ?></option>
+                                                <option value="ends_with" <?php selected( $url_match_type, 'ends_with') ?>><?php esc_html_e('Ends With', 'woolentor') ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -428,9 +428,9 @@ wp_enqueue_script('js-cookie');
                                     <div class="wplb-composite-field-inner-control wlpb-field">
                                         <div class="wplb-input-wrapper">
                                             <select name="devices[]" multiple="multiple">
-                                                <option value="desktop" <?php echo in_array('desktop', $allowed_devices) ? 'selected': '' ?>><?php _e('Desktop ', 'woolentor') ?></option>
-                                                <option value="tablet" <?php echo in_array('tablet', $allowed_devices) ? 'selected': '' ?>><?php _e('Tablet', 'woolentor') ?></option>
-                                                <option value="mobile" <?php echo in_array('mobile', $allowed_devices) ? 'selected': '' ?>><?php _e('Mobile', 'woolentor') ?></option>
+                                                <option value="desktop" <?php echo in_array('desktop', $allowed_devices) ? 'selected': '' ?>><?php esc_html_e('Desktop ', 'woolentor') ?></option>
+                                                <option value="tablet" <?php echo in_array('tablet', $allowed_devices) ? 'selected': '' ?>><?php esc_html_e('Tablet', 'woolentor') ?></option>
+                                                <option value="mobile" <?php echo in_array('mobile', $allowed_devices) ? 'selected': '' ?>><?php esc_html_e('Mobile', 'woolentor') ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -450,12 +450,12 @@ wp_enqueue_script('js-cookie');
                                     <div class="wplb-composite-field-inner-control wlpb-field">
                                         <div class="wplb-input-wrapper">
                                             <select name="browsers[]" multiple="multiple">
-                                                <option value="chrome" <?php echo in_array('chrome', $allowed_browsers) ? 'selected': '' ?>><?php _e('Chrome ', 'woolentor') ?></option>
-                                                <option value="firefox" <?php echo in_array('firefox', $allowed_browsers) ? 'selected': '' ?>><?php _e('Firefox', 'woolentor') ?></option>
-                                                <option value="safari" <?php echo in_array('safari', $allowed_browsers) ? 'selected': '' ?>><?php _e('Safari', 'woolentor') ?></option>
-                                                <option value="opera" <?php echo in_array('opera', $allowed_browsers) ? 'selected': '' ?>><?php _e('Opera', 'woolentor') ?></option>
-                                                <option value="ie" <?php echo in_array('ie', $allowed_browsers) ? 'selected': '' ?>><?php _e('IE', 'woolentor') ?></option>
-                                                <option value="edge" <?php echo in_array('edge', $allowed_browsers) ? 'selected': '' ?>><?php _e('Edge', 'woolentor') ?></option>
+                                                <option value="chrome" <?php echo in_array('chrome', $allowed_browsers) ? 'selected': '' ?>><?php esc_html_e('Chrome ', 'woolentor') ?></option>
+                                                <option value="firefox" <?php echo in_array('firefox', $allowed_browsers) ? 'selected': '' ?>><?php esc_html_e('Firefox', 'woolentor') ?></option>
+                                                <option value="safari" <?php echo in_array('safari', $allowed_browsers) ? 'selected': '' ?>><?php esc_html_e('Safari', 'woolentor') ?></option>
+                                                <option value="opera" <?php echo in_array('opera', $allowed_browsers) ? 'selected': '' ?>><?php esc_html_e('Opera', 'woolentor') ?></option>
+                                                <option value="ie" <?php echo in_array('ie', $allowed_browsers) ? 'selected': '' ?>><?php esc_html_e('IE', 'woolentor') ?></option>
+                                                <option value="edge" <?php echo in_array('edge', $allowed_browsers) ? 'selected': '' ?>><?php esc_html_e('Edge', 'woolentor') ?></option>
                                                 
                                             </select>
                                         </div>
@@ -513,7 +513,7 @@ wp_enqueue_script('js-cookie');
 
             <div class="woolentor-template-button-group">
                 <div class="woolentor-template-button-item">
-                    <button class="button button-primary" disabled="disabled" data-popup_id="<?php echo get_the_id() ?>"><?php _e('Save Settings', 'woolentor') ?></button>
+                    <button class="button button-primary" disabled="disabled" data-popup_id="<?php echo esc_attr(get_the_id()) ?>"><?php esc_html_e('Save Settings', 'woolentor') ?></button>
                 </div>
             </div>
 
@@ -525,8 +525,8 @@ wp_enqueue_script('js-cookie');
             <div class="wlpb-repeater-controls-wrapper">
                 <div class="woolentor-admin-select wlpb-type">
                     <select data-name="type" id="">
-                        <option value="include"><?php _e('Include', 'woolentor') ?></option>
-                        <option value="exclude"><?php _e('Exclude', 'woolentor') ?></option>
+                        <option value="include"><?php esc_html_e('Include', 'woolentor') ?></option>
+                        <option value="exclude"><?php esc_html_e('Exclude', 'woolentor') ?></option>
                     </select>
                 </div>
 

@@ -1257,15 +1257,14 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
         ];
 
         $slider_responsive_settings = [
-            'product_items' => $settings['slitems'],
-            'scroll_columns' => $settings['slscroll_columns'],
-            'tablet_width' => $settings['sltablet_width'],
-            'tablet_display_columns' => $settings['sltablet_display_columns'],
-            'tablet_scroll_columns' => $settings['sltablet_scroll_columns'],
-            'mobile_width' => $settings['slmobile_width'],
-            'mobile_display_columns' => $settings['slmobile_display_columns'],
-            'mobile_scroll_columns' => $settings['slmobile_scroll_columns'],
-
+            'product_items' => absint($settings['slitems']),
+            'scroll_columns' => absint($settings['slscroll_columns']),
+            'tablet_width' => absint($settings['sltablet_width']),
+            'tablet_display_columns' => absint($settings['sltablet_display_columns']),
+            'tablet_scroll_columns' => absint($settings['sltablet_scroll_columns']),
+            'mobile_width' => absint($settings['slmobile_width']),
+            'mobile_display_columns' => absint($settings['slmobile_display_columns']),
+            'mobile_scroll_columns' => absint($settings['slmobile_scroll_columns']),
         ];
 
         $slider_settings = array_merge($slider_settings, $slider_responsive_settings);
@@ -1383,12 +1382,13 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
 
                                 // Category retrive
                                 $catargs = array(
+                                    'taxonomy'   => 'product_cat',
                                     'orderby'    => 'name',
                                     'order'      => 'ASC',
                                     'hide_empty' => true,
                                     'slug'       => $product_cats,
                                 );
-                                $prod_categories = get_terms( 'product_cat', $catargs);
+                                $prod_categories = get_terms( $catargs);
 
                                 foreach( $prod_categories as $prod_cats ){
                                     $m++;
@@ -1413,8 +1413,8 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
 
                                     if( $fetchproduct->have_posts() ){
                                         ?>
-                                            <li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#woolentortab<?php echo $tabuniqid.esc_attr($m);?>">
-                                                <?php echo esc_attr( $prod_cats->name );?>
+                                            <li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#woolentortab<?php echo esc_attr($tabuniqid.$m);?>">
+                                                <?php echo esc_html( $prod_cats->name );?>
                                             </a></li>
                                         <?php
                                     }
@@ -1430,12 +1430,13 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
             <?php
                 $j=0;
                 $tabcatargs = array(
+                    'taxonomy'   => 'product_cat',
                     'orderby'    => 'name',
                     'order'      => 'ASC',
                     'hide_empty' => true,
                     'slug'       => $product_cats,
                 );
-                $tabcat_fach = get_terms( 'product_cat', $tabcatargs );
+                $tabcat_fach = get_terms( $tabcatargs );
                 foreach( $tabcat_fach as $cats ):
                     $j++;
                     $field_name = is_numeric($product_cats[0])?'term_id':'slug';
@@ -1459,7 +1460,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
 
                     if( $products->have_posts() ):
                     ?>
-                    <div class="ht-tab-pane <?php if($j==1){echo 'htactive';} ?>" id="<?php echo 'woolentortab'.$tabuniqid.$j;?>">
+                    <div class="ht-tab-pane <?php if($j==1){echo 'htactive';} ?>" id="<?php echo esc_attr('woolentortab'.$tabuniqid.$j);?>">
                         
                         <div class="ht-row">
                             <div class="<?php echo esc_attr( $collumval );?>">
@@ -1481,7 +1482,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                             <?php
                                                 if( $settings['woolentor_product_style'] == 1){
                                                     if( true === woolentor_has_wishlist_plugin() ){
-                                                        echo woolentor_add_to_wishlist_button();
+                                                        echo woolentor_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                     }
                                                 }
                                             ?>
@@ -1498,21 +1499,21 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                             ?>
                                                             <ul>
                                                                 <?php
-                                                                    echo '<li class="attribute_label">'.wc_attribute_label( $attribute->get_name() ).esc_html__(':','woolentor').'</li>';
+                                                                    echo '<li class="attribute_label">'.wc_attribute_label( $attribute->get_name() ).esc_html__(':','woolentor').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                     if ( $attribute->is_taxonomy() ) {
                                                                         global $wc_product_attributes;
                                                                         $product_terms = wc_get_product_terms( $product->get_id(), $name, array( 'fields' => 'all' ) );
                                                                         foreach ( $product_terms as $product_term ) {
-                                                                            $product_term_name = esc_html( $product_term->name );
+                                                                            $product_term_name = $product_term->name;
                                                                             $link = get_term_link( $product_term->term_id, $name );
                                                                             $color = get_term_meta( $product_term->term_id, 'color', true );
                                                                             if ( ! empty ( $wc_product_attributes[ $name ]->attribute_public ) ) {
-                                                                                echo '<li><a href="' . esc_url( $link  ) . '" rel="tag">' . $product_term_name . '</a></li>';
+                                                                                echo '<li><a href="' . esc_url( $link  ) . '" rel="tag">' . esc_html($product_term_name) . '</a></li>';
                                                                             } else {
                                                                                 if(!empty($color)){
-                                                                                    echo '<li class="color_attribute" style="background-color: '.$color.';">&nbsp;</li>';
+                                                                                    echo '<li class="color_attribute" style="background-color: '.esc_attr($color).';">&nbsp;</li>';
                                                                                 }else{
-                                                                                    echo '<li>' . $product_term_name . '</li>';
+                                                                                    echo '<li>' . esc_html($product_term_name) . '</li>';
                                                                                 }
                                                                                 
                                                                             }
@@ -1526,7 +1527,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                         <?php
                                                             woocommerce_template_loop_add_to_cart();
                                                             if( true === woolentor_has_wishlist_plugin() ){
-                                                                echo woolentor_add_to_wishlist_button();
+                                                                echo woolentor_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             }
                                                         ?>
                                                     </div>
@@ -1545,7 +1546,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                         if( $settings['woolentor_product_style'] == 2){
                                                             woocommerce_template_loop_add_to_cart();
                                                             if( true === woolentor_has_wishlist_plugin() ){
-                                                                echo woolentor_add_to_wishlist_button();
+                                                                echo woolentor_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             }
                                                         }else{
                                                             woocommerce_template_loop_add_to_cart(); 
@@ -1587,7 +1588,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                         $slider_main_div_style = '';
                         if( $proslider == 'yes' ){
                             $slider_main_div_style = "style='display:none'";
-                            echo '<div id="product-slider-' . uniqid() . '" dir="'.$direction.'" class="product-slider" '.$slider_main_div_style.' data-settings=\'' . wp_json_encode($slider_settings) . '\'>';
+                            echo '<div id="'.esc_attr('product-slider-' . uniqid()).'" dir="'.esc_attr($direction).'" class="product-slider" '.$slider_main_div_style.' data-settings=\'' . wp_json_encode($slider_settings) . '\'>';
                         }
                     ?>
 
@@ -1611,7 +1612,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                             <?php
                                                 if( $settings['woolentor_product_style'] == 1 ){
                                                     if( true === woolentor_has_wishlist_plugin() ){
-                                                        echo woolentor_add_to_wishlist_button();
+                                                        echo woolentor_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                     }
                                                 }
                                             ?>
@@ -1628,21 +1629,21 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                             ?>
                                                             <ul>
                                                                 <?php
-                                                                    echo '<li class="attribute_label">'.wc_attribute_label( $attribute->get_name() ).esc_html__(':','woolentor').'</li>';
+                                                                    echo '<li class="attribute_label">'.wc_attribute_label( $attribute->get_name() ).esc_html__(':','woolentor').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                     if ( $attribute->is_taxonomy() ) {
                                                                         global $wc_product_attributes;
                                                                         $product_terms = wc_get_product_terms( $product->get_id(), $name, array( 'fields' => 'all' ) );
                                                                         foreach ( $product_terms as $product_term ) {
-                                                                            $product_term_name = esc_html( $product_term->name );
+                                                                            $product_term_name = $product_term->name;
                                                                             $link = get_term_link( $product_term->term_id, $name );
                                                                             $color = get_term_meta( $product_term->term_id, 'color', true );
                                                                             if ( ! empty ( $wc_product_attributes[ $name ]->attribute_public ) ) {
-                                                                                echo '<li><a href="' . esc_url( $link  ) . '" rel="tag">' . $product_term_name . '</a></li>';
+                                                                                echo '<li><a href="' . esc_url( $link  ) . '" rel="tag">' . esc_html($product_term_name) . '</a></li>';
                                                                             } else {
                                                                                 if(!empty($color)){
-                                                                                    echo '<li class="color_attribute" style="background-color: '.$color.';">&nbsp;</li>';
+                                                                                    echo '<li class="color_attribute" style="background-color: '.esc_attr($color).';">&nbsp;</li>';
                                                                                 }else{
-                                                                                    echo '<li>' . $product_term_name . '</li>';
+                                                                                    echo '<li>' . esc_html($product_term_name) . '</li>';
                                                                                 }
                                                                                 
                                                                             }
@@ -1656,7 +1657,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                         <?php
                                                             woocommerce_template_loop_add_to_cart();
                                                             if( true === woolentor_has_wishlist_plugin() ){
-                                                                echo woolentor_add_to_wishlist_button();
+                                                                echo woolentor_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             }
                                                         ?>
                                                     </div>
@@ -1675,7 +1676,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                         if( $settings['woolentor_product_style'] == 2){
                                                             woocommerce_template_loop_add_to_cart();
                                                             if( true === woolentor_has_wishlist_plugin() ){
-                                                                echo woolentor_add_to_wishlist_button();
+                                                                echo woolentor_add_to_wishlist_button(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             }
                                                         }else{
                                                             woocommerce_template_loop_add_to_cart(); 

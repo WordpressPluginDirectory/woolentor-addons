@@ -43,6 +43,11 @@ class Blocks_init {
      */
     public function prepare_block_data( $block ){
 
+        // If Formatting File is missing
+        if ( !function_exists('wp_strip_all_tags') ) {
+            require_once( ABSPATH . 'wp-includes/formatting.php' );
+        }
+
         $block = apply_filters( 'woolentor/register_block_args', $block );
 
         if ( ! function_exists( 'register_block_type' ) ) {

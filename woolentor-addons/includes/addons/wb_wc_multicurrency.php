@@ -103,7 +103,7 @@ class Woolentor_Wb_Wc_Multicurrency_Widget extends Widget_Base {
         $short_code_attributes = [
             'style' => $settings['multi_currency_style'],
         ];
-        echo woolentor_do_shortcode( 'WCMC', $short_code_attributes );
+        echo woolentor_do_shortcode( 'WCMC', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
 }

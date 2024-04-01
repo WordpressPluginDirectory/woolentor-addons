@@ -19,6 +19,7 @@
                 data: {
                     action: 'wishsuite_add_to_list',
                     id: id,
+                    nonce: WishSuite.wsnonce
                 },
                 dataType: 'json',
                 method: 'GET',
@@ -61,6 +62,7 @@
             data: {
                 action: 'wishsuite_remove_from_list',
                 id: id,
+                nonce: WishSuite.wsnonce
             },
             dataType: 'json',
             method: 'GET',
@@ -138,7 +140,8 @@
 
         var data = {
             action: 'wishsuite_quick_variation_form',
-            id: id
+            id: id,
+            nonce: WishSuite.wsnonce
         };
         $.ajax({
             type: 'post',
@@ -240,6 +243,7 @@
                 quantity: product_qty,
                 variation_id: variation_id,
                 variations: item,
+                nonce: WishSuite.wsnonce
             };
 
             $( document.body ).trigger('adding_to_cart', [$this, data]);

@@ -34,7 +34,7 @@
                         <svg class="right" width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 8H8L7.84723 7.97004C3.83909 7.18414 0.723573 4.01985 0 0V8Z" fill="currentColor" />
                         </svg>
-                        <?php echo sprintf('%s %s',$icon, esc_html( $title ) ); ?>
+                        <?php echo sprintf('%s %s',$icon, esc_html( $title ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </a>
                 </li>
             <?php

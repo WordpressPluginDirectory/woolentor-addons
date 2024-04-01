@@ -119,7 +119,8 @@ class Frontend {
             'product_thumbnail_selector'      => $product_thumbnail_selector,
             'hide_wc_forward_button'          => $hide_wc_forward_button,
             'enable_cart_popup_notice'        => $enable_cart_popup_notice,
-            'enable_catalog_mode'             => $enable_catalog_mode
+            'enable_catalog_mode'             => $enable_catalog_mode,
+            'swatchly_none'                   => wp_create_nonce('swatchly_none'),
         );
         wp_localize_script( 'swatchly-frontend', 'swatchly_params', $localize_vars );
 

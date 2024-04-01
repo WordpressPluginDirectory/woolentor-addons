@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<?php if ( ! current_theme_supports( 'title-tag' ) ) : ?>
-		<title><?php echo wp_get_document_title(); ?></title>
+		<title><?php echo wp_get_document_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></title>
 	<?php endif; ?>
 	<?php wp_head(); ?>
 	<?php
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 <body <?php body_class(); ?>>
 	<?php $width = apply_filters( 'woolentor_builder_template_width', 1200 ); ?>
-	<div class="woolentor-template-container" style="margin:0 auto; max-width:<?php echo $width ? $width.'px; padding: 0 15px;' : '100%;'; ?>">
+	<div class="woolentor-template-container" style="margin:0 auto; max-width:<?php echo $width ? esc_attr($width).'px; padding: 0 15px;' : '100%;'; ?>">
 		<?php
 			while ( have_posts() ) { 
 				the_post();

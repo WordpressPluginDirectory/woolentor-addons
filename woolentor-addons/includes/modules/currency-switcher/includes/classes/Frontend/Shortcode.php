@@ -76,7 +76,7 @@ class Shortcode{
 
                                     $flag = ( $atts['flags'] == 'yes' ) ? '<img src="'.$this->get_flag_url( $atts['flag_style'], $currency['currency'] ).'" alt="'.$wc_currencie_list[$currency['currency']].'"/>' : '';
 
-                                    echo sprintf('<li %4$s data-value="%1$s">%5$s %2$s (%3$s)</li>', $currency['currency'], $wc_currencie_list[$currency['currency']], $currency_symbol, $active_currency, $flag );
+                                    echo sprintf('<li %4$s data-value="%1$s">%5$s %2$s (%3$s)</li>', $currency['currency'], $wc_currencie_list[$currency['currency']], $currency_symbol, $active_currency, $flag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             ?>
                         </ul>
@@ -84,7 +84,7 @@ class Shortcode{
                 <?php else: ?>
                     <div class="woolentor-selected-currency-wrap">
                         <span class="woolentor-selected-currency">
-                            <?php echo sprintf('%3$s %1$s (%2$s)', $wc_currencie_list[$current_currency_code], $current_currency_symbol, $current_currency_flag); ?>
+                            <?php echo sprintf('%3$s %1$s (%2$s)', $wc_currencie_list[$current_currency_code], $current_currency_symbol, $current_currency_flag); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </span>
                         <span class="woolentor-currency-dropdown-arrow"></span>
                     </div>
@@ -97,7 +97,7 @@ class Shortcode{
 
                                     $flag = ( $atts['flags'] == 'yes' ) ? '<img src="'.$this->get_flag_url( $atts['flag_style'], $currency['currency'] ).'" alt="'.$wc_currencie_list[$currency['currency']].'"/>' : '';
 
-                                    echo sprintf('<li %4$s data-value="%1$s">%5$s %2$s (%3$s)</li>', $currency['currency'], $wc_currencie_list[$currency['currency']], $currency_symbol, $hide_currency, $flag);
+                                    echo sprintf('<li %4$s data-value="%1$s">%5$s %2$s (%3$s)</li>', $currency['currency'], $wc_currencie_list[$currency['currency']], $currency_symbol, $hide_currency, $flag); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             ?>
                         </ul>

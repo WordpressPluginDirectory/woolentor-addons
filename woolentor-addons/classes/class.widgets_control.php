@@ -78,6 +78,10 @@ class Widgets_Control{
             $tmpType = '';
         }
 
+        if ( !function_exists('wp_strip_all_tags') ) {
+            require_once( ABSPATH . 'wp-includes/formatting.php' );
+        }
+
         foreach ( $this->widget_list_manager( $tmpType ) as $element_key => $element ){
 
             if ( isset( $element['location'] ) ) {

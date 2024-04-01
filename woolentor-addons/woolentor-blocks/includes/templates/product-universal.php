@@ -91,7 +91,7 @@
 
     ?>
     <!--Product Start-->
-    <div class="<?php echo $collumval; ?>">
+    <div class="<?php echo esc_attr($collumval); ?>">
         <div class="ht-product-inner">
 
             <div class="ht-product-image-wrap">
@@ -103,7 +103,7 @@
                 ?>
                 <div class="ht-product-image">
                     <?php  if( $settings['thumbnailsStyle'] == 2 && $gallery_images_ids ): ?>
-                        <div class="ht-product-image-slider ht-product-image-thumbnaisl-<?php echo $tabuniqid; ?>" data-slick='{"rtl":<?php if( is_rtl() ){ echo 'true'; }else{ echo 'false'; } ?> }'>
+                        <div class="ht-product-image-slider ht-product-image-thumbnaisl-<?php echo esc_attr($tabuniqid); ?>" data-slick='{"rtl":<?php if( is_rtl() ){ echo 'true'; }else{ echo 'false'; } ?> }'>
                             <?php
                                 foreach ( $gallery_images_ids as $gallery_attachment_id ) {
                                     echo '<a href="'.esc_url( get_the_permalink() ).'" class="item">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a>';
@@ -118,7 +118,7 @@
                                 foreach ( $gallery_images_ids as $gallery_attachment_id ) {
                                     $i++;
                                     if( $i == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                    echo '<div class="ht-product-cus-tab-pane '.$tabactive.'" id="image-'.$i.get_the_ID().'"><a href="#">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a></div>';
+                                    echo '<div class="ht-product-cus-tab-pane '.esc_attr($tabactive).'" id="'.esc_attr("image-".$i.get_the_ID()).'"><a href="#">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a></div>';
                                 }
                             ?>
                         </div>
@@ -128,7 +128,7 @@
                                 foreach ( $gallery_images_ids as $gallery_attachment_id ) {
                                     $j++;
                                     if( $j == 1 ){ $tabactive = 'htactive'; }else{ $tabactive = ' '; }
-                                    echo '<li><a href="#image-'.$j.get_the_ID().'" class="'.$tabactive.'">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' ).'</a></li>';
+                                    echo '<li><a href="'.esc_attr("#image-".$j.get_the_ID()).'" class="'.esc_attr($tabactive).'">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_gallery_thumbnail' ).'</a></li>';
                                 }
                             ?>
                         </ul>
@@ -155,14 +155,14 @@
                     <div class="ht-product-action">
                         <ul class="woolentor-action-btn-area">
                             <li>
-                                <a href="#" class="woolentorquickview" data-quick-id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); ?>>
+                                <a href="#" class="woolentorquickview" data-quick-id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                     <i class="sli sli-magnifier"></i>
                                     <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','woolentor'); ?></span>
                                 </a>
                             </li>
                             <?php
                                 if( true === woolentor_has_wishlist_plugin() ){
-                                    echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>';
+                                    echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             ?>
                             <?php
@@ -190,26 +190,26 @@
                     <?php if ( $settings['hideCategory'] != true ) : ?>
                         <div class="ht-product-categories <?php if ( $settings['hideCategoryBeforeBorder'] == true ) {echo 'hide-category-before';} ?>"><?php woolentor_get_product_category_list(); ?></div>
                     <?php endif; ?>
-                    <?php if ( $settings['hideTitle'] != true ) { echo sprintf( "<%s class='ht-product-title'><a href='%s'>%s</a></%s>", $title_html_tag, get_the_permalink(), get_the_title(), $title_html_tag ); } ?>
+                    <?php if ( $settings['hideTitle'] != true ) { echo sprintf( "<%s class='ht-product-title'><a href='%s'>%s</a></%s>", $title_html_tag, get_the_permalink(), get_the_title(), $title_html_tag ); } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php if ( $settings['hidePrice'] != true ) : ?>
                         <div class="ht-product-price"><?php woocommerce_template_loop_price();?></div>
                     <?php endif; ?>
                     <?php if ( $settings['hideRating'] != true ) : ?>
-                        <div class="ht-product-ratting-wrap"><?php echo woolentor_wc_get_rating_html('yes'); ?></div>
+                        <div class="ht-product-ratting-wrap"><?php echo woolentor_wc_get_rating_html('yes'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
                     <?php endif; ?>
 
                     <?php if( $settings['showActionButton'] == true ){ if( $settings['actionButtonPosition'] == 'contentbottom' ): ?>
                         <div class="ht-product-action">
                             <ul class="woolentor-action-btn-area">
                                 <li>
-                                    <a href="#" class="woolentorquickview" data-quick-id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); ?>>
+                                    <a href="#" class="woolentorquickview" data-quick-id="<?php the_ID();?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                         <i class="sli sli-magnifier"></i>
                                         <span class="ht-product-action-tooltip"><?php esc_html_e('Quick View','woolentor'); ?></span>
                                     </a>
                                 </li>
                                 <?php
                                     if( true === woolentor_has_wishlist_plugin() ){
-                                        echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>';
+                                        echo '<li>'.woolentor_add_to_wishlist_button('<i class="sli sli-heart"></i>','<i class="sli sli-heart"></i>', 'yes').'</li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                                 <?php

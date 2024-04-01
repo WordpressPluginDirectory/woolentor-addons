@@ -234,6 +234,7 @@
       text-indent: -9999px;
       position: relative;
       text-align: center;
+      display: block;
   }
   .woolentor-flash-product-action-btn.loading{
     position: relative;

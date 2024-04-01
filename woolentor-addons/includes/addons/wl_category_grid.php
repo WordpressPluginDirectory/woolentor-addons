@@ -1089,6 +1089,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
         }
 
         $catargs = array(
+            'taxonomy'   => 'product_cat',
             'orderby'    => $orderby,
             'order'      => $order,
             'hide_empty' => ( 'yes' === $settings['hide_empty'] )
@@ -1112,7 +1113,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
         }else{
             $catargs['slug'] = '';
         }
-        $prod_categories = get_terms( 'product_cat', $catargs );
+        $prod_categories = get_terms( $catargs );
 
         if( $display_type == 'all_cat' || $display_type == 'all_cat_parent' || $display_type == 'category_and_subcategory'){
             $limitcount = $settings['limitcount'];
@@ -1149,14 +1150,14 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
             ];
 
             $slider_responsive_settings = [
-                'product_items' => $settings['slitems'],
-                'scroll_columns' => $settings['slscroll_columns'],
-                'tablet_width' => $settings['sltablet_width'],
-                'tablet_display_columns' => $settings['sltablet_display_columns'],
-                'tablet_scroll_columns' => $settings['sltablet_scroll_columns'],
-                'mobile_width' => $settings['slmobile_width'],
-                'mobile_display_columns' => $settings['slmobile_display_columns'],
-                'mobile_scroll_columns' => $settings['slmobile_scroll_columns'],
+                'product_items' => absint($settings['slitems']),
+                'scroll_columns' => absint($settings['slscroll_columns']),
+                'tablet_width' => absint($settings['sltablet_width']),
+                'tablet_display_columns' => absint($settings['sltablet_display_columns']),
+                'tablet_scroll_columns' => absint($settings['sltablet_scroll_columns']),
+                'mobile_width' => absint($settings['slmobile_width']),
+                'mobile_display_columns' => absint($settings['slmobile_display_columns']),
+                'mobile_scroll_columns' => absint($settings['slmobile_scroll_columns']),
 
             ];
             $slider_settings = array_merge( $slider_settings, $slider_responsive_settings );
@@ -1170,7 +1171,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
 
         $placeholder_image = sprintf( '<img src="%s" alt="%s" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting category image', 'woolentor' ) );
 
-        echo '<div class="wl-row '.( $settings['no_gutters'] === 'yes' ? 'wlno-gutters' : '' ).' '.( $settings['slider_on'] === 'yes' ? 'product-slider' : '' ).' " data-settings='.wp_json_encode( $slider_settings ).' '.$slider_main_div_style.'>';
+        echo '<div class="wl-row '.( $settings['no_gutters'] === 'yes' ? 'wlno-gutters' : '' ).' '.( $settings['slider_on'] === 'yes' ? 'product-slider' : '' ).' " data-settings='.wp_json_encode( $slider_settings ).' '.$slider_main_div_style.'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             foreach ( $prod_categories as $key => $prod_cat ):
                 $counter++;
                 $bgc++;
@@ -1191,7 +1192,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
                             <?php if( !empty( $thumbnails ) ): ?>
                             <div class="ht-category-image ht-category-image-zoom">
                                 <a class="ht-category-border" href="<?php echo esc_url( $term_link ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>
@@ -1219,7 +1220,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image-2">
                                 <a href="<?php echo esc_url( $term_link ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>
@@ -1235,17 +1236,17 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
                             <?php if( !empty( $thumbnails ) ): ?>
                             <div class="ht-category-image ht-category-image-zoom">
                                 <a class="ht-category-border-2" href="<?php echo esc_url( $term_link ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php else: ?>
                                 <div class="ht-category-image ht-category-image-zoom">
                                     <a class="ht-category-border-2" href="<?php echo esc_url( $term_link ); ?>">
-                                        <?php echo $placeholder_image; ?>
+                                        <?php echo $placeholder_image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                     </a>
                                 </div>
                             <?php endif; ?>
-                            <div class="ht-category-content-3 ht-category-content-3-bg<?php echo $bgc; ?>">
+                            <div class="ht-category-content-3 ht-category-content-3-bg<?php echo esc_attr($bgc); ?>">
                                 <h3><a href="<?php echo esc_url( $term_link ); ?>"><?php echo esc_html__( $prod_cat->name, 'woolentor' ); ?></a></h3>
                             </div>
                             <?php
@@ -1260,7 +1261,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image ht-category-image-zoom">
                                 <a href="<?php echo esc_url( $term_link ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>
@@ -1285,7 +1286,7 @@ class Woolentor_Wl_Category_Grid_Widget extends Widget_Base {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image-3 ht-category-image-zoom">
                                 <a href="<?php echo esc_url( $term_link ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>

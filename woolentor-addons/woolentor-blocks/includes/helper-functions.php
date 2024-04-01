@@ -387,6 +387,7 @@ function woolentorBlocks_taxnomy_data( $taxnomySlug = '', $number = 20, $order =
     $data = array();
 
     $queryArg = array(
+        'taxonomy'   => 'product_cat',
         'orderby'    => 'name',
         'order'      => $order,
         'number'     => $number,
@@ -397,7 +398,7 @@ function woolentorBlocks_taxnomy_data( $taxnomySlug = '', $number = 20, $order =
         $queryArg['slug'] = $taxnomySlug;
     }
 
-    $term_data = get_terms( 'product_cat', $queryArg );
+    $term_data = get_terms( $queryArg );
 
     if( !empty( $term_data ) && !is_wp_error( $term_data ) ){
 

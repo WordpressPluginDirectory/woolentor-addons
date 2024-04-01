@@ -14,6 +14,6 @@ $args = [
 	'wrap_after'  => '</nav>',
 ];
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	woocommerce_breadcrumb( $args );
 echo '</div>';

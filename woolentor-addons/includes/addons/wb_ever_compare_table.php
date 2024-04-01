@@ -202,7 +202,7 @@ class Woolentor_Wb_Ever_Compare_Table_Widget extends Widget_Base {
         $short_code_attributes = [
             'empty_compare_text' => $settings['empty_table_text'],
         ];
-        echo woolentor_do_shortcode( 'evercompare_table', $short_code_attributes );
+        echo woolentor_do_shortcode( 'evercompare_table', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
 }

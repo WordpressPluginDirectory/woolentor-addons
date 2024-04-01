@@ -333,7 +333,7 @@ class Woolentor_Backorder extends WC_Product{
         $availability_date = $this->get_option('backorder_availability_date', $product_id);
         $timestamp = strtotime($availability_date);
         if($timestamp){
-           $availability_date = date(get_option('date_format'), $timestamp); 
+           $availability_date = gmdate(get_option('date_format'), $timestamp); 
         }
 
         $backorder_limit   = $this->get_option('backorder_limit', $product_id);
@@ -341,9 +341,7 @@ class Woolentor_Backorder extends WC_Product{
         $availability_message = woolentor_get_option('backorder_availability_message', 'woolentor_backorder_settings');
         $availability_message = str_replace( '{availability_date}', '<span class="woolentor-backorder-availability">'.$availability_date.'</span>', $availability_message );
 
-        if( $backorder_limit && $availability_message ){
-            $availability_message = $availability_message;
-        } elseif( $backorder_limit && $availability_date && empty($availability_message) ){
+        if( $backorder_limit && $availability_date && empty($availability_message) ){
             $availability_message = __( 'On Backorder. Will be available on: '. $availability_date, 'woolentor' );
         }
 
@@ -507,7 +505,7 @@ class Woolentor_Backorder extends WC_Product{
         ?>
             <p class="form-field">
                 <label for="_woolentor_backorder_availability_date"><?php echo esc_html__('Backorder Availability', 'woolentor') ?></label>
-                <?php echo wc_help_tip( 'The selected date will show as a message to customer. You can customize the message as you need from the module settings.', 'woolentor' ); ?>
+                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the module settings.', 'woolentor') ); ?>
                 <input type="date" class="short hasDatepicker" name="_woolentor_backorder_availability_date" id="_woolentor_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
             </p>
         </div> <!-- .woolentor-backorder-fields -->

@@ -1105,14 +1105,14 @@ class Woolentor_Wl_Testimonial_Widget extends Widget_Base {
             ];
 
             $slider_responsive_settings = [
-                'product_items' => $settings['slitems'],
-                'scroll_columns' => $settings['slscroll_columns'],
-                'tablet_width' => $settings['sltablet_width'],
-                'tablet_display_columns' => $settings['sltablet_display_columns'],
-                'tablet_scroll_columns' => $settings['sltablet_scroll_columns'],
-                'mobile_width' => $settings['slmobile_width'],
-                'mobile_display_columns' => $settings['slmobile_display_columns'],
-                'mobile_scroll_columns' => $settings['slmobile_scroll_columns'],
+                'product_items' => absint($settings['slitems']),
+                'scroll_columns' => absint($settings['slscroll_columns']),
+                'tablet_width' => absint($settings['sltablet_width']),
+                'tablet_display_columns' => absint($settings['sltablet_display_columns']),
+                'tablet_scroll_columns' => absint($settings['sltablet_scroll_columns']),
+                'mobile_width' => absint($settings['slmobile_width']),
+                'mobile_display_columns' => absint($settings['slmobile_display_columns']),
+                'mobile_scroll_columns' => absint($settings['slmobile_scroll_columns']),
 
             ];
             $slider_settings = array_merge( $slider_settings, $slider_responsive_settings );
@@ -1132,7 +1132,7 @@ class Woolentor_Wl_Testimonial_Widget extends Widget_Base {
         }
 
 
-        echo '<div '.$this->get_render_attribute_string( 'area_attr' ).' '.$slider_main_div_style.'>';
+        echo '<div '.$this->get_render_attribute_string( 'area_attr' ).' '.$slider_main_div_style.'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
             foreach ( $testimonial_list as $testimonial ): 
             ?>
@@ -1142,21 +1142,21 @@ class Woolentor_Wl_Testimonial_Widget extends Widget_Base {
                         <?php if( $settings['testimonial_layout'] === '1' ): ?>
                             <?php
                                 if( !empty( $testimonial['message'] ) ){
-                                    echo  sprintf( '<div class="ht-client-content ht-client-content-border"><p>%1$s</p>%2$s</div>', $testimonial['message'], $this->ratting( $testimonial['ratting'] ) );
+                                    echo  sprintf( '<div class="ht-client-content ht-client-content-border"><p>%1$s</p>%2$s</div>', esc_html($testimonial['message']), $this->ratting( $testimonial['ratting'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 }
                             ?>
                             <div class="ht-client-info">
                                 <?php
                                     if( !empty( $testimonial['image'] ) ){
-                                        echo $testimonial['image'];
+                                        echo $testimonial['image']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
 
                                     if( !empty( $testimonial['name'] ) ){
-                                        echo '<h4>'.$testimonial['name'].'</h4>';
+                                        echo '<h4>'.esc_html($testimonial['name']).'</h4>';
                                     }
 
                                     if( !empty( $testimonial['designation'] ) ){
-                                        echo '<span>'.$testimonial['designation'].'</span>';
+                                        echo '<span>'.esc_html($testimonial['designation']).'</span>';
                                     }
                                 ?>
                             </div>
@@ -1165,23 +1165,23 @@ class Woolentor_Wl_Testimonial_Widget extends Widget_Base {
                             <div class="ht-client-info-wrap-2">
                                 <?php
                                     if( !empty( $testimonial['image'] ) ){
-                                        echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] );
+                                        echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                                 <div class="ht-client-info-3">
                                     <?php
                                         if( !empty( $testimonial['name'] ) || !empty( $testimonial['designation'] ) ){
-                                            echo sprintf('<h4>%1$s<span>%2$s</span></h4>', $testimonial['name'], $testimonial['designation'] );
+                                            echo sprintf('<h4>%1$s<span>%2$s</span></h4>', esc_html($testimonial['name']), esc_html($testimonial['designation']) );
                                         }
                                         if( !empty( $testimonial['ratting'] ) ){
-                                            echo $this->ratting( $testimonial['ratting'] );
+                                            echo $this->ratting( $testimonial['ratting'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         }
                                     ?>
                                 </div>
                             </div>
                             <?php
                                 if( !empty( $testimonial['message'] ) ){
-                                    echo  sprintf( '<div class="ht-client-content"><p class="ht-width-dec">%1$s</p></div>', $testimonial['message'] );
+                                    echo  sprintf( '<div class="ht-client-content"><p class="ht-width-dec">%1$s</p></div>', esc_html($testimonial['message']) );
                                 }
                             ?>
 
@@ -1189,28 +1189,28 @@ class Woolentor_Wl_Testimonial_Widget extends Widget_Base {
                             <div class="ht-client-info-wrap ht-client-info-border">
                                 <?php 
                                     if( !empty( $testimonial['image'] ) ){
-                                        echo sprintf( '<div class="ht-client-img">%1$s</div>', $testimonial['image'] );
+                                        echo sprintf( '<div class="ht-client-img">%1$s</div>', $testimonial['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                                 <div class="ht-client-info-2">
                                     <?php
                                         if( !empty( $testimonial['name'] ) ){
-                                            echo '<h4>'.$testimonial['name'].'</h4>';
+                                            echo '<h4>'.esc_html($testimonial['name']).'</h4>';
                                         }
 
                                         if( !empty( $testimonial['designation'] ) ){
-                                            echo '<span>'.$testimonial['designation'].'</span>';
+                                            echo '<span>'.esc_html($testimonial['designation']).'</span>';
                                         }
 
                                         if( !empty( $testimonial['ratting'] ) ){
-                                            echo $this->ratting( $testimonial['ratting'] );
+                                            echo $this->ratting( $testimonial['ratting'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         }
                                     ?>
                                 </div>
                             </div>
                             <?php
                                 if( !empty( $testimonial['message'] ) ){
-                                    echo  sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', $testimonial['message'] );
+                                    echo  sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', esc_html($testimonial['message']) );
                                 }
                             ?>
 
@@ -1218,24 +1218,24 @@ class Woolentor_Wl_Testimonial_Widget extends Widget_Base {
                             <div class="ht-client-info-wrap-2">
                                 <?php 
                                     if( !empty( $testimonial['image'] ) ){
-                                        echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] );
+                                        echo sprintf( '<div class="ht-client-img-2">%1$s</div>', $testimonial['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                                 <div class="ht-client-info-3">
                                     <?php
                                         if( !empty( $testimonial['name'] ) || !empty( $testimonial['designation'] ) ){
-                                            echo sprintf('<h4>%1$s<span>%2$s</span></h4>', $testimonial['name'], $testimonial['designation'] );
+                                            echo sprintf('<h4>%1$s<span>%2$s</span></h4>', esc_html($testimonial['name']), esc_html($testimonial['designation']) );
                                         }
 
                                         if( !empty( $testimonial['ratting'] ) ){
-                                            echo $this->ratting( $testimonial['ratting'] );
+                                            echo $this->ratting( $testimonial['ratting'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         }
                                     ?>
                                 </div>
                             </div>
                             <?php
                                 if( !empty( $testimonial['message'] ) ){
-                                    echo sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', $testimonial['message'] );
+                                    echo sprintf( '<div class="ht-client-content"><p>%1$s</p></div>', esc_html($testimonial['message']) );
                                 }
                             ?>
 

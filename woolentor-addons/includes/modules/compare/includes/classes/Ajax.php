@@ -41,6 +41,12 @@ class Ajax {
      * [add_to_compare] Product add ajax callback
      */
     public function add_to_compare(){
+        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'compare_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
         $id = sanitize_text_field( $_GET['id'] );
         \EverCompare\Frontend\Manage_Compare::instance()->add_to_compare( $id );
     }
@@ -50,6 +56,12 @@ class Ajax {
      * @return [void]
      */
     public function remove_from_compare(){
+        if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'compare_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
         $id = sanitize_text_field( $_GET['id'] );
         \EverCompare\Frontend\Manage_Compare::instance()->remove_from_compare( $id );
     }

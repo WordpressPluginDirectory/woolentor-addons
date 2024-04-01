@@ -91,7 +91,7 @@ class Woolentor_Wb_Whols_Widget extends Widget_Base {
         $settings   = $this->get_settings_for_display();
 
         $short_code_attributes = [];
-        echo woolentor_do_shortcode( 'whols_registration_form', $short_code_attributes );
+        echo woolentor_do_shortcode( 'whols_registration_form', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
 }

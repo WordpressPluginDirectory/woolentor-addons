@@ -601,7 +601,7 @@ class Woolentor_Wl_Onepage_Slider_Widget extends Widget_Base {
                             foreach ( $slider_list as $slider ){
                                 $counter++;
                                 $class = ( 1 == $counter ) ? 'current' : '';
-                                echo sprintf('<li class="%2$s"><a href="#%1$s">%3$s</a></li>', $id.$slider['_id'], $class, $slider['_id'] );
+                                echo sprintf('<li class="%2$s"><a href="#%1$s">%3$s</a></li>', esc_attr($id.$slider['_id']), esc_attr($class), esc_attr($slider['_id']) );
                             }                
                         ?>
                     </ul>
@@ -615,22 +615,22 @@ class Woolentor_Wl_Onepage_Slider_Widget extends Widget_Base {
 
                         $bg_color = ( $bg_color > 5 ) ? 1 : $bg_color;
                 ?>
-                    <div id="<?php echo esc_attr( $id.$slider['_id'] ); ?>" class="ht-single-full-slider ht-full-slider-bg-color-<?php echo $bg_color; ?> ht-slider-align-items-center ht-jarallax-img ht-parallax-active elementor-repeater-item-<?php echo $slider['_id']; ?>" style="<?php echo esc_attr( $image_url ); ?>">
+                    <div id="<?php echo esc_attr( $id.$slider['_id'] ); ?>" class="ht-single-full-slider ht-full-slider-bg-color-<?php echo esc_attr($bg_color); ?> ht-slider-align-items-center ht-jarallax-img ht-parallax-active elementor-repeater-item-<?php echo esc_attr($slider['_id']); ?>" style="<?php echo esc_attr( $image_url ); ?>">
                         <div class="ht-container">
                             <div class="<?php echo ( 'yes' === $slider['show_video_btn'] ) ? 'ht-video-content' : 'ht-full-slider-content'; ?>">
                                 <?php
                                     if( 'yes' === $slider['show_video_btn'] ){
                                         $pl_icon = !empty( $slider['video_icon']['value'] ) ? woolentor_render_icon( $slider,'video_icon', 'videoicon' ) : '<i class="fas fa-play"></i>';
-                                        $pl_btn = sprintf( '<a class="ht-video-popup" href="%1$s">%2$s</a>', $slider['video_link'], $pl_icon );
-                                        echo sprintf( '<div class="ht-video-icon wow fadeInUp" data-wow-delay="%1$s">%2$s</div>','0.5s', $pl_btn );
+                                        $pl_btn = sprintf( '<a class="ht-video-popup" href="%1$s">%2$s</a>', esc_url($slider['video_link']), $pl_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                        echo sprintf( '<div class="ht-video-icon wow fadeInUp" data-wow-delay="%1$s">%2$s</div>','0.5s', $pl_btn ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-                                        echo sprintf('<h3 class="wow fadeInUp" data-wow-delay="%1$s">%2$s</h3>','.7s', $slider['slider_subtitle']);
+                                        echo sprintf('<h3 class="wow fadeInUp" data-wow-delay="%1$s">%2$s</h3>','.7s', $slider['slider_subtitle']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
                                     }else{
-                                        echo sprintf('<h2 class="wow fadeInUp" data-wow-delay="%1$s">%2$s</h2>','.5s', $slider['slider_subtitle']);
-                                        echo sprintf('<h1 class="wow fadeInUp" data-wow-delay="%1$s">%2$s</h1>','.7s', $slider['slider_title']);
+                                        echo sprintf('<h2 class="wow fadeInUp" data-wow-delay="%1$s">%2$s</h2>','.5s', $slider['slider_subtitle']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                        echo sprintf('<h1 class="wow fadeInUp" data-wow-delay="%1$s">%2$s</h1>','.7s', $slider['slider_title']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         if( !empty( $slider['slider_buttontxt'] ) ){
-                                            echo sprintf( '<div class="ht-btn-style wow fadeInUp" data-wow-delay="%1$s"><a href="%2$s">%3$s</a></div>','.9s',$slider['slider_buttonlink'], $slider['slider_buttontxt'] );
+                                            echo sprintf( '<div class="ht-btn-style wow fadeInUp" data-wow-delay="%1$s"><a href="%2$s">%3$s</a></div>','.9s',esc_url($slider['slider_buttonlink']), esc_html($slider['slider_buttontxt']) );
                                         }
                                     }
                                 ?>

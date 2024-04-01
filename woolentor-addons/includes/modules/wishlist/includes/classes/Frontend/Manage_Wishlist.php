@@ -63,8 +63,8 @@ class Manage_Wishlist {
             $products = $this->get_wishlist_products();
             $products[] = $id;
 
-            setcookie( $cookie_name, json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
-            $_COOKIE[$cookie_name] = json_encode( $products );
+            setcookie( $cookie_name, wp_json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
+            $_COOKIE[$cookie_name] = wp_json_encode( $products );
             $add_status = true;
 
         }
@@ -103,8 +103,8 @@ class Manage_Wishlist {
                     setcookie( $cookie_name, false, 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
                     $_COOKIE[$cookie_name] = false;
                 } else {
-                    setcookie( $cookie_name, json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
-                    $_COOKIE[$cookie_name] = json_encode( $products );
+                    setcookie( $cookie_name, wp_json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
+                    $_COOKIE[$cookie_name] = wp_json_encode( $products );
                 }
                 $delete_status = true;
 

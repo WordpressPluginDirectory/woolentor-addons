@@ -110,7 +110,7 @@ class Woolentor_Wb_Product_Meta_Widget extends Widget_Base {
         $product = wc_get_product();
         
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else{
             if ( empty( $product ) ) { return; }
             woocommerce_template_single_meta();

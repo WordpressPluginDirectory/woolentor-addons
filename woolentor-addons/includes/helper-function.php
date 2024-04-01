@@ -658,7 +658,7 @@ function woolentor_html_tag_lists() {
  * HTML Tag Validation
  * return strig
  */
-function woolentor_validate_html_tag( $tag ) {
+function woolentor_validate_html_tag( $tag = 'div' ) {
     $allowed_html_tags = [
         'article',
         'aside',
@@ -905,7 +905,7 @@ function woolentor_get_product_category_list( $id = null, $taxonomy = 'product_c
         if ( is_wp_error( $link ) ) {
             return $link;
         }
-        echo '<a href="' . esc_url( $link ) . '">' . $term->name . '</a>';
+        echo '<a href="' . esc_url( $link ) . '">' . esc_html($term->name) . '</a>';
         if( $i == $limit ){
             break;
         }else{ continue; }
@@ -1039,13 +1039,13 @@ if( class_exists('WooCommerce') ){
                     break;
                 }
                 if( $offertype == 'number' ){
-                    echo '<span class="ht-product-label ht-product-label-right">'.$price_display.'</span>';
+                    echo '<span class="ht-product-label ht-product-label-right">'.esc_html($price_display).'</span>';
                 }elseif( $offertype == 'percent'){
-                    echo '<span class="ht-product-label ht-product-label-right">'.$_off_percent.'%</span>';
+                    echo '<span class="ht-product-label ht-product-label-right">'.esc_html($_off_percent).'%</span>';
                 }else{ echo ' '; }
 
             }else{
-                $sale_badge_text = apply_filters( 'woolentor_sale_badge_text', __( 'Sale!', 'woolentor' ) );
+                $sale_badge_text = apply_filters( 'woolentor_sale_badge_text', esc_html__( 'Sale!', 'woolentor' ) );
                 echo '<span class="ht-product-label ht-product-label-right">'.esc_html( $sale_badge_text ).'</span>';
             }
         }else{
@@ -1210,7 +1210,7 @@ if( class_exists('WooCommerce') ){
 
             $total_stock = get_post_meta( $product_id, 'woolentor_total_stock_quantity', true );
 
-            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.__( 'here', 'woolentor' ).'</a></div>'; return; }
+            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'woolentor' ).'</a></div>'; return; }
 
             $current_stock = round( get_post_meta( $product_id, '_stock', true ) );
 
@@ -1220,15 +1220,15 @@ if( class_exists('WooCommerce') ){
             if ( $current_stock > 0 ) {
                 echo '<div class="woolentor-stock-progress-bar">';
                     echo '<div class="wlstock-info">';
-                        echo '<div class="wltotal-sold">' . __( $order_text, 'woolentor' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
-                        echo '<div class="wlcurrent-stock">' . __( $available_text, 'woolentor' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
+                        echo '<div class="wltotal-sold">' . esc_html__( $order_text, 'woolentor' ) . '<span>' . esc_html( $total_sold ) . '</span></div>';
+                        echo '<div class="wlcurrent-stock">' . esc_html__( $available_text, 'woolentor' ) . '<span>' . esc_html( $current_stock ) . '</span></div>';
                     echo '</div>';
-                    echo '<div class="wlprogress-area" title="' . __( 'Sold', 'woolentor' ) . ' ' . esc_attr( $percentage ) . '%">';
+                    echo '<div class="wlprogress-area" title="' . esc_html__( 'Sold', 'woolentor' ) . ' ' . esc_attr( $percentage ) . '%">';
                         echo '<div class="wlprogress-bar"style="width:' . esc_attr( $percentage ) . '%;"></div>';
                     echo '</div>';
                 echo '</div>';
             }else{
-                echo '<div class="stock-management-progressbar">'.__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.__( 'here', 'woolentor' ).'</a></div>';
+                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'woolentor' ).'</a></div>';
             }
 
         }
@@ -1241,10 +1241,8 @@ if( class_exists('WooCommerce') ){
      */
     function woolentor_minmax_price_limit() {
         global $wpdb;
-        $min_query = "SELECT MIN( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = '_price'";
-        $max_query = "SELECT MAX( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = '_price'";
-        $value_min = $wpdb->get_var( $min_query );
-        $value_max = $wpdb->get_var( $max_query );
+        $value_min = $wpdb->get_var( $wpdb->prepare( "SELECT MIN( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = %s", '_price' ) );
+        $value_max = $wpdb->get_var( $wpdb->prepare( "SELECT MAX( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = %s", '_price' ) );
         return [
             'min' => (int)$value_min,
             'max' => (int)$value_max,

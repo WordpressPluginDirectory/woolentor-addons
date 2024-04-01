@@ -206,7 +206,7 @@ class Manage_Compare {
         $shareablelink = $this->get_compare_page_url() . '?evcompare='.$idsString;
         ?>
             <div class="ever-compare-shareable-link <?php echo esc_attr( $button_pos );?>">
-                <button class="evercompare-copy-link" data-copytext="<?php echo esc_attr( $aftercopy_buttonText ); ?>" data-btntext="<?php echo esc_attr( $buttonText ); ?>"><?php echo $buttonText; ?></button>
+                <button class="evercompare-copy-link" data-copytext="<?php echo esc_attr( $aftercopy_buttonText ); ?>" data-btntext="<?php echo esc_attr( $buttonText ); ?>"><?php echo esc_html($buttonText); ?></button>
                 <p style="display: none;" class="evercompare-share-link"><?php echo $shareablelink; ?></p>
             </div>
         <?php
@@ -234,9 +234,9 @@ class Manage_Compare {
 
         $products[] = $id;
 
-        setcookie( $cookie_name, json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
+        setcookie( $cookie_name, wp_json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
 
-        $_COOKIE[$cookie_name] = json_encode( $products );
+        $_COOKIE[$cookie_name] = wp_json_encode( $products );
 
         $this->compare_json_response();
 
@@ -285,8 +285,8 @@ class Manage_Compare {
             setcookie( $cookie_name, false, 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
             $_COOKIE[$cookie_name] = false;
         } else {
-            setcookie( $cookie_name, json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
-            $_COOKIE[$cookie_name] = json_encode( $products );
+            setcookie( $cookie_name, wp_json_encode( $products ), 0, COOKIEPATH, COOKIE_DOMAIN, false, false );
+            $_COOKIE[$cookie_name] = wp_json_encode( $products );
         }
 
         $this->compare_json_response();
@@ -466,15 +466,15 @@ class Manage_Compare {
                 ?>
                     <div class="htcompare-primary-content-area">
                         <a href="#" class="htcompare-remove" data-product_id="<?php echo esc_attr( $product['id'] ); ?>">&nbsp;</a>
-                        <a href="<?php echo get_permalink( $product['id'] ); ?>" class="htcompare-product-image">
-                            <?php echo $product['primary']['image']; ?>
+                        <a href="<?php echo esc_url(get_permalink( $product['id'] )); ?>" class="htcompare-product-image">
+                            <?php echo $product['primary']['image']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </a>
                     </div>
                 <?php
                 break;
 
             case 'title':
-                echo '<a href="'.get_permalink( $product['id'] ).'" class="htcompare-product-title">'.$product[ $field_id ].'</a>';
+                echo '<a href="'.esc_url(get_permalink( $product['id'] )).'" class="htcompare-product-title">'.$product[ $field_id ].'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'ratting':
@@ -486,7 +486,7 @@ class Manage_Compare {
                 break;
 
             case 'add_to_cart':
-                echo apply_filters( 'htcompare_add_to_cart_btn', $product[ $field_id ] );
+                echo apply_filters( 'htcompare_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'attribute':
@@ -496,12 +496,12 @@ class Manage_Compare {
             case 'weight':
                 if ( $product[ $field_id ] ) {
                     $unit = $product[ $field_id ] !== '-' ? get_option( 'woocommerce_weight_unit' ) : '';
-                    echo wc_format_localized_decimal( $product[ $field_id ] ) . ' ' . esc_attr( $unit );
+                    echo wc_format_localized_decimal( $product[ $field_id ] ) . ' ' . esc_attr( $unit ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 } 
                 break;
 
             case 'description':
-                echo apply_filters( 'woocommerce_short_description', $product[ $field_id ] );
+                echo apply_filters( 'woocommerce_short_description', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             default:
@@ -536,7 +536,7 @@ class Manage_Compare {
         $args = apply_filters( 'woocommerce_loop_add_to_cart_args', $defaults, $product );
 
         if ( isset( $args['attributes']['aria-label'] ) ) {
-            $args['attributes']['aria-label'] = strip_tags( $args['attributes']['aria-label'] );
+            $args['attributes']['aria-label'] = wp_strip_all_tags( $args['attributes']['aria-label'] );
         }
 
         return apply_filters( 'woocommerce_loop_add_to_cart_link', 

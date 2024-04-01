@@ -48,6 +48,13 @@ class Woolentor_Ajax_Action{
      */
     public function insert_to_cart(){
 
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'woolentor_psa_nonce' ) ){
+            $errormessage = array(
+                'message'  => __('Nonce Varification Faild !','woolentor')
+            );
+            wp_send_json_error( $errormessage );
+        }
+
         // phpcs:disable WordPress.Security.NonceVerification.Missing
         if ( ! isset( $_POST['product_id'] ) ) {
             return;
@@ -71,7 +78,7 @@ class Woolentor_Ajax_Action{
                 'error' => true,
                 'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ),
             );
-            echo wp_send_json( $data );
+            wp_send_json_error( $data );
         }
         wp_send_json_success();
         
@@ -114,7 +121,7 @@ class Woolentor_Ajax_Action{
                 'error' => true,
                 'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ),
             );
-            echo wp_send_json( $data );
+            wp_send_json_error( $data );
         }
         wp_send_json_success();
         

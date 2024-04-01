@@ -23,6 +23,6 @@ $short_code_attributes = [
 	'redirect_url' 	=> !empty( $settings['redirectUrl'] ) ? $settings['redirectUrl'] : '',
 ];
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
-	echo woolentor_do_shortcode( 'wlpb_trigger_button', $short_code_attributes );
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
+	echo woolentor_do_shortcode( 'wlpb_trigger_button', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo '</div>';

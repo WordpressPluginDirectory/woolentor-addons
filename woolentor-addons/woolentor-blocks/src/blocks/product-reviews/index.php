@@ -14,7 +14,7 @@ $is_editor = ( $block['is_editor'] == 'yes' ) ? true : false;
 global $product;
 $product = $is_editor ? \WooLentor_Default_Data::instance()->get_product('') : wc_get_product();
 
-echo '<div class="'.implode(' ', $areaClasses ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
     ?>
         <div class="woolentor-product-review">
             <?php if( $is_editor ): ?>

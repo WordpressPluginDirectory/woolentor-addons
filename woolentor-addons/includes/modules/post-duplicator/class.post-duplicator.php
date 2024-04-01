@@ -75,6 +75,27 @@ class WooLentor_Post_Dupicator{
          * and all the original post data then
          */
         $post = sanitize_post( get_post( $post_id ), 'db' );
+
+        /*
+        * Check if the current user can edit this post
+        */
+        if ( !current_user_can( 'edit_post', $post_id ) ) {
+            wp_die( esc_html__( 'You do not have permission to duplicate this post!','woolentor' ) );
+        }
+
+        /*
+        * Check if the post is password protected and if the current user can edit password-protected posts
+        */
+        if ( post_password_required( $post )  && ! current_user_can( 'edit_post_passwords' ) ) {
+            wp_die( esc_html__( 'You do not have permission to duplicate this password-protected post!', 'woolentor' ) );
+        }
+
+        /*
+        * Check if the post is private
+        */
+        if ($post->post_status === 'private') {
+            wp_die( esc_html__('You do not have permission to duplicate this private post!', 'woolentor') );
+        }
      
         /*
          * if you don't want current user to be the new post author,
@@ -155,7 +176,7 @@ class WooLentor_Post_Dupicator{
             wp_safe_redirect( $redirect_to );
 
         }else {
-            wp_die('Post creation failed, could not find original post: ' . $post_id);
+            wp_die('Post creation failed, could not find original post: ' . $post_id); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
 
 

@@ -35,11 +35,10 @@ class WooLentor_Ajax_Search_Base{
 	 * Ajax Callback method
 	 */
 	public function ajax_search_callback(){
+		check_ajax_referer('woolentor_psa_nonce', 'nonce');
 		$s 		  = isset( $_REQUEST['s'] ) ? sanitize_text_field( $_REQUEST['s'] ) : '';
 		$limit 	  = isset( $_REQUEST['limit'] ) ? intval( $_REQUEST['limit'] ) : 10;
 		$category = isset( $_REQUEST['category'] ) ? $_REQUEST['category'] : '';
-
-		check_ajax_referer('woolentor_psa_nonce', 'nonce');
 
 		$args = array(
 		    'post_type'     => 'product',
@@ -78,7 +77,7 @@ class WooLentor_Ajax_Search_Base{
 
 			if( $query->have_posts() ):
 				while( $query->have_posts() ): $query->the_post();
-					echo $this->search_item();
+					echo $this->search_item(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			    endwhile; // main loop
 			    wp_reset_query(); wp_reset_postdata();
 			else:
@@ -86,7 +85,7 @@ class WooLentor_Ajax_Search_Base{
 			endif; // have posts
 
 		echo '</div>';
-		echo ob_get_clean();
+		echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		wp_die();
 	}
 
@@ -105,7 +104,7 @@ class WooLentor_Ajax_Search_Base{
 						</div>
 					<?php endif; ?>
 					<div class="woolentor_psa_content">
-						<h3><?php echo wp_trim_words( get_the_title(), 5 ); ?></h3>
+						<h3><?php echo wp_trim_words( get_the_title(), 5 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h3>
 						<div class="woolentor_psa_price">
 							<?php woocommerce_template_single_price() ?>
 						</div>
@@ -145,7 +144,7 @@ class WooLentor_Ajax_Search_Base{
 		$output = '';
 		ob_start();
 		?>
-        	<div class="woolentor_widget_psa" id="wluniq-<?php echo uniqid(); ?>">
+        	<div class="woolentor_widget_psa" id="<?php echo esc_attr('wluniq-'.uniqid()); ?>">
 	            <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" data-settings='<?php echo wp_json_encode( $data_settings ); ?>'>
 					<div class="woolentor_widget_psa_field_area">
 						<?php if( $show_category === true ):?>

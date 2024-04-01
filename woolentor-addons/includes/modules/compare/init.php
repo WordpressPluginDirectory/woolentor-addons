@@ -55,6 +55,9 @@ final class Woolentor_Ever_Compare{
      * @return [void]
      */
     public function includes(){
+        if ( !function_exists('wp_strip_all_tags') ) {
+            require_once( ABSPATH . 'wp-includes/formatting.php' );
+        }
         require_once(__DIR__ . '/includes/classes/Installer.php');
         require_once(__DIR__ . '/includes/helper-functions.php');
         require_once(__DIR__ . '/includes/classes/Assets.php');

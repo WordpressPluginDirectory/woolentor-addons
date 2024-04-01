@@ -169,15 +169,15 @@ class Woolentor_Wb_Product_Categories_Widget extends Widget_Base {
         $product = wc_get_product();
         
         if( woolentor_is_preview_mode() ){
-            echo \WooLentor_Default_Data::instance()->default( $this->get_name() );
+            echo \WooLentor_Default_Data::instance()->default( $this->get_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else{
             if ( empty( $product ) ) { return; }
 
             if( has_term( '', 'product_cat', $product->get_id() ) ) {
                 echo '<div class="woolentor_product_categories_info">';
                     ?>
-                        <span class="categories-title"><?php echo sprintf( _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woolentor' ) ); ?></span>
-                        <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">', '</span>' ); ?>
+                        <span class="categories-title"><?php echo sprintf( esc_html__( _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woolentor' ) ) ); ?></span>
+                        <?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">', '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <?php
                 echo '</div>';
             }

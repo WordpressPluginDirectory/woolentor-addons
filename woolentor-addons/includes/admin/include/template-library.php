@@ -73,7 +73,7 @@ class Woolentor_Template_Library{
     public function templates_ajax_request(){
 
         if ( ! current_user_can( 'manage_options') ) {
-            echo json_encode(
+            echo wp_json_encode(
                 array(
                     'message' => esc_html__( 'You are not permitted to import the template.', 'woolentor' )
                 )
@@ -81,8 +81,7 @@ class Woolentor_Template_Library{
         }else{
             if ( isset( $_REQUEST ) ) {
 
-                $nonce = $_REQUEST['nonce'];
-                if ( ! wp_verify_nonce( $nonce, 'woolentor_template_nonce' ) ) {
+                if ( ! isset( $_REQUEST['nonce'] ) || ! wp_verify_nonce( $_REQUEST['nonce'], 'woolentor_template_nonce' ) ) {
                     $errormessage = array(
                         'message'  => __('Are you cheating?','woolentor')
                     );
@@ -130,7 +129,7 @@ class Woolentor_Template_Library{
                     update_post_meta( $new_post_id, '_wp_page_template', !empty( $response_data['page_template'] ) ? $response_data['page_template'] : 'elementor_header_footer' );
                 }
 
-                echo json_encode(
+                echo wp_json_encode(
                     array( 
                         'id'      => $new_post_id,
                         'edittxt' => !empty( $page_title ) ? esc_html__( 'Edit Page', 'woolentor' ) : esc_html__( 'Edit Template', 'woolentor' )
@@ -147,8 +146,8 @@ class Woolentor_Template_Library{
     */
     public function ajax_plugin_data(){
         if ( isset( $_POST ) ) {
-            $nonce = isset( $_POST['nonce'] ) ? $_POST['nonce'] : '';
-            if ( ! wp_verify_nonce( $nonce, 'woolentor_template_nonce' ) ) {
+
+            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'woolentor_template_nonce' ) ) {
                 wp_send_json_error(
                     array(
                         'success' => false,
@@ -203,14 +202,14 @@ class Woolentor_Template_Library{
                 }
 
                 ?>
-                    <li class="htwptemplata-plugin-<?php echo $data['slug'] . ' ' . $li_classes; ?>">
-                        <h3><?php echo $data['name']; ?></h3>
+                    <li class="htwptemplata-plugin-<?php echo esc_attr($data['slug'] . ' ' . $li_classes); ?>">
+                        <h3><?php echo esc_html($data['name']); ?></h3>
                         <?php
                             if ( $type == 'pro' && ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
                                 echo '<a class="button" href="'.esc_url( $data['pllink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'woolentor' ).'</a>';
                             }else{
                         ?>
-                            <button class="<?php echo $button_classes; ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo $button_text; ?></button>
+                            <button class="<?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
                         <?php } ?>
                     </li>
                 <?php
@@ -255,14 +254,14 @@ class Woolentor_Template_Library{
                 }
 
                 ?>
-                    <li class="htwptemplata-theme-<?php echo $data['slug']; ?>">
-                        <h3><?php echo $data['name']; ?></h3>
+                    <li class="htwptemplata-theme-<?php echo esc_attr($data['slug']); ?>">
+                        <h3><?php echo esc_html($data['name']); ?></h3>
                         <?php
                             if ( !empty( $data['prolink'] ) ) {
                                 echo '<a class="button" href="'.esc_url( $data['prolink'] ).'" target="_blank">'.esc_html__( 'Buy Now', 'woolentor' ).'</a>';
                             }else{
                         ?>
-                            <button class="<?php echo $button_classes; ?>" data-themeopt='<?php echo wp_json_encode( $data ); ?>'><?php echo $button_text; ?></button>
+                            <button class="<?php echo esc_attr($button_classes); ?>" data-themeopt='<?php echo wp_json_encode( $data ); ?>'><?php echo esc_html($button_text); ?></button>
                         <?php } ?>
                     </li>
                 <?php
@@ -278,8 +277,7 @@ class Woolentor_Template_Library{
      */
     public function ajax_plugin_activation() {
 
-        $nonce = isset( $_POST['nonce'] ) ? $_POST['nonce'] : '';
-        if ( ! wp_verify_nonce( $nonce, 'woolentor_template_nonce' ) ) {
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'woolentor_template_nonce' ) ) {
             wp_send_json_error(
                 array(
                     'success' => false,
@@ -323,8 +321,7 @@ class Woolentor_Template_Library{
     */
     public function ajax_theme_activation() {
 
-        $nonce = isset( $_POST['nonce'] ) ? $_POST['nonce'] : '';
-        if ( ! wp_verify_nonce( $nonce, 'woolentor_template_nonce' ) ) {
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'woolentor_template_nonce' ) ) {
             wp_send_json_error(
                 array(
                     'success' => false,

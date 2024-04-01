@@ -35,27 +35,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 		];
 
 		$slider_responsive_settings = [
-			'product_items' => $settings['sliderItems'],
-			'scroll_columns' => $settings['scrollColumns'],
-			'tablet_width' => $settings['tabletWidth'],
-			'tablet_display_columns' => $settings['tabletDisplayColumns'],
-			'tablet_scroll_columns' => $settings['tabletScrollColumns'],
-			'mobile_width' => $settings['mobileWidth'],
-			'mobile_display_columns' => $settings['mobileDisplayColumns'],
-			'mobile_scroll_columns' => $settings['mobileScrollColumns'],
-
+			'product_items' => absint($settings['sliderItems']),
+            'scroll_columns' => absint($settings['scrollColumns']),
+            'tablet_width' => absint($settings['tabletWidth']),
+            'tablet_display_columns' => absint($settings['tabletDisplayColumns']),
+            'tablet_scroll_columns' => absint($settings['tabletScrollColumns']),
+            'mobile_width' => absint($settings['mobileWidth']),
+            'mobile_display_columns' => absint($settings['mobileDisplayColumns']),
+            'mobile_scroll_columns' => absint($settings['mobileScrollColumns']),
 		];
 		$slider_settings = array_merge( $slider_settings, $slider_responsive_settings );
 	}
 		
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
-	<div class="<?php echo implode(' ', $classes ); ?>">
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
+	<div class="<?php echo esc_attr(implode(' ', $classes )); ?>">
 		<?php
 			if( is_array( $brands ) ){
 
 				if( $settings['slider'] === true ){
-					echo '<div id="product-slider-' . $settings['blockUniqId'] . '" dir="'.$direction.'" class="product-slider" data-settings=\'' . wp_json_encode( $slider_settings ) . '\' style="display:none">';
+					echo '<div id="'.esc_attr("product-slider-" . $settings['blockUniqId']).'" dir="'.esc_attr($direction).'" class="product-slider" data-settings=\'' . wp_json_encode( $slider_settings ) . '\' style="display:none">';
 				}else{
 					echo '<div class="woolentor-grid '.( $settings['noGutter'] === true ? 'woolentor-no-gutters' : '' ).'">';
 				}

@@ -4,7 +4,7 @@
         <header class="wp-block-template-part">
             <?php block_header_area(); ?>
         </header>
-        <main class="woolentor-template-default has-global-padding is-layout-constrained wp-block-group" style="margin:0 auto; max-width:<?php echo $width ? $width.'px; padding: 0 15px;' : '100%;'; ?>">
+        <main class="woolentor-template-default has-global-padding is-layout-constrained wp-block-group" style="margin:0 auto; max-width:<?php echo $width ? esc_attr($width).'px; padding: 0 15px;' : '100%;'; ?>">
             <?php
                 while ( have_posts() ) { 
                     the_post();
@@ -20,7 +20,7 @@
 <?php else : ?>
     <?php get_header(); ?>
     <div class="wp-site-blocks">
-        <div class="woolentor-template-default" style="margin:0 auto; max-width:<?php echo $width ? $width.'px; padding: 0 15px;' : '100%;'; ?>">
+        <div class="woolentor-template-default" style="margin:0 auto; max-width:<?php echo $width ? esc_attr($width).'px; padding: 0 15px;' : '100%;'; ?>">
             <?php
                 while ( have_posts() ) { 
                     the_post();

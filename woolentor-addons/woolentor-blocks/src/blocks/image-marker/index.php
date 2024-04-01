@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$background_image = woolentorBlocks_Background_Control( $settings, 'bgProperty' );
 
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
-	<div class="<?php echo implode(' ', $classes ); ?>" style="<?php echo $background_image; ?> position:relative;">
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
+	<div class="<?php echo esc_attr(implode(' ', $classes )); ?>" style="<?php echo esc_attr($background_image); ?> position:relative;">
 
 		<?php
 			foreach ( $settings['markerList'] as $item ):
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$verticlePos = !empty( $item['verticle'] ) ? 'top:'.$item['verticle'].'%;' : '15%;';
 
 			?>
-				<div class="wlb_image_pointer" style="<?php echo $horizontalPos.$verticlePos; ?>">
+				<div class="wlb_image_pointer" style="<?php echo esc_attr($horizontalPos.$verticlePos); ?>">
 					<div class="wlb_pointer_box">
 						<?php
 							if( !empty( $item['title'] ) ){

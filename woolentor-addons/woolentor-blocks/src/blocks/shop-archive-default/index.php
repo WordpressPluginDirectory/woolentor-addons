@@ -65,12 +65,12 @@ $shortcode 	= new \Archive_Products_Render( $options, 'products', $filterable );
 $content 	= $shortcode->get_content();
 $not_found_content = woolentor_products_not_found_content();
 
-echo '<div class="'.implode(' ', $areaClasses ).'" '.implode(' ', $areaAttributes ).'>';
-	echo ( ( true === $filterable ) ? '<div class="'.implode(' ', $contentClasses ).'">' : '' );
-		if ( strip_tags( trim( $content ) ) ) {
-			echo $content;
+echo '<div class="'.esc_attr( implode(' ', $areaClasses ) ).'" '.implode(' ', $areaAttributes ).'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo ( ( true === $filterable ) ? '<div class="'.esc_attr(implode(' ', $contentClasses )).'">' : '' );
+		if ( wp_strip_all_tags( $content ) ) {
+			echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else{
-			echo $not_found_content;
+			echo $not_found_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	echo ( ( true === $filterable ) ? '</div>' : '' );
 echo '</div>';

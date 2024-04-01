@@ -417,9 +417,9 @@ class Woolentor_Wl_Brand_Widget extends Widget_Base {
                 }
                 ?>
                 <div class="<?php echo esc_attr( esc_attr( $collumval ) ); ?>">
-                    <?php if( !empty( $brand['brand_link']['url'] ) ) echo $link; ?>
+                    <?php if( !empty( $brand['brand_link']['url'] ) ) echo $link; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <div class="wl-single-brand">
-                        <?php echo $logo; ?>
+                        <?php echo $logo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </div>
                     <?php if( !empty( $brand['brand_link']['url'] ) ) echo '</a>'; ?>
                 </div>

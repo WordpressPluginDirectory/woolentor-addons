@@ -57,7 +57,7 @@ class Manage_Metabox{
         $post_id  = get_the_ID();
         ?>
         <div class="wlpb-metabox-button-wrapper">
-            <button type="button" class="button button-primary components-button is-primary" data-post_id="<?php echo esc_attr($post_id) ?>"><?php _e( 'Popup Settings', 'woolentor' ) ?></button>
+            <button type="button" class="button button-primary components-button is-primary" data-post_id="<?php echo esc_attr($post_id) ?>"><?php esc_html_e( 'Popup Settings', 'woolentor' ) ?></button>
             <!-- button button-primary classes for the Clssic editor support -->
         </div>
         <?php
@@ -79,7 +79,7 @@ class Manage_Metabox{
                 ob_start();
                 include_once( $dashboard_popup_file );
     
-                echo ob_get_clean();
+                echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
         }
     }

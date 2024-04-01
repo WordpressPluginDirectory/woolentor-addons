@@ -118,9 +118,9 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
                     <?php 
                         if( !empty( $get_custom_logo ) ){
                             if( !empty($get_custom_logo_url) ){
-                                echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>',esc_url($get_custom_logo_url),esc_url( $get_custom_logo ), $blog_info );
+                                echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>',esc_url($get_custom_logo_url),esc_url( $get_custom_logo ), esc_attr($blog_info) );
                             }else{
-                                echo sprintf('<img src="%s" alt="%s" />',esc_url( $get_custom_logo ), $blog_info );
+                                echo sprintf('<img src="%s" alt="%s" />',esc_url( $get_custom_logo ), esc_attr($blog_info) );
                             }
                         }else if( has_custom_logo() ){
                             ?><div class="site-logo"><?php the_custom_logo(); ?></div><?php
@@ -343,7 +343,7 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
                     <div class="woolentor-checkout__footer">
                         <?php
                             if( !empty( $menu_html ) ):
-                                echo $menu_html;
+                                echo $menu_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             else:
                         ?>
                             <ul class="woolentor-checkout__policy-list">
@@ -374,9 +374,9 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
                     <?php 
                         if( !empty( $get_custom_logo ) ){
                             if( !empty($get_custom_logo_url) ){
-                                echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>',esc_url($get_custom_logo_url),esc_url( $get_custom_logo ), $blog_info );
+                                echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>',esc_url($get_custom_logo_url),esc_url( $get_custom_logo ), esc_attr($blog_info) );
                             }else{
-                                echo sprintf('<img src="%s" alt="%s" />',esc_url( $get_custom_logo ), $blog_info );
+                                echo sprintf('<img src="%s" alt="%s" />',esc_url( $get_custom_logo ), esc_attr($blog_info) );
                             }
                         }else if( has_custom_logo() ){
                             ?><div class="site-logo"><?php the_custom_logo(); ?></div><?php

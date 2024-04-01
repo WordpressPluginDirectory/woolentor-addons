@@ -8,7 +8,7 @@ function woolentor_currency_list(){
     $currency_list = woolentor_get_option( 'woolentor_currency_list', 'woolentor_currency_switcher', [] );
     if( !empty( $currency_list ) && is_array( $currency_list )){
         if( !woolentor_is_pro() ){
-            return [ $currency_list[0], $currency_list[1] ];
+            return isset( $currency_list[1] ) ? [ $currency_list[0], $currency_list[1] ] : [ $currency_list[0] ];
         }
         return $currency_list;
     }

@@ -240,7 +240,7 @@ class Woolentor_Wl_Faq_Widget extends Widget_Base {
                 [
                     'label'   => esc_html__( 'Icon Position', 'woolentor' ),
                     'type'    => Controls_Manager::SELECT,
-                    'default' => 'before',
+                    'default' => 'after',
                     'options' => [
                         'before'=> esc_html__( 'Before Title', 'woolentor' ),
                         'after' => esc_html__( 'After Title', 'woolentor' ),
@@ -922,9 +922,9 @@ class Woolentor_Wl_Faq_Widget extends Widget_Base {
                             <div class="htwoolentor-faq-card">
                                 <?php
                                     if( $settings['icon_position'] == 'after'){
-                                        echo sprintf( '<div class="htwoolentor-faq-head">%2$s %1$s</div>',$open_close_icon, $title );
+                                        echo sprintf( '<div class="htwoolentor-faq-head">%2$s %1$s</div>',$open_close_icon, $title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }else{
-                                        echo sprintf( '<div class="htwoolentor-faq-head">%1$s %2$s</div>',$open_close_icon, $title );
+                                        echo sprintf( '<div class="htwoolentor-faq-head">%1$s %2$s</div>',$open_close_icon, $title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 ?>
                                 <div class="htwoolentor-faq-body">
@@ -933,7 +933,7 @@ class Woolentor_Wl_Faq_Widget extends Widget_Base {
                                         if ( $accordion['content_source'] == 'custom' && !empty( $accordion['content'] ) ) {
                                             echo wp_kses_post( $accordion['content'] );
                                         } elseif ( $accordion['content_source'] == "elementor" && !empty( $accordion['template_id'] )) {
-                                            echo Plugin::instance()->frontend->get_builder_content_for_display( $accordion['template_id'] );
+                                            echo Plugin::instance()->frontend->get_builder_content_for_display( $accordion['template_id'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         }
                                     ?>
                                     </div>

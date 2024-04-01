@@ -748,11 +748,11 @@ class Woolentor_Wl_Recently_Viewed_Products_Widget extends Widget_Base {
         $products_list = woolentor_get_track_user_data();
 
         if( Plugin::instance()->editor->is_edit_mode() && empty( $products_list ) ){
-            echo '<div class="elementor-panel" style="margin-bottom:10px;"><div class="elementor-panel-alert elementor-panel-alert-warning">'. __( 'You haven\'t viewed at any of the products yet. Below are demo product for the editing mode.', 'woolentor' ) . '</div></div>';
+            echo '<div class="elementor-panel" style="margin-bottom:10px;"><div class="elementor-panel-alert elementor-panel-alert-warning">'. esc_html__( 'You haven\'t viewed at any of the products yet. Below are demo product for the editing mode.', 'woolentor' ) . '</div></div>';
         }else{
             if ( empty( $products_list ) ) {
                 if( $settings['show_empty_message'] == 'yes' ){
-                    echo '<div class="woolentor-no-view-product">'. trim( $settings['empty_message'] ) .'</div>';
+                    echo '<div class="woolentor-no-view-product">'. esc_html( trim( $settings['empty_message'] )) .'</div>';
                 }
                 return '';
             }
@@ -796,7 +796,7 @@ class Woolentor_Wl_Recently_Viewed_Products_Widget extends Widget_Base {
                                 <div class="woolentor-recently-view-content">
                                     <?php
                                         if( $settings['show_title'] == 'yes' ){
-                                            echo sprintf( "<%s class='woolentor-recently-view-title'><a href='%s'>%s</a></%s>", $title_html_tag, get_the_permalink(), get_the_title(), $title_html_tag );
+                                            echo sprintf( "<%s class='woolentor-recently-view-title'><a href='%s'>%s</a></%s>", $title_html_tag, esc_url(get_the_permalink()), get_the_title(), $title_html_tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                         }
                                         if( $settings['show_price'] == 'yes' ){
                                             echo '<div class="woolentor-recently-view-price">';

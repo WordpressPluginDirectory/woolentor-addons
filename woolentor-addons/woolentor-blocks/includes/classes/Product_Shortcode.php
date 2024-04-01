@@ -138,15 +138,15 @@ if( class_exists('WC_Shortcode_Products') ){
             $grid_col = apply_filters( 'woolentor_block_woocommerce_loop_product_grid', 'columns-'. esc_attr( wc_get_loop_prop( 'columns' ) ) );
 
             if( $layout === "content" ){
-                echo '<ul class="woolentor_current_theme_layout products '.$grid_col.'">';
+                echo '<ul class="woolentor_current_theme_layout products '.esc_attr($grid_col).'">';
             }else{
-                echo $this->grid_row_attr( $grid_col );
+                echo $this->grid_row_attr( $grid_col ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
 
             $loop_start = apply_filters( 'woocommerce_product_loop_start', ob_get_clean() );
 
             if ( $echo ) {
-                echo $loop_start;
+                echo $loop_start; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             } else {
                 return $loop_start;
             }
@@ -286,7 +286,7 @@ if( class_exists('WC_Shortcode_Products') ){
 
                         // Render product template.
                         if( $layout === "content" ){
-                            echo wc_get_template_part( 'content','product' );
+                            echo wc_get_template_part( 'content','product' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }else{
                             wc_get_template( 'product-'.$layout.'.php', $this->settings, '', WOOLENTOR_BLOCK_TEMPLATE );
                         }

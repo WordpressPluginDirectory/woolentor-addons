@@ -829,7 +829,7 @@ class Woolentor_Wl_Product_Filter_Widget extends Widget_Base {
 
                 if( !empty( $filter_type ) ):
 
-                    echo !empty( $settings['wl_filter_area_title'] ) ? '<h2 class="wl_filter_title">'.$settings['wl_filter_area_title'].'</h2>' : '';
+                    echo !empty( $settings['wl_filter_area_title'] ) ? '<h2 class="wl_filter_title">'.esc_html($settings['wl_filter_area_title']).'</h2>' : '';
 
                     if( 'search_form' === $filter_type ):
 
@@ -911,33 +911,33 @@ class Woolentor_Wl_Product_Filter_Widget extends Widget_Base {
                         <form method="get" action="<?php echo esc_url( $current_url ); ?>">
                             <div class="woolentor_slider_range" style="display: none;"></div>
                             <input type="hidden" name="wlfilter" value="1">
-                            <input type="text" id="min_price-<?php echo $id; ?>" name="min_price" value="<?php echo esc_attr( $current_min_price ); ?>" data-min="<?php echo esc_attr( $min_price ); ?>" placeholder="<?php echo esc_attr__( 'Min price', 'woolentor' ); ?>" />
-                            <input type="text" id="max_price-<?php echo $id; ?>" name="max_price" value="<?php echo esc_attr( $current_max_price ); ?>" data-max="<?php echo esc_attr( $max_price ); ?>" placeholder="<?php echo esc_attr__( 'Max price', 'woolentor' ); ?>" />
+                            <input type="text" id="min_price-<?php echo esc_attr($id); ?>" name="min_price" value="<?php echo esc_attr( $current_min_price ); ?>" data-min="<?php echo esc_attr( $min_price ); ?>" placeholder="<?php echo esc_attr__( 'Min price', 'woolentor' ); ?>" />
+                            <input type="text" id="max_price-<?php echo esc_attr($id); ?>" name="max_price" value="<?php echo esc_attr( $current_max_price ); ?>" data-max="<?php echo esc_attr( $max_price ); ?>" placeholder="<?php echo esc_attr__( 'Max price', 'woolentor' ); ?>" />
                             <div class="wl_button_price">
                                 <button type="submit" aria-label="<?php echo esc_attr__( 'Filter','woolentor' );?>"><?php echo esc_html__( 'Filter', 'woolentor' ); ?></button>
                                 <div class="woolentor_price_label" style="display: none;">
                                     <?php echo esc_html__( 'Price:', 'woolentor' ); ?>
-                                    <span id="from-<?php echo $id; ?>"></span> &mdash; <span id="to-<?php echo $id; ?>"></span>
+                                    <span id="from-<?php echo esc_attr($id); ?>"></span> &mdash; <span id="to-<?php echo esc_attr($id); ?>"></span>
                                 </div>
                             </div>
-                            <?php echo wc_query_string_form_fields( null, array( 'min_price', 'max_price', 'paged' ), '', true ); ?>
+                            <?php echo wc_query_string_form_fields( null, array( 'min_price', 'max_price', 'paged' ), '', true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </form>
                     </div>
                     <script type="text/javascript">
                         ;jQuery(document).ready(function($) {
                             'use strict';
 
-                            var id = '<?php echo $id; ?>';
+                            var id = '<?php echo esc_js($id); ?>';
 
                             $( 'input#min_price-'+id+', input#max_price-'+id ).hide();
                             $( '.woolentor_slider_range, .woolentor_price_label' ).show();
 
-                            var min_price = parseInt( '<?php echo $min_price; ?>' ),
-                                max_price = parseInt( '<?php echo $max_price; ?>' ),
-                                current_min_price = parseInt( '<?php echo $current_min_price; ?>' ),
-                                current_max_price = parseInt( '<?php echo $current_max_price; ?>' ),
-                                currency_pos_left = '<?php echo $currency_pos_left; ?>',
-                                currency_symbol = '<?php echo $final_currency_symbol; ?>';
+                            var min_price = parseInt( '<?php echo esc_js($min_price); ?>' ),
+                                max_price = parseInt( '<?php echo esc_js($max_price); ?>' ),
+                                current_min_price = parseInt( '<?php echo esc_js($current_min_price); ?>' ),
+                                current_max_price = parseInt( '<?php echo esc_js($current_max_price); ?>' ),
+                                currency_pos_left = '<?php echo esc_js($currency_pos_left); ?>',
+                                currency_symbol = '<?php echo esc_js($final_currency_symbol); ?>';
 
                             $( ".woolentor_slider_range" ).slider({
                                 range: true,
@@ -996,21 +996,21 @@ class Woolentor_Wl_Product_Filter_Widget extends Widget_Base {
                     <?php else:
 
                         if( 'yes' === $settings['show_hierarchical'] ){
-                            $terms = get_terms( $filter_type, [ 'parent' => 0, 'child_of' => 0 ] );
+                            $terms = get_terms( ['taxonomy' => $filter_type, 'parent' => 0, 'child_of' => 0] );
 
                             if ( !empty( $terms ) && !is_wp_error( $terms )){
                                 echo '<ul>';
                                     foreach ( $terms as $term ){
                                         $link = $this->generate_term_link( $filter_type, $term, $current_url );
-                                        echo '<li class="'.$link['class'].'">';
-                                            echo sprintf('%1$s<a href="%2$s">%3$s <span>(%4$s)</span></a>', $list_icon, $link['link'], $term->name, $term->count );
+                                        echo '<li class="'.esc_attr($link['class']).'">';
+                                            echo sprintf('%1$s<a href="%2$s">%3$s <span>(%4$s)</span></a>', $list_icon, esc_url($link['link']), $term->name, $term->count ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-                                            $loterms = get_terms( $filter_type, [ 'parent' => $term->term_id ] );
+                                            $loterms = get_terms( [ 'taxonomy' => $filter_type, 'parent' => $term->term_id ] );
                                             if( !empty( $loterms ) && !is_wp_error( $loterms ) ){
                                                 echo '<ul class="wlchildren">';
                                                     foreach( $loterms as $key => $loterm ){
                                                         $clink = $this->generate_term_link( $filter_type, $loterm, $current_url );
-                                                        echo sprintf('<li class="%5$s">%1$s<a href="%2$s">%3$s <span>(%4$s)</span></a></li>', $list_icon, $clink['link'], $loterm->name, $loterm->count, $clink['class'] );
+                                                        echo sprintf('<li class="%5$s">%1$s<a href="%2$s">%3$s <span>(%4$s)</span></a></li>', $list_icon, $clink['link'], $loterm->name, $loterm->count, $clink['class'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                     }
                                                 echo '</ul>';
                                             }
@@ -1020,12 +1020,12 @@ class Woolentor_Wl_Product_Filter_Widget extends Widget_Base {
                             }
                             
                         }else{
-                            $terms = get_terms( $filter_type );
+                            $terms = get_terms( ['taxonomy' => $filter_type ] );
                             if ( !empty( $terms ) && !is_wp_error( $terms ) ){
                                 echo '<ul>';
                                     foreach ( $terms as $term ){
                                         $link = $this->generate_term_link( $filter_type, $term, $current_url );
-                                        echo sprintf('<li class="%5$s">%4$s<a href="%1$s">%2$s <span>(%3$s)</span></a></li>', $link['link'], $term->name, $term->count, $list_icon, $link['class'] );
+                                        echo sprintf('<li class="%5$s">%4$s<a href="%1$s">%2$s <span>(%3$s)</span></a></li>', esc_url($link['link']), $term->name, $term->count, $list_icon, esc_attr($link['class']) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     }
                                 echo '</ul>';
                             }
@@ -1042,8 +1042,8 @@ class Woolentor_Wl_Product_Filter_Widget extends Widget_Base {
                     <script type="text/javascript">
                         ;jQuery(document).ready(function($) {
                             'use strict';
-                            var current_url = '<?php echo $current_url.'?wlfilter=1'; ?>',
-                                isEditorMode = '<?php echo woolentor_is_preview_mode(); ?>';
+                            var current_url = '<?php echo esc_js($current_url).'?wlfilter=1'; ?>',
+                                isEditorMode = '<?php echo esc_js(woolentor_is_preview_mode()); ?>';
                             $('.wl_order_by_filter select,.wl_sort_by_filter select').on('change', function () {
                                 var sort_key = $(this).val();
                                 if ( sort_key && ( isEditorMode != true ) ) {

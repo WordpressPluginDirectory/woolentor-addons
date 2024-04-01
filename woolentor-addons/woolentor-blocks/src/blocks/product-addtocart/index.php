@@ -35,9 +35,9 @@ if( '1' != $settings['layoutStyle'] ){
 	(new \WooLentorBlocks\Customize_Button())->wishlist_compare_button( $settings, $product_type );
 }
 
-echo '<div class="'.implode(' ', $areaClasses ).'" data-producttype="'.esc_attr( $product_type ).'">';
+echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'" data-producttype="'.esc_attr( $product_type ).'">';
 ?>
-	<div class="<?php echo implode(' ', $button_classes ); ?>">
+	<div class="<?php echo esc_attr(implode(' ', $button_classes )); ?>">
 		<?php woocommerce_template_single_add_to_cart(); ?>
 	</div>
 <?php

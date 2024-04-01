@@ -55,14 +55,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		];
 
 		$slider_responsive_settings = [
-			'product_items' => $settings['slitems'],
-			'scroll_columns' => $settings['slscrollItem'],
-			'tablet_width' => $settings['sltabletWidth'],
-			'tablet_display_columns' => $settings['sltabletDisplayColumns'],
-			'tablet_scroll_columns' => $settings['sltabletScrollColumns'],
-			'mobile_width' => $settings['slMobileWidth'],
-			'mobile_display_columns' => $settings['slMobileDisplayColumns'],
-			'mobile_scroll_columns' => $settings['slMobileScrollColumns'],
+			'product_items' => absint($settings['slitems']),
+			'scroll_columns' => absint($settings['slscrollItem']),
+			'tablet_width' => absint($settings['sltabletWidth']),
+			'tablet_display_columns' => absint($settings['sltabletDisplayColumns']),
+			'tablet_scroll_columns' => absint($settings['sltabletScrollColumns']),
+			'mobile_width' => absint($settings['slMobileWidth']),
+			'mobile_display_columns' => absint($settings['slMobileDisplayColumns']),
+			'mobile_scroll_columns' => absint($settings['slMobileScrollColumns']),
 
 		];
 		$slider_settings = array_merge( $slider_settings, $slider_responsive_settings );
@@ -83,8 +83,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	!empty( $settings['columns']['mobile'] ) ? $areaClasses[] = 'woolentor-grid-columns-mobile-'.$settings['columns']['mobile'] : 'woolentor-grid-columns-mobile-1';
 
 ?>
-<div class="<?php echo $customClass; ?>">
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
+<div class="<?php echo esc_attr($customClass); ?>">
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
 
 <?php if ( $producttab == 'yes' ) { ?>
 	<div class="product-tab-list ht-text-center">
@@ -95,12 +95,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					// Category retrive
 					$catargs = array(
+						'taxonomy'   => 'product_cat',
 						'orderby'    => 'name',
 						'order'      => 'ASC',
 						'hide_empty' => true,
 						'slug'       => $product_cats,
 					);
-					$prod_categories = get_terms( 'product_cat', $catargs);
+					$prod_categories = get_terms($catargs);
 
 					foreach( $prod_categories as $prod_cats ){
 						$m++;
@@ -125,8 +126,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						if( $fetchproduct->have_posts() ){
 							?>
-								<li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#woolentortab<?php echo $tabuniqid.esc_attr($m);?>">
-									<?php echo esc_attr( $prod_cats->name,'woolentor' );?>
+								<li><a class="<?php if($m==1){ echo 'htactive';}?>" href="#woolentortab<?php echo esc_attr($tabuniqid.$m);?>">
+									<?php echo esc_attr( $prod_cats->name );?>
 								</a></li>
 							<?php
 						}
@@ -142,12 +143,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 			$j=0;
 			$tabcatargs = array(
+				'taxonomy'   => 'product_cat',
 				'orderby'    => 'name',
 				'order'      => 'ASC',
 				'hide_empty' => true,
 				'slug'       => $product_cats,
 			);
-			$tabcat_fach = get_terms( 'product_cat', $tabcatargs );
+			$tabcat_fach = get_terms( $tabcatargs );
 			foreach( $tabcat_fach as $cats ):
 				$j++;
 				$field_name = is_numeric($product_cats[0])?'term_id':'slug';
@@ -171,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				if( $products->have_posts() ):
 		?>
-			<div class="ht-tab-pane <?php if( $j==1 ){ echo 'htactive'; } ?>" id="<?php echo 'woolentortab'.$tabuniqid.$j;?>">
+			<div class="ht-tab-pane <?php if( $j==1 ){ echo 'htactive'; } ?>" id="<?php echo esc_attr('woolentortab'.$tabuniqid.$j);?>">
 				<div class="woolentor-grid">
 
 					<!-- product item start -->
@@ -197,7 +199,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php else:?>
 		<div class="woolentor-grid <?php echo ( $proslider == 'yes' ) ? 'woolentor-grid-slider' : ''; ?>">
 
-			<?php if( $proslider == 'yes' ){ echo '<div id="product-slider-' . $settings['blockUniqId'] . '" dir="'.$direction.'" class="product-slider" data-settings=\'' . wp_json_encode($slider_settings) . '\' style="display:none">';}?>
+			<?php if( $proslider == 'yes' ){ echo '<div id="product-slider-' . esc_attr($settings['blockUniqId']) . '" dir="'.esc_attr($direction).'" class="product-slider" data-settings=\'' . wp_json_encode($slider_settings) . '\' style="display:none">';}?>
 				
 				<!-- product item start -->
 				<div class="<?php echo esc_attr( $collumval );?>">

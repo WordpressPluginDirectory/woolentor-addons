@@ -132,9 +132,9 @@ class Woolentor_Wb_Product_Title_Widget extends Widget_Base {
 
         if( woolentor_is_preview_mode() ){
             $title = get_the_title( woolentor_get_last_product_id() );
-            echo sprintf( "<%s class='product_title entry-title'>%s</%s>", $title_html_tag, $title, $title_html_tag );
+            echo sprintf( "<%s class='product_title entry-title'>%s</%s>", $title_html_tag, $title, $title_html_tag ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }else{
-            echo sprintf( "<%s class='product_title entry-title'>%s</%s>", $title_html_tag, get_the_title(), $title_html_tag  );
+            echo sprintf( "<%s class='product_title entry-title'>%s</%s>", $title_html_tag, get_the_title(), $title_html_tag  ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
 
     }

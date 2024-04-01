@@ -74,14 +74,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         ];
 
         $slider_responsive_settings = [
-            'product_items' => $settings['slitems'],
-            'scroll_columns' => $settings['slscrollItem'],
-            'tablet_width' => $settings['sltabletWidth'],
-            'tablet_display_columns' => $settings['sltabletDisplayColumns'],
-            'tablet_scroll_columns' => $settings['sltabletScrollColumns'],
-            'mobile_width' => $settings['slMobileWidth'],
-            'mobile_display_columns' => $settings['slMobileDisplayColumns'],
-            'mobile_scroll_columns' => $settings['slMobileScrollColumns'],
+            'product_items' => absint($settings['slitems']),
+            'scroll_columns' => absint($settings['slscrollItem']),
+            'tablet_width' => absint($settings['sltabletWidth']),
+            'tablet_display_columns' => absint($settings['sltabletDisplayColumns']),
+            'tablet_scroll_columns' => absint($settings['sltabletScrollColumns']),
+            'mobile_width' => absint($settings['slMobileWidth']),
+            'mobile_display_columns' => absint($settings['slMobileDisplayColumns']),
+            'mobile_scroll_columns' => absint($settings['slMobileScrollColumns']),
 
         ];
         $slider_settings = array_merge( $slider_settings, $slider_responsive_settings );
@@ -94,8 +94,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     $counter = $bgc = 0;
 
 ?>
-<div class="<?php echo implode(' ', $areaClasses ); ?>">
-    <div class="<?php echo implode(' ', $rowClasses ); ?>" <?php echo $sliderOptions; ?> <?php echo esc_attr( $direction ); ?>>
+<div class="<?php echo esc_attr(implode(' ', $areaClasses )); ?>">
+    <div class="<?php echo esc_attr(implode(' ', $rowClasses )); ?>" <?php echo $sliderOptions; ?> <?php echo esc_attr( $direction ); ?>>
         <?php
             $topSpace = '';
             foreach ( $prod_categories as $key => $prod_cat ):
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image ht-category-image-zoom">
                                 <a class="ht-category-border" href="<?php echo esc_url( $prod_cat['link'] ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>
@@ -136,7 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image-2">
                                 <a href="<?php echo esc_url( $prod_cat['link'] ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>
@@ -147,7 +147,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php if( !empty( $thumbnails ) ): ?>
                             <div class="ht-category-image ht-category-image-zoom">
                                 <a class="ht-category-border-2" href="<?php echo esc_url( $prod_cat['link'] ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php else: ?>
@@ -157,7 +157,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     </a>
                                 </div>
                             <?php endif; ?>
-                            <div class="ht-category-content-3 ht-category-content-3-bg<?php echo $bgc; ?>">
+                            <div class="ht-category-content-3 ht-category-content-3-bg<?php echo esc_attr($bgc); ?>">
                                 <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'woolentor' ); ?></a></h3>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image ht-category-image-zoom">
                                 <a href="<?php echo esc_url( $prod_cat['link'] ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>
@@ -188,7 +188,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php if( !empty( $thumbnails ) ):?>
                             <div class="ht-category-image-3 ht-category-image-zoom">
                                 <a href="<?php echo esc_url( $prod_cat['link'] ); ?>">
-                                    <?php echo $thumbnails; ?>
+                                    <?php echo $thumbnails; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </a>
                             </div>
                             <?php endif; ?>

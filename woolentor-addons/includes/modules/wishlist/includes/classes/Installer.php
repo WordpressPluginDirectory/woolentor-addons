@@ -74,7 +74,7 @@ class Installer {
             "{$wpdb->prefix}wishsuite_list",
         ];
         foreach ( $tables as $table ) {
-            $wpdb->query( "DROP TABLE IF EXISTS {$table}" );
+            $wpdb->query( $wpdb->prepare("DROP TABLE IF EXISTS %s", $table) );
         }
     }
 

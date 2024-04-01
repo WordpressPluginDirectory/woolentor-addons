@@ -108,17 +108,6 @@ class Woo_Config {
             return true;
         }
 
-        $input_condition =  Helper::get_option('pl_user_input_condition');
-        if( $input_condition ){
-            $input_condition =  "return (". $input_condition .");";
-
-            if( is_product() ){
-                return false;
-            } elseif( !eval( $input_condition ) ) {
-                return true;
-            }
-        }
-
         return false;
     }
 
@@ -755,17 +744,17 @@ class Woo_Config {
             
 
             $html .= '<div class="swatchly-more-button">';
-                $html .= "<a href='$pl_more_text_link_url' target='$pl_more_text_link_target' class='swatchly-content'><span>+</span><span>$more_swatch_count</span> <span>$more_text </span></a>";
+                $html .= "<a href='$pl_more_text_link_url' target='".esc_attr($pl_more_text_link_target)."' class='swatchly-content'><span>+</span><span>$more_swatch_count</span> <span>".esc_html($more_text)."</span></a>";
             $html .= '</div>';
 
         } else {
             $attr_data_tooltip_text = '';
             if(Helper::get_option('pl_more_icon_enable_tooltip')){
                 $pl_more_icon_tooltip_text = Helper::get_option('pl_more_icon_tooltip_text');
-                $attr_data_tooltip_text = $pl_more_icon_tooltip_text ? 'data-tooltip_text="'. esc_attr($pl_more_icon_tooltip_text) .'"' : 'data-tooltip_text="'. esc_attr('More Options', 'woolentor') .'"';
+                $attr_data_tooltip_text = $pl_more_icon_tooltip_text ? 'data-tooltip_text="'. esc_attr($pl_more_icon_tooltip_text) .'"' : 'data-tooltip_text="'. esc_attr__('More Options', 'woolentor') .'"';
             }
 
-            $html .= "<a href='$pl_more_text_link_url' target='$pl_more_text_link_target' class='swatchly-swatch swatchly-more-button' $attr_data_tooltip_text>";
+            $html .= "<a href='$pl_more_text_link_url' target='".esc_attr($pl_more_text_link_target)."' class='swatchly-swatch swatchly-more-button' $attr_data_tooltip_text>";
                 $html .= '<span class="swatchly-content"></span>';
             $html .= '</a>';
         }
@@ -833,7 +822,7 @@ class Woo_Config {
         $html = '';
         ob_start();
         ?>
-            <form class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
+            <form class="swatchly_loop_variation_form variations_form swatchly_align_<?php echo esc_attr($align); ?>" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
 
                 <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
                     <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woolentor' ) ) ); ?></p>

@@ -86,15 +86,15 @@ if( !class_exists('Woolentor_Sale_Notification') ){
                 <script>
                     ;jQuery( document ).ready( function( $ ) {
 
-                        var notposition = '<?php echo $notposition; ?>';
+                        var notposition = '<?php echo esc_js($notposition); ?>';
 
                         $('body').append('<div class="woolentor-sale-notification"><div class="notifake woolentor-notification-content '+notposition+'"></div></div>');
 
-                        var duration = <?php echo $duration; ?>,
-                            intervaltime = <?php echo $intervaltime; ?>,
-                            showing_time = <?php echo $showing; ?>,
-                            inanimation = '<?php echo $inanimation; ?>',
-                            outanimation = '<?php echo $outanimation; ?>',
+                        var duration = <?php echo esc_js($duration); ?>,
+                            intervaltime = <?php echo esc_js($intervaltime); ?>,
+                            showing_time = <?php echo esc_js($showing); ?>,
+                            inanimation = '<?php echo esc_js($inanimation); ?>',
+                            outanimation = '<?php echo esc_js($outanimation); ?>',
                             i = 0;
 
                         window.setTimeout( function(){
