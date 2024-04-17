@@ -3,7 +3,7 @@
  * Plugin Name: ShopLentor – WooCommerce Builder for Elementor & Gutenberg
  * Description: An all-in-one WooCommerce solution to create a beautiful WooCommerce store.
  * Plugin URI:  https://woolentor.com/
- * Version:     2.8.4
+ * Version:     2.8.6
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com/plugins/woolentor-pro/
  * License:     GPL-2.0+
@@ -11,13 +11,13 @@
  * Text Domain: woolentor
  * Domain Path: /languages
  * WC tested up to: 8.7.0
- * Elementor tested up to: 3.20.3
- * Elementor Pro tested up to: 3.20.3
+ * Elementor tested up to: 3.21.0
+ * Elementor Pro tested up to: 3.21.0
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'WOOLENTOR_VERSION', '2.8.4' );
+define( 'WOOLENTOR_VERSION', '2.8.6' );
 define( 'WOOLENTOR_ADDONS_PL_ROOT', __FILE__ );
 define( 'WOOLENTOR_ADDONS_PL_URL', plugins_url( '/', WOOLENTOR_ADDONS_PL_ROOT ) );
 define( 'WOOLENTOR_ADDONS_PL_PATH', plugin_dir_path( WOOLENTOR_ADDONS_PL_ROOT ) );

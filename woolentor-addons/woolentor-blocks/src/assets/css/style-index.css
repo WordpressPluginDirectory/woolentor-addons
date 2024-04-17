@@ -36,6 +36,14 @@
   text-decoration: none !important;
 }
 
+/* Footer And Header */
+body .wp-block-group.is-vertical {
+  flex-direction: column;
+}
+body .wp-block-group.is-layout-flex.is-content-justification-space-between {
+  justify-content: space-between;
+}
+
 /* Alignment support */
 [class*="woolentor"].alignfull {
   margin-left: calc(-50vw + 50%);

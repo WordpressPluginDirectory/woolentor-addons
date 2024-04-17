@@ -26,7 +26,7 @@ $title = get_the_title( $product_id );
 $product_url   = urlencode( $url );
 
 $size      = ( !empty( $settings['size'] ) ? $settings['size'] : 120 );
-$dimension = $size.'x'.$size;
+$dimension = esc_attr($size.'x'.$size);
 $image_src = sprintf( 'https://api.qrserver.com/v1/create-qr-code/?size=%s&ecc=L&qzone=1&data=%s', $dimension, $product_url );
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';

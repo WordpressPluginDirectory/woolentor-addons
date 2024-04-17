@@ -2381,8 +2381,10 @@ class Woolentor_Universal_Product_Widget extends Widget_Base {
                                                     <?php  if( $settings['thumbnails_style'] == 2 && $gallery_images_ids ): ?>
                                                         <div class="ht-product-image-slider ht-product-image-thumbnaisl-<?php echo esc_attr($tabuniqid); ?>">
                                                             <?php
+                                                                $i = 0;
                                                                 foreach ( $gallery_images_ids as $gallery_attachment_id ) {
-                                                                    echo '<a href="'.esc_url( get_the_permalink() ).'" class="item">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                                    $i++;
+                                                                    echo '<a href="'.esc_url( get_the_permalink() ).'" class="item '.($i === 1 ? 'ht-slider-first-item' : '').' ">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                 }
                                                             ?>
                                                         </div>
@@ -2574,8 +2576,10 @@ class Woolentor_Universal_Product_Widget extends Widget_Base {
                                             <?php  if( $settings['thumbnails_style'] == 2 && $gallery_images_ids ): ?>
                                                 <div class="ht-product-image-slider ht-product-image-thumbnaisl-<?php echo esc_attr($tabuniqid); ?>" data-slick='{"rtl":<?php if( is_rtl() ){ echo 'true'; }else{ echo 'false'; } ?> }'>
                                                     <?php
+                                                        $i=0;
                                                         foreach ( $gallery_images_ids as $gallery_attachment_id ) {
-                                                            echo '<a href="'.esc_url( get_the_permalink() ).'" class="item">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                            $i++;
+                                                            echo '<a href="'.esc_url( get_the_permalink() ).'" class="item '.($i === 1 ? 'ht-slider-first-item' : '').' ">'.wp_get_attachment_image( $gallery_attachment_id, 'woocommerce_thumbnail' ).'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                         }
                                                     ?>
                                                 </div>

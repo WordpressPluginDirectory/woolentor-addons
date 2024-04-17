@@ -250,6 +250,11 @@
 			}
 		}
 
+		// Support Universal Grid / List View Image Slider
+		if( $(this).find('.ht-product-image-slider').length !== 0 ){
+			$product_thumbnail = $(this).find('.slick-slide.ht-slider-first-item img');
+		}
+
 		return $product_thumbnail;
 	};
 
@@ -299,6 +304,11 @@
 
 		// Finally change/update image
 		$product_thumbnail.attr(attributes);
+
+		// Support Universal Grid Image Slider
+		if( $(this).find('.ht-product-image-slider').length !== 0 ){
+			$(this).find('.ht-product-image-slider').slick('slickGoTo', 0);
+		}
 	};
 
 	// Reset to the default image when click on "reset" button
@@ -324,6 +334,12 @@
 
 		// Finally reset the image
 		$product_thumbnail.attr(backup_attributes);
+
+		// Support Universal Grid Image Slider
+		if( $(this).find('.ht-product-image-slider').length !== 0 ){
+			$(this).find('.ht-product-image-slider').slick('slickGoTo', 0);
+		}
+
 	};
 
 	// Change add to cart button text

@@ -116,12 +116,8 @@ final class Base {
             self::$template_info = \Woolentor_Template_Library_Manager::instance()->get_templates_info();
         }
 
-        // Promo Banner
-        if( is_admin() ){
-            if( !is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') ){
-                add_action( 'admin_notices', [ $this, 'admin_promo_notice' ] );
-            }
-        }
+        // Admin Notices
+        add_action( 'admin_head', [ $this, 'all_admin_notices' ] );
 
         // Elementor Preview Action
         if ( ! empty( $_REQUEST['action'] ) && 'elementor' === $_REQUEST['action'] && is_admin() ) {
@@ -153,7 +149,7 @@ final class Base {
             $message = sprintf( __( '%1$sShopLentor Addons for Elementor%2$s requires %1$s"WooCommerce"%2$s plugin to be installed and activated. Please install WooCommerce to continue.', 'woolentor' ), '<strong>', '</strong>' );
         }
 
-        \Woolentor_Admin_Notice::add_notice(
+        \WooLentor_Notices::add_notice(
 			[
 				'id'          => 'missing-woocommerce',
 				'type'        => 'error',
@@ -177,7 +173,7 @@ final class Base {
              self::MINIMUM_PHP_VERSION
         );
 
-        \Woolentor_Admin_Notice::add_notice(
+        \WooLentor_Notices::add_notice(
 			[
 				'id'          => 'phpcompatibility',
 				'type'        => 'warning',
@@ -187,10 +183,68 @@ final class Base {
     }
 
     /**
+     * Admin Notices
+     *
+     * @return void
+     */
+    public function all_admin_notices(){
+
+        // Rating notice
+        $this->admin_rating_notice();
+
+        // Promo Banner
+        $this->admin_promo_notice();
+
+    }
+
+    /**
+     * Rating Notice
+     *
+     * @return void
+     */
+    public function admin_rating_notice(){
+        $logo_url = esc_url(WOOLENTOR_ADDONS_PL_URL . "includes/admin/assets/images/logo.png");
+
+        $message = '<div class="hastech-review-notice-wrap">
+                    <div class="hastech-rating-notice-logo">
+                        <img src="' . $logo_url . '" alt="'.esc_attr__('ShopLentor','woolentor').'" style="max-width:85px"/>
+                    </div>
+                    <div class="hastech-review-notice-content">
+                        <h3>'.esc_html__('Hi there! Thanks a lot for choosing ShopLentor to build an outstanding WooCommerce store.','woolentor').'</h3>
+                        <p>'.esc_html__('It would be greatly appreciated if you consider giving us a review in WordPress. These reviews help us improve the plugin further and make it easier for other users to decide when exploring ShopLentor!','woolentor').'</p>
+                        <div class="hastech-review-notice-action">
+                            <a href="https://wordpress.org/support/plugin/woolentor-addons/reviews/?filter=5#new-post" class="hastech-review-notice button-primary" target="_blank">'.esc_html__('Ok, you deserve it!','woolentor').'</a>
+                            <span class="dashicons dashicons-calendar"></span>
+                            <a href="#" class="hastech-notice-close woolentor-review-notice">'.esc_html__('Maybe Later','woolentor').'</a>
+                            <span class="dashicons dashicons-smiley"></span>
+                            <a href="#" data-already-did="yes" class="hastech-notice-close woolentor-review-notice">'.esc_html__('I already did','woolentor').'</a>
+                        </div>
+                    </div>
+                </div>';
+
+        \WooLentor_Notices::set_notice(
+            [
+                'id'          => 'wlrating-notice',
+                'type'        => 'info',
+                'dismissible' => true,
+                'message_type' => 'html',
+                'message'     => $message,
+                'display_after' => ( 2 * WEEK_IN_SECONDS ),
+                'expire_time' => MONTH_IN_SECONDS,
+                'close_by'    => 'transient'
+            ]
+        );
+    }
+
+    /**
      * [admin_promo_notice]
      * @return [void] Promo banner admin notice
      */
     public function admin_promo_notice(){
+
+        if( is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') ){
+            return;
+        }
 
         if( !isset( self::$template_info['notices'] ) || !is_array( self::$template_info['notices'] ) ){
             return;
@@ -208,18 +262,19 @@ final class Base {
         $bannerLink = self::$template_info['notices'][0]['bannerlink'] ? self::$template_info['notices'][0]['bannerlink'] : '#';
         $bannerTitle = self::$template_info['notices'][0]['title'] ? self::$template_info['notices'][0]['title'] : esc_html__('Promo Banner','woolentor');
         $bannerDescription = self::$template_info['notices'][0]['description'] ? self::$template_info['notices'][0]['description'] : '';
-        $bannerImage = self::$template_info['notices'][0]['bannerimage'] ? '<img src='.self::$template_info['notices'][0]['bannerimage'].' alt='.$bannerTitle.'/>' : '';
+        $bannerImage = self::$template_info['notices'][0]['bannerimage'] ? '<img src="'.esc_url(self::$template_info['notices'][0]['bannerimage']).'" alt="'.esc_attr($bannerTitle).'"/>' : '';
 
         $banner['image'] = $bannerImage;
         $banner['url'] = $bannerLink;
-        \Woolentor_Admin_Notice::add_notice(
+        \WooLentor_Notices::set_notice(
             [
-                'id'          => 'promo-banner',
+                'id'          => 'wlpromo-banner',
                 'type'        => 'info',
                 'dismissible' => true,
                 'message'     => $bannerDescription,
                 'banner'      => $banner,
-                'close_by'    => 'transient'
+                'close_by'    => 'transient',
+                'priority'    => 2
             ]
         );
            
@@ -280,8 +335,7 @@ final class Base {
      * @return [void]
      */
     public function plugin_deactivation_hook() {
-        delete_metadata( 'user', null, 'woolentor_dismissed_notice_id', null, true );
-        delete_metadata( 'user', null, 'woolentor_dismissed_pro_notice_id', null, true );
+        delete_metadata( 'user', 0, 'hastech-notice-id-wlagency-bundle-promo-banner', null, true );
     }
 
     /**

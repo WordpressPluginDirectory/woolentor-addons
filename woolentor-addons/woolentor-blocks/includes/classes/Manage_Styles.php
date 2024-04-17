@@ -258,26 +258,20 @@ class Manage_Styles {
             $upload_css_dir_url = trailingslashit( $upload_dir_url['basedir'] );
 			$css_file_path 		= $upload_css_dir_url."woolentor-addons/woolentor-css-{$post_id}.css";
 
-			// File System
-			global $wp_filesystem;
-			if ( ! $wp_filesystem ) {
-				require_once( ABSPATH . 'wp-admin/includes/file.php' );
-			}
-
 			// Reusable Block CSS
 			$reusable_block_css = '';
 			$reusable_id = woolentorBlocks_reusable_id( $post_id );
 			foreach ( $reusable_id as $id ) {
 				$reusable_dir_path = $upload_css_dir_url."woolentor-addons/woolentor-css-{$id}.css";
 				if (file_exists( $reusable_dir_path )) {
-					$reusable_block_css .= $wp_filesystem->get_contents( $reusable_dir_path );
+					$reusable_block_css .= file_get_contents( $reusable_dir_path );
 				}else{
 					$reusable_block_css .= get_post_meta($id, '_woolentor_css', true);
 				}
 			}
 
 			if ( file_exists( $css_file_path ) ) {
-				echo '<style type="text/css">'.$wp_filesystem->get_contents( $css_file_path ).$reusable_block_css.'</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<style type="text/css">'.file_get_contents( $css_file_path ).$reusable_block_css.'</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				$css = get_post_meta( $post_id, '_woolentor_css', true );
 				if( $css ) {
