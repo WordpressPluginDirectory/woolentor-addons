@@ -1804,7 +1804,7 @@
   }
 
   /* Setting Page Pro notice */
-  .woolentor-admin-notice.notice-custom {
+  .hastech-admin-notice.notice-custom {
     position: relative;
     padding: 10px 20px;
     display: flex;
@@ -1813,10 +1813,10 @@
     background-color: #fff;
     border-top: 3px solid #f56640;
 }
-  .woolentor-admin-notice.notice-custom p{
+  .hastech-admin-notice.notice-custom p{
     margin: 0;
   }
-  .woolentor-admin-notice.notice-custom .notice-dismiss {
+  .hastech-admin-notice.notice-custom .notice-dismiss {
     padding: 0;
     top: 7px;
     right: 7px;

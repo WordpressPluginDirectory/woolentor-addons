@@ -504,7 +504,7 @@ class Woolentor_Admin_Init{
 
         $message = $notice_info['description'] ? $notice_info['description'] : '';
 
-        \Woolentor_Admin_Notice::add_notice(
+        \WooLentor_Notices::add_notice(
 			[
 				'id'          => 'setting-page-promo-banner',
                 'type'        => 'custom',
