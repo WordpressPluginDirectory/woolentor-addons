@@ -3403,6 +3403,7 @@ span.woolentor-order-item-title .product-thumbnail {
 .woolentor_archive_catalog_ordering form.woocommerce-ordering select {
   background-color: transparent;
   width: 100%;
+  max-width: 100%;
 }
 .elementor-widget-wl-product-add-to-cart .stock:not(.available-on-backorder),
 .elementor-widget-wl-product-add-to-cart .ast-stock-detail {
@@ -3470,7 +3471,7 @@ span.woolentor-order-item-title .product-thumbnail {
   padding-left: 15px;
 }
 .wlnotification_content {
-  flex: 0 0 75%;
+  flex: 0 0 70%;
 }
 .imageright .wlnotification_content {
   text-align: right;
@@ -3546,6 +3547,9 @@ span.woolentor-order-item-title .product-thumbnail {
   font-size: 14px;
   border-radius: 0;
   font-weight: 500;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: 0.4s;
 }
 .wl-suggest-form-input textarea {
   border: 1px solid #dddd;
@@ -3553,12 +3557,15 @@ span.woolentor-order-item-title .product-thumbnail {
   border-radius: 0;
   font-size: 14px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .wlsugget-button {
   padding: 8px 18px;
   font-size: 16px;
   font-weight: 400;
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
 /* Single Product Sticky Add to Cart */
@@ -7374,6 +7381,15 @@ div[class*="woolentor-single-select-drop"] .select2-results__option::before {
   top: 10px;
   border: 1px solid #ddd;
   width: 202px !important;
+}
+.woocommerce-page .woolentor-select-drop .select2-container .select2-dropdown {
+  padding: 0;
+}
+form.woolentor-header-search-form {
+  margin-bottom: 0;
+}
+.woolentor-horizontal-filter-wrap .woolentor-filter-header-top-area [class*="woolentor-"] i {
+  line-height: 40px;
 }
 /* Select to compatibility with Elementor pro */
 .woolentor-filter-single-item.woolentor-states-input-auto

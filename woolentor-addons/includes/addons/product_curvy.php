@@ -496,6 +496,7 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                     'default' => '#0A3ACA',
                     'selectors' => [
                         '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price' => 'color: {{VALUE}};',
+                        '.woocommerce {{WRAPPER}} div.product span.price' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -510,6 +511,7 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                    'default' => '#ffffff',
                     'selectors' => [
                         '{{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price' => 'color: {{VALUE}};',
+                        '.woocommerce {{WRAPPER}} div.product .wl_single-product-item.wl_dark-item span.price' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -518,7 +520,7 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'product_sale_price_typography',
-                    'selector' => '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price, {{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price',
+                    'selector' => '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price, {{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price,.woocommerce {{WRAPPER}} div.product span.price',
                 ]
             );
 
@@ -533,7 +535,8 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                     'separator' => 'before',
                     'default' => '#0A3ACA',
                     'selectors' => [
-                        '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price del' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price del' => 'color: {{VALUE}} !important;',
+                        '.woocommerce {{WRAPPER}} div.product span.price del' => 'color: {{VALUE}};',
                     ],
                 ]
             );
@@ -548,7 +551,8 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                     'separator' => 'before',
                     'default' => '#ffffff',
                     'selectors' => [
-                        '{{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price del' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price del' => 'color: {{VALUE}} !important;',
+                        '.woocommerce {{WRAPPER}} div.product .wl_single-product-item.wl_dark-item span.price del' => 'color: {{VALUE}} !important;',
                     ],
                 ]
             );
@@ -557,7 +561,7 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'product_regular_price_typography',
-                    'selector' => '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price del, {{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price del',
+                    'selector' => '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price del, {{WRAPPER}} .wl_single-product-item.wl_dark-item .product-content .product-content-top .product-price del ,.woocommerce {{WRAPPER}} div.product span.price del',
                 ]
             );
 
@@ -568,7 +572,7 @@ class Woolentor_Product_Curvy_Widget extends Widget_Base {
                     'type' => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors' => [
-                        '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .wl_single-product-item .product-content .product-content-top .product-price' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
                     ],
                 ]
             );

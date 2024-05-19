@@ -133,12 +133,18 @@ class Woolentor_Sale_Notification{
         if(!isset($address['city']) || strlen($address['city']) == 0 ){
             $address = $order->get_address('shipping');
         }
+
+        $show_buyer_name = ( woolentor_get_option( 'show_buyer_name','woolentor_sales_notification_tabs','off' ) == 'on' );
+        $show_city = ( woolentor_get_option( 'show_city','woolentor_sales_notification_tabs','off' ) == 'on' );
+        $show_state = ( woolentor_get_option( 'show_state','woolentor_sales_notification_tabs','off' ) == 'on' );
+        $show_country = ( woolentor_get_option( 'show_country','woolentor_sales_notification_tabs','off' ) == 'on' );
+
         $buyerinfo = array(
-            'fname' => isset( $address['first_name']) && strlen($address['first_name'] ) > 0 ? ucfirst($address['first_name']) : '',
-            'lname' => isset( $address['last_name']) && strlen($address['last_name'] ) > 0 ? ucfirst($address['last_name']) : '',
-            'city' => isset( $address['city'] ) && strlen($address['city'] ) > 0 ? ucfirst($address['city']) : 'N/A',
-            'state' => isset( $address['state']) && strlen($address['state'] ) > 0 ? ucfirst($address['state']) : 'N/A',
-            'country' => isset( $address['country']) && strlen($address['country'] ) > 0 ? WC()->countries->countries[$address['country']] : 'N/A',
+            'fname' => ($show_buyer_name && isset( $address['first_name']) && strlen($address['first_name'] ) > 0) ? ucfirst($address['first_name']) : '',
+            'lname' => ($show_buyer_name && isset( $address['last_name']) && strlen($address['last_name'] ) > 0) ? ucfirst($address['last_name']) : '',
+            'city' => ($show_city && isset( $address['city'] ) && strlen($address['city'] ) > 0) ? ucfirst($address['city']) : 'N/A',
+            'state' => ($show_state && isset( $address['state']) && strlen($address['state'] ) > 0) ? ucfirst($address['state']) : 'N/A',
+            'country' => ($show_country && isset( $address['country']) && strlen($address['country'] ) > 0) ? WC()->countries->countries[$address['country']] : 'N/A',
         );
         return $buyerinfo;
     }
@@ -228,9 +234,10 @@ class Woolentor_Sale_Notification{
         $notlayout     = woolentor_get_option( 'notification_layout','woolentor_sales_notification_tabs', 'imageleft' );
 
         // Display Item and Label
-        $show_city = ( woolentor_get_option( 'show_city','woolentor_sales_notification_tabs','on' ) == 'on' );
-        $show_state = ( woolentor_get_option( 'show_state','woolentor_sales_notification_tabs','on' ) == 'on' );
-        $show_country = ( woolentor_get_option( 'show_country','woolentor_sales_notification_tabs','on' ) == 'on' );
+        $show_buyer_name = ( woolentor_get_option( 'show_buyer_name','woolentor_sales_notification_tabs','off' ) == 'on' );
+        $show_city = ( woolentor_get_option( 'show_city','woolentor_sales_notification_tabs','off' ) == 'on' );
+        $show_state = ( woolentor_get_option( 'show_state','woolentor_sales_notification_tabs','off' ) == 'on' );
+        $show_country = ( woolentor_get_option( 'show_country','woolentor_sales_notification_tabs','off' ) == 'on' );
 
         // Label
         $purched_by = woolentor_get_option( 'purchased_by', 'woolentor_sales_notification_tabs', esc_html__('By','woolentor') );
@@ -246,6 +253,7 @@ class Woolentor_Sale_Notification{
                         notlayout = ' '+'<?php echo esc_js($notlayout); ?>';
                     
                     var displayItems = {
+                        buyername: '<?php echo esc_js($show_buyer_name); ?>',
                         city: '<?php echo esc_js($show_city); ?>',
                         state: '<?php echo esc_js($show_state); ?>',
                         country: '<?php echo esc_js($show_country); ?>'
@@ -303,7 +311,7 @@ class Woolentor_Sale_Notification{
                     function woolentor_notification_content( wlpobj, i ){
                         $('.woolentor-notification-content').html('');
                         $('.woolentor-notification-content').css('padding','15px');
-                        var ordercontent = `<div class="wlnotification_image"><img src="${wlpobj[i].image}" alt="${wlpobj[i].name}" /></div><div class="wlnotification_content"><h4><a href="${wlpobj[i].url}">${wlpobj[i].name}</a></h4><p>${ ( displayItems.city ? wlpobj[i].buyer.city + ' ' : '' ) + ( displayItems.state ? wlpobj[i].buyer.state + ', ' : '') + ( displayItems.country ? wlpobj[i].buyer.country : '' ) }.</p><h6>${other_text.price+wlpobj[i].price}</h6><span class="woolentor-buyername">${other_text.priceby + ' ' + wlpobj[i].buyer.fname + ' ' + wlpobj[i].buyer.lname}</span></div><span class="wlcross">&times;</span>`;
+                        var ordercontent = `<div class="wlnotification_image"><img src="${wlpobj[i].image}" alt="${wlpobj[i].name}" /></div><div class="wlnotification_content"><h4><a href="${wlpobj[i].url}">${wlpobj[i].name}</a></h4><p>${ ( displayItems.city ? wlpobj[i].buyer.city + ' ' : '' ) + ( displayItems.state ? wlpobj[i].buyer.state + ' ' : '') + ( displayItems.country ? wlpobj[i].buyer.country : '' ) }</p><h6>${other_text.price+wlpobj[i].price}</h6><span class="woolentor-buyername">${displayItems.buyername ? (other_text.priceby + ' ' + wlpobj[i].buyer.fname + ' ' + wlpobj[i].buyer.lname) : ''}</span></div><span class="wlcross">&times;</span>`;
                         $('.woolentor-notification-content').append( ordercontent ).addClass('animated '+inanimation).removeClass(outanimation);
                     }
 

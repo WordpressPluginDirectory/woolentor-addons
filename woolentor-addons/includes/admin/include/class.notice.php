@@ -51,21 +51,31 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
          */
         public function ajax_dismiss() {
 
-            $nonce = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
-
-            if( !wp_verify_nonce( $nonce, 'woolentor_notices_nonce') ) {
-                $error_message = [
-                    'message'  => __('Are you cheating?', self::$plugin_domain)
-                ];
-                wp_send_json_error( $error_message );
-            }
-
+            $nonce       = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
             $notice_id   = ( isset( $_POST['noticeid'] ) ) ? sanitize_key( $_POST['noticeid'] ) : '';
             $alreadydid  = ( isset( $_POST['alreadydid'] ) ) ? sanitize_key( $_POST['alreadydid'] ) : '';
             $expire_time = ( isset( $_POST['expiretime'] ) ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
             $close_by    = ( isset( $_POST['closeby'] ) ) ? sanitize_key( $_POST['closeby'] ) : '';
+            $notice      = $this->get_notice_by_id( $notice_id );
+            $capability  = isset( $notice['capability'] ) ? $notice['capability'] : 'manage_options';
 
-            if ( ! empty( $notice_id ) ) {
+            // User Capability check
+			if ( ! apply_filters( 'woolentor_notice_user_cap_check', current_user_can( $capability ) ) ) {
+                $error_message = [
+                    'message'  => __('You are not authorized.', 'woolentor')
+                ];
+                wp_send_json_error( $error_message );
+			}
+
+            // Nonce verification check
+            if( !wp_verify_nonce( $nonce, 'woolentor_notices_nonce') ) {
+                $error_message = [
+                    'message'  => __('Are you cheating?', 'woolentor')
+                ];
+                wp_send_json_error( $error_message );
+            }
+
+            if ( ! empty( $notice_id ) && (strpos( $notice_id, 'hastech-notice' ) !== false) ) {
 
                 if( !empty( $alreadydid ) ) {
                     update_option( $notice_id , true );
@@ -203,6 +213,21 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
         }
 
         /**
+         * Get Notices By id
+         * @param [type] $notice_id
+         */
+        private function get_notice_by_id( $notice_id ) {
+			if ( empty( $notice_id ) ) {
+				return [];
+			}
+
+			$notices = $this->get_notices();
+			$notice  = wp_list_filter( $notices, [ 'id' => $notice_id ] );
+
+			return ! empty( $notice ) ? $notice[0] : [];
+		}
+
+        /**
          * Notice Prepare For Display
          *
          * @param [type] $notice_data
@@ -234,7 +259,7 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
                 if( $notice['type'] !== 'custom'){
                     $classes[] = 'notice';
                 }else{
-                    $notice['dismissible_btn'] = '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.esc_html__('Dismiss this notice.',self::$plugin_domain).'</span></button>';
+                    $notice['dismissible_btn'] = '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.esc_html__('Dismiss this notice.','woolentor').'</span></button>';
                 }
             }
 

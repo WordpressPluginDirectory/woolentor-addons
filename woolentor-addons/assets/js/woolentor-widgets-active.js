@@ -326,7 +326,7 @@
         $product.find( '.single_variation_wrap' ).on( 'show_variation', function ( event, variation ) {
 
             // Get First image data
-            if( $default_data.src.length === 0 ){
+            if( $default_data.src?.length === 0 ){
                 $default_data.src = $('.ht-quick-view-learg-img').find('.wl-quickview-first-image .wp-post-image').attr('src');
                 $default_data.srcset = $('.ht-quick-view-learg-img').find('.wl-quickview-first-image .wp-post-image').attr('srcset');
                 $default_data.srcfull = $('.ht-quick-view-learg-img').find('.wl-quickview-first-image .wp-post-image').attr('data-src');

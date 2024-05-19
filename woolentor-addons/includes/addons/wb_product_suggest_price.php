@@ -860,7 +860,7 @@ class Woolentor_Wb_Product_Suggest_Price_Widget extends Widget_Base {
                 'user_submit' => [
                     'type'        => 'submit',
                     'name'        => 'wlsubmit-' . esc_attr( $id ),
-                    'id'          => 'wlemail-' . esc_attr( $id ),
+                    'id'          => 'wlsubmit-' . esc_attr( $id ),
                     'value'       => $settings['submit_button_txt'],
                 ],
                 
@@ -917,7 +917,7 @@ class Woolentor_Wb_Product_Suggest_Price_Widget extends Widget_Base {
             </div>
 
             <script type="text/javascript">
-                jQuery(document).ready(function($) {
+                ;jQuery(document).ready(function($) {
                 "use strict";
 
                     var open_formbtn = '#wlopenform-<?php echo esc_attr($id); ?>';

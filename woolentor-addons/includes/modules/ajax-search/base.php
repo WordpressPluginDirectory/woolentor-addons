@@ -29,6 +29,11 @@ class WooLentor_Ajax_Search_Base{
 	function register_widget(){
 		require ( __DIR__ . '/widget-product-search-ajax.php' );
 		register_widget( 'WooLentor_Product_Search_Ajax_Widget' );
+		// Enqueue Style
+		if( !is_admin() ){
+			wp_enqueue_style( 'woolentor-ajax-search' );
+        	wp_enqueue_script( 'woolentor-ajax-search' );
+		}
 	}
 
 	/**
@@ -122,9 +127,6 @@ class WooLentor_Ajax_Search_Base{
 	 */
 	public function shortcode( $atts = array(), $content = '' ) {
 		
-		wp_enqueue_style( 'woolentor-ajax-search' );
-        wp_enqueue_script( 'woolentor-ajax-search' );
-
 		extract( shortcode_atts( array(
 			'limit' 	  	=> 10,
 			'placeholder' 	=> esc_html__( 'Search Products', 'woolentor' ),
@@ -133,7 +135,7 @@ class WooLentor_Ajax_Search_Base{
 		), $atts, 'woolentorsearch' ) );
 
 		$data_settings = array(
-			'limit'		  => $limit,
+			'limit'		  => esc_attr( $limit ),
 			'wlwidget_id' => '#wluniq-'.uniqid(),
 		);
 

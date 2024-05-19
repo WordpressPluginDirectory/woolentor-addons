@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.5
-Stable tag: 2.8.7
+Stable tag: 2.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1103,6 +1103,24 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.8.9 - Date: 19-05-2024 =
+* Added : Product Horizontal Filter Gutenberg Block.
+* Added : Product Categories Gutenberg Block.
+* Added : Product SKU Gutenberg Block.
+* Added : Product Suggest Price Gutenberg Block.
+* Added : Product call for price Gutenberg Block.
+* Fixes: Minor Issues.
+* Compatibility : Latest WordPress and WooCommerce version.
+
+= Version: 2.8.8 - Date: 02-05-2024 =
+* Added : Option To Hide or Show Buyer Name in Sale Notification Module.
+* Added : Product Fiter Gutenberg Block.
+* Added : Archive Catalog Ordering Gutenberg Block.
+* Added : Archive Result Count.
+* Solved : Ajax Search Widget style issue.
+* Solved : Product price color issue in Product curvy widget.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.8.6 - Date: 17-04-2024 =
 * Solved : Product class conflict issue with WoodMart theme.
 * Solved : QR Code Height and Width issue in product QR code addon.
@@ -1640,66 +1658,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Solved Elementor editor load issue with page layout theme.
 * Solved current theme product style item specing issue.
 * Solved sale badge style issue for twentytwentyone theme.
-
-= Version: 1.8.9 - Date: 2021-24-05 =
-* Added ShopLentor product option tab index.
-* Added hide out of stock item option.
-* Solved product column issue ( For JetBuilder plugin )
-* Solved Tax Query conflick issue (For YITH WooCommerce Auctions premium )
-* Solved feature product showing issue.
-* Solved Quantity field value showing issue for Hello Elementor theme.
-* Solved Elementor editor load issue with page layout theme.
-* Solved current theme product style item specing issue.
-* Solved sale badge style issue for twentytwentyone theme.
-
-= Version: 1.8.8 - Date: 2021-24-04 =
-* Form serialize data send from AJAX single product add to cart request
-* Solved quick view add to cart button adding products without selecting variations issue.
-* Solved sale notification time intervel issue.
-* Compatible with Elementor latest version
-
-= Version: 1.8.7 - Date: 2021-7-04 =
-* Solved quickview variation data showing issue.
-* Added quickview variation product AJAX add to cart.
-* Added AJAX search widget close option after click outside.
-* Solved quickview z-index issue.
-* Solved universal product layout slider issue for OceanWP theme.
-
-= Version: 1.8.6 - Date: 2021-27-03 =
-* Solved HTML tags validation issue.
-
-= Version: 1.8.5 - Date: 2021-24-03 =
-* Added 5 extensions addon.
-
-= Version: 1.8.4 - Date: 2021-18-03 =
-* Improved admin panel style.
-* Added extension menu.
-* Fixed minor bugs.
-
-= Version: 1.8.3 - Date: 2021-10-03 =
-* Product video description issue solved.
-* Solved quick view problem with ocean WP theme.
-* Minor bug fixed.
-
-= Version: 1.8.2 - Date: 2021-02-03 =
-* Capability with ever compare and wishsuite plugins.
-* Added category before border hide option in universal layout.
-* Increase sale badge style option.
-* Template wise class added in the body for template global style option.
-* Reduce API call.
-* Minor bug fixed.
-
-= Version: 1.8.1 - Date: 2021-02-03 =
-* Fixed Repeater field console error issue.
-* Minor bug fixed.
-
-= Version: 1.8.0 - Date: 2021-01-9 =
-* Fixed product shortcode issue.
-
-= Version: 1.7.9 - Date: 2021-01-7 =
-* Fixed archive page broken issue.
-* Fixed search results page issue.
-* Fixed product ordering issue on the shop page.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

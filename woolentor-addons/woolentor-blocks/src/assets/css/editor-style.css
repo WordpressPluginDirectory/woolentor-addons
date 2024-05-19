@@ -396,7 +396,7 @@ button.components-button.woolentor-elements-tab-menu-item.tab-menu-active {
   button.components-button.has-icon {
   height: 100%;
   width: auto;
-  padding: 2px 3px;
+  padding: 3px 3px;
   border-radius: 0;
   border: 1px solid #d5dadf;
   min-width: 45px;
@@ -858,6 +858,10 @@ button.components-button.woolentor-icon-control-icon-button.is-secondary {
   display: none;
 }
 
+/* Call For Price */
+[class*="woolentorblock-"] .wl-call-forprice a {
+  color: #fff !important;
+}
 /* Universal Product */
 [class*="woolentorblock-"].ht-products .wishsuite-button.wishlist {
   line-height: 35px;

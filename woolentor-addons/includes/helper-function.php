@@ -1505,7 +1505,7 @@ function woolentor_get_theme_byname( $name ){
 /**
  * Get the directory name of the current theme regardless of the child theme.
  * 
- * @return The directory name of the theme's "stylesheet" files, inside the theme root.
+ * @return // The directory name of the theme's "stylesheet" files, inside the theme root.
  */
 function woolentor_get_current_theme_directory(){
     $current_theme_dir  = '';
@@ -1588,5 +1588,63 @@ if( !function_exists('woolentor_get_user_roles') ){
         }
 
         return $options;
+    }
+}
+
+/**
+ * Generate Filter Term Link
+ *
+ * @param [type] $filter_type
+ * @param [type] $term
+ * @param [type] $current_url
+ * @return array
+ */
+if( !function_exists('woolentor_block_filter_generate_term_link') ){
+    function woolentor_block_filter_generate_term_link( $filter_type, $term, $current_url ) {
+
+        $filter_name = $filter_type;
+        $str = substr( $filter_type, 0, 3 );
+        if( 'pa_' === $str ){
+            $filter_name = 'filter_' . wc_attribute_taxonomy_slug( $filter_type );
+        }
+
+        if( $filter_name === 'product_cat' || $filter_name === 'product_tag' ){
+            $filter_name = 'woolentor_'.$filter_name;
+        }
+
+        $current_filter = isset( $_GET[ $filter_name ] ) ? explode( ',', wc_clean( wp_unslash( $_GET[ $filter_name ] ) ) ) : array();
+        $option_is_set  = in_array( $term->slug, $current_filter, true );
+
+        // Generate choosen Class
+        if( in_array( $term->slug, $current_filter ) ){
+            $active_class = 'wlchosen';
+        }else{
+            $active_class = '';
+        }
+
+        // Term Link
+        $current_filter = array_map( 'sanitize_title', $current_filter );
+        if ( ! in_array( $term->slug, $current_filter, true ) ) {
+            $current_filter[] = $term->slug;
+        }
+        $link = remove_query_arg( $filter_name, $current_url );
+
+        foreach ( $current_filter as $key => $value ) {
+            if ( $option_is_set && $value === $term->slug ) {
+                unset( $current_filter[ $key ] );
+            }
+        }
+
+        if ( ! empty( $current_filter ) ) {
+            asort( $current_filter );
+            $link = add_query_arg( 'wlfilter', '1', $link );
+            $link = add_query_arg( $filter_name, implode( ',', $current_filter ), $link );
+            $link = str_replace( '%2C', ',', $link );
+        }
+        return [
+            'link'  => $link,
+            'class' => $active_class,
+        ];
+
     }
 }

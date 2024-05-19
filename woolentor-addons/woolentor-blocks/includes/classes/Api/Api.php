@@ -106,7 +106,7 @@ class Api
             ]
         );
 
-        // Order Bump List
+        // Get Post List
         register_rest_route(
             $this->namespace,
             'get-poslist',
@@ -119,6 +119,22 @@ class Api
                     'wpnonce' => []
                 ],
                 'callback' => [$this, 'get_post_list_data'],
+                'permission_callback' => [$this, 'permission_check'],
+            ]
+        );
+
+        // Get Taxonomies List
+        register_rest_route(
+            $this->namespace,
+            'get-taxonomies',
+            [
+                'methods' => WP_REST_Server::READABLE,
+                'args' => [
+                    'object' => [],
+                    'skipTerms' => [],
+                    'wpnonce' => []
+                ],
+                'callback' => [$this, 'get_taxonomies_list_data'],
                 'permission_callback' => [$this, 'permission_check'],
             ]
         );
@@ -385,6 +401,46 @@ class Api
                 $data[] = $item;
             }
         }
+
+        return rest_ensure_response($data);
+    }
+
+    /**
+     * Taxonomies List Callable Function
+     *
+     * @param [type] $request
+     */
+    public function get_taxonomies_list_data($request)
+    {
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'woolentorblock-nonce')) {
+            return rest_ensure_response([]);
+        }
+
+        $object = isset($request['object']) ? $request['object'] : 'product';
+        $skip_terms = isset($request['skipTerms']) ? $request['skipTerms'] : [];
+
+        $data = [];
+
+        $all_taxonomies = get_object_taxonomies( $object );
+        foreach ( $all_taxonomies as $taxonomy_data ) {
+            $taxonomy = get_taxonomy( $taxonomy_data );
+            if( $skip_terms === true ){
+                if( ( $taxonomy->show_ui ) && ( 'pa_' !== substr( $taxonomy_data, 0, 3 ) ) ) {
+                    $item = [];
+                    $item['key'] = $taxonomy_data;
+                    $item['title'] = $taxonomy->label;
+                    $data[] = $item;
+                }
+            }else{
+                if( $taxonomy->show_ui ) {
+                    $item = [];
+                    $item['key'] = $taxonomy_data;
+                    $item['title'] = $taxonomy->label;
+                    $data[] = $item;
+                }
+            }
+        }
+        
 
         return rest_ensure_response($data);
     }
