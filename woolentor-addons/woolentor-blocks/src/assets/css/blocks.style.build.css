@@ -268,6 +268,9 @@
   width: 90px;
   height: 2px;
 }
+.ht-category-wrap-2 .ht-category-content-2.hide-title-after h3::before{
+    display: none;
+}
 .ht-category-wrap-2:hover::before {
   opacity: 1;
   visibility: visible;
@@ -2151,7 +2154,11 @@ svg.woolentor-banner-default{
     text-align: center;
 }
 .woocommerce.woolentor-product-curvy .wl_single-product-item .product-content .action li a:not(.added){
-    display: block !important;
+    /* display: block !important; */
+    display: flex !important;
+    line-height: 40px !important;
+    align-items: center;
+    justify-content: center;
 }
  /** Block: product-curvy Style End **/
 

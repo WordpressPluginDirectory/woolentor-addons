@@ -2,7 +2,7 @@
 	"name": "woolentor/special-day-offer",
     "category": "woolentor-blocks",
     "title": "WL : Special Day Offer",
-    "description":"Display spesial day offer banner.",
+    "description":"Display special day offer banner.",
     "keywords":["woolentor","shop banner","banner","special day","offer","special offer"],
     "supports":{
         "align": ["wide","full"]
@@ -181,6 +181,13 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .banner-content { margin: {{contentAreaMargin}}; }"
             }
         },
+        "contentAreaBGColor":{
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .banner-content{ background-color: {{contentAreaBGColor}}; }"
+            }
+        },
+
         "desColor":{
             "type": "string",
             "style" : {
@@ -279,16 +286,37 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .banner-content a{ color: {{buttonColor}}; }"
             }
         },
+        "buttonBGColor":{
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .banner-content a{ background-color: {{buttonBGColor}}; }"
+            }
+        },
         "buttonHoverColor":{
             "type": "string",
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .banner-content a:hover{ color: {{buttonHoverColor}}; }"
             }
         },
+        "buttonHoverBGColor":{
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .banner-content a:hover{ background-color: {{buttonHoverBGColor}}; }"
+            }
+        },
         "buttonSize":{
             "type": "string",
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .banner-content a{ font-size: {{buttonSize}}; }"
+            }
+        },
+        "buttonPadding": {
+            "type": "object",
+            "default": {
+                "device": "desktop"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .banner-content a{ padding: {{buttonPadding}}; }"
             }
         },
         "buttonMargin": {

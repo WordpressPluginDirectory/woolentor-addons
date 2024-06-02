@@ -93,10 +93,15 @@
 		},
 		"titleColor":{
             "type": "string",
-            "selector": ".woolentor-banner .banner_title"
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_title { color: {{titleColor}}; }"
+            }
         },
         "titleSize":{
-            "type": "string"
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_title { font-size: {{titleSize}}; }"
+            }
         },
         "titlePadding":{
             "type": "object",
@@ -128,10 +133,15 @@
         },
         "subTitleColor":{
             "type": "string",
-            "selector": ".woolentor-banner .banner_subtitle"
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_subtitle { color: {{subTitleColor}}; }"
+            }
         },
         "subTitleSize":{
-            "type": "string"
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_subtitle { font-size: {{subTitleSize}}; }"
+            }
         },
         "subTitlePadding":{
             "type": "object",
@@ -163,10 +173,15 @@
         },
         "buttonColor":{
             "type": "string",
-            "selector": ".woolentor-banner .banner_button"
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_button{ color: {{buttonColor}}; border-color: {{buttonColor}}; }"
+            }
         },
         "buttonSize":{
-            "type": "string"
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_button{ font-size: {{buttonSize}}; }"
+            }
         },
         "buttonPadding":{
             "type": "object",
@@ -194,6 +209,142 @@
             },
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner .banner_button { margin: {{buttonMargin}}; }"
+            }
+        },
+
+        "imageBorder":{
+            "type":"object",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-img img"
+            }
+        },
+        "imageBorderRadius": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-img img{ border-radius: {{imageBorderRadius}}; }"
+            }
+        },
+
+        "contentAreaWidth":{
+            "type": "number",
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-layout-2 .woolentor-content{ width: {{contentAreaWidth}}px; }"
+            }
+        },
+        "contentAreaBGColor":{
+            "type": "string",
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-layout-2 .woolentor-content{ background-color: {{contentAreaBGColor}}; }"
+            }
+        },
+        "contentAreaPadding":{
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-layout-2 .woolentor-content{ padding: {{contentAreaPadding}}; }"
+            }
+        },
+        "contentAreaMargin":{
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-layout-2 .woolentor-content { margin: {{contentAreaMargin}}; }"
+            }
+        },
+        "contentAreaBorder":{
+            "type":"object",
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-layout-2 .woolentor-content"
+            }
+        },
+        "contentBorderRadius": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-banner-layout-2 .woolentor-content{ border-radius: {{contentBorderRadius}}; }"
             }
         }
     }

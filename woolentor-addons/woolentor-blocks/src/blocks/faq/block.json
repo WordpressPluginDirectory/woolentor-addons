@@ -117,10 +117,44 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .is-active .htwoolentor-faq-head-text{ color: {{activeFaqTitleColor}}; }"
             }
         },
+        "activeFaqBorderColor":{
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-card.is-active .htwoolentor-faq-head{ border-color: {{activeFaqBorderColor}}; }"
+            }
+        },
         "activeIconColor":{
             "type": "string",
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .is-active .htwoolentor-faq-head-indicator:before,{{WOOLENTOR_WRAPPER}} .is-active .htwoolentor-faq-head-indicator:after{ background-color: {{activeIconColor}}!important; }"
+            }
+        },
+        "titlePadding": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-head{ padding: {{titlePadding}}; }"
+            }
+        },
+        "titleMargin": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-head{ margin: {{titleMargin}}; }"
             }
         },
         "contentColor":{
@@ -132,7 +166,55 @@
         "contentSize":{
             "type": "string",
             "style" : {
-                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content,{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content p{ font-size: {{contentSize}}; }"
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content,{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content p{ font-size: {{contentSize}}!important; }"
+            }
+        },
+        "contentPadding": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content{ padding: {{contentPadding}}!important; }"
+            }
+        },
+        "contentMargin": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content{ margin: {{contentMargin}}; }"
+            }
+        },
+        "contentBorder":{
+            "type":"object",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content"
+            }
+        },
+        "contentBorderRadius": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .htwoolentor-faq-content{ border-radius: {{contentBorderRadius}}; }"
             }
         }
         

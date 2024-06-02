@@ -82,7 +82,7 @@
             }
         },
         "categoriesSpecing":{
-            "type":"string",
+            "type":"number",
             "style" : {
                 "selector":".woocommerce {{WOOLENTOR_WRAPPER}} .woolentor_product_categories_info .posted_in{ margin-left:{{categoriesSpecing}}px; }"
             }

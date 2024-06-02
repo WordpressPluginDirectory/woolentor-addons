@@ -76,7 +76,7 @@
             }
         },
         "skuSpecing":{
-            "type":"string",
+            "type":"number",
             "style" : {
                 "selector":".woocommerce {{WOOLENTOR_WRAPPER}} .woolentor_product_sku_info .sku{ margin-left:{{skuSpecing}}px; }"
             }

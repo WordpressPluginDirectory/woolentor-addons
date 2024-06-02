@@ -213,6 +213,25 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} [class*='ht-category-wrap'] [class*='ht-category-content'] h3 { margin: {{titleMargin}}; }"
             }
         },
+        "titleAfterBorder":{
+            "type": "boolean",
+            "default": true
+        },
+        "titleAfterBorderColor":{
+            "type":"string",
+            "style":{
+                "dependency": [
+                    [
+                        {
+                            "key": "style", 
+                            "condition": "==", 
+                            "value": "2"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .ht-category-wrap-2 .ht-category-content-2 h3::before { background-color: {{titleAfterBorderColor}}; }"
+            }
+        },
         "countColor":{
             "type":"string",
             "style" : {

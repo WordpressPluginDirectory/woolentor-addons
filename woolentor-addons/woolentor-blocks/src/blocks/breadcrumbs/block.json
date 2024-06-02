@@ -47,6 +47,12 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} {text-align:{{contentAlignment}}; }"
             }
         },
+        "textSize":{
+            "type":"string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woocommerce-breadcrumb{font-size:{{textSize}}; }"
+            }
+        },
         "textColor":{
             "type":"string",
             "style" : {

@@ -210,6 +210,12 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .product-content .product-content-top p{ margin: {{contentMargin}}; }"
             }
         },
+        "contentAlignment": {
+            "type": "string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .product-content .product-content-top{ text-align: {{contentAlignment}}; } {{WOOLENTOR_WRAPPER}} .wl_single-product-item .product-content .product-content-top .reading {justify-content:{{contentAlignment}}; }"
+            }
+        },
         "emptyRatingColor":{
             "type": "string",
             "style" : {

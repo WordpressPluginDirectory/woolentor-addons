@@ -487,6 +487,28 @@ li.woolentor-cart .button:before {
   display: none;
 }
 
+/* Secondery Image Universla Product */
+.ht-product-image-wrap .ht-product-image{
+  position: relative;
+}
+.ht-product-image-wrap .ht-product-image .ht-product-hover-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.5s ease,transform 2s cubic-bezier(0, 0, 0.44, 1.18);
+}
+.ht-product-inner:hover .ht-product-image-wrap .ht-product-image .ht-product-hover-img {
+  opacity: 1;
+  transform: scale(1.09);
+}
+
 /*Product Wrap*/
 .ht-products {
   -webkit-box-sizing: border-box;
@@ -2499,9 +2521,13 @@ span.woolentor-tip,
   font-weight: 600;
   text-transform: uppercase;
 }
+.woolentor-banner-img img{
+  width: 100%;
+}
 .woolentor-content-align-right .woolentor-banner-img {
   order: 1;
-  padding-left: 50px;
+  padding-right: 50px;
+  padding-left: 0;
 }
 .woolentor-content-align-right .woolentor-content {
   order: 2;
@@ -3227,8 +3253,14 @@ span.woolentor-tip,
 }
 
 /* Product Video Gallery */
+.woolentor-product-gallery-video {
+  position: relative;
+}
 .video-cus-tab-pane {
   display: none;
+}
+.video-cus-tab-pane img {
+  width: 100%;
 }
 .video-cus-tab-pane.htactive {
   display: block;
@@ -3310,6 +3342,21 @@ span.wlvideo-button {
   .woolentor-product-gallery-video {
   width: 80%;
   float: left;
+}
+
+.woolentor-product-gallery-video span.ht-product-label {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: 700;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+  background-color: #b3af54;
+  color: #fff;
+  font-size: .857em;
+  z-index: 9;
 }
 
 /* Checkout Page */

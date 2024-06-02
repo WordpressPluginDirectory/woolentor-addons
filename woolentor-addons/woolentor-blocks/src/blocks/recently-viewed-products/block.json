@@ -142,6 +142,12 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-recently-viewed-product{ border-radius: {{itemBorderRadius}} !important; }"
             }
         },
+        "itemBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-recently-viewed-product { background-color: {{itemBGColor}}; }"
+            }
+        },
 
         "contentAlignment":{
             "type":"string",
@@ -158,6 +164,15 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-recently-view-content{ padding: {{contentPadding}} !important; }"
             }
         },
+        "contentMargin": {
+            "type": "object",
+            "default": {
+                "device": "desktop"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-recently-view-content{ margin: {{contentMargin}}; }"
+            }
+        },
         "contentBorder":{
             "type":"object",
             "style" : {
@@ -171,6 +186,12 @@
             },
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-recently-view-content{ border-radius: {{contentBorderRadius}} !important; }"
+            }
+        },
+        "contentAreaBGColor":{
+            "type":"string",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-recently-view-content{ background-color: {{contentAreaBGColor}}; }"
             }
         },
 

@@ -8,6 +8,7 @@
      */
     init: function () {
       this.TabsMenu($(".ht-tab-menus"), ".ht-tab-pane");
+      this.TabsMenu($(".woolentor-product-video-tabs"), ".video-cus-tab-pane");
       if ($("[class*='woolentorblock-'] .ht-product-image-slider").length > 0) {
         this.productImageThumbnailsSlider($(".ht-product-image-slider"));
       }

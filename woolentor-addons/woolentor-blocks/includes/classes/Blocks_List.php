@@ -169,6 +169,13 @@ class Blocks_List {
                 'type'   => 'single',
                 'active' => true,
             ],
+            'product_video_gallery' => [
+                'label'  => __('Product Video Gallery','woolentor'),
+                'name'   => 'woolentor/product-video-gallery',
+                'server_side_render' => true,
+                'type'   => 'single',
+                'active' => true,
+            ],
             'product_meta' => [
                 'label'  => __('Product Meta','woolentor'),
                 'name'   => 'woolentor/product-meta',
@@ -179,6 +186,13 @@ class Blocks_List {
             'product_categories' => [
                 'label'  => __('Product Categories','woolentor'),
                 'name'   => 'woolentor/product-categories',
+                'server_side_render' => true,
+                'type'   => 'single',
+                'active' => true,
+            ],
+            'product_tags' => [
+                'label'  => __('Product Tags','woolentor'),
+                'name'   => 'woolentor/product-tags',
                 'server_side_render' => true,
                 'type'   => 'single',
                 'active' => true,

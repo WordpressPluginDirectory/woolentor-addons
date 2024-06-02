@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                     <?php elseif( '2' === $layout ):?>
                         <div class="ht-category-wrap-2">
-                            <div class="ht-category-content-2">
+                            <div class="ht-category-content-2 <?php echo ( $settings['titleAfterBorder'] === true ? "" : esc_attr("hide-title-after") ); ?>">
                                 <h3><a href="<?php echo esc_url( $prod_cat['link'] ); ?>"><?php echo esc_html__( $prod_cat['name'], 'woolentor' ); ?></a></h3>
                             </div>
                             <?php if( !empty( $thumbnails ) ):?>
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php else: ?>
                                 <div class="ht-category-image ht-category-image-zoom">
                                     <a class="ht-category-border-2" href="<?php echo esc_url( $prod_cat['link'] ); ?>">
-                                        <img src="<?php echo esc_url( $prod_cat['image']['placeholderImg'] ) ?>">
+                                        <img src="<?php echo esc_url( $prod_cat['placeholderImg'] ) ?>" alt="<?php echo esc_attr( $prod_cat['name'] );?>" />
                                     </a>
                                 </div>
                             <?php endif; ?>

@@ -84,6 +84,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
                         if( WLTMCPT?.prostatus == 1 ){
                             itemgroup = itemgroup.map( template => ({ ...template, isPro: 0 }) );
+                        }else{
+                            itemgroup.sort((a, b)=>{
+                                const tmpStatus = a.isPro;
+                                let comparison = 0;
+                                if (tmpStatus === 1) {
+                                    comparison = 1;
+                                } else if (tmpStatus === 0) {
+                                    comparison = -1;
+                                }
+                                return comparison;
+                            })
                         }
                     #>
                         <div class="woolentor-template-edit-demo-design-show woolentor-template-edit-demo-design-slider woolentor-gutenberg-temp demo-{{groupkey}}">

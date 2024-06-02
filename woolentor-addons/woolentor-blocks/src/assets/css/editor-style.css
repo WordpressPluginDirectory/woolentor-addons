@@ -89,6 +89,9 @@ span.woolentor-reset-btn:hover {
   .product-thumbnail {
   height: auto;
 }
+.wp-block-woolentor-product-curvy .wl_single-product-item .product-thumbnail .images img{
+  height: 300px;
+}
 
 /* Category grid */
 .wp-block-woolentor-category-grid .components-spinner {
@@ -174,6 +177,15 @@ span.woolentor-reset-btn:hover {
   .quantity
   .qty {
   width: 50px;
+}
+
+/* Product Advanced Image With Zoom */
+.woolentor-block-product-image-zoom .wl-product-details-thumbs .sm-image{
+  display: inline-block;
+  padding: 0 5px;
+  width: 25%;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 /* Checkout page Addons */
@@ -432,6 +444,7 @@ button.components-button.woolentor-elements-tab-menu-item.tab-menu-active {
 }
 label.woolentor-control-title {
   margin-right: 0;
+  margin-bottom: 0 !important;
 }
 .wp-block-selector-woolentor-dimensions-control
   .components-input-control

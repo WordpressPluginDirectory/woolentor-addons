@@ -326,7 +326,7 @@ class Woolentor_Wl_Product_Video_Gallery_Widget extends Widget_Base {
             </div>
         </div>
 
-         <script>
+        <script>
             ;jQuery(document).ready(function($) {
                 'use strict';
 

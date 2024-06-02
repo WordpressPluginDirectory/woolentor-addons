@@ -18,6 +18,9 @@
 [class*="woolentor-"] i {
   font-style: normal;
 }
+[class*="woolentor-"] *, [class*="woolentor-"] *::before, [class*="woolentor-"] *::after {
+  box-sizing: border-box;
+}
 
 .woolentor-text-align-left {
   text-align: left !important;
@@ -477,6 +480,18 @@ body .wp-block-group.is-layout-flex.is-content-justification-space-between {
   ul.woolentor-thumbanis-image {
   width: 100%;
 }
+.wlpro-product-thumbnails .woocommerce-product-gallery__image {
+  width: 100%;
+}
+
+/* Product Advanced Image With Zoom */
+.wlpro-product-videothumbnails.woolentor-block-product-image-zoom{
+  overflow: visible;
+}
+.woolentor-block-product-image-zoom .wl-product-details-thumbs{
+  margin-left: -5px;
+  margin-right: -5px;
+}
 
 /* Product Add to cart Button */
 .wl-nonequantity-txt.wl-addto-cart
@@ -487,6 +502,18 @@ body .wp-block-group.is-layout-flex.is-content-justification-space-between {
 }
 .woocommerce .woolentor-product-addtocart .quantity .qty {
   width: auto;
+}
+
+/* Product Navigation */
+[class*="woolentorblock-"] .wl-single-product-navigation a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  margin-left: 0;
+}
+[class*="woolentorblock-"] .wl-single-product-navigation a+a{
+  margin-left: 12px;
 }
 
 /*

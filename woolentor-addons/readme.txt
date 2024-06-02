@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.5
-Stable tag: 2.8.9
+Stable tag: 2.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1103,6 +1103,23 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.9.0 - Date: 02-06-2024 =
+* Added : Product Tags Gutenberg Block.
+* Added : Product Video Gallery Gutenberg Block.
+* Added : Tab Menu alignment, Border radius, Title style, Price style, Action Button Border radius, Slider Control Style and Badge Customise option in Product tab Block.
+* Added : Pagination Style option in product grid Block.
+* Added : Increase style option for content and single item option in Recently View Product Block.
+* Added : Style option for Action button and content in Special Day Offer Block.
+* Added : Style option for Header and content in FAQ Block.
+* Added : Image, Button and Content style option in Promo Banner Block.
+* Added : Image Marker style option and Data real time update in Image Marker Block.
+* Added : Slider Control Style option for Brand Logo Block. 
+* Added : Increase Style option for Product Curvy Block.
+* Added : Increase Style option for Archive Title Block.
+* Added Content Style, Image Style and Real Time data update option in Customer Review Block.
+* Solved : Ajax add to cart button doesn't work when variations selected by default.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.8.9 - Date: 19-05-2024 =
 * Added : Product Horizontal Filter Gutenberg Block.
 * Added : Product Categories Gutenberg Block.
@@ -1623,41 +1640,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 = Version: 1.9.5 - Date: 2021-08-09 =
 * Solved Product column issue for the Astra Theme
-
-= Version: 1.9.4 - Date: 2021-08-08 =
-* Added Category Grid and Product tab blocks.
-* Solved Product image showing issue in editor mode.
-* Solved Horizontal filter item select issue.
-* Solved Translate issue.
-* Solved Related Product, Upsale product and Cross sale Product Column issue for storefront theme
-
-= Version: 1.9.3 - Date: 2021-27-07 =
-* Added Title tag change option in universal layout
-* Added Product Archive page template override global option
-* Solved Variation image showing issue in QuickView
-* Solved Slick slider console error
-
-= Version: 1.9.2 - Date: 2021-24-07 =
-* Compatibility With WordPress Latest Version
-* Compatibility With Elementor Latest Version
-
-= Version: 1.9.1 - Date: 2021-18-07 =
-* Added 5 Gutenberg blocks
-
-= Version: 1.9.0 - Date: 2021-21-06 =
-* Added count manage option in category grid addon.
-* Solved spelling issue.
-* Solved related product column issue.
-* Solved sale notification ( Price, By ) translate issue.
-* Added ShopLentor product option tab index.
-* Added hide out of stock item option.
-* Solved product column issue ( For JetBuilder plugin )
-* Solved Tax Query conflick issue (For YITH WooCommerce Auctions premium )
-* Solved feature product showing issue.
-* Solved Quantity field value showing issue for Hello Elementor theme.
-* Solved Elementor editor load issue with page layout theme.
-* Solved current theme product style item specing issue.
-* Solved sale badge style issue for twentytwentyone theme.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

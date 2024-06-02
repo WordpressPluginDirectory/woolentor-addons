@@ -486,6 +486,12 @@ class Woolentor_Admin_Fields {
                         'type'    => 'element',
                         'default' => 'on'
                     ),
+                    array(
+                        'name'    => 'product_video_gallery',
+                        'label'   => esc_html__('Product Video Gallery','woolentor'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
 
                     array(
                         'name'    => 'product_meta',
@@ -549,6 +555,12 @@ class Woolentor_Admin_Fields {
                         'default' => 'on'
                     ),
                     array(
+                        'name'    => 'product_tags',
+                        'label'   => esc_html__('Product Tags','woolentor'),
+                        'type'    => 'element',
+                        'default' => 'on'
+                    ),
+                    array(
                         'name'    => 'product_sku',
                         'label'   => esc_html__('Product SKU','woolentor'),
                         'type'    => 'element',
@@ -587,10 +599,24 @@ class Woolentor_Admin_Fields {
                         'default' => 'off',
                         'is_pro' => true,
                     ),
+                    array(
+                        'name'    => 'product_navigation',
+                        'label'   => esc_html__('Product Navigation','woolentor'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
 
                     array(
                         'name'    => 'product_advance_image',
                         'label'   => esc_html__('Advance Product Image','woolentor'),
+                        'type'    => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
+                        'name'    => 'product_thumbnails_zoom_image',
+                        'label'   => esc_html__('Product Image With Zoom','woolentor'),
                         'type'    => 'element',
                         'default' => 'off',
                         'is_pro' => true,
@@ -2944,7 +2970,7 @@ class Woolentor_Admin_Fields {
                             array(
                                 'name'        => 'go_popup_template_builder',
                                 'label'       => esc_html__( 'Go Builder', 'woolentor-pro' ),
-                                'html'        => wp_kses_post( '<a href="'.admin_url('edit.php?post_type=woolentor-template&template_type=popup&tabs=popup').'" target="_blank">Create your own customized Email.</a>', 'woolentor' ),
+                                'html'        => wp_kses_post( '<a href="'.admin_url('edit.php?post_type=woolentor-template&template_type=popup&tabs=popup').'" target="_blank">Create your own customized Email.</a>' ),
                                 'type'        => 'html',
                                 'class'       => 'woolentor-action-field-left'
                             ),

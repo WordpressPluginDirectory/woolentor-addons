@@ -449,7 +449,8 @@
 	};
 
 	// Product loop init
-	$(window).on('load', function(){
+	// Updated load -> ready to fix ajax add to cart button shows "Select options" while variations are selected by default for the shop page
+	$(document).ready(function(){
 	    product_loop.init_variation_form();
 		product_loop.init_ajax_add_to_cart();
 	} );

@@ -21,6 +21,9 @@
                 "attachment": "",
                 "repeat": "",
                 "size": ""
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}}"
             }
         },
         "style":{
@@ -62,10 +65,10 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .wlb_image_pointer { background-color: {{markerBGColor}}; }"
             }
         },
-        "markerBorderColor":{
-            "type": "string",
+        "markerBorder":{
+            "type":"object",
             "style" : {
-                "selector":"{{WOOLENTOR_WRAPPER}} .wlb_image_pointer { border-color: {{markerBorderColor}}; }"
+                "selector":"{{WOOLENTOR_WRAPPER}} .wlb_image_pointer"
             }
         },
         "markerBorderRadius": {
@@ -180,6 +183,26 @@
             },
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .wlb_image_pointer .wlb_pointer_box p { margin: {{markerDescriptionMargin}}; }"
+            }
+        },
+        "markerImageBorder":{
+            "type":"object",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}}"
+            }
+        },
+        "markerImageBorderRadius": {
+            "type": "object",
+            "default": {
+                "top":"",
+                "right":"",
+                "bottom":"",
+                "left":"",
+                "unit":"px",
+                "link":"yes"
+            },
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} { border-radius: {{markerImageBorderRadius}}; }"
             }
         }
     }
