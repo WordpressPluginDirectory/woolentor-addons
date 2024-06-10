@@ -93,6 +93,10 @@ span.woolentor-reset-btn:hover {
   height: 300px;
 }
 
+.woocommerce-page .woolentor-panel-control label{
+  margin-bottom: 5px;
+}
+
 /* Category grid */
 .wp-block-woolentor-category-grid .components-spinner {
   margin: 0 auto;

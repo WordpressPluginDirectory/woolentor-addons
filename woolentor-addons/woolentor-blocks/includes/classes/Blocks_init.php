@@ -99,8 +99,16 @@ class Blocks_init {
             return ob_get_clean();
         };
 
+        if( isset( $metadata['render'] ) && file_exists( $block_dir . $block_name .'/block.json' ) ){
+            add_action('init', function() use ( $block ){
+                $this->enqueue_block_assets( $block );
+            });
+            register_block_type( $block_dir . $block_name .'/block.json' );
+        }else{
+            register_block_type( $block['name'], $block );
+        }
         // Register block.
-        register_block_type( $block['name'], $block );
+        // register_block_type( $block['name'], $block );
 
         // Register action for editor assest load.
         if( $block['enqueue_assets'] ) {

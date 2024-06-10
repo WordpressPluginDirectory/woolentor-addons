@@ -312,10 +312,26 @@
           }
         );
     },
+
+    CartTableHandler: function () {
+      // Product Details Slide Toggle
+      $('body').on("click", '.woolentor-cart-product-details-toggle', function (e) {
+          e.preventDefault();
+          
+          const $target = $(this).data('target');
+
+          if($(`[data-id="${$target}"]`).is(':hidden')) {
+              $(`[data-id="${$target}"]`).slideDown();
+          } else {
+              $(`[data-id="${$target}"]`).slideUp();
+          }
+      });
+  }
   };
 
   $(document).ready(function () {
     WooLentorBlocks.init();
+    WooLentorBlocks.CartTableHandler();
 
     $("[class*='woolentorblock-'] .product-slider").each(function () {
       WooLentorBlocks.initSlickSlider($(this));

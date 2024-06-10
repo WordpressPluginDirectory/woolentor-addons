@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+$settings = $attributes;
 $uniqClass 	 = 'woolentorblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass, 'wlpro-product-videothumbnails' );
 
@@ -11,7 +11,7 @@ $areaClasses = array( $uniqClass, 'wlpro-product-videothumbnails' );
 !empty( $settings['tabThumbnailsPosition'] ) ? $areaClasses[] = 'thumbnails-tab-position-'.$settings['tabThumbnailsPosition'] : '';
 
 global $post;
-if( $block['is_editor'] ){
+if( $_GET['is_editor_mode'] == 'yes' ){
 	$product = wc_get_product(woolentor_get_last_product_id());
 } else{
 	$product = wc_get_product();
@@ -60,7 +60,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 		<div class="woolentor-product-gallery-video">
 			<?php
-				if( $block['is_editor'] ){
+				if( $_GET['is_editor_mode'] == 'yes' ){
 					if ( $product->is_on_sale() ) { 
 						echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woolentor-pro' ) . '</span>', $post, $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}

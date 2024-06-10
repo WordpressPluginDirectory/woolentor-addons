@@ -1074,7 +1074,11 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
 
                                                                 foreach ( $price_range_list as $key => $price_range ) {
 
-                                                                    $individual = [$price_range['min_price'], $price_range['max_price'] ];
+                                                                    $min_price = esc_attr($price_range['min_price']);
+                                                                    $max_price = esc_attr($price_range['max_price']);
+                                                                    $price_seprator = esc_html($price_range['price_seprator']);
+
+                                                                    $individual = [$min_price, $max_price];
                                                                     $diff = array_diff( $individual, $current_price );
 
                                                                     $pselected = 0;
@@ -1083,12 +1087,12 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                                                                     }
 
                                                                     if( $currency_pos_left ){
-                                                                        $generate_price = sprintf('%s%s %s %s%s',$final_currency_symbol,$price_range['min_price'], $price_range['price_seprator'],$final_currency_symbol,$price_range['max_price'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                                        $generate_price = sprintf('%s%s %s %s%s',$final_currency_symbol,$min_price, $price_seprator,$final_currency_symbol,$max_price ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                     }else{
-                                                                        $generate_price = sprintf('%s%s %s %s%s',$price_range['min_price'], $final_currency_symbol, $price_range['price_seprator'],$price_range['max_price'], $final_currency_symbol ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                                        $generate_price = sprintf('%s%s %s %s%s',$min_price, $final_currency_symbol, $price_seprator,$max_price, $final_currency_symbol ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                     }
 
-                                                                    echo sprintf("<option value='%s' data-min_price='&min_price=%s' data-max_price='&max_price=%s' %s>%s</option>", $key, $price_range['min_price'], $price_range['max_price'], selected( $pselected, 1, false ), $generate_price ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                                                    echo sprintf("<option value='%s' data-min_price='&min_price=%s' data-max_price='&max_price=%s' %s>%s</option>", $key, $min_price, $max_price, selected( $pselected, 1, false ), $generate_price ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                 }
 
                                                             ?>

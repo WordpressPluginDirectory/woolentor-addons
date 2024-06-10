@@ -6,6 +6,7 @@
     "title": "WL: Product Video Gallery",
     "description":"Display Product Video Gallery for product details page.",
     "keywords": ["woolentor","product","single","video","gallery","product video gallery","single product gallery"],
+    "render": "file:./index.php",
     "attributes": {
         "blockUniqId":{
             "type": "string",

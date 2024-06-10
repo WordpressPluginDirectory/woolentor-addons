@@ -636,6 +636,13 @@ class Woolentor_Admin_Fields {
                         'is_pro' => true,
                     ),
                     array(
+                        'name'  => 'cart_table_list',
+                        'label' => esc_html__( 'Product Cart Table (List Style)', 'woolentor' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
                         'name'  => 'cart_total',
                         'label' => esc_html__( 'Product Cart Total', 'woolentor' ),
                         'type'  => 'element',
