@@ -61,7 +61,7 @@ class Blocks_init {
         if ( isset( $block['location'] ) ) {
             $block_dir = trailingslashit( $block['location'] );
         } else {
-            $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ) ? WOOLENTOR_ADDONS_PL_PATH_PRO . 'blocks/' : WOOLENTOR_BLOCK_PATH . '/src/blocks/';
+            $block_dir = ( isset($block['is_pro']) && $block['is_pro'] == true && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ) ? WOOLENTOR_ADDONS_PL_PATH_PRO . 'blocks/' : WOOLENTOR_BLOCK_PATH . '/build/blocks/';
         }
 
         $block_name  = str_replace('woolentor/', '', trim(preg_replace('/\(.+\)/', '', $block['name'])));
@@ -99,14 +99,17 @@ class Blocks_init {
             return ob_get_clean();
         };
 
+        // Render Attribute is exist in block.json file.
         if( isset( $metadata['render'] ) && file_exists( $block_dir . $block_name .'/block.json' ) ){
             add_action('init', function() use ( $block ){
                 $this->enqueue_block_assets( $block );
             });
             register_block_type( $block_dir . $block_name .'/block.json' );
+            return $block;
         }else{
             register_block_type( $block['name'], $block );
         }
+        
         // Register block.
         // register_block_type( $block['name'], $block );
 

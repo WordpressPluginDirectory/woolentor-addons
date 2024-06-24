@@ -713,6 +713,13 @@ class Woolentor_Admin_Fields {
                         'is_pro' => true,
                     ),
                     array(
+                        'name'  => 'checkout_shipping_method',
+                        'label' => esc_html__( 'Checkout Shipping Method', 'woolentor' ),
+                        'type'  => 'element',
+                        'default' => 'off',
+                        'is_pro' => true,
+                    ),
+                    array(
                         'name'  => 'checkout_order_review',
                         'label' => esc_html__( 'Checkout Order Review', 'woolentor' ),
                         'type'  => 'element',

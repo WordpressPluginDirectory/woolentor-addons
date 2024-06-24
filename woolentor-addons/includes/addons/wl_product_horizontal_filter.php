@@ -1072,10 +1072,16 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                                                             <?php
                                                                 if( !empty( $filter_item['wl_filter_placeholder'] ) && empty( $cmin_price ) ){echo '<option></option>';}
 
+                                                                $prices_data = function_exists('woolentor_minmax_price_limit') ? woolentor_minmax_price_limit() : array('min' => 10,'max' => 20);
+
+                                                                $min_price_value = $prices_data['min'];
+                                                                $max_price_value = $prices_data['max'];
+
                                                                 foreach ( $price_range_list as $key => $price_range ) {
 
-                                                                    $min_price = esc_attr($price_range['min_price']);
-                                                                    $max_price = esc_attr($price_range['max_price']);
+                                                                    $min_price = preg_match('/^[0-9]*$/', $price_range['min_price']) ? esc_attr($price_range['min_price']) : $min_price_value;
+                                                                    $max_price = preg_match('/^[0-9]*$/', $price_range['max_price']) ? esc_attr($price_range['max_price']) : $max_price_value;
+
                                                                     $price_seprator = esc_html($price_range['price_seprator']);
 
                                                                     $individual = [$min_price, $max_price];

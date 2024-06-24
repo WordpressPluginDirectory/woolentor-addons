@@ -469,6 +469,7 @@ li.woolentor-cart .button:before {
 }
 .ht-product-action ul li.woolentor-cart a.wc-forward.added_to_cart {
   padding: 0;
+  margin: 0;
 }
 .woolentor-short-desc ul,
 .woolentor-short-desc ol,

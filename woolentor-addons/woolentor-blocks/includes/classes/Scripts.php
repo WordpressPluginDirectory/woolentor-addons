@@ -43,7 +43,7 @@ class Scripts {
 
 		wp_enqueue_script(
 		    'woolentor-block-main',
-		    WOOLENTOR_BLOCK_URL . '/src/assets/js/script.js',
+		    WOOLENTOR_BLOCK_URL . '/assets/js/script.js',
 		    array('jquery'),
 		    WOOLENTOR_VERSION,
 		    true
@@ -51,14 +51,14 @@ class Scripts {
 
 		wp_enqueue_style(
 		    'woolentor-block-common',
-		    WOOLENTOR_BLOCK_URL . '/src/assets/css/common-style.css',
+		    WOOLENTOR_BLOCK_URL . '/assets/css/common-style.css',
 		    array(),
 		    WOOLENTOR_VERSION
 		);
 
 		wp_enqueue_style(
 		    'woolentor-block-default',
-		    WOOLENTOR_BLOCK_URL . '/src/assets/css/style-index.css',
+		    WOOLENTOR_BLOCK_URL . '/assets/css/style-index.css',
 		    array(),
 		    WOOLENTOR_VERSION
 		);
@@ -73,7 +73,7 @@ class Scripts {
 	 * Load CSS File
 	 */
 	public function load_css(){
-		wp_enqueue_style( 'woolentor-block-style', WOOLENTOR_BLOCK_URL . '/src/assets/css/blocks.style.build.css', array(), WOOLENTOR_VERSION );
+		wp_enqueue_style( 'woolentor-block-style', WOOLENTOR_BLOCK_URL . '/assets/css/blocks.style.build.css', array(), WOOLENTOR_VERSION );
 	}
 
 	/**
@@ -94,8 +94,8 @@ class Scripts {
 			// Third-Party Scripts
 			$this->load_extra_scripts();
 
-			wp_enqueue_style( 'woolentor-block-template-library', WOOLENTOR_BLOCK_URL . '/src/assets/css/template-library.css', [], WOOLENTOR_VERSION, 'all' );
-			wp_enqueue_style( 'woolentor-block-editor-style', WOOLENTOR_BLOCK_URL . '/src/assets/css/editor-style.css', [], WOOLENTOR_VERSION, 'all' );
+			wp_enqueue_style( 'woolentor-block-template-library', WOOLENTOR_BLOCK_URL . '/assets/css/template-library.css', [], WOOLENTOR_VERSION, 'all' );
+			wp_enqueue_style( 'woolentor-block-editor-style', WOOLENTOR_BLOCK_URL . '/assets/css/editor-style.css', [], WOOLENTOR_VERSION, 'all' );
 
 			$dependencies = require_once( WOOLENTOR_BLOCK_PATH . '/build/blocks-woolentor.asset.php' );
 			wp_enqueue_script(

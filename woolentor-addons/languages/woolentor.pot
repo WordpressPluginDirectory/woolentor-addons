@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 09:10+0000\n"
+"POT-Creation-Date: 2024-06-24 03:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.9; wp-6.5.4\n"
+"X-Loco-Version: 2.6.10; wp-6.5.4\n"
 "X-Domain: woolentor"
 
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:392
@@ -80,6 +80,8 @@ msgid_plural "%s customer reviews"
 msgstr[0] ""
 msgstr[1] ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:26
+#: woolentor-blocks/build/blocks/product-reviews/index.php:47
 #: woolentor-blocks/src/blocks/product-reviews/index.php:26
 #: woolentor-blocks/src/blocks/product-reviews/index.php:47
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:26
@@ -104,6 +106,7 @@ msgstr ""
 #: includes/addons/product_flash_sale.php:105
 #: includes/addons/product_curvy.php:82 includes/addons/product_curvy.php:100
 #: includes/addons/product_tabs.php:96
+#: woolentor-blocks/build/blocks/product-reviews/index.php:29
 #: woolentor-blocks/src/blocks/product-reviews/index.php:29
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:29
 msgid "1"
@@ -129,6 +132,7 @@ msgstr ""
 #: includes/addons/product_flash_sale.php:106
 #: includes/addons/product_curvy.php:83 includes/addons/product_curvy.php:101
 #: includes/addons/product_tabs.php:97
+#: woolentor-blocks/build/blocks/product-reviews/index.php:30
 #: woolentor-blocks/src/blocks/product-reviews/index.php:30
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:30
 msgid "2"
@@ -136,6 +140,7 @@ msgstr ""
 
 #: includes/addons/product_flash_sale.php:107
 #: includes/addons/product_curvy.php:84 includes/addons/product_tabs.php:98
+#: woolentor-blocks/build/blocks/product-reviews/index.php:31
 #: woolentor-blocks/src/blocks/product-reviews/index.php:31
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:31
 msgid "3"
@@ -143,6 +148,7 @@ msgstr ""
 
 #: includes/addons/product_flash_sale.php:108
 #: includes/addons/product_curvy.php:85 includes/addons/product_tabs.php:99
+#: woolentor-blocks/build/blocks/product-reviews/index.php:32
 #: woolentor-blocks/src/blocks/product-reviews/index.php:32
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:32
 msgid "4"
@@ -154,6 +160,7 @@ msgstr ""
 
 #: includes/addons/product_flash_sale.php:109
 #: includes/addons/product_tabs.php:100
+#: woolentor-blocks/build/blocks/product-reviews/index.php:33
 #: woolentor-blocks/src/blocks/product-reviews/index.php:33
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:33
 msgid "5"
@@ -169,11 +176,13 @@ msgid "6"
 msgstr ""
 
 #: includes/addons/product_tabs.php:1502 includes/addons/product_tabs.php:1632
+#: woolentor-blocks/build/blocks/product-tab/loop-item.php:39
 #: woolentor-blocks/src/blocks/product-tab/loop-item.php:39
 #: woolentor-blocks/production/src/blocks/product-tab/loop-item.php:39
 msgid ":"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-curvy/index.php:98
 #: woolentor-blocks/src/blocks/product-curvy/index.php:98
 #: woolentor-blocks/production/src/blocks/product-curvy/index.php:98
 msgid "<i class=\"fa fa-shopping-cart\"></i>"
@@ -454,6 +463,7 @@ msgid "Allow Order"
 msgstr ""
 
 #: includes/addons/wb_product_add_to_cart.php:1277
+#: woolentor-blocks/build/blocks/product-addtocart/manager.php:116
 #: woolentor-blocks/src/blocks/product-addtocart/manager.php:116
 #: woolentor-blocks/production/src/blocks/product-addtocart/manager.php:116
 msgid "Already Compared"
@@ -647,6 +657,7 @@ msgstr ""
 msgid "Available:"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:40
 #: woolentor-blocks/src/blocks/product-reviews/index.php:40
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:40
 msgid "Average"
@@ -799,6 +810,7 @@ msgstr ""
 msgid "Banner Badge"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/special-day-offer/index.php:18
 #: woolentor-blocks/src/blocks/special-day-offer/index.php:18
 #: woolentor-blocks/production/src/blocks/special-day-offer/index.php:18
 msgid "Banner Default image"
@@ -1136,6 +1148,7 @@ msgstr ""
 #: includes/addons/wl_brand.php:51
 #: woolentor-blocks/includes/classes/Blocks_List.php:24
 #: woolentor-blocks/production/includes/classes/Blocks_List.php:24
+#: woolentor-blocks/build/blocks/brand-logo/index.php:19
 #: woolentor-blocks/src/blocks/brand-logo/index.php:19
 #: woolentor-blocks/production/src/blocks/brand-logo/index.php:19
 msgid "Brand Logo"
@@ -1501,6 +1514,7 @@ msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:74
 #: includes/addons/wb_product_suggest_price.php:75
+#: woolentor-blocks/build/blocks/popup-close-trigger-button/index.php:18
 #: woolentor-blocks/src/blocks/popup-close-trigger-button/index.php:18
 #: includes/modules/popup-builder/includes/class-shortcodes.php:33
 #: woolentor-blocks/production/src/blocks/popup-close-trigger-button/index.php:18
@@ -1681,6 +1695,7 @@ msgstr ""
 #: woolentor-blocks/includes/helper-functions.php:611
 #: includes/addons/wb_product_add_to_cart.php:1276
 #: woolentor-blocks/production/includes/helper-functions.php:611
+#: woolentor-blocks/build/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/src/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/production/src/blocks/product-addtocart/manager.php:115
 #: includes/modules/compare/includes/classes/Admin/Dashboard.php:59
@@ -2537,6 +2552,8 @@ msgstr ""
 #: includes/addons/wl_product_filter.php:52
 #: includes/addons/wl_product_filter.php:917
 #: includes/addons/wl_product_filter.php:917
+#: woolentor-blocks/build/blocks/product-filter/index.php:120
+#: woolentor-blocks/build/blocks/product-filter/index.php:120
 #: woolentor-blocks/src/blocks/product-filter/index.php:120
 #: woolentor-blocks/src/blocks/product-filter/index.php:120
 #: woolentor-blocks/production/src/blocks/product-filter/index.php:120
@@ -2683,6 +2700,7 @@ msgid "Free!"
 msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:885
+#: woolentor-blocks/build/blocks/suggest-price/index.php:30
 #: woolentor-blocks/src/blocks/suggest-price/index.php:30
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:30
 msgid "From: "
@@ -2732,6 +2750,7 @@ msgstr ""
 msgid "Go Pro"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:39
 #: woolentor-blocks/src/blocks/product-reviews/index.php:39
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:39
 msgid "Good"
@@ -3391,6 +3410,8 @@ msgstr ""
 
 #: includes/addons/wl_product_horizontal_filter.php:972
 #: includes/addons/wl_product_filter.php:852
+#: woolentor-blocks/build/blocks/product-horizontal-filter/index.php:64
+#: woolentor-blocks/build/blocks/product-filter/index.php:55
 #: woolentor-blocks/src/blocks/product-horizontal-filter/index.php:64
 #: woolentor-blocks/src/blocks/product-filter/index.php:55
 #: woolentor-blocks/production/src/blocks/product-horizontal-filter/index.php:64
@@ -3688,6 +3709,7 @@ msgid "Max Price"
 msgstr ""
 
 #: includes/addons/wl_product_filter.php:915
+#: woolentor-blocks/build/blocks/product-filter/index.php:118
 #: woolentor-blocks/src/blocks/product-filter/index.php:118
 #: woolentor-blocks/production/src/blocks/product-filter/index.php:118
 msgid "Max price"
@@ -3730,6 +3752,7 @@ msgid "Min Price"
 msgstr ""
 
 #: includes/addons/wl_product_filter.php:914
+#: woolentor-blocks/build/blocks/product-filter/index.php:117
 #: woolentor-blocks/src/blocks/product-filter/index.php:117
 #: woolentor-blocks/production/src/blocks/product-filter/index.php:117
 msgid "Min price"
@@ -3826,6 +3849,7 @@ msgstr ""
 
 #: classes/class.default_data.php:371 classes/class.default_data.php:392
 #: includes/addons/wb_product_sku.php:168
+#: woolentor-blocks/build/blocks/product-sku/index.php:28
 #: woolentor-blocks/src/blocks/product-sku/index.php:28
 #: woolentor-blocks/production/src/blocks/product-sku/index.php:28
 msgid "N/A"
@@ -4031,6 +4055,7 @@ msgstr ""
 msgid "Not found in Trash"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:41
 #: woolentor-blocks/src/blocks/product-reviews/index.php:41
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:41
 msgid "Not that bad"
@@ -4054,7 +4079,8 @@ msgstr ""
 msgid "Odd Heading Background"
 msgstr ""
 
-#: includes/addons/wl_product_horizontal_filter.php:1169
+#: includes/addons/wl_product_horizontal_filter.php:1175
+#: woolentor-blocks/build/blocks/product-horizontal-filter/index.php:281
 #: woolentor-blocks/src/blocks/product-horizontal-filter/index.php:281
 #: woolentor-blocks/production/src/blocks/product-horizontal-filter/index.php:281
 msgid "of"
@@ -4353,6 +4379,7 @@ msgstr ""
 msgid "Payment"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:38
 #: woolentor-blocks/src/blocks/product-reviews/index.php:38
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:38
 msgid "Perfect"
@@ -4383,6 +4410,7 @@ msgid "Enter a Page Name"
 msgstr ""
 
 #: includes/addons/wl_product_filter.php:852
+#: woolentor-blocks/build/blocks/product-filter/index.php:55
 #: woolentor-blocks/src/blocks/product-filter/index.php:55
 #: woolentor-blocks/production/src/blocks/product-filter/index.php:55
 msgctxt "placeholder"
@@ -4417,6 +4445,7 @@ msgid "Please fill in your details above to see available payment methods."
 msgstr ""
 
 #: includes/addons/wl_product_filter.php:1037
+#: woolentor-blocks/build/blocks/product-filter/index.php:240
 #: woolentor-blocks/src/blocks/product-filter/index.php:240
 #: woolentor-blocks/production/src/blocks/product-filter/index.php:240
 msgid "Please Select Filter Type"
@@ -4575,6 +4604,7 @@ msgid "Price Range"
 msgstr ""
 
 #: includes/addons/wl_product_filter.php:919
+#: woolentor-blocks/build/blocks/product-filter/index.php:122
 #: woolentor-blocks/src/blocks/product-filter/index.php:122
 #: woolentor-blocks/production/src/blocks/product-filter/index.php:122
 msgid "Price:"
@@ -5006,6 +5036,8 @@ msgstr ""
 #: woolentor-blocks/includes/templates/product-universal.php:207
 #: woolentor-blocks/production/includes/templates/product-universal.php:160
 #: woolentor-blocks/production/includes/templates/product-universal.php:207
+#: woolentor-blocks/build/blocks/universal-product/old_index.php:408
+#: woolentor-blocks/build/blocks/universal-product/old_index.php:455
 #: woolentor-blocks/src/blocks/universal-product/old_index.php:408
 #: woolentor-blocks/src/blocks/universal-product/old_index.php:455
 msgid "Quick View"
@@ -5040,6 +5072,7 @@ msgstr ""
 msgid "Rate the plugin"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:37
 #: woolentor-blocks/src/blocks/product-reviews/index.php:37
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:37
 msgid "Rate…"
@@ -5149,6 +5182,7 @@ msgid "Rename Label"
 msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:885
+#: woolentor-blocks/build/blocks/suggest-price/index.php:30
 #: woolentor-blocks/src/blocks/suggest-price/index.php:30
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:30
 msgid "Reply-To: "
@@ -5423,6 +5457,8 @@ msgstr ""
 #: includes/addons/wl_product_horizontal_filter.php:973
 #: includes/addons/wl_product_filter.php:853
 #: includes/modules/ajax-search/base.php:171
+#: woolentor-blocks/build/blocks/product-horizontal-filter/index.php:65
+#: woolentor-blocks/build/blocks/product-filter/index.php:56
 #: woolentor-blocks/src/blocks/product-horizontal-filter/index.php:65
 #: woolentor-blocks/src/blocks/product-filter/index.php:56
 #: woolentor-blocks/production/src/blocks/product-horizontal-filter/index.php:65
@@ -5475,7 +5511,8 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: includes/addons/wl_product_horizontal_filter.php:1168
+#: includes/addons/wl_product_horizontal_filter.php:1174
+#: woolentor-blocks/build/blocks/product-horizontal-filter/index.php:280
 #: woolentor-blocks/src/blocks/product-horizontal-filter/index.php:280
 #: woolentor-blocks/production/src/blocks/product-horizontal-filter/index.php:280
 msgid "select"
@@ -5868,6 +5905,7 @@ msgstr ""
 
 #: classes/class.default_data.php:371 classes/class.default_data.php:391
 #: includes/addons/wb_product_sku.php:167
+#: woolentor-blocks/build/blocks/product-sku/index.php:26
 #: woolentor-blocks/src/blocks/product-sku/index.php:26
 #: woolentor-blocks/production/src/blocks/product-sku/index.php:26
 msgid "SKU:"
@@ -6068,6 +6106,7 @@ msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:876
+#: woolentor-blocks/build/blocks/suggest-price/index.php:21
 #: woolentor-blocks/src/blocks/suggest-price/index.php:21
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:21
 msgid "Sorry, your nonce verification fail."
@@ -6254,6 +6293,7 @@ msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:99
 #: includes/addons/wb_product_suggest_price.php:100
+#: woolentor-blocks/build/blocks/product-reviews/index.php:52
 #: woolentor-blocks/src/blocks/product-reviews/index.php:52
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:52
 msgid "Submit"
@@ -6299,6 +6339,7 @@ msgid "Successfully Settings Saved."
 msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:884
+#: woolentor-blocks/build/blocks/suggest-price/index.php:29
 #: woolentor-blocks/src/blocks/suggest-price/index.php:29
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:29
 msgid "Suggest For Price"
@@ -6419,6 +6460,7 @@ msgstr ""
 
 #: classes/class.default_data.php:377 classes/class.default_data.php:404
 #: includes/addons/wb_product_tags.php:179
+#: woolentor-blocks/build/blocks/product-tags/index.php:24
 #: woolentor-blocks/src/blocks/product-tags/index.php:24
 #: woolentor-blocks/production/src/blocks/product-tags/index.php:24
 msgid "Tag:"
@@ -7145,6 +7187,7 @@ msgstr ""
 msgid "Vertical Position"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:42
 #: woolentor-blocks/src/blocks/product-reviews/index.php:42
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:42
 msgid "Very poor"
@@ -7285,6 +7328,7 @@ msgid "WishSuite Counter"
 msgstr ""
 
 #: classes/class.widgets_control.php:428
+#: includes/modules/wishlist/includes/classes/Widgets_And_Blocks.php:43
 msgid "WishSuite Table"
 msgstr ""
 
@@ -7682,6 +7726,8 @@ msgstr ""
 msgid "WL: Thank You Order"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/universal-product/old_index.php:48
+#: woolentor-blocks/build/blocks/universal-product/sort_index.php:48
 #: woolentor-blocks/src/blocks/universal-product/old_index.php:48
 #: woolentor-blocks/src/blocks/universal-product/sort_index.php:48
 msgid "WL: Universal Product Layout"
@@ -7888,6 +7934,7 @@ msgid "You haven't viewed at any of the products yet."
 msgstr ""
 
 #: includes/addons/wl_recently_viewed_products.php:751
+#: woolentor-blocks/build/blocks/recently-viewed-products/index.php:23
 #: woolentor-blocks/src/blocks/recently-viewed-products/index.php:23
 #: woolentor-blocks/production/src/blocks/recently-viewed-products/index.php:23
 msgid ""
@@ -7895,11 +7942,13 @@ msgid ""
 "the editing mode."
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:26
 #: woolentor-blocks/src/blocks/product-reviews/index.php:26
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:26
 msgid "Your rating"
 msgstr ""
 
+#: woolentor-blocks/build/blocks/product-reviews/index.php:47
 #: woolentor-blocks/src/blocks/product-reviews/index.php:47
 #: woolentor-blocks/production/src/blocks/product-reviews/index.php:47
 msgid "Your review"

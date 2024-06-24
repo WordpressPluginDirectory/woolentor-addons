@@ -43,10 +43,12 @@ final class Woolentor_WishSuite_Base{
      */
     public function define_constants() {
         define( 'WISHSUITE_FILE', __FILE__ );
+        define( 'WISHSUITE_MODULE_PATH', __DIR__ );
         define( 'WISHSUITE_URL', plugins_url( '', WISHSUITE_FILE ) );
         define( 'WISHSUITE_DIR', plugin_dir_path( WISHSUITE_FILE ) );
         define( 'WISHSUITE_ASSETS', WISHSUITE_URL . '/assets' );
         define( 'WISHSUITE_BASE', plugin_basename( WISHSUITE_FILE ) );
+        define( 'WISHSUITE_BLOCKS_PATH', WISHSUITE_MODULE_PATH. "/includes/blocks" );
     }
 
     /**
@@ -61,6 +63,7 @@ final class Woolentor_WishSuite_Base{
         require_once(__DIR__ . '/includes/classes/Admin.php');
         require_once(__DIR__ . '/includes/classes/Frontend.php');
         require_once(__DIR__ . '/includes/classes/Ajax.php');
+        require_once(__DIR__ . '/includes/classes/Widgets_And_Blocks.php');
 
     }
 
@@ -81,6 +84,7 @@ final class Woolentor_WishSuite_Base{
             WishSuite\Admin::instance();
         }
         WishSuite\Frontend::instance();
+        WishSuite\Widgets_And_Blocks::instance();
 
         // add image size
         $this->set_image_size();

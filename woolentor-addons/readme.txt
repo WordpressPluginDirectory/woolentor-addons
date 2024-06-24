@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.5
-Stable tag: 2.9.1
+Stable tag: 2.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1103,6 +1103,11 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.9.2 - Date: 24-06-2024 =
+* Added : WishList Table Gutenberg Block.
+* Solved : Number field data validation in horizontal product filter.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.9.1 - Date: 10-06-2024 =
 * Solved : Horizontal Product filter Price range rendering issue.
 * Compatibility : Latest WordPress and WooCommerce version.
@@ -1624,18 +1629,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Changed : Template library data import page template.
 * Solved : Archive product column spacing issue.
 * Solved : Archive data showing issue in editor mode for astra theme.
-
-= Version: 1.9.9 - Date: 2021-10-16 =
-* Added : width option for sales notification.
-* Added : Option for show/display all products associated with each order.
-* Fixed : Notification first load time.
-
-= Version: 1.9.8 - Date: 2021-09-27 =
-* Added: Advance Rename Label Options.
-* Added: Advance Sale notifications.
-* Updated: Documentation link.
-* Removed: Unnecessary fields from Polylang config file.
-* Removed: Gutenberg blocks if Classic Editor is installed.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.
