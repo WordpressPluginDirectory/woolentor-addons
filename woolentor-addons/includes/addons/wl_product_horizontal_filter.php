@@ -977,7 +977,7 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
 
                             <?php if( $settings['show_filter_btton'] == 'yes' ): ?>
                                 <div class="woolentor-search-filter-custom">
-                                    <a href="#" id="filter-toggle-<?php echo esc_attr($id); ?>" class="filter-icon"><?php echo $filter_btton_icon; ?></a>
+                                    <a href="#" id="filter-toggle-<?php echo esc_attr($id); ?>" class="filter-icon"><?php echo $filter_btton_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -1068,7 +1068,7 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                                                     ?>
                                                     <div class="woolentor-filter-single-item woolentor-states-input-auto elementor-repeater-item-<?php echo esc_attr($filter_item['_id']); ?>">
                                                         <?php echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                                        <select id="woolentor-field-for-<?php echo esc_attr($filter_item['_id']); ?>" class="woolentor-onchange-single-item woolentor-price-filter woolentor-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" <?php echo $psl_placeholder; ?> >
+                                                        <select id="woolentor-field-for-<?php echo esc_attr($filter_item['_id']); ?>" class="woolentor-onchange-single-item woolentor-price-filter woolentor-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" <?php echo $psl_placeholder; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> >
                                                             <?php
                                                                 if( !empty( $filter_item['wl_filter_placeholder'] ) && empty( $cmin_price ) ){echo '<option></option>';}
 
@@ -1131,7 +1131,7 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                                                     }
 
                                                     echo '<div class="woolentor-filter-single-item woolentor-states-input-auto elementor-repeater-item-'.esc_attr($filter_item['_id']).'">';
-                                                    echo $filter_label;
+                                                    echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                     echo '<select name="wltaxonomies['.$filter_item['wl_filter_type'].'][]" class="woolentor-onchange-multiple-item woolentor-multiple-select-'.esc_attr($id).'" '.$sl_placeholder.' multiple="multiple">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
                                                         foreach ( $terms as $term ){
@@ -1142,7 +1142,7 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                                                                 $selected = 1;
                                                             }
 
-                                                            echo sprintf('<option value="%1$s" %3$s>%2$s</option>', $link['link'], $term->name, selected( $selected, 1, false ) );
+                                                            echo sprintf('<option value="%1$s" %3$s>%2$s</option>', $link['link'], $term->name, selected( $selected, 1, false ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                         }
 
                                                     echo '</select></div>';
@@ -1168,7 +1168,7 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                     'use strict';
 
                     var id = '<?php echo esc_js($id); ?>',
-                        isEditorMode = '<?php echo woolentor_is_preview_mode(); ?>';
+                        isEditorMode = '<?php echo esc_js(woolentor_is_preview_mode()); ?>';
 
                     // Localize Text
                     var selectTxt = '<?php echo esc_html__( 'select', 'woolentor' ); ?>',
@@ -1201,7 +1201,7 @@ class Woolentor_Wl_Product_Horizontal_Filter_Widget extends Widget_Base {
                     });
 
                     // Filter product
-                    var current_url = '<?php echo $current_url.'?wlfilter=1'; ?>';
+                    var current_url = '<?php echo esc_js($current_url).'?wlfilter=1'; ?>';
                     $('.woolentor-filter-single-item select.woolentor-onchange-single-item').on('change', function () {
                         var sort_key = $(this).val();
                         if ( sort_key && ( isEditorMode != true ) ) {

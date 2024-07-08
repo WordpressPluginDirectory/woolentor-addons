@@ -11,7 +11,7 @@
                             if( array_key_exists( $field_id, $heading_txt ) && !empty( $heading_txt[$field_id] ) ){
                                 $name = $wishsuite->field_name( $heading_txt[$field_id], true );
                             }
-                            echo '<th>'.$name.'</th>';
+                            echo '<th>'.esc_html($name).'</th>';
                         }
                     echo '</tr>';
                 }

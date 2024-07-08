@@ -65,6 +65,20 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                 ]
             );
 
+            $this->add_control(
+                'show_variable_stock_status',
+                [
+                    'label' => esc_html__( 'Show Variable Product Stock Status', 'woolentor' ),
+                    'description' => esc_html__( 'Enabling this option allows you to view the stock status of variable products along with their variation data.', 'woolentor' ),
+                    'type' => Controls_Manager::SWITCHER,
+                    'label_on' => esc_html__( 'Yes', 'woolentor' ),
+                    'label_off' => esc_html__( 'No', 'woolentor' ),
+                    'return_value' => 'yes',
+                    'default' => 'no',
+                    'separator'=>'before'
+                ]
+            );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -1204,7 +1218,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
         }else{
             add_action( 'woocommerce_before_add_to_cart_quantity', function() use ($settings, $minus_icon) {
                echo '<div class="wl-quantity-grouped-cal">';
-                echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>';
+                echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             });
 
             add_action( 'woocommerce_after_add_to_cart_quantity', function() use ($settings, $plus_icon) {
@@ -1269,7 +1283,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                         <li>
                             <?php if( '' == $settings['hide_advance_cart_compare_text']): ?>
                                 <span><i class="sli sli-refresh"></i></span>
-                                <?php echo woolentor_compare_button(
+                                <?php woolentor_compare_button(
                                         array(
                                             'style'=> 2,
                                             'btn_text_type'=> 'text',
@@ -1305,7 +1319,12 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
 
         if( 'wl-style-1' != $product_layout_class && $hide_quantity){
             $this->customise_single_product_add_to_cart($settings, $poduct_type);
-        }  
+        }
+
+        $show_stock_status = '';
+        if( $settings['show_variable_stock_status'] == 'yes' ){
+            $show_stock_status = 'wl-show-status';
+        }
 
         if ( Plugin::instance()->editor->is_edit_mode() ) {
             if('external' == $poduct_type){
@@ -1321,19 +1340,19 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
             if ( empty( $product ) ) { return; }
                 if('wl-style-1' == $product_layout_class):
             ?>
-                <div class="wl-addto-cart <?php echo esc_attr( $product->get_type() ).' '.esc_attr( $product_layout_class ); ?>">
+                <div class="wl-addto-cart <?php echo esc_attr( $product->get_type() ).' '.esc_attr( $product_layout_class ).' '.esc_attr( $show_stock_status ); ?>">
                     <?php woocommerce_template_single_add_to_cart(); ?>
                 </div>
             <?php
                elseif('external' == $poduct_type):
             ?>
-                <div class="wl-addto-cart <?php echo esc_attr( $product->get_type() ).' '.esc_attr($settings['product_wishlist_compare_btn_position']).' '.esc_attr( $product_layout_class ); ?>">
+                <div class="wl-addto-cart <?php echo esc_attr( $product->get_type() ).' '.esc_attr($settings['product_wishlist_compare_btn_position']).' '.esc_attr( $product_layout_class ).' '.esc_attr( $show_stock_status ); ?>">
                     <?php woocommerce_template_single_add_to_cart(); ?>
                 </div>
             <?php
                 else:
             ?>
-                <div class="wl-addto-cart <?php echo esc_attr( $product->get_type() ).' '.esc_attr( $product_layout_class ); ?>">
+                <div class="wl-addto-cart <?php echo esc_attr( $product->get_type() ).' '.esc_attr( $product_layout_class ).' '.esc_attr( $show_stock_status ); ?>">
                     <?php woocommerce_template_single_add_to_cart(); ?>
                 </div>
             <?php

@@ -83,7 +83,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 							if( !empty( $video_url ) ){
 								?>
 									<div class="embed-responsive embed-responsive-16by9">
-										<?php echo wp_oembed_get( $video_url ); ?>
+										<?php echo wp_oembed_get( $video_url ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 									</div>
 								<?php
 							}else{

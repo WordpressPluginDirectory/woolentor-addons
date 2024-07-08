@@ -5,7 +5,7 @@
     <div class="woolentor-admin-main-tab-pane-inner">
         <!-- Banner Start -->
         <div class="woolentor-admin-banner">
-            <img src="<?php echo WOOLENTOR_ADDONS_PL_URL; ?>includes/admin/assets/images/banner/welcome.png" alt="<?php echo esc_attr__('Welcome To WooLentor','woolentor');?>">
+            <img src="<?php echo esc_url(WOOLENTOR_ADDONS_PL_URL.'includes/admin/assets/images/banner/welcome.png'); ?>" alt="<?php echo esc_attr__('Welcome To WooLentor','woolentor');?>">
         </div>
         <!-- Banner End -->
 

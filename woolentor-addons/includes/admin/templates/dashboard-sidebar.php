@@ -5,7 +5,7 @@
     <?php echo apply_filters( 'woolentor_sidebar_probanner', '' ); ?>
     <?php if( !is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') ) :?>
         <div class="woolentor-pro-banner">
-            <div class="woolentor-pro-banner-logo"><img src="<?php echo WOOLENTOR_ADDONS_PL_URL; ?>includes/admin/assets/images/logo.png" alt="<?php echo esc_attr__('Woolentor Logo','woolentor'); ?>"></div>
+            <div class="woolentor-pro-banner-logo"><img src="<?php echo esc_url( WOOLENTOR_ADDONS_PL_URL.'includes/admin/assets/images/logo.png' ); ?>" alt="<?php echo esc_attr__('Woolentor Logo','woolentor'); ?>"></div>
             <p class="woolentor-pro-banner-summary"><?php echo esc_html__('ShopLentor is one of the most popular WooCommerce Elementor Addons on WordPress.org. It has been downloaded more than 3,492,612 times and 100,000 stores are using ShopLentor plugin. Why not you?','woolentor'); ?></p>
             <ul class="woolentor-pro-banner-options">
                 <li><?php echo esc_html__('100+ Elementor Elements','woolentor'); ?></li>
@@ -19,7 +19,7 @@
 
     <div class="woolentor-rating">
         <div class="woolentor-rating-icon">
-            <img src="<?php echo WOOLENTOR_ADDONS_PL_URL; ?>includes/admin/assets/images/icons/rating.png" alt="<?php echo esc_attr__('Rating icon','woolentor'); ?>">
+            <img src="<?php echo esc_url(WOOLENTOR_ADDONS_PL_URL.'includes/admin/assets/images/icons/rating.png'); ?>" alt="<?php echo esc_attr__('Rating icon','woolentor'); ?>">
         </div>
         <div class="woolentor-rating-intro">
             <p><?php echo esc_html__('If you’re loving how our product has helped your business, please let the WordPress community know by ','woolentor'); ?><a target="_blank" href="https://wordpress.org/support/plugin/woolentor-addons/reviews/?filter=5#new-post"><?php echo esc_html__('leaving us a review on our WP repository','woolentor'); ?></a><?php echo esc_html__('. Which will motivate us a lot.','woolentor'); ?></p>
@@ -27,7 +27,7 @@
     </div>
     <div class="woolentor-rating-trustpilot">
         <a href="https://www.trustpilot.com/review/woolentor.com" target="_blank" >
-            <img src="<?php echo WOOLENTOR_ADDONS_PL_URL; ?>includes/admin/assets/images/trustpilot.png" alt="<?php echo esc_attr__('Shoplentor trustpilot rating','woolentor'); ?>">
+            <img src="<?php echo esc_url(WOOLENTOR_ADDONS_PL_URL.'includes/admin/assets/images/trustpilot.png'); ?>" alt="<?php echo esc_attr__('Shoplentor trustpilot rating','woolentor'); ?>">
         </a>
     </div>
 </div>

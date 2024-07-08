@@ -114,8 +114,8 @@ a.htcompare-btn.loading,a.htcompare-cart-button.loading{
 }
 .htcolumn-field-name {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 20%;
-    flex: 0 0 20%;
+    -ms-flex: 0 0 22%;
+    flex: 0 0 22%;
     color: #2d2a2a;
     text-transform: uppercase;
     font-weight: 600;
@@ -162,6 +162,10 @@ a.htcompare-btn.loading,a.htcompare-cart-button.loading{
     margin-bottom: 10px;
 }
 
+.htcompare-table * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 .htcompare-table{
     position: relative;
 }
@@ -321,6 +325,9 @@ a.htcompare-cart-button.added::after{
 }
 .ever-compare-shareable-link.center {
     text-align: center;
+}
+.evercompare-copy-link{
+    cursor: pointer;
 }
 
 

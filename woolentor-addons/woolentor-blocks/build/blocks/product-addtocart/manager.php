@@ -108,7 +108,7 @@
                             <li>
                                 <?php if( true !== $settings['hideCompareButton'] ): ?>
                                     <span><i class="sli sli-refresh"></i></span>
-                                    <?php echo woolentor_compare_button(
+                                    <?php woolentor_compare_button(
                                             array(
                                                 'style'=> 2,
                                                 'btn_text_type'=> 'text',

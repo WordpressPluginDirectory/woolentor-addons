@@ -167,9 +167,8 @@ class Woolentor_Admin_Init{
 			$("#adminmenu #toplevel_page_woolentor_page a.woolentor-upgrade-pro").attr("target","_blank");  
 		});';
 		
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		printf( '<style>%s</style>', $styles );
-		printf( '<script>%s</script>', $scripts );
+		printf( '<style>%s</style>', $styles ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<script>%s</script>', $scripts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     /**

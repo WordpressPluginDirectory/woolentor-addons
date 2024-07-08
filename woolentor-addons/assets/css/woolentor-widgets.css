@@ -3457,6 +3457,9 @@ span.woolentor-order-item-title .product-thumbnail {
 .elementor-widget-wl-product-add-to-cart .ast-stock-detail {
   display: none;
 }
+.elementor-widget-wl-product-add-to-cart .wl-addto-cart.wl-show-status .woocommerce-variation-availability .stock,.elementor-widget-wl-product-add-to-cart .wl-addto-cart.wl-show-status .woocommerce-variation-availability .ast-stock-detail{
+  display: inline-block !important;
+}
 
 /* Sale Notification */
 .notifake {

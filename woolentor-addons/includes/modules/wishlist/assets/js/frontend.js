@@ -46,22 +46,21 @@
         });
     }
 
-    // Remove data from wishlist table
-    $body.on('click', 'a.wishsuite-remove', function (e) {
-        var $table = $('.wishsuite-table-content');
-
-        e.preventDefault();
-        var $this = $(this),
-            id = $this.data('product_id');
-
+    /**
+     * AJAX Request for Remove item
+     * @param {*} $this 
+     * @param {*} $table 
+     * @param {*} productId 
+     * @param {*} message 
+     */
+    const wishSuiteItemRemove = ($this, $table, productId, message = '')=>{
         $table.addClass('loading');
-        $this.addClass('loading');
 
         $.ajax({
             url: WishSuite.ajaxurl,
             data: {
                 action: 'wishsuite_remove_from_list',
-                id: id,
+                id: productId,
                 nonce: WishSuite.wsnonce
             },
             dataType: 'json',
@@ -69,15 +68,24 @@
             success: function (response) {
                 if ( response ) {
 
-                    var target_row = $this.closest('tr');
-                    target_row.hide(400, function() {
-                        $(this).remove();
-                        var table_row = $('.wishsuite-table-content table tbody tr').length;
-                        if( table_row == 1 ){
-                            $('.wishsuite-table-content table tbody tr.wishsuite-empty-tr').show();
-                        }
-                    });
+                    let totalPage = Math.ceil(response.data.item_count / response.data.per_page);
+                    let currentUrl = window.location.href;
+                    let newUrl = wishSuiteGetPageNumberFromUrl(currentUrl) >= totalPage ? currentUrl.replace(/(\/page\/)(\d+)/, '$1' + (totalPage == 0 ? 1 : totalPage)) : currentUrl;
+
+                    if( wishSuiteGetPageNumberFromUrl(currentUrl) == totalPage ){
+                        var target_row = $this.closest('tr');
+                        target_row.hide(400, function() {
+                            $(this).remove();
+                            var table_row = $('.wishsuite-table-content table tbody tr').length;
+                            if( table_row == 1 ){
+                                $('.wishsuite-table-content table tbody tr.wishsuite-empty-tr').show();
+                            }
+                        });
+                    }
                     $body.find('.wishsuite-counter').html( response.data.item_count );
+
+                    window.history.pushState('page', 'Title', newUrl);
+                    wishSuiteDataRegenarate(newUrl);
 
                 } else {
                     console.log( 'Something wrong loading compare data' );
@@ -87,12 +95,61 @@
                 console.log('Something wrong with AJAX response.');
             },
             complete: function () {
-                $table.removeClass('loading');
-                $this.addClass('loading');
+                // $table.removeClass('loading');
+                // $this.addClass('loading');
             },
         });
+    }
+
+    // Remove data from wishlist table
+    $body.on('click', 'a.wishsuite-remove', function (e) {
+        var $table = $('.wishsuite-table-content');
+
+        e.preventDefault();
+        var $this = $(this),
+            id = $this.data('product_id');
+
+        wishSuiteItemRemove($this, $table, id);
 
     });
+
+    /**
+     * Ajax Pagination
+     */
+    $body.on("click",'.wishsuite-table-content .wishsuite-pagination ul li a',function(e){
+        e.preventDefault();
+        let $this = $(this);
+        let requestUrl = $this.attr("href");
+
+        window.history.pushState('page', 'Title', requestUrl);
+        wishSuiteDataRegenarate(requestUrl);
+
+    });
+    /**
+     * Regenerate Wishlist table data from URL
+     */
+    const wishSuiteDataRegenarate = (requestUrl)=>{
+        $('body .wishsuite-table-content').addClass('loading');
+        $.ajax({
+            url: requestUrl,
+            context: document.body
+        }).success(function(data) {
+            const allHtml = document.createRange().createContextualFragment(data);
+            const tableContent = allHtml.querySelector(".wishsuite-table-content");
+            $('body .wishsuite-table-content').removeClass('loading');
+            $('body .wishsuite-table-content').html(tableContent);
+        });
+    }
+    /**
+     * Get Current page number from URL
+     * @param {current url} url 
+     * @returns Page Number
+     */
+    const wishSuiteGetPageNumberFromUrl = (url)=> {
+        // Extract page number using a regular expression
+        let match = url.match(/\/page\/(\d+)/);
+        return match ? match[1] : null;
+    }
 
     // Quentity
     $("div.wishsuite-table-content").on("change", "input.qty", function() {
@@ -102,18 +159,10 @@
     // Delete table row after added to cart
     $(document).on('added_to_cart',function( e, fragments, carthash, button ){
         if( 'on' === WishSuite.option_data['after_added_to_cart'] ){
-            
-            var target_row = button.closest('.wishsuite_table tr');
-            target_row.find('.added_to_cart').remove();
 
-            target_row.hide(400, function() {
-                $(this).remove();
-                var table_row = $('.wishsuite-table-content table tbody tr').length;
-                if( table_row == 1 ){
-                    $('.wishsuite-table-content table tbody tr.wishsuite-empty-tr').show();
-                }
-                $body.find('.wishsuite-counter').html( table_row - 1 );
-            });
+            let $table = $('.wishsuite-table-content');
+            let product_id = button.data('product_id');
+            wishSuiteItemRemove(button, $table, product_id);
 
         }
     });

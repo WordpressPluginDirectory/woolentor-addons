@@ -238,7 +238,7 @@ class Product_Metabox {
                                         <div class="swatchly_media_preview">
                                             <?php
                                                 if( $tooltip_image_id2 ){
-                                                    echo '<img src="'. wp_get_attachment_image_url($tooltip_image_id2, 'thumbnail') .'" />';
+                                                    echo '<img src="'.esc_url(wp_get_attachment_image_url($tooltip_image_id2, 'thumbnail')).'" />';
                                                 }
                                             ?>
                                         </div>
@@ -257,7 +257,7 @@ class Product_Metabox {
                                 <td>
                                     <input type="text" name="swatchly_product_meta[<?php echo esc_attr($tax_name) ?>][tooltip_image_size]" id="swatchly_tooltip_image_size" class="short" value="<?php echo esc_attr($tooltip_image_size2) ?>">
                                     <?php  
-                                        echo wc_help_tip( $tooltip_image_size_content );
+                                        echo wc_help_tip( $tooltip_image_size_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                     ?>
                                 </td>
                             </tr>
@@ -348,7 +348,7 @@ class Product_Metabox {
                                                                 <div class="swatchly_media_preview">
                                                                     <?php
                                                                         if( $tooltip_image_id ){
-                                                                            echo '<img src="'. wp_get_attachment_image_url($tooltip_image_id, 'thumbnail') .'" />';
+                                                                            echo '<img src="'.esc_url(wp_get_attachment_image_url($tooltip_image_id, 'thumbnail')).'" />';
                                                                         }
                                                                     ?>
                                                                 </div>
@@ -367,7 +367,7 @@ class Product_Metabox {
                                                         <td>
                                                             <input type="text" name="swatchly_product_meta[<?php echo esc_attr($tax_name) ?>][terms][<?php echo esc_attr($term_id) ?>][tooltip_image_size]" id="swatchly_tooltip_image_size" class="short" value="<?php echo esc_attr($tooltip_image_size) ?>">
                                                             <?php  
-                                                                echo wc_help_tip( $tooltip_image_size_content );
+                                                                echo wc_help_tip( $tooltip_image_size_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             ?>
                                                         </td>
                                                     </tr>
@@ -398,7 +398,7 @@ class Product_Metabox {
                                                                 <div class="swatchly_media_preview">
                                                                     <?php
                                                                         if( $image_id ){
-                                                                            echo '<img src="'. wp_get_attachment_image_url($image_id, 'thumbnail') .'" />';
+                                                                            echo '<img src="'.esc_url(wp_get_attachment_image_url($image_id, 'thumbnail')).'" />';
                                                                         }
                                                                     ?>
                                                                 </div>
@@ -417,7 +417,7 @@ class Product_Metabox {
                                                         <td>
                                                             <input type="text" name="swatchly_product_meta[<?php echo esc_attr($tax_name) ?>][terms][<?php echo esc_attr($term_id) ?>][image_size]" id="swatchly_image_size" class="short" value="<?php echo esc_attr($image_size) ?>">
                                                             <?php 
-                                                                echo wc_help_tip( $tooltip_image_size_content );
+                                                                echo wc_help_tip( $tooltip_image_size_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                             ?>
                                                         </td>
                                                     </tr>

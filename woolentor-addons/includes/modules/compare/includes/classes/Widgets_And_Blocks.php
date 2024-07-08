@@ -1,5 +1,5 @@
 <?php
-namespace WishSuite;
+namespace EverCompare;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
@@ -39,24 +39,14 @@ class Widgets_And_Blocks {
      */
     public function block_list( $block_list = [] ){
 
-        $block_list['wishsuite_table'] = [
-            'label'  => __('WishSuite Table','woolentor'),
-            'name'   => 'woolentor/wishsuite-table',
+        $block_list['ever_compare_table'] = [
+            'label'  => __('Ever Compare Table','woolentor'),
+            'name'   => 'woolentor/ever-compare-table',
             'server_side_render' => true,
             'type'   => 'common',
             'active' => true,
             'is_pro' => false,
-            'location' => WISHSUITE_BLOCKS_PATH,
-        ];
-
-        $block_list['wishsuite_counter'] = [
-            'label'  => __('WishSuite Counter','woolentor'),
-            'name'   => 'woolentor/wishsuite-counter',
-            'server_side_render' => true,
-            'type'   => 'common',
-            'active' => true,
-            'is_pro' => false,
-            'location' => WISHSUITE_BLOCKS_PATH,
+            'location' => EVERCOMPARE_BLOCKS_PATH,
         ];
 
         return $block_list;

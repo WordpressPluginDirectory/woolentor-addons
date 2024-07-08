@@ -206,7 +206,7 @@ class Woolentor_Backorder extends WC_Product{
                 }
                 
 
-                throw new Exception( $message );
+                throw new Exception( $message ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }  
 
         }
@@ -505,7 +505,7 @@ class Woolentor_Backorder extends WC_Product{
         ?>
             <p class="form-field">
                 <label for="_woolentor_backorder_availability_date"><?php echo esc_html__('Backorder Availability', 'woolentor') ?></label>
-                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the module settings.', 'woolentor') ); ?>
+                <?php echo wc_help_tip( esc_html__('The selected date will show as a message to customer. You can customize the message as you need from the module settings.', 'woolentor') ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 <input type="date" class="short hasDatepicker" name="_woolentor_backorder_availability_date" id="_woolentor_backorder_availability_date" value="<?php echo esc_attr($backorder_availability); ?>" placeholder="<?php echo esc_attr($availability_date_global); ?>">
             </p>
         </div> <!-- .woolentor-backorder-fields -->

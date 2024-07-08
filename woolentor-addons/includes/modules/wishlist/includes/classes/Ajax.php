@@ -90,6 +90,7 @@ class Ajax {
         }else{
             wp_send_json_success([
                 'item_count' => count( \WishSuite\Frontend\Manage_Wishlist::instance()->get_products_data() ),
+                'per_page' => (int)woolentor_get_option( 'wishlist_product_per_page', 'wishsuite_table_settings_tabs', 20 ),
                 'message' => __( 'Product successfully deleted!', 'wishsuite' )
             ]);
         }
@@ -173,7 +174,7 @@ class Ajax {
                 'error' => true,
                 'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ),
             );
-            echo wp_send_json_error( $data );
+            wp_send_json_error( $data );
         }
         wp_send_json_success();
         

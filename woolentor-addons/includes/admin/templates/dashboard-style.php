@@ -20,7 +20,7 @@
                     <h4 class="woolentor-admin-option-heading-title"><?php echo esc_html__('Helping Screenshot','woolentor');?></h4>
                 </div>
                 <div class="woolentor-admin-option">
-                    <img src="<?php echo WOOLENTOR_ADDONS_PL_URL; ?>includes/admin/assets/images/helping-screenshot.png" alt="<?php echo esc_attr__('Helping Screenshot','woolentor'); ?>">
+                    <img src="<?php echo esc_url(WOOLENTOR_ADDONS_PL_URL.'includes/admin/assets/images/helping-screenshot.png'); ?>" alt="<?php echo esc_attr__('Helping Screenshot','woolentor'); ?>">
                 </div>
                 <div class="woolentor-admin-option woolentor-sticky-condition">
                     <button class="woolentor-admin-btn-save woolentor-admin-btn woolentor-admin-btn-primary hover-effect-1" style="margin-left:auto;" disabled="disabled"><?php echo esc_html__('Save Changes','woolentor');?></button>

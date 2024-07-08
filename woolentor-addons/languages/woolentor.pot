@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 03:29+0000\n"
+"POT-Creation-Date: 2024-07-08 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.10; wp-6.5.4\n"
+"X-Loco-Version: 2.6.10; wp-6.5.5\n"
 "X-Domain: woolentor"
 
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:392
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Add To Cart"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:1018
+#: includes/addons/wb_product_add_to_cart.php:1032
 #: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:1014
 msgid "Add to Cart"
 msgstr ""
@@ -282,12 +282,12 @@ msgstr ""
 
 #: includes/helper-function.php:1330 includes/helper-function.php:1331
 #: includes/helper-function.php:1354
-#: woolentor-blocks/includes/helper-functions.php:594
-#: woolentor-blocks/includes/helper-functions.php:595
-#: woolentor-blocks/includes/helper-functions.php:611
-#: woolentor-blocks/production/includes/helper-functions.php:594
-#: woolentor-blocks/production/includes/helper-functions.php:595
-#: woolentor-blocks/production/includes/helper-functions.php:611
+#: woolentor-blocks/includes/helper-functions.php:602
+#: woolentor-blocks/includes/helper-functions.php:603
+#: woolentor-blocks/includes/helper-functions.php:619
+#: woolentor-blocks/production/includes/helper-functions.php:602
+#: woolentor-blocks/production/includes/helper-functions.php:603
+#: woolentor-blocks/production/includes/helper-functions.php:619
 msgid "Add to Compare"
 msgstr ""
 
@@ -348,7 +348,7 @@ msgstr ""
 msgid "After Add To Cart"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:503
+#: includes/addons/wb_product_add_to_cart.php:517
 msgid "After Add to Cart"
 msgstr ""
 
@@ -462,7 +462,7 @@ msgstr ""
 msgid "Allow Order"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:1277
+#: includes/addons/wb_product_add_to_cart.php:1291
 #: woolentor-blocks/build/blocks/product-addtocart/manager.php:116
 #: woolentor-blocks/src/blocks/product-addtocart/manager.php:116
 #: woolentor-blocks/production/src/blocks/product-addtocart/manager.php:116
@@ -754,8 +754,8 @@ msgstr ""
 #: includes/addons/product_tabs.php:670 includes/addons/product_tabs.php:722
 #: includes/addons/product_tabs.php:826 includes/addons/product_tabs.php:1155
 #: includes/addons/product_tabs.php:1215
-#: includes/addons/wb_product_add_to_cart.php:1115
-#: includes/addons/wb_product_add_to_cart.php:1149
+#: includes/addons/wb_product_add_to_cart.php:1129
+#: includes/addons/wb_product_add_to_cart.php:1163
 #: includes/addons/wl_category_grid.php:634
 #: includes/addons/wl_category_grid.php:864
 #: includes/addons/wl_category_grid.php:938
@@ -836,7 +836,7 @@ msgstr ""
 msgid "Banner Title"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:502
+#: includes/addons/wb_product_add_to_cart.php:516
 msgid "Befor Add to Cart"
 msgstr ""
 
@@ -943,9 +943,9 @@ msgstr ""
 #: includes/addons/product_tabs.php:683 includes/addons/product_tabs.php:735
 #: includes/addons/product_tabs.php:798 includes/addons/product_tabs.php:840
 #: includes/addons/product_tabs.php:887
-#: includes/addons/wb_product_add_to_cart.php:612
-#: includes/addons/wb_product_add_to_cart.php:706
-#: includes/addons/wb_product_add_to_cart.php:1095
+#: includes/addons/wb_product_add_to_cart.php:626
+#: includes/addons/wb_product_add_to_cart.php:720
+#: includes/addons/wb_product_add_to_cart.php:1109
 #: includes/addons/wl_category_grid.php:577
 #: includes/addons/wl_category_grid.php:876
 #: includes/addons/wl_category_grid.php:950
@@ -969,7 +969,7 @@ msgstr ""
 #: includes/addons/wb_product_suggest_price.php:672
 #: includes/addons/wb_product_suggest_price.php:815
 #: includes/addons/wb_wishsuite_table.php:241
-#: includes/addons/wb_product_add_to_cart.php:1161
+#: includes/addons/wb_product_add_to_cart.php:1175
 #: includes/addons/wb_ever_compare_table.php:187
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:512
 msgid "Border Color"
@@ -1033,10 +1033,10 @@ msgstr ""
 #: includes/addons/product_tabs.php:691 includes/addons/product_tabs.php:743
 #: includes/addons/product_tabs.php:806 includes/addons/product_tabs.php:848
 #: includes/addons/product_tabs.php:895
-#: includes/addons/wb_product_add_to_cart.php:380
-#: includes/addons/wb_product_add_to_cart.php:620
-#: includes/addons/wb_product_add_to_cart.php:714
-#: includes/addons/wb_product_add_to_cart.php:1103
+#: includes/addons/wb_product_add_to_cart.php:394
+#: includes/addons/wb_product_add_to_cart.php:634
+#: includes/addons/wb_product_add_to_cart.php:728
+#: includes/addons/wb_product_add_to_cart.php:1117
 #: includes/addons/wl_category_grid.php:585
 #: includes/addons/wl_category_grid.php:884
 #: includes/addons/wl_category_grid.php:958
@@ -1052,7 +1052,7 @@ msgstr ""
 msgid "Border width"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:504
+#: includes/addons/wb_product_add_to_cart.php:518
 msgid "Both Side of Add to Cart"
 msgstr ""
 
@@ -1176,8 +1176,8 @@ msgstr ""
 #: includes/addons/special_day_offer.php:620 includes/addons/wb_whols.php:48
 #: includes/addons/wb_product_call_for_price.php:74
 #: includes/addons/wl_product_filter.php:688
-#: includes/addons/wb_product_add_to_cart.php:462
-#: includes/addons/wb_product_add_to_cart.php:868
+#: includes/addons/wb_product_add_to_cart.php:476
+#: includes/addons/wb_product_add_to_cart.php:882
 #: includes/addons/add_banner.php:230
 msgid "Button"
 msgstr ""
@@ -1642,8 +1642,8 @@ msgstr ""
 #: includes/addons/product_tabs.php:292 includes/addons/product_tabs.php:371
 #: includes/addons/product_tabs.php:658 includes/addons/product_tabs.php:773
 #: includes/addons/product_tabs.php:1143 includes/addons/product_tabs.php:1203
-#: includes/addons/wb_product_add_to_cart.php:915
-#: includes/addons/wb_product_add_to_cart.php:937
+#: includes/addons/wb_product_add_to_cart.php:929
+#: includes/addons/wb_product_add_to_cart.php:951
 #: includes/addons/wb_product_additional_information.php:76
 #: includes/addons/wb_product_additional_information.php:124
 #: includes/addons/add_banner.php:155 includes/addons/add_banner.php:197
@@ -1692,9 +1692,9 @@ msgid "Comment count"
 msgstr ""
 
 #: includes/helper-function.php:1354
-#: woolentor-blocks/includes/helper-functions.php:611
-#: includes/addons/wb_product_add_to_cart.php:1276
-#: woolentor-blocks/production/includes/helper-functions.php:611
+#: woolentor-blocks/includes/helper-functions.php:619
+#: includes/addons/wb_product_add_to_cart.php:1290
+#: woolentor-blocks/production/includes/helper-functions.php:619
 #: woolentor-blocks/build/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/src/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/production/src/blocks/product-addtocart/manager.php:115
@@ -1705,13 +1705,13 @@ msgstr ""
 msgid "Compare"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:596
-#: includes/addons/wb_product_add_to_cart.php:690
+#: includes/addons/wb_product_add_to_cart.php:610
+#: includes/addons/wb_product_add_to_cart.php:704
 msgid "Compare Background Color"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:581
-#: includes/addons/wb_product_add_to_cart.php:675
+#: includes/addons/wb_product_add_to_cart.php:595
+#: includes/addons/wb_product_add_to_cart.php:689
 msgid "Compare Icon Color"
 msgstr ""
 
@@ -1998,7 +1998,7 @@ msgstr ""
 msgid "Data fetch"
 msgstr ""
 
-#: includes/admin/admin-init.php:451
+#: includes/admin/admin-init.php:450
 msgid "Data Fetch successfully!"
 msgstr ""
 
@@ -2007,7 +2007,7 @@ msgstr ""
 msgid "Data not found."
 msgstr ""
 
-#: includes/admin/admin-init.php:389
+#: includes/admin/admin-init.php:388
 msgid "Data Saved successfully!"
 msgstr ""
 
@@ -2176,7 +2176,7 @@ msgstr ""
 msgid "Dismiss on Overlay Click"
 msgstr ""
 
-#: includes/admin/include/class.notice.php:262
+#: includes/admin/include/class.notice.php:261
 msgid "Dismiss this notice."
 msgstr ""
 
@@ -2334,6 +2334,12 @@ msgstr ""
 msgid "Enable shareable link"
 msgstr ""
 
+#: includes/addons/wb_product_add_to_cart.php:72
+msgid ""
+"Enabling this option allows you to view the stock status of variable "
+"products along with their variation data."
+msgstr ""
+
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:393
 msgid "Ends With"
 msgstr ""
@@ -2393,6 +2399,10 @@ msgstr ""
 #: includes/addons/wb_ever_compare_table.php:97
 #: includes/addons/wb_ever_compare_table.php:103
 msgid "Even Heading Background"
+msgstr ""
+
+#: includes/modules/compare/includes/classes/Widgets_And_Blocks.php:43
+msgid "Ever Compare Table"
 msgstr ""
 
 #: classes/class.widgets_control.php:439
@@ -2659,9 +2669,9 @@ msgstr ""
 #: includes/addons/wl_product_horizontal_filter.php:850
 #: includes/addons/wl_onepage_slider.php:418
 #: includes/addons/wl_testimonial.php:764 includes/addons/product_tabs.php:1167
-#: includes/addons/wb_product_add_to_cart.php:438
-#: includes/addons/wb_product_add_to_cart.php:772
-#: includes/addons/wb_product_add_to_cart.php:952
+#: includes/addons/wb_product_add_to_cart.php:452
+#: includes/addons/wb_product_add_to_cart.php:786
+#: includes/addons/wb_product_add_to_cart.php:966
 msgid "Font Size"
 msgstr ""
 
@@ -2710,8 +2720,8 @@ msgstr ""
 msgid "Front Page"
 msgstr ""
 
-#: woolentor-blocks/includes/helper-functions.php:370
-#: woolentor-blocks/production/includes/helper-functions.php:370
+#: woolentor-blocks/includes/helper-functions.php:378
+#: woolentor-blocks/production/includes/helper-functions.php:378
 msgid "Full"
 msgstr ""
 
@@ -2797,7 +2807,7 @@ msgstr ""
 msgid "HasThemes"
 msgstr ""
 
-#: includes/admin/admin-init.php:255
+#: includes/admin/admin-init.php:254
 msgid "HasThemes Stories"
 msgstr ""
 
@@ -2861,7 +2871,7 @@ msgstr ""
 #: includes/addons/wl_onepage_slider.php:519
 #: includes/addons/wl_product_video_gallery.php:97
 #: includes/addons/wl_product_filter.php:592
-#: includes/addons/wb_product_add_to_cart.php:835
+#: includes/addons/wb_product_add_to_cart.php:849
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:442
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:385
 msgid "Height"
@@ -2906,8 +2916,8 @@ msgstr ""
 msgid "Hide Category"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:487
-#: includes/addons/wb_product_add_to_cart.php:894
+#: includes/addons/wb_product_add_to_cart.php:501
+#: includes/addons/wb_product_add_to_cart.php:908
 msgid "Hide Compare"
 msgstr ""
 
@@ -2926,7 +2936,7 @@ msgstr ""
 msgid "Hide Price"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:1026
+#: includes/addons/wb_product_add_to_cart.php:1040
 msgid "Hide Quantity Field"
 msgstr ""
 
@@ -2943,8 +2953,8 @@ msgstr ""
 msgid "Hide Title"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:477
-#: includes/addons/wb_product_add_to_cart.php:884
+#: includes/addons/wb_product_add_to_cart.php:491
+#: includes/addons/wb_product_add_to_cart.php:898
 msgid "Hide Wishlist"
 msgstr ""
 
@@ -3008,10 +3018,10 @@ msgstr ""
 #: includes/addons/wb_wishsuite_table.php:411
 #: includes/addons/product_tabs.php:363 includes/addons/product_tabs.php:757
 #: includes/addons/product_tabs.php:1075 includes/addons/product_tabs.php:1197
-#: includes/addons/wb_product_add_to_cart.php:274
-#: includes/addons/wb_product_add_to_cart.php:638
-#: includes/addons/wb_product_add_to_cart.php:930
-#: includes/addons/wb_product_add_to_cart.php:1130
+#: includes/addons/wb_product_add_to_cart.php:288
+#: includes/addons/wb_product_add_to_cart.php:652
+#: includes/addons/wb_product_add_to_cart.php:944
+#: includes/addons/wb_product_add_to_cart.php:1144
 #: includes/addons/wl_category_grid.php:972
 msgid "Hover"
 msgstr ""
@@ -3672,8 +3682,8 @@ msgstr ""
 #: includes/addons/wl_recently_viewed_products.php:348
 #: includes/addons/wl_recently_viewed_products.php:392
 #: includes/addons/wl_recently_viewed_products.php:721
-#: includes/addons/wb_product_add_to_cart.php:752
-#: includes/addons/wb_product_add_to_cart.php:1082
+#: includes/addons/wb_product_add_to_cart.php:766
+#: includes/addons/wb_product_add_to_cart.php:1096
 #: includes/addons/wb_product_additional_information.php:102
 #: includes/addons/add_banner.php:167 includes/addons/add_banner.php:218
 #: includes/addons/wl_category_grid.php:563
@@ -3762,12 +3772,12 @@ msgstr ""
 msgid "Min Width"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:120
+#: includes/addons/wb_product_add_to_cart.php:134
 msgid "Minus Icon"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:183
-#: includes/addons/wb_product_add_to_cart.php:281
+#: includes/addons/wb_product_add_to_cart.php:197
+#: includes/addons/wb_product_add_to_cart.php:295
 msgid "Minus Icon Color"
 msgstr ""
 
@@ -3917,6 +3927,7 @@ msgstr ""
 #: includes/addons/wb_customer_review.php:206
 #: includes/addons/wl_recently_viewed_products.php:121
 #: includes/addons/product_tabs.php:477
+#: includes/addons/wb_product_add_to_cart.php:75
 #: includes/addons/wl_category_grid.php:177
 #: includes/addons/wl_category_grid.php:201
 #: includes/addons/wl_category_grid.php:216
@@ -3997,8 +4008,8 @@ msgstr ""
 #: includes/modules/compare/includes/classes/Ajax.php:61
 #: includes/modules/wishlist/includes/classes/Ajax.php:54
 #: includes/modules/wishlist/includes/classes/Ajax.php:80
-#: includes/modules/wishlist/includes/classes/Ajax.php:108
-#: includes/modules/wishlist/includes/classes/Ajax.php:148
+#: includes/modules/wishlist/includes/classes/Ajax.php:109
+#: includes/modules/wishlist/includes/classes/Ajax.php:149
 msgid "Nonce Varification Faild !"
 msgstr ""
 
@@ -4039,10 +4050,10 @@ msgstr ""
 #: includes/addons/wb_wishsuite_table.php:379
 #: includes/addons/product_tabs.php:277 includes/addons/product_tabs.php:643
 #: includes/addons/product_tabs.php:879 includes/addons/product_tabs.php:1136
-#: includes/addons/wb_product_add_to_cart.php:176
-#: includes/addons/wb_product_add_to_cart.php:544
-#: includes/addons/wb_product_add_to_cart.php:908
-#: includes/addons/wb_product_add_to_cart.php:1041
+#: includes/addons/wb_product_add_to_cart.php:190
+#: includes/addons/wb_product_add_to_cart.php:558
+#: includes/addons/wb_product_add_to_cart.php:922
+#: includes/addons/wb_product_add_to_cart.php:1055
 #: includes/addons/wl_category_grid.php:815
 msgid "Normal"
 msgstr ""
@@ -4150,15 +4161,15 @@ msgstr ""
 msgid "One Page Slider"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:154
+#: includes/addons/wb_product_add_to_cart.php:168
 msgid "Only for Quantity Label."
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:448
+#: includes/addons/wb_product_add_to_cart.php:462
 msgid "Only for quantity plus, minus button and input number"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:499
+#: includes/addons/wb_product_add_to_cart.php:513
 msgid "Only for wishlist and compare button."
 msgstr ""
 
@@ -4327,9 +4338,9 @@ msgstr ""
 #: includes/addons/wl_recently_viewed_products.php:709
 #: includes/addons/wb_wishsuite_table.php:364
 #: includes/addons/product_tabs.php:702
-#: includes/addons/wb_product_add_to_cart.php:396
-#: includes/addons/wb_product_add_to_cart.php:731
-#: includes/addons/wb_product_add_to_cart.php:1069
+#: includes/addons/wb_product_add_to_cart.php:410
+#: includes/addons/wb_product_add_to_cart.php:745
+#: includes/addons/wb_product_add_to_cart.php:1083
 #: includes/addons/wl_category_grid.php:508
 #: includes/addons/wl_category_grid.php:895
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:466
@@ -4464,12 +4475,12 @@ msgstr ""
 msgid "Plugin Successfully Activated"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:105
+#: includes/addons/wb_product_add_to_cart.php:119
 msgid "Plus Icon"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:202
-#: includes/addons/wb_product_add_to_cart.php:299
+#: includes/addons/wb_product_add_to_cart.php:216
+#: includes/addons/wb_product_add_to_cart.php:313
 msgid "Plus Icon Color"
 msgstr ""
 
@@ -4509,7 +4520,7 @@ msgstr ""
 #: includes/addons/wl_testimonial.php:906
 #: includes/addons/wb_archive_product.php:895
 #: includes/addons/wl_recently_viewed_products.php:558
-#: includes/addons/wb_product_add_to_cart.php:497
+#: includes/addons/wb_product_add_to_cart.php:511
 #: includes/addons/wl_category_grid.php:830
 #: includes/addons/wl_category_grid.php:915
 msgid "Position"
@@ -4632,6 +4643,10 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
+#: includes/admin/templates/dashboard-popup.php:11
+msgid "pro"
+msgstr ""
+
 #: includes/admin/include/class.extension-manager.php:137
 msgid "Pro extension"
 msgstr ""
@@ -4651,8 +4666,8 @@ msgid "Product Add To Cart"
 msgstr ""
 
 #: includes/helper-function.php:1332
-#: woolentor-blocks/includes/helper-functions.php:596
-#: woolentor-blocks/production/includes/helper-functions.php:596
+#: woolentor-blocks/includes/helper-functions.php:604
+#: woolentor-blocks/production/includes/helper-functions.php:604
 msgid "Product Added"
 msgstr ""
 
@@ -4997,28 +5012,28 @@ msgstr ""
 
 #: includes/addons/wb_product_qr_code.php:72
 #: includes/addons/wb_wishsuite_table.php:205
-#: includes/addons/wb_product_add_to_cart.php:136
+#: includes/addons/wb_product_add_to_cart.php:150
 msgid "Quantity"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:353
+#: includes/addons/wb_product_add_to_cart.php:367
 msgid "Quantity Backgeound"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:236
+#: includes/addons/wb_product_add_to_cart.php:250
 msgid "Quantity Background"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:371
+#: includes/addons/wb_product_add_to_cart.php:385
 msgid "Quantity Border"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:221
-#: includes/addons/wb_product_add_to_cart.php:317
+#: includes/addons/wb_product_add_to_cart.php:235
+#: includes/addons/wb_product_add_to_cart.php:331
 msgid "Quantity Number"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:88
+#: includes/addons/wb_product_add_to_cart.php:102
 msgid "Quantity Text"
 msgstr ""
 
@@ -5043,8 +5058,8 @@ msgstr ""
 msgid "Quick View"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:250
-#: includes/addons/wb_product_add_to_cart.php:332
+#: includes/addons/wb_product_add_to_cart.php:264
+#: includes/addons/wb_product_add_to_cart.php:346
 msgid "Qunantity Text Color"
 msgstr ""
 
@@ -5599,7 +5614,7 @@ msgid "Set the initial stock amount from"
 msgstr ""
 
 #: includes/base.php:299 includes/addons/wl_recently_viewed_products.php:42
-#: includes/addons/wb_product_add_to_cart.php:73
+#: includes/addons/wb_product_add_to_cart.php:87
 #: includes/admin/admin-init.php:110 includes/admin/admin-init.php:111
 #: includes/admin/templates/dashboard-gutenberg.php:15
 msgid "Settings"
@@ -5847,6 +5862,10 @@ msgstr ""
 #: includes/addons/wl_archive_title.php:61
 #: includes/addons/wl_recently_viewed_products.php:139
 msgid "Show Title"
+msgstr ""
+
+#: includes/addons/wb_product_add_to_cart.php:71
+msgid "Show Variable Product Stock Status"
 msgstr ""
 
 #: includes/admin/templates/dashboard-freevspro.php:169
@@ -6146,14 +6165,14 @@ msgstr ""
 msgid "Space"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:984
+#: includes/addons/wb_product_add_to_cart.php:998
 msgid "Space Between"
 msgstr ""
 
 #: includes/addons/wb_product_image.php:118
 #: includes/addons/wb_product_categories.php:132
 #: includes/addons/wb_product_sku.php:120
-#: includes/addons/wb_product_add_to_cart.php:412
+#: includes/addons/wb_product_add_to_cart.php:426
 #: includes/addons/wb_product_tags.php:132
 msgid "Spacing"
 msgstr ""
@@ -6572,8 +6591,8 @@ msgstr ""
 #: includes/addons/wb_product_suggest_price.php:708
 #: includes/addons/wb_product_suggest_price.php:793
 #: includes/addons/wb_product_stock.php:51
-#: includes/addons/wb_product_add_to_cart.php:1048
-#: includes/addons/wb_product_add_to_cart.php:1137
+#: includes/addons/wb_product_add_to_cart.php:1062
+#: includes/addons/wb_product_add_to_cart.php:1151
 #: includes/modules/popup-builder/includes/widgets/wl_popup_trigger_button.php:184
 msgid "Text Color"
 msgstr ""
@@ -6944,8 +6963,8 @@ msgstr ""
 #: includes/addons/wb_wishsuite_table.php:224
 #: includes/addons/wb_wishsuite_table.php:303
 #: includes/addons/wb_wishsuite_table.php:356
-#: includes/addons/wb_product_add_to_cart.php:153
-#: includes/addons/wb_product_add_to_cart.php:1061
+#: includes/addons/wb_product_add_to_cart.php:167
+#: includes/addons/wb_product_add_to_cart.php:1075
 #: includes/addons/wb_ever_compare_table.php:88
 #: includes/addons/wb_product_additional_information.php:91
 #: includes/addons/wb_product_additional_information.php:137
@@ -7296,7 +7315,7 @@ msgstr ""
 #: includes/addons/wl_onepage_slider.php:433
 #: includes/addons/wl_onepage_slider.php:507
 #: includes/addons/special_day_offer.php:173
-#: includes/addons/wb_product_add_to_cart.php:804
+#: includes/addons/wb_product_add_to_cart.php:818
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:434
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:384
 msgid "Width"
@@ -7308,13 +7327,13 @@ msgstr ""
 msgid "Wishlist"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:566
-#: includes/addons/wb_product_add_to_cart.php:660
+#: includes/addons/wb_product_add_to_cart.php:580
+#: includes/addons/wb_product_add_to_cart.php:674
 msgid "Wishlist Background Color"
 msgstr ""
 
-#: includes/addons/wb_product_add_to_cart.php:551
-#: includes/addons/wb_product_add_to_cart.php:645
+#: includes/addons/wb_product_add_to_cart.php:565
+#: includes/addons/wb_product_add_to_cart.php:659
 msgid "Wishlist Icon Color"
 msgstr ""
 
@@ -7324,6 +7343,7 @@ msgstr ""
 
 #: classes/class.widgets_control.php:432
 #: includes/addons/wb_wishsuite_counter.php:38
+#: includes/modules/wishlist/includes/classes/Widgets_And_Blocks.php:53
 msgid "WishSuite Counter"
 msgstr ""
 
@@ -7845,6 +7865,7 @@ msgstr ""
 #: includes/addons/wb_customer_review.php:205
 #: includes/addons/wl_recently_viewed_products.php:120
 #: includes/addons/product_tabs.php:478
+#: includes/addons/wb_product_add_to_cart.php:74
 #: includes/addons/wl_category_grid.php:176
 #: includes/addons/wl_category_grid.php:200
 #: includes/addons/wl_category_grid.php:215

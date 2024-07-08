@@ -22,7 +22,8 @@
             'lost-password',
             'reset-password',
             'thankyou',
-            'popup'
+            'popup',
+            'quickview'
         ],
 
         init: function() {

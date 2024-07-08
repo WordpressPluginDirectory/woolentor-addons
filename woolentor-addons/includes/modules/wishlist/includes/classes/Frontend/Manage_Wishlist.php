@@ -454,12 +454,12 @@ class Manage_Wishlist {
 
             case 'image':
                 ?>
-                    <a href="<?php echo get_permalink( $product['id'] ); ?>"> <?php echo $product['image']; ?> </a>
+                    <a href="<?php echo esc_url(get_permalink( $product['id'] )); ?>"> <?php echo wp_kses_post($product['image']); ?> </a>
                 <?php
                 break;
 
             case 'title':
-                echo '<a href="'.get_permalink( $product['id'] ).'">'.$product[ $field_id ].'</a>';
+                echo '<a href="'.esc_url(get_permalink( $product['id'] )).'">'.$product[ $field_id ].'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'price':
@@ -475,7 +475,7 @@ class Manage_Wishlist {
                 break;
 
             case 'add_to_cart':
-                echo apply_filters( 'wishsuite_add_to_cart_btn', $product[ $field_id ] );
+                echo apply_filters( 'wishsuite_add_to_cart_btn', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'attribute':
@@ -485,12 +485,12 @@ class Manage_Wishlist {
             case 'weight':
                 if ( $product[ $field_id ] ) {
                     $unit = $product[ $field_id ] !== '-' ? get_option( 'woocommerce_weight_unit' ) : '';
-                    echo wc_format_localized_decimal( $product[ $field_id ] ) . ' ' . esc_attr( $unit );
+                    echo wc_format_localized_decimal( $product[ $field_id ] ) . ' ' . esc_attr( $unit ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 } 
                 break;
 
             case 'description':
-                echo apply_filters( 'woocommerce_short_description', $product[ $field_id ] );
+                echo apply_filters( 'woocommerce_short_description', $product[ $field_id ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             default:
@@ -554,7 +554,7 @@ class Manage_Wishlist {
                 <div class="wishsuite-quick-cart-form"></div>
             </div>
         <?php endif; ?>
-            <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="<?php echo esc_attr( $quentity ); ?>" class="<?php echo $btn_class; ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'wishsuite' );?></a>
+            <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="<?php echo esc_attr( $quentity ); ?>" class="<?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'wishsuite' );?></a>
         <?php
         return ob_get_clean();
 
@@ -631,7 +631,7 @@ class Manage_Wishlist {
             'add_args' => true,
             'add_fragment' => ''
         );
-        echo '<nav class="wishsuite-pagination">' . paginate_links($args) . '</nav>';
+        echo '<nav class="wishsuite-pagination">' .wp_kses_post(paginate_links($args)). '</nav>';
     }
 
 

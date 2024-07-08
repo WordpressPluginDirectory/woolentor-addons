@@ -22,8 +22,8 @@ if ( '' == get_option('permalink_structure' ) ) {
 	$current_url = preg_replace('%\/page/[0-9]+%', '', home_url(trailingslashit($wp->request)));
 }
 
-$submit_btton_icon = !empty( $settings['formSubmitButtonIcon'] ) ? '<i class="'.$settings['formSubmitButtonIcon'].'"></i>' : '<i class="fa fa-search"></i>';
-$filter_btton_icon = !empty( $settings['filterButtonIcon'] ) ? '<i class="'.$settings['filterButtonIcon'].'"></i>' : '<i class="fa fa-filter"></i>';
+$submit_btton_icon = !empty( $settings['formSubmitButtonIcon'] ) ? '<i class="'.esc_attr( $settings['formSubmitButtonIcon'] ).'"></i>' : '<i class="fa fa-search"></i>';
+$filter_btton_icon = !empty( $settings['filterButtonIcon'] ) ? '<i class="'.esc_attr( $settings['filterButtonIcon'] ).'"></i>' : '<i class="fa fa-filter"></i>';
 
 
 echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
@@ -69,7 +69,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 					<?php if( $settings['showFilterButton'] == true ): ?>
 						<div class="woolentor-search-filter-custom">
-							<a href="#" id="filter-toggle-<?php echo esc_attr($id); ?>" class="filter-icon"><?php echo $filter_btton_icon; ?></a>
+							<a href="#" id="filter-toggle-<?php echo esc_attr($id); ?>" class="filter-icon"><?php echo $filter_btton_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -164,7 +164,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 											?>
 											<div class="woolentor-filter-single-item woolentor-states-input-auto woolentor-repeater-item-<?php echo esc_attr($itemUniqId); ?>">
 												<?php echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-												<select id="woolentor-field-for-<?php echo esc_attr($itemUniqId); ?>" class="woolentor-onchange-single-item woolentor-price-filter woolentor-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" <?php echo $psl_placeholder; ?> >
+												<select id="woolentor-field-for-<?php echo esc_attr($itemUniqId); ?>" class="woolentor-onchange-single-item woolentor-price-filter woolentor-single-select-<?php echo esc_attr($id); ?>" data-minimum-results-for-search="Infinity" <?php echo $psl_placeholder; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> >
 													<?php
 														if( !empty( $filter_item['filterPlaceholder'] ) && empty( $cmin_price ) && !$block['is_editor']){echo '<option></option>';}
 
@@ -220,7 +220,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 											$multiple_select = $block['is_editor'] ? '' : 'multiple="multiple"';
 
 											echo '<div class="woolentor-filter-single-item woolentor-states-input-auto woolentor-repeater-item-'.esc_attr($itemUniqId).'">';
-											echo $filter_label;
+											echo $filter_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 											echo '<select name="wltaxonomies['.$filter_item['filterType'].'][]" class="woolentor-onchange-multiple-item woolentor-multiple-select-'.esc_attr($id).'" '.$sl_placeholder.' '.$multiple_select.'>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 												foreach ( $terms as $term ){
@@ -231,7 +231,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 														$selected = 1;
 													}
 
-													echo sprintf('<option value="%1$s" %3$s>%2$s</option>', $link['link'], $term->name, selected( $selected, 1, false ) );
+													echo sprintf('<option value="%1$s" %3$s>%2$s</option>', $link['link'], esc_html($term->name), selected( $selected, 1, false ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 												}
 
 											echo '</select></div>';
@@ -266,7 +266,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 	</div>
 	<?php 
 		if( !empty( $styleIndividual_Item ) ){
-			echo '<style type="text/css">'.$styleIndividual_Item.'</style>';
+			echo '<style type="text/css">'.$styleIndividual_Item.'</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	?>
 	<script type="text/javascript">
@@ -307,7 +307,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 			});
 
 			// Filter product
-			var current_url = '<?php echo $current_url.'?wlfilter=1'; ?>';
+			var current_url = '<?php echo esc_js($current_url).'?wlfilter=1'; ?>';
 			$('.woolentor-filter-single-item select.woolentor-onchange-single-item').on('change', function () {
 				var sort_key = $(this).val();
 				if ( sort_key && ( isEditorMode != true ) ) {
@@ -336,7 +336,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 				var currentlySelected = $(this).val();
 				if( currentlySelected != null ){
 
-						if( currentlySelected.length == 0 && ( isEditorMode != true ) ){
+					if( currentlySelected.length == 0 && ( isEditorMode != true ) ){
 						window.location = current_url;
 					}else{
 						var newSelections = currentlySelected.filter(function (element) {
@@ -345,10 +345,10 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 						previouslySelected = currentlySelected;
 						if (newSelections.length) {
 							// If there are multiple new selections, we'll take the last in the list
-							var lastSelected = newSelections.reverse()[0];
-						}
-						if ( lastSelected && ( isEditorMode != true ) ) {
-							window.location = lastSelected;
+							let lastSelected = newSelections.reverse()[0];
+							if ( lastSelected && ( isEditorMode != true ) ) {
+								window.location = lastSelected;
+							}
 						}
 					}
 					

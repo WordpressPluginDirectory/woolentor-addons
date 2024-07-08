@@ -71,7 +71,7 @@ class Manage_Metabox{
             ob_start();
             include_once( Popup_Builder\MODULE_PATH. '/includes/admin/tmpl-popup-builder-modal.php' );
 
-            echo ob_get_clean();
+            echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
             // Pro upgrade.
             $dashboard_popup_file = WOOLENTOR_ADDONS_PL_PATH . '/includes/admin/templates/dashboard-popup.php';

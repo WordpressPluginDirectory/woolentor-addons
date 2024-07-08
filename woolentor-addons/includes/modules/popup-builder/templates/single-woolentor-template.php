@@ -17,7 +17,7 @@ if( class_exists('\Elementor\Plugin') ){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<?php if ( ! current_theme_supports( 'title-tag' ) ) : ?>
-		<title><?php echo wp_get_document_title(); ?></title>
+		<title><?php echo wp_get_document_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></title>
 	<?php endif; ?>
 
 	<?php wp_head(); ?>

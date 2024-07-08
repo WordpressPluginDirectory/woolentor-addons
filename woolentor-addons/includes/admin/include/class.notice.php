@@ -169,9 +169,8 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
                 });
             });";
             
-            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-            printf( '<style>%s</style>', $styles );
-            printf( '<script>%s</script>', $scripts );
+            printf( '<style>%s</style>', $styles ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            printf( '<script>%s</script>', $scripts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
 
         /**

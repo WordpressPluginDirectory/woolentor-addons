@@ -16,14 +16,22 @@ function woolentorBlocks_get_option( $option, $section, $default = '' ){
 */
 function woolentorBlocks_get_last_product_id(){
     global $wpdb;
-    
+
+    $cache_key  = 'woolentor_last_product_id';
+    $results    = wp_cache_get( $cache_key );
+
     // Getting last Product ID (max value)
-    $results = $wpdb->get_col( "
-        SELECT MAX(ID) FROM {$wpdb->prefix}posts
-        WHERE post_type LIKE 'product'
-        AND post_status = 'publish'" 
-    );
+    if ( false === $results ) {
+        $results = $wpdb->get_col( "
+            SELECT MAX(ID) FROM {$wpdb->prefix}posts
+            WHERE post_type LIKE 'product'
+            AND post_status = 'publish'" 
+        );
+        wp_cache_set( $cache_key, $results );
+    }
+
     return reset($results);
+    
 }
 
 /**

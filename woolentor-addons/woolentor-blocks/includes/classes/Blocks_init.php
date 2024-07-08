@@ -177,7 +177,7 @@ class Blocks_init {
         $basename = basename( $_SERVER['PHP_SELF'] );
         $post_add_new_screen = ( $basename === 'post-new.php' || $basename === 'site-editor.php' ) ? true : false;
         if( $post_add_new_screen === false ){
-            if( is_admin() && empty( $query_arr['action'] ) ){
+            if( is_admin() && empty( $query_arr['action'] ) && !$this->is_fire_quickview_ajax() ){
                 return;
             }
         }
@@ -259,6 +259,19 @@ class Blocks_init {
 
         return $template_type;
 
+    }
+
+    /**
+     * Check Our QuickView AJAX Request
+     *
+     * @return boolean
+     */
+    public function is_fire_quickview_ajax() {
+        if( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'woolentor_quickview' ){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

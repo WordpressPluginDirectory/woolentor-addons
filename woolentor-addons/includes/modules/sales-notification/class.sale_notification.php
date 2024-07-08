@@ -153,7 +153,7 @@ class Woolentor_Sale_Notification{
     function woolentor_ajaxurl() {
         ?>
             <script type="text/javascript">
-                var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+                var ajaxurl = '<?php echo admin_url('admin-ajax.php'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>';
             </script>
         <?php
     }

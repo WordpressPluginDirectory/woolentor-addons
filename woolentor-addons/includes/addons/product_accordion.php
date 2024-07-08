@@ -849,7 +849,7 @@ class Woolentor_Product_Accordion_Widget extends Widget_Base {
                                                     </div>
                                                     <ul class="action">
                                                         <li class="btn_cart">
-                                                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo __( $cart_btn, 'woolentor' );?></a>
+                                                            <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" class="action-item <?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo __( $cart_btn, 'woolentor' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
                                                         </li>
                                                         <?php
                                                             if( true === woolentor_has_wishlist_plugin() ){

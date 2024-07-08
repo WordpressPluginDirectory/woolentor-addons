@@ -84,7 +84,8 @@ class Woolentor_Wb_Product_Stock_Widget extends Widget_Base {
 
     protected function render( $instance = [] ) {
 
-        $settings   = $this->get_settings_for_display();
+        $settings = $this->get_settings_for_display();
+        $id       = $this->get_id();
         global $product;
         $product = wc_get_product();
         
@@ -93,6 +94,27 @@ class Woolentor_Wb_Product_Stock_Widget extends Widget_Base {
         } else{
             if ( empty( $product ) ) { return; }
             echo wc_get_stock_html( $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        }
+        
+        // For Variable Product
+        $poduct_type = $product ? $product->get_type() : '';
+        if( "variable" == $poduct_type){
+            ?>
+                <div class="woolentor-variable-product-status" id="woolentor-stock-status-<?php echo esc_attr($id); ?>"></div>
+                <script>
+                    ;jQuery(document).ready(function($) {
+                        'use strict';
+                        let widgetUniqid = '<?php echo esc_js($id); ?>';
+                        $( '.single_variation_wrap' ).on( 'show_variation', function ( event, variation ) {
+                            $('#woolentor-stock-status-'+widgetUniqid).html(variation?.availability_html);
+                        });
+
+                        $('.variations').find('.reset_variations').on('click', function(e){
+                            $('#woolentor-stock-status-'+widgetUniqid).html('');
+                        });
+                    });
+                </script>
+            <?php
         }
         
 

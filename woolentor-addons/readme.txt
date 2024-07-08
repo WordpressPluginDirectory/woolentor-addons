@@ -2,8 +2,8 @@
 Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasib
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
-Tested up to: 6.5
-Stable tag: 2.9.2
+Tested up to: 6.6
+Stable tag: 2.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1103,6 +1103,14 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.9.3 - Date: 08-07-2024 =
+* Added : Enabling option to show the stock status of variable product in Add to cart Addon.
+* Added : Variable product stock status showing support to WL: Product Stock addon**.**
+* Added : Wishlist counter Gutenberg Block.
+* Added : Ever Compare Table Gutenberg Block.
+* Added : Ajax Pagination for WishSuite table.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.9.2 - Date: 24-06-2024 =
 * Added : WishList Table Gutenberg Block.
 * Solved : Number field data validation in horizontal product filter.
@@ -1619,16 +1627,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Added : Template import option from previously assigned templates
 * Improved : Rename label and sale notification option moved to module settings.
 * Solved : Action button alignment issue in universal layout addon.
-
-= Version: 2.1.0 - Date: 2021-11-13 =
-* Improved : Settings panel design.
-* Solved : Sale badge showing issue in product gallery addon.
-* Capability with latest Elementor and WooComemrce Version.
-
-= Version: 2.0.0 - Date: 2021-10-31 =
-* Changed : Template library data import page template.
-* Solved : Archive product column spacing issue.
-* Solved : Archive data showing issue in editor mode for astra theme.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

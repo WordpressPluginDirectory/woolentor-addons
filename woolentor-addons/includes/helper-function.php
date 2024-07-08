@@ -1112,7 +1112,7 @@ if( class_exists('WooCommerce') ){
     // Custom page pagination
     function woolentor_custom_pagination( $totalpage ){
         echo '<div class="ht-row woocommerce"><div class="ht-col-xs-12"><nav class="woocommerce-pagination">';
-            echo paginate_links( apply_filters(
+            echo wp_kses_post(paginate_links( apply_filters(
                     'woocommerce_pagination_args', array(
                         'base'=> esc_url( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) ), 
                         'format'    => '', 
@@ -1125,7 +1125,7 @@ if( class_exists('WooCommerce') ){
                         'mid_size'  => 3 
                     )
                 )       
-            );
+            ));
         echo '</div></div></div>';
     }
 
@@ -1162,7 +1162,7 @@ if( class_exists('WooCommerce') ){
                         <span class="ht-product-user-ratting">
                             <?php for($i = 1; $i <= 5; $i++){
                                 if( $i <= $rating_whole ){
-                                    echo '<i class="'.$icon_prefix.' fa-star"></i>';
+                                    echo '<i class="'.esc_attr($icon_prefix).' fa-star"></i>';
                                 } else {
                                     if( $rating_fraction > 0 && $flug == 0 ){
                                         if( $icon_svg == 'active' || $block == 'yes' ){
@@ -1210,7 +1210,7 @@ if( class_exists('WooCommerce') ){
 
             $total_stock = get_post_meta( $product_id, 'woolentor_total_stock_quantity', true );
 
-            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'woolentor' ).'</a></div>'; return; }
+            if ( ! $total_stock ) { echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'woolentor' ).'</a></div>'; return; } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
             $current_stock = round( get_post_meta( $product_id, '_stock', true ) );
 
@@ -1228,7 +1228,7 @@ if( class_exists('WooCommerce') ){
                     echo '</div>';
                 echo '</div>';
             }else{
-                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'woolentor' ).'</a></div>';
+                echo '<div class="stock-management-progressbar">'.esc_html__( 'Set the initial stock amount from', 'woolentor' ).' <a href="'.get_edit_post_link( $product_id ).'" target="_blank">'.esc_html__( 'here', 'woolentor' ).'</a></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
 
         }
@@ -1340,7 +1340,7 @@ function woolentor_compare_button( $button_arg = array() ){
         }
 
         $comp_link = \EverCompare\Frontend\Manage_Compare::instance()->get_compare_page_url();
-        echo '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn woolentor-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'" aria-label="'.esc_attr__('Compare','woolentor-pro').'" rel="nofollow">'.$button_text.'</a>';
+        echo '<a title="'.esc_attr( $button_title ).'" href="'.esc_url( $comp_link ).'" class="htcompare-btn woolentor-compare" data-added-text="'.esc_attr( $button_added_text ).'" data-product_id="'.esc_attr( $product_id ).'" aria-label="'.esc_attr__('Compare','woolentor-pro').'" rel="nofollow">'.$button_text.'</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     }elseif( class_exists('YITH_Woocompare') ){
         $comp_link = home_url() . '?action=yith-woocompare-add-product';

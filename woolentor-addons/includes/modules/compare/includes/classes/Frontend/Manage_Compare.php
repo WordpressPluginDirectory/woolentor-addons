@@ -207,7 +207,7 @@ class Manage_Compare {
         ?>
             <div class="ever-compare-shareable-link <?php echo esc_attr( $button_pos );?>">
                 <button class="evercompare-copy-link" data-copytext="<?php echo esc_attr( $aftercopy_buttonText ); ?>" data-btntext="<?php echo esc_attr( $buttonText ); ?>"><?php echo esc_html($buttonText); ?></button>
-                <p style="display: none;" class="evercompare-share-link"><?php echo $shareablelink; ?></p>
+                <p style="display: none;" class="evercompare-share-link"><?php echo $shareablelink; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
             </div>
         <?php
 

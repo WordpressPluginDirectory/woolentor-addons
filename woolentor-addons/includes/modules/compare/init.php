@@ -45,9 +45,11 @@ final class Woolentor_Ever_Compare{
      */
     public function define_constants() {
         define( 'EVERCOMPARE_FILE', __FILE__ );
+        define( 'EVERCOMPARE_MODULE_PATH', __DIR__ );
         define( 'EVERCOMPARE_DIR', plugin_dir_path( EVERCOMPARE_FILE ) );
         define( 'EVERCOMPARE_URL', plugins_url( '', EVERCOMPARE_FILE ) );
         define( 'EVERCOMPARE_ASSETS', EVERCOMPARE_URL . '/assets' );
+        define( 'EVERCOMPARE_BLOCKS_PATH', EVERCOMPARE_MODULE_PATH. "/includes/blocks" );
     }
 
      /**
@@ -64,6 +66,7 @@ final class Woolentor_Ever_Compare{
         require_once(__DIR__ . '/includes/classes/Admin.php');
         require_once(__DIR__ . '/includes/classes/Frontend.php');
         require_once(__DIR__ . '/includes/classes/Ajax.php');
+        require_once(__DIR__ . '/includes/classes/Widgets_And_Blocks.php');
     }
 
     /**
@@ -83,6 +86,7 @@ final class Woolentor_Ever_Compare{
             EverCompare\Admin::instance();
         }
         EverCompare\Frontend::instance();
+        EverCompare\Widgets_And_Blocks::instance();
 
         // add image size
         $this->set_image_size();
