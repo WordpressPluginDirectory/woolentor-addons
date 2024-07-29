@@ -2,7 +2,7 @@
     "use strict";
 
     // Flash sale countdown
-    function FlashSaleCountDownFlip($this, $time) {;
+    function FlashSaleCountDownFlip($this, $time) {
         var customlavel = $this.data('customlavel');
         var labels = [customlavel.daytxt, customlavel.hourtxt, customlavel.minutestxt, customlavel.secondstxt],
             template = function(label, curr, next) {
@@ -102,17 +102,18 @@
         });
     }
 
+    // Run For Frontend
     $(document).ready(function(){
-
         flashsalecountdownhandler();
-
     });
 
     // For elementor editor
     var flashsalecountdownhandler_elem = function countdownhandler_elem(){
         flashsalecountdownhandler();
     }
-    $(window).on('elementor/frontend/init', function () {
+
+    // Run Only Elementor Editor Mode.
+    $(window).on('elementor/editor/element-rendered', function () {
         elementorFrontend.hooks.addAction( 'frontend/element_ready/woolentor-flash-sale-product.default', flashsalecountdownhandler_elem);
     });
 

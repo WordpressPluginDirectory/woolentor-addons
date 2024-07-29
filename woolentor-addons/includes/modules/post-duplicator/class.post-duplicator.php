@@ -148,9 +148,17 @@ class WooLentor_Post_Dupicator{
                 /*
                  * duplicate all post meta just in two SQL queries
                  */
-                $post_meta_infos = $wpdb->get_results(
-                    $wpdb->prepare("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=%d",$post_id)
-                );
+
+                $meta_data_cache_key = 'woolentor_fetch_meta_data_'.$post_id;
+                $post_meta_infos = wp_cache_get( $meta_data_cache_key );
+                
+                if( $post_meta_infos === false){
+                    $post_meta_infos = $wpdb->get_results(
+                        $wpdb->prepare("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=%d",$post_id)
+                    );
+                    wp_cache_set( $meta_data_cache_key, $post_meta_infos );
+                }
+
                 if ( is_array( $post_meta_infos ) && count( $post_meta_infos ) !=0) {
 
                     $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) VALUES ";
@@ -167,7 +175,7 @@ class WooLentor_Post_Dupicator{
 
                     }
                     $sql_query.= implode(",", $sql_query_val). ';';
-                    $wpdb->query( $wpdb->prepare( $sql_query, $sql_query_sel ) );
+                    $wpdb->query( $wpdb->prepare( $sql_query, $sql_query_sel ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
                 }
                 
             }

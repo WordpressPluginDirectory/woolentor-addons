@@ -37,7 +37,7 @@ class Frontend {
 
         wp_register_style( 'swatchly-frontend', MODULE_ASSETS . '/css/frontend.css', array(), WOOLENTOR_VERSION );
         wp_register_script( 'swatchly-add-to-cart-variation', MODULE_ASSETS . '/js/add-to-cart-variation.js', array('jquery', 'wp-util', 'jquery-blockui' ), WOOLENTOR_VERSION, true );
-        wp_register_script( 'swatchly-frontend', MODULE_ASSETS . '/js/frontend.js', array('jquery'), WOOLENTOR_VERSION );
+        wp_register_script( 'swatchly-frontend', MODULE_ASSETS . '/js/frontend.js', array('jquery'), WOOLENTOR_VERSION, true );
 
         $enable_swatches = $this->pl_enable_swatches;
 

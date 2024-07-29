@@ -15,10 +15,19 @@
     "single product gallery"
   ],
   "render": "file:./index.php",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
   "attributes": {
     "blockUniqId": {
       "type": "string",
       "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
     },
     "areaPadding": {
       "type": "object",

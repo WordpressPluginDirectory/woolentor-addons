@@ -22,11 +22,7 @@ function woolentorBlocks_get_last_product_id(){
 
     // Getting last Product ID (max value)
     if ( false === $results ) {
-        $results = $wpdb->get_col( "
-            SELECT MAX(ID) FROM {$wpdb->prefix}posts
-            WHERE post_type LIKE 'product'
-            AND post_status = 'publish'" 
-        );
+        $results = $wpdb->get_col($wpdb->prepare("SELECT MAX(ID) FROM {$wpdb->prefix}posts WHERE post_type = %s AND post_status = %s", 'product', 'publish'));
         wp_cache_set( $cache_key, $results );
     }
 

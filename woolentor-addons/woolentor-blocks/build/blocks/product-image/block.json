@@ -8,10 +8,19 @@
     "image",
     "product image"
   ],
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
   "attributes": {
     "blockUniqId": {
       "type": "string",
       "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
     },
     "areaPadding": {
       "type": "object",

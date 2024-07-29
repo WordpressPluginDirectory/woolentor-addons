@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( wp_is_block_theme() ) {
     wp_site_icon();
-    wp_head();
+    // wp_head();
     block_template_part('header');
     wp_head();
 } else {
@@ -38,7 +38,7 @@ if ( $width ) {
 do_action( 'woolentor_builder_after_content' );
 
 if ( wp_is_block_theme() ) {
-    wp_footer();
+    // wp_footer();
     block_template_part('footer');
     wp_footer();
 } else {

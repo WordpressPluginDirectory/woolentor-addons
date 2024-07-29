@@ -1533,7 +1533,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                     </div>
 
                                                     <div class="content">
-                                                        <h4 class="title"><a href="<?php the_permalink();?>"><?php echo get_the_title();?></a></h4>
+                                                        <h4 class="title"><a href="<?php the_permalink();?>"><?php the_title('','');?></a></h4>
                                                         <?php woocommerce_template_loop_price();?>
                                                         <?php do_action( 'woolentor_addon_after_price' ); ?>
                                                     </div>
@@ -1564,7 +1564,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                         </div>
                                         
                                         <div class="content">
-                                            <h4 class="title"><a href="<?php the_permalink();?>"><?php echo get_the_title();?></a></h4>
+                                            <h4 class="title"><a href="<?php the_permalink();?>"><?php the_title('','');?></a></h4>
                                             <?php woocommerce_template_loop_price();?>
                                             <?php do_action( 'woolentor_addon_after_price' ); ?>
                                         </div>
@@ -1663,7 +1663,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                                     </div>
 
                                                     <div class="content">
-                                                        <h4 class="title"><a href="<?php the_permalink();?>"><?php echo get_the_title();?></a></h4>
+                                                        <h4 class="title"><a href="<?php the_permalink();?>"><?php the_title('','');?></a></h4>
                                                         <?php woocommerce_template_loop_price();?>
                                                         <?php do_action( 'woolentor_addon_after_price' ); ?>
                                                     </div>
@@ -1692,7 +1692,7 @@ class Woolentor_Product_Tabs_Widget extends Widget_Base {
                                         </div>
                                         
                                         <div class="content">
-                                            <h4 class="title"><a href="<?php the_permalink();?>"><?php echo get_the_title();?></a></h4>
+                                            <h4 class="title"><a href="<?php the_permalink();?>"><?php the_title('','');?></a></h4>
                                             <?php woocommerce_template_loop_price();?>
                                             <?php do_action( 'woolentor_addon_after_price' ); ?>
                                         </div>

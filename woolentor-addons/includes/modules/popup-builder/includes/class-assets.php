@@ -47,10 +47,12 @@ class Assets{
     /**
      * Admin assets.
      */
-    public function admin_scripts(){
+    public function admin_scripts($hooks){
         // Dependencies.
         wp_enqueue_script( 'select2', WOOLENTOR_ADDONS_PL_URL . 'includes/admin/assets/lib/js/select2.min.js', array( 'jquery' ), $this->version, TRUE );
-        wp_enqueue_style( 'woolentor-select2' );
+        if( $hooks !== 'shoplentor_page_woolentor' ){
+            wp_enqueue_style( 'woolentor-select2' );
+        }
 
         // Admin Style.
         wp_register_style( 'wlpb-admin', MODULE_ASSETS . '/css/admin.css', array(), $this->version );

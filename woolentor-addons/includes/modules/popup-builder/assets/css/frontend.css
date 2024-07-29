@@ -73,7 +73,8 @@ body.admin-bar .wlpb-popup-pv-top .wlpb-popup-inner{
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
+	height: auto;
 	padding: 30px;
 	background-color: #FFFFFF;
 }

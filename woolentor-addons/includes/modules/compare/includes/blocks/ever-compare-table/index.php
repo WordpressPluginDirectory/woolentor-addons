@@ -17,7 +17,7 @@ $areaClasses = array( $uniqClass, 'woolentor_block_ever_compare' );
 echo '<div class="'.esc_attr( implode(' ', $areaClasses ) ).'">';
 
     $short_code_attributes = [
-        'empty_compare_text' => $settings['emptyTableText'],
+        'empty_compare_text' => !empty($settings['emptyTableText']) ? $settings['emptyTableText'] : '',
     ];
     echo woolentor_do_shortcode( 'evercompare_table', $short_code_attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 

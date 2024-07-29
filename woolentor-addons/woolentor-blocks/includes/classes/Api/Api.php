@@ -139,6 +139,21 @@ class Api
             ]
         );
 
+        // Get Option Data
+        register_rest_route(
+            $this->namespace,
+            'get-wloptions',
+            [
+                'methods' => WP_REST_Server::READABLE,
+                'args' => [
+                    'optionSection' => [],
+                    'optionKey' => [],
+                ],
+                'callback' => [$this, 'get_options_data'],
+                'permission_callback' => [$this, 'permission_check'],
+            ]
+        );
+
         // Template Library
         \WooLentorBlocks\Template_Library::instance()->register_routes($this->namespace);
 
@@ -441,6 +456,36 @@ class Api
             }
         }
         
+
+        return rest_ensure_response($data);
+    }
+
+    /**
+     * Get Option data
+     * @param mixed $request
+     * @return \WP_Error|\WP_REST_Response
+     */
+    public function get_options_data($request){
+        if (!isset($_REQUEST['wpnonce']) || !wp_verify_nonce($_REQUEST['wpnonce'], 'woolentorblock-nonce')) {
+            return rest_ensure_response([]);
+        }
+
+        $option_section = isset($request['optionSection']) ? $request['optionSection'] : '';
+        $option_key     = isset($request['optionKey']) ? $request['optionKey'] : '';
+
+        $getData = woolentorBlocks_get_option( $option_key, $option_section );
+        $data = [];
+        
+        if (!empty($getData)) {
+            $i = 0;
+            foreach ($getData as $dataItem) {
+                $i++;
+                $item = [];
+                $item['id'] = $i;
+                $item['title'] = !empty( $dataItem['title'] ) ? $dataItem['title'] : __( 'Unnamed Deal', 'woolentor' );
+                $data[] = $item;
+            }
+        }
 
         return rest_ensure_response($data);
     }

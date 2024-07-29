@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.6
-Stable tag: 2.9.3
+Stable tag: 2.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1103,9 +1103,16 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.9.4 - Date: 29-07-2024 =
+* Added : Product title added in suggest Price Email Header.
+* Added : Product Flash Sale Gutenberg block.
+* Solved : Compare Table empty string undefined issue.
+* Solved : Popup Builder Setting menu Support for Elementor Top bar Pannel.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.9.3 - Date: 08-07-2024 =
 * Added : Enabling option to show the stock status of variable product in Add to cart Addon.
-* Added : Variable product stock status showing support to WL: Product Stock addon**.**
+* Added : Variable product stock status showing support to WL: Product Stock addon.
 * Added : Wishlist counter Gutenberg Block.
 * Added : Ever Compare Table Gutenberg Block.
 * Added : Ajax Pagination for WishSuite table.
@@ -1615,18 +1622,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Solved : Post Duplicator security issue.
 * Solved : Template library pop style issue.
 * Solved : WAVE Tool empty content error issue.
-
-= Version: 2.1.2 - Date: 2021-12-07 =
-* Added : Product box same height option in Universal product layout
-* Improved : Elementor Widget register.
-* Solved : Logo dimension issue for shopify style checkout page.
-
-= Version: 2.1.1 - Date: 2021-11-29 =
-* Added : Template Builder option added from own post type.
-* Added : Shopify Style checkout page.
-* Added : Template import option from previously assigned templates
-* Improved : Rename label and sale notification option moved to module settings.
-* Solved : Action button alignment issue in universal layout addon.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

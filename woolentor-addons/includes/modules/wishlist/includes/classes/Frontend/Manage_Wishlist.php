@@ -467,7 +467,7 @@ class Manage_Wishlist {
                 break;
 
             case 'quantity':
-                echo $product[ $field_id ];
+                echo $product[ $field_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 break;
 
             case 'ratting':
@@ -554,7 +554,7 @@ class Manage_Wishlist {
                 <div class="wishsuite-quick-cart-form"></div>
             </div>
         <?php endif; ?>
-            <a href="<?php echo $product->add_to_cart_url(); ?>" data-quantity="<?php echo esc_attr( $quentity ); ?>" class="<?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo $product->get_id(); ?>"><?php echo __( $cart_btn, 'wishsuite' );?></a>
+            <a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" data-quantity="<?php echo esc_attr( $quentity ); ?>" class="<?php echo esc_attr($btn_class); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>"><?php echo esc_html( $cart_btn );?></a>
         <?php
         return ob_get_clean();
 

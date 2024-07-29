@@ -1,4 +1,5 @@
-<?php  
+<?php
+namespace Woolentor\Modules\FlashSale;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Woolentor_Flash_Sale{
@@ -19,6 +20,10 @@ class Woolentor_Flash_Sale{
      * Constructor
      */
     public function __construct(){
+
+        $this->define_constants();
+        $this->includes();
+        $this->init();
 
         // Enqueue scripts
         add_action('wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -48,6 +53,35 @@ class Woolentor_Flash_Sale{
         $position = woolentor_get_option( 'countdown_position', 'woolentor_flash_sale_settings', 'woocommerce_before_add_to_cart_form' );
         add_action( $position, [ $this, 'render_countdown' ] );
 
+    }
+
+    /**
+     * Define the required module constants
+     *
+     * @return void
+     */
+    public function define_constants() {
+        define( 'Woolentor\Modules\FlashSale\MODULE_FILE', __FILE__ );
+        define( 'Woolentor\Modules\FlashSale\MODULE_PATH', __DIR__ );
+        define( 'Woolentor\Modules\FlashSale\WIDGETS_PATH', MODULE_PATH . '/includes/widgets' );
+        define( 'Woolentor\Modules\FlashSale\BLOCKS_PATH', MODULE_PATH . '/includes/blocks' );
+        define( 'Woolentor\Modules\FlashSale\MODULE_URL', plugins_url( '', MODULE_FILE ) );
+        define( 'Woolentor\Modules\FlashSale\MODULE_ASSETS', MODULE_URL . '/assets' );
+    }
+
+    /**
+     * Include required core files used in admin and on the frontend.
+     */
+    private function includes() {
+        require_once( MODULE_PATH . '/includes/Widgets_And_Blocks.php');
+    }
+
+    /**
+     * Module Initialize
+     * @return void
+     */
+    public function init(){
+        Widgets_And_Blocks::instance();
     }
 
     /**
@@ -334,13 +368,12 @@ class Woolentor_Flash_Sale{
 
                 if( self::user_validity($deal) && self::datetime_validity($deal) && self::products_validity($product, $deal) ){
                     return $deal;
-                    break;
                 }
 
             }
         }
 
-        return array();
+        return [];
     }
 
     /**

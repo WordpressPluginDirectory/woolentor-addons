@@ -3414,6 +3414,15 @@ class Woolentor_Admin_Fields {
                 'type'    => 'element',
                 'default' => 'on'
             ];
+
+            // Block
+            $settings_fields['woolentor_gutenberg_tabs']['blocks'][] = [
+                'name'  => 'product_flash_sale',
+                'label' => esc_html__( 'Product Flash Sale', 'woolentor' ),
+                'type'  => 'element',
+                'default' => 'on',
+            ];
+            
         }
 
         // Wishsuite Addons
@@ -3430,6 +3439,21 @@ class Woolentor_Admin_Fields {
                 'type'      => 'element',
                 'default'   => 'on',
             ];
+
+            // Block
+            $settings_fields['woolentor_gutenberg_tabs']['blocks'][] = [
+                'name'  => 'wishsuite_table',
+                'label' => esc_html__( 'WishSuite Table', 'woolentor' ),
+                'type'  => 'element',
+                'default' => 'on',
+            ];
+            $settings_fields['woolentor_gutenberg_tabs']['blocks'][] = [
+                'name'  => 'wishsuite_counter',
+                'label' => esc_html__( 'WishSuite Counter', 'woolentor' ),
+                'type'  => 'element',
+                'default' => 'on',
+            ];
+
         }
 
         // Ever Compare Addons
@@ -3439,6 +3463,14 @@ class Woolentor_Admin_Fields {
                 'label'     => esc_html__( 'Ever Compare', 'woolentor' ),
                 'type'      => 'element',
                 'default'   => 'on',
+            ];
+
+            // Block
+            $settings_fields['woolentor_gutenberg_tabs']['blocks'][] = [
+                'name'  => 'ever_compare_table',
+                'label' => esc_html__( 'Ever Compare', 'woolentor' ),
+                'type'  => 'element',
+                'default' => 'on',
             ];
         }
 

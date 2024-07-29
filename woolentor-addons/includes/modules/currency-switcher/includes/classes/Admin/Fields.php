@@ -26,6 +26,22 @@ class Fields {
         }else{
             array_splice( $fields['woolentor_others_tabs']['modules'], 11, 0, $this->currency_sitting_fields() );
         }
+
+        $fields['woolentor_elements_tabs'][] = [
+            'name'    => 'wl_currency_switcher',
+            'label'   => esc_html__( 'Currency Switcher', 'woolentor' ),
+            'type'    => 'element',
+            'default' => 'on'
+        ];
+
+        // Block
+        $fields['woolentor_gutenberg_tabs']['blocks'][] = [
+            'name'  => 'currency_switcher',
+            'label' => esc_html__( 'Currency Switcher', 'woolentor' ),
+            'type'  => 'element',
+            'default' => 'on',
+        ];
+
         return $fields;
     }
 

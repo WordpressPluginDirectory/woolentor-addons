@@ -82,11 +82,11 @@ class Woolentor_Shopify_Like_Checkout extends \WC_Checkout{
         }
 
         // Styles
-        wp_enqueue_style( 'woolentor-shopify-like-checkout', plugin_dir_url( __FILE__ ) . 'assets/shopify-like-checkout.css' ,'', WOOLENTOR_VERSION, 'all' );
+        wp_enqueue_style( 'woolentor-shopify-like-checkout', plugin_dir_url( __FILE__ ) . 'assets/shopify-like-checkout.css' ,[], WOOLENTOR_VERSION, 'all' );
 
         // Scripts
         $suffix = Automattic\Jetpack\Constants::is_true( 'SCRIPT_DEBUG' ) ? '' : '.min';
-        wp_enqueue_script( 'serializejson', WC()->plugin_url() . '/assets/js/jquery-serializejson/jquery.serializejson' . $suffix . '.js', array( 'jquery' ), '2.8.1' );
+        wp_enqueue_script( 'serializejson', WC()->plugin_url() . '/assets/js/jquery-serializejson/jquery.serializejson' . $suffix . '.js', array( 'jquery' ), '2.8.1', true );
         wp_enqueue_script( 'woolentor-checkout');
         wp_enqueue_script( 'woolentor-shopify-like-checkout', plugin_dir_url( __FILE__ ) . 'assets/shopify-like-checkout.js', array('jquery', 'wc-checkout'), WOOLENTOR_VERSION, 'all' );
         wp_localize_script( 'woolentor-shopify-like-checkout', 'woolentor_slc_params',

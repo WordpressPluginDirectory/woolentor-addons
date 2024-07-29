@@ -437,7 +437,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'button_color',
                     'label' => esc_html__( 'Color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the color of the button.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the color of the button.' ),
                     'type'  => 'color',
                     'class' => 'depend_button_custom_style',
                 ),
@@ -445,7 +445,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'button_hover_color',
                     'label' => esc_html__( 'Hover Color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the hover color of the button.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the hover color of the button.' ),
                     'type'  => 'color',
                     'class' => 'depend_button_custom_style',
                 ),
@@ -453,7 +453,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'background_color',
                     'label' => esc_html__( 'Background Color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the background color of the button.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the background color of the button.' ),
                     'type'  => 'color',
                     'class' => 'depend_button_custom_style',
                 ),
@@ -461,7 +461,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'hover_background_color',
                     'label' => esc_html__( 'Hover Background Color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the hover background color of the button.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the hover background color of the button.' ),
                     'type'  => 'color',
                     'class' => 'depend_button_custom_style',
                 ),
@@ -510,7 +510,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'button_custom_border_color',
                     'label' => esc_html__( 'Border Color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the button color of the button.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the button color of the button.' ),
                     'type'  => 'color',
                     'class' => 'depend_button_custom_style',
                 ),
@@ -540,7 +540,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_border_color',
                     'label' => esc_html__( 'Border color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the border color of the table.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the border color of the table.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -561,8 +561,8 @@ class Admin_Fields {
 
                 array(
                     'name'  => 'table_event_color',
-                    'label' => esc_html__( 'Column background color (Event)', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the background color of the table event column.', 'woolentor' ),
+                    'label' => esc_html__( 'Column background color (Event)' ),
+                    'desc'  => wp_kses_post( 'Set the background color of the table event column.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -570,7 +570,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_odd_color',
                     'label' => esc_html__( 'Column background color (Odd)', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the background color of the table odd column.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the background color of the table odd column.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -578,7 +578,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_heading_event_color',
                     'label' => esc_html__( 'Heading color (Event)', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the heading color of the table event column.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the heading color of the table event column.'),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -586,7 +586,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_heading_odd_color',
                     'label' => esc_html__( 'Heading color (Odd)', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the heading color of the table odd column.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the heading color of the table odd column.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -594,7 +594,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_content_event_color',
                     'label' => esc_html__( 'Content color (Event)', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the content color of the table event column.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the content color of the table event column.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -602,7 +602,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_content_odd_color',
                     'label' => esc_html__( 'Content color (Odd)', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the content color of the table odd column.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the content color of the table odd column.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -610,7 +610,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_content_link_color',
                     'label' => esc_html__( 'Content link color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the content link color of the table.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the content link color of the table.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),
@@ -618,7 +618,7 @@ class Admin_Fields {
                 array(
                     'name'  => 'table_content_link_hover_color',
                     'label' => esc_html__( 'Content link hover color', 'woolentor' ),
-                    'desc'  => wp_kses_post( 'Set the content link hover color of the table.', 'woolentor' ),
+                    'desc'  => wp_kses_post( 'Set the content link hover color of the table.' ),
                     'type'  => 'color',
                     'class' => 'depend_table_custom_style',
                 ),

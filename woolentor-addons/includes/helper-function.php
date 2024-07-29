@@ -625,14 +625,21 @@ function woolentor_do_shortcode( $tag, array $atts = array(), $content = null ) 
 */
 function woolentor_get_last_product_id(){
     global $wpdb;
-    
+
+    $cache_key  = 'woolentor_last_product_id';
+    $results    = wp_cache_get( $cache_key );
+
     // Getting last Product ID (max value)
-    $results = $wpdb->get_col( "
-        SELECT MAX(ID) FROM {$wpdb->prefix}posts
-        WHERE post_type LIKE 'product'
-        AND post_status = 'publish'" 
-    );
+    if ( false === $results ) {
+
+        $sql_query = $wpdb->prepare("SELECT MAX(ID) FROM {$wpdb->prefix}posts WHERE post_type = %s AND post_status = %s", 'product', 'publish');
+        $results   = $wpdb->get_col($sql_query);
+
+        wp_cache_set( $cache_key, $results );
+    }
+
     return reset($results);
+
 }
 
 /*
@@ -1241,8 +1248,22 @@ if( class_exists('WooCommerce') ){
      */
     function woolentor_minmax_price_limit() {
         global $wpdb;
-        $value_min = $wpdb->get_var( $wpdb->prepare( "SELECT MIN( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = %s", '_price' ) );
-        $value_max = $wpdb->get_var( $wpdb->prepare( "SELECT MAX( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = %s", '_price' ) );
+
+        $value_min_cache_key  = 'woolentor_min_value_price';
+        $value_max_cache_key  = 'woolentor_max_value_price';
+        $value_min = wp_cache_get( $value_min_cache_key );
+        $value_max = wp_cache_get( $value_max_cache_key );
+
+        if ( false === $value_min ) {
+            $value_min = $wpdb->get_var( $wpdb->prepare( "SELECT MIN( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = %s", '_price' ) );
+            wp_cache_set( $value_min_cache_key, $value_min );
+        }
+
+        if ( false === $value_max ) {
+            $value_max = $wpdb->get_var( $wpdb->prepare( "SELECT MAX( CAST( meta_value as UNSIGNED ) ) FROM {$wpdb->postmeta} WHERE meta_key = %s", '_price' ) );
+            wp_cache_set( $value_max_cache_key, $value_max );
+        }
+
         return [
             'min' => (int)$value_min,
             'max' => (int)$value_max,

@@ -230,8 +230,8 @@ class Woolentor_Template_Manager{
 	public function add_page_templates( $page_templates, $wp_theme, $post ){
 		unset( $page_templates['elementor_theme'] );
 
-		$page_templates['woolentor_canvas']    = esc_html__('WooLentor Canvas', 'woolentor');
-		$page_templates['woolentor_fullwidth'] = esc_html__('WooLentor Full width', 'woolentor');
+		$page_templates['woolentor_canvas']    = esc_html__('ShopLentor Canvas', 'woolentor');
+		$page_templates['woolentor_fullwidth'] = esc_html__('ShopLentor Full width', 'woolentor');
 
 		return $page_templates;
 	}
@@ -426,9 +426,9 @@ class Woolentor_Template_Manager{
         if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'woolentor-template' ){
 
 			// CSS
-            wp_enqueue_style( 'woolentor-template-edit-manager', WOOLENTOR_ADDONS_PL_URL . 'includes/admin/assets/css/template_edit_manager.css' );
+            wp_enqueue_style( 'woolentor-template-edit-manager', WOOLENTOR_ADDONS_PL_URL . 'includes/admin/assets/css/template_edit_manager.css', [], WOOLENTOR_VERSION );
 			wp_enqueue_style('woolentor-sweetalert');
-			wp_enqueue_style('slick', WOOLENTOR_ADDONS_PL_URL . 'assets/css/slick.css' );
+			wp_enqueue_style('slick', WOOLENTOR_ADDONS_PL_URL . 'assets/css/slick.css', [], WOOLENTOR_VERSION );
 			
 			// JS
 			wp_enqueue_script('woolentor-sweetalert');

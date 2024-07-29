@@ -1201,11 +1201,11 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                     echo '<span class="label">'.esc_html($settings['advance_cart_quantity_text']).'</span>';
                }
                echo '<div class="wl-quantity-cal">';
-               echo '<span class="wl-quantity wl-qunatity-minus" >'.$minus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+               echo '<span class="wl-quantity wl-qunatity-minus">'.$minus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             });
 
             add_action( 'woocommerce_after_add_to_cart_quantity', function() use ($settings, $plus_icon) {
-               echo '<span class="wl-quantity wl-qunatity-plus" >'.$plus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+               echo '<span class="wl-quantity wl-qunatity-plus">'.$plus_icon.'</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                echo '</div>';
                echo '</div>';
                echo '<div class="wl-cart-wrap '.esc_attr($settings['product_wishlist_compare_btn_position']).'">';
@@ -1362,7 +1362,7 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
         ?>
             <script type="text/javascript">
                 ;jQuery(document).ready(function($){ 
-                    $('.elementor-element-<?php echo $id; ?> form.cart').on( 'click', 'span.wl-qunatity-plus, span.wl-qunatity-minus', function() {
+                    $('.elementor-element-<?php echo esc_attr($id); ?> form.cart').on( 'click', 'span.wl-qunatity-plus, span.wl-qunatity-minus', function() {
                         
                         // Get current quantity values
                         <?php if('grouped' != $poduct_type): ?>

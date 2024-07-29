@@ -1,5 +1,6 @@
 <?php
 namespace Elementor;
+use Woolentor\Modules\FlashSale\Woolentor_Flash_Sale as WooLentorFlashSale;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -399,7 +400,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                     'type'       => Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px', '%', 'em' ],
                     'selectors'  => [
-                        '{{WRAPPER}} .woolentor-flash-product' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                        '{{WRAPPER}} .woolentor-flash-product' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     ],
                 ]
             );
@@ -824,7 +825,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '',
                     'selectors' => [
-                        '{{WRAPPER}} .woolentor-flash-product-offer-timer .woolentor-count' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .woolentor-countdown .woolentor-time .woolentor-count' => 'color: {{VALUE}};',
                     ],
                     'separator' => 'before',    
                 ]
@@ -834,7 +835,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name'     => 'product_counter_number_typography',
-                    'selector' => '{{WRAPPER}} .woolentor-flash-product-offer-timer .woolentor-count',                    
+                    'selector' => '{{WRAPPER}} .woolentor-countdown .woolentor-time .woolentor-count',                    
                 ]
             );
 
@@ -844,7 +845,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                     'name'     => 'product_counter_background_color',
                     'label'    => __( 'Counter Background', 'woolentor' ),
                     'types'    => [ 'classic', 'gradient' ],
-                    'selector' => '{{WRAPPER}} .woolentor-flash-product-offer-timer .woolentor-count',
+                    'selector' => '{{WRAPPER}} .woolentor-countdown .woolentor-time .woolentor-count',
                 ]
             );
 
@@ -865,7 +866,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '',
                     'selectors' => [
-                        '{{WRAPPER}} .woolentor-flash-product-offer-timer .woolentor-label' => 'color: {{VALUE}};',
+                        '{{WRAPPER}} .woolentor-countdown .woolentor-time .woolentor-label' => 'color: {{VALUE}};',
                     ],
                     'separator' => 'before',    
                 ]
@@ -875,7 +876,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name'     => 'product_counter_label_typography',
-                    'selector' => '{{WRAPPER}} .woolentor-flash-product-offer-timer .woolentor-label',                    
+                    'selector' => '{{WRAPPER}} .woolentor-countdown .woolentor-time .woolentor-label',                    
                 ]
             );
 
@@ -1109,7 +1110,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
 
         $found_products = false;
         $deal_status = !empty($deal['status']) ? $deal['status'] : 'off';
-        if( $deal_status == 'on' && \Woolentor_Flash_Sale::user_validity($deal) && \Woolentor_Flash_Sale::datetime_validity($deal) ){
+        if( $deal_status == 'on' && WooLentorFlashSale::user_validity($deal) && WooLentorFlashSale::datetime_validity($deal) ){
             if( $apply_on_all_products == 'on' ){
                 $found_products = true;
             } elseif( $product_ids ){
@@ -1127,7 +1128,7 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                     if( $products->have_posts() ):
 
                         // Countdown remaining time
-                        $remaining_time = \Woolentor_Flash_Sale::get_remaining_time($deal);
+                        $remaining_time = WooLentorFlashSale::get_remaining_time($deal);
 
                         while( $products->have_posts() ): $products->the_post();
                             global $product;
@@ -1235,13 +1236,13 @@ class Woolentor_Product_Flash_Sale_Widget extends Widget_Base {
                                     <?php
                                         if( $product->get_type() != 'variable' ){
                                             
-                                            echo '<div class="price">' .wc_format_sale_price( wc_get_price_to_display( $product ), \Woolentor_Flash_Sale::get_calculated_price($product_id, $deal) ) . $product->get_price_suffix() . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                            echo '<div class="price">' .wc_format_sale_price( wc_get_price_to_display( $product ), WooLentorFlashSale::get_calculated_price($product_id, $deal) ) . $product->get_price_suffix() . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
                                         } elseif($product->get_type() == 'variable') {
                                             $price_min_o        = wc_get_price_to_display( $product, [ 'price' => $product->get_variation_regular_price( 'min' ) ] );
-                                            $price_min        = \Woolentor_Flash_Sale::get_calculated_price($product_id, $deal, $price_min_o);
+                                            $price_min        = WooLentorFlashSale::get_calculated_price($product_id, $deal, $price_min_o);
                                             $price_max_o        = wc_get_price_to_display( $product, [ 'price' => $product->get_variation_regular_price( 'max' ) ] );
-                                            $price_max        = \Woolentor_Flash_Sale::get_calculated_price($product_id, $deal, $price_max_o);
+                                            $price_max        = WooLentorFlashSale::get_calculated_price($product_id, $deal, $price_max_o);
                                             $price_html       = wc_format_price_range( $price_min, $price_max );
 
                                             if($price_min == $price_max){

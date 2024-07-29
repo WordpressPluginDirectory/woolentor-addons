@@ -9,10 +9,20 @@
     "product",
     "product tabs"
   ],
+  "example": {
+    "attributes": {
+      "preview": true,
+      "tabMenuColor": "#000000"
+    }
+  },
   "attributes": {
     "blockUniqId": {
       "type": "string",
       "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
     },
     "areaPadding": {
       "type": "object",

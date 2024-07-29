@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-08 04:38+0000\n"
+"POT-Creation-Date: 2024-07-29 04:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.10; wp-6.5.5\n"
+"X-Loco-Version: 2.6.11; wp-6.6.1\n"
 "X-Domain: woolentor"
 
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:392
@@ -33,11 +33,11 @@ msgstr ""
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:626
+#: includes/addons/product_flash_sale.php:627
 msgid "\"Out of stock\" BG Color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:614
+#: includes/addons/product_flash_sale.php:615
 msgid "\"Out of stock\" Text Color"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 msgid ". Which will motivate us a lot."
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:105
+#: includes/addons/product_flash_sale.php:106
 #: includes/addons/product_curvy.php:82 includes/addons/product_curvy.php:100
 #: includes/addons/product_tabs.php:96
 #: woolentor-blocks/build/blocks/product-reviews/index.php:29
@@ -129,7 +129,7 @@ msgstr ""
 msgid "15+ Product Custom Templates"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:106
+#: includes/addons/product_flash_sale.php:107
 #: includes/addons/product_curvy.php:83 includes/addons/product_curvy.php:101
 #: includes/addons/product_tabs.php:97
 #: woolentor-blocks/build/blocks/product-reviews/index.php:30
@@ -138,7 +138,7 @@ msgstr ""
 msgid "2"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:107
+#: includes/addons/product_flash_sale.php:108
 #: includes/addons/product_curvy.php:84 includes/addons/product_tabs.php:98
 #: woolentor-blocks/build/blocks/product-reviews/index.php:31
 #: woolentor-blocks/src/blocks/product-reviews/index.php:31
@@ -146,7 +146,7 @@ msgstr ""
 msgid "3"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:108
+#: includes/addons/product_flash_sale.php:109
 #: includes/addons/product_curvy.php:85 includes/addons/product_tabs.php:99
 #: woolentor-blocks/build/blocks/product-reviews/index.php:32
 #: woolentor-blocks/src/blocks/product-reviews/index.php:32
@@ -158,7 +158,7 @@ msgstr ""
 msgid "404 Page"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:109
+#: includes/addons/product_flash_sale.php:110
 #: includes/addons/product_tabs.php:100
 #: woolentor-blocks/build/blocks/product-reviews/index.php:33
 #: woolentor-blocks/src/blocks/product-reviews/index.php:33
@@ -170,7 +170,7 @@ msgstr ""
 msgid "50%"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:110
+#: includes/addons/product_flash_sale.php:111
 #: includes/addons/product_tabs.php:101
 msgid "6"
 msgstr ""
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Action Button"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:642
+#: includes/addons/product_flash_sale.php:643
 #: includes/addons/product_image_accordion.php:522
 #: includes/addons/product_accordion.php:600
 #: includes/addons/product_curvy.php:730
@@ -255,7 +255,7 @@ msgstr ""
 
 #: includes/addons/wl_recently_viewed_products.php:406
 #: includes/addons/wb_wishsuite_table.php:347
-#: woolentor-blocks/includes/classes/Api/Api.php:243
+#: woolentor-blocks/includes/classes/Api/Api.php:258
 #: woolentor-blocks/production/includes/classes/Api/Api.php:243
 msgid "Add To Cart"
 msgstr ""
@@ -280,11 +280,11 @@ msgstr ""
 msgid "Add to Cart Button Text"
 msgstr ""
 
-#: includes/helper-function.php:1330 includes/helper-function.php:1331
-#: includes/helper-function.php:1354
-#: woolentor-blocks/includes/helper-functions.php:602
-#: woolentor-blocks/includes/helper-functions.php:603
-#: woolentor-blocks/includes/helper-functions.php:619
+#: includes/helper-function.php:1351 includes/helper-function.php:1352
+#: includes/helper-function.php:1375
+#: woolentor-blocks/includes/helper-functions.php:598
+#: woolentor-blocks/includes/helper-functions.php:599
+#: woolentor-blocks/includes/helper-functions.php:615
 #: woolentor-blocks/production/includes/helper-functions.php:602
 #: woolentor-blocks/production/includes/helper-functions.php:603
 #: woolentor-blocks/production/includes/helper-functions.php:619
@@ -588,7 +588,7 @@ msgstr ""
 msgid "ASC"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:154
+#: includes/addons/product_flash_sale.php:155
 #: includes/addons/product_image_accordion.php:167
 #: includes/addons/product_accordion.php:188
 #: includes/addons/wl_category.php:137 includes/addons/product_curvy.php:223
@@ -644,16 +644,17 @@ msgstr ""
 msgid "availability"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:363
+#: includes/addons/product_flash_sale.php:364
 msgid "Available Custom Text"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:931
+#: includes/addons/product_flash_sale.php:932
 msgid "Available Number Color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:365
-#: includes/addons/product_flash_sale.php:1038
+#: includes/addons/product_flash_sale.php:366
+#: includes/addons/product_flash_sale.php:1039
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:49
 msgid "Available:"
 msgstr ""
 
@@ -677,7 +678,7 @@ msgstr ""
 
 #: includes/addons/wl_faq.php:308 includes/addons/wl_faq.php:386
 #: includes/addons/wl_faq.php:471 includes/addons/wl_faq.php:649
-#: includes/addons/wl_faq.php:784 includes/addons/product_flash_sale.php:911
+#: includes/addons/wl_faq.php:784 includes/addons/product_flash_sale.php:912
 #: includes/addons/wl_product_horizontal_filter.php:401
 #: includes/addons/wl_product_horizontal_filter.php:588
 #: includes/addons/wl_product_horizontal_filter.php:775
@@ -981,8 +982,8 @@ msgstr ""
 
 #: includes/addons/wl_faq.php:296 includes/addons/wl_faq.php:417
 #: includes/addons/wl_faq.php:501 includes/addons/wl_faq.php:689
-#: includes/addons/wl_faq.php:824 includes/addons/product_flash_sale.php:707
-#: includes/addons/product_flash_sale.php:970
+#: includes/addons/wl_faq.php:824 includes/addons/product_flash_sale.php:708
+#: includes/addons/product_flash_sale.php:971
 #: includes/addons/wl_product_horizontal_filter.php:364
 #: includes/addons/wl_product_horizontal_filter.php:615
 #: includes/addons/wl_product_horizontal_filter.php:738
@@ -1186,12 +1187,12 @@ msgstr ""
 msgid "Button Area"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:660
-#: includes/addons/product_flash_sale.php:669
+#: includes/addons/product_flash_sale.php:661
+#: includes/addons/product_flash_sale.php:670
 msgid "Button Background"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:699
+#: includes/addons/product_flash_sale.php:700
 msgid "Button Border"
 msgstr ""
 
@@ -1203,11 +1204,11 @@ msgstr ""
 msgid "Button custom style"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:744
+#: includes/addons/product_flash_sale.php:745
 msgid "Button Hover Background Color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:730
+#: includes/addons/product_flash_sale.php:731
 msgid "Button Hover Icon Color"
 msgstr ""
 
@@ -1216,8 +1217,8 @@ msgstr ""
 msgid "Button Icon"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:678
-#: includes/addons/product_flash_sale.php:686
+#: includes/addons/product_flash_sale.php:679
+#: includes/addons/product_flash_sale.php:687
 msgid "Button Icon Color"
 msgstr ""
 
@@ -1562,8 +1563,8 @@ msgstr ""
 #: includes/addons/wl_faq.php:439 includes/addons/wl_faq.php:480
 #: includes/addons/wl_faq.php:552 includes/addons/wl_faq.php:632
 #: includes/addons/wl_faq.php:661 includes/addons/wl_faq.php:767
-#: includes/addons/wl_faq.php:796 includes/addons/product_flash_sale.php:789
-#: includes/addons/product_flash_sale.php:898
+#: includes/addons/wl_faq.php:796 includes/addons/product_flash_sale.php:790
+#: includes/addons/product_flash_sale.php:899
 #: includes/addons/wl_product_horizontal_filter.php:433
 #: includes/addons/wl_product_horizontal_filter.php:500
 #: includes/addons/wl_product_horizontal_filter.php:576
@@ -1658,10 +1659,6 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:564
-msgid "Column background color (Event)"
-msgstr ""
-
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:572
 msgid "Column background color (Odd)"
 msgstr ""
@@ -1670,7 +1667,7 @@ msgstr ""
 msgid "Column Padding"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:101
+#: includes/addons/product_flash_sale.php:102
 #: includes/addons/wb_product_upsell.php:50
 #: includes/addons/wl_testimonial.php:182
 #: includes/addons/wl_testimonial.php:192
@@ -1684,15 +1681,15 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: includes/helper-function.php:1287 includes/addons/product_flash_sale.php:137
+#: includes/helper-function.php:1308 includes/addons/product_flash_sale.php:138
 #: includes/addons/product_image_accordion.php:150
 #: includes/addons/product_accordion.php:171
 #: includes/addons/product_curvy.php:206 includes/addons/product_tabs.php:165
 msgid "Comment count"
 msgstr ""
 
-#: includes/helper-function.php:1354
-#: woolentor-blocks/includes/helper-functions.php:619
+#: includes/helper-function.php:1375
+#: woolentor-blocks/includes/helper-functions.php:615
 #: includes/addons/wb_product_add_to_cart.php:1290
 #: woolentor-blocks/production/includes/helper-functions.php:619
 #: woolentor-blocks/build/blocks/product-addtocart/manager.php:115
@@ -1754,7 +1751,7 @@ msgstr ""
 msgid "Content Area"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:210
+#: includes/addons/product_flash_sale.php:211
 msgid "Content Bottom"
 msgstr ""
 
@@ -1806,7 +1803,7 @@ msgstr ""
 msgid "Content Settings"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:206
+#: includes/addons/product_flash_sale.php:207
 msgid "Content Top"
 msgstr ""
 
@@ -1834,15 +1831,15 @@ msgstr ""
 msgid "Count Me In"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:168
+#: includes/addons/product_flash_sale.php:169
 msgid "Countdown"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:186
+#: includes/addons/product_flash_sale.php:187
 msgid "Countdown Style"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:238
+#: includes/addons/product_flash_sale.php:239
 msgid "Countdown Title"
 msgstr ""
 
@@ -1850,7 +1847,7 @@ msgstr ""
 msgid "Counter"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:845
+#: includes/addons/product_flash_sale.php:846
 #: includes/addons/wb_wishsuite_counter.php:112
 msgid "Counter Background"
 msgstr ""
@@ -1867,15 +1864,15 @@ msgstr ""
 msgid "Counter Icon Color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:814
+#: includes/addons/product_flash_sale.php:815
 msgid "Counter Item"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:855
+#: includes/addons/product_flash_sale.php:856
 msgid "Counter Label"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:761
+#: includes/addons/product_flash_sale.php:762
 msgid "Counter Style"
 msgstr ""
 
@@ -1906,7 +1903,9 @@ msgstr ""
 
 #: includes/modules/currency-switcher/includes/classes/Widgets_And_Blocks.php:46
 #: includes/modules/currency-switcher/includes/classes/Widgets_And_Blocks.php:59
+#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:32
 #: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:40
+#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:56
 msgid "Currency Switcher"
 msgstr ""
 
@@ -1933,7 +1932,7 @@ msgstr ""
 msgid "Custom checkout Page Builder"
 msgstr ""
 
-#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:134
+#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:150
 msgid "Custom Currency Symbol"
 msgstr ""
 
@@ -1945,7 +1944,7 @@ msgstr ""
 msgid "Custom Icon"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:253
+#: includes/addons/product_flash_sale.php:254
 msgid "Custom Label"
 msgstr ""
 
@@ -1957,7 +1956,7 @@ msgstr ""
 msgid "Custom my account Page Builder"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:118
+#: includes/addons/product_flash_sale.php:119
 #: includes/addons/product_tabs.php:146
 msgid "Custom Order"
 msgstr ""
@@ -2011,7 +2010,7 @@ msgstr ""
 msgid "Data Saved successfully!"
 msgstr ""
 
-#: includes/helper-function.php:1284 includes/addons/product_flash_sale.php:134
+#: includes/helper-function.php:1305 includes/addons/product_flash_sale.php:135
 #: includes/addons/wb_product_upsell.php:66
 #: includes/addons/wb_archive_product.php:127
 #: includes/addons/product_image_accordion.php:147
@@ -2021,10 +2020,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:265
-#: includes/addons/product_flash_sale.php:267
-#: includes/addons/product_flash_sale.php:1029
-#: includes/modules/flash-sale/class.flash-sale.php:447
+#: includes/addons/product_flash_sale.php:266
+#: includes/addons/product_flash_sale.php:268
+#: includes/addons/product_flash_sale.php:1030
+#: includes/modules/flash-sale/class.flash-sale.php:480
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:40
 msgid "Days"
 msgstr ""
 
@@ -2040,11 +2040,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:157
+#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:173
 msgid "Default Currency"
 msgstr ""
 
-#: includes/helper-function.php:1082
+#: includes/helper-function.php:1089
 msgid "Default sorting"
 msgstr ""
 
@@ -2065,7 +2065,7 @@ msgstr ""
 msgid "DESC"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:153
+#: includes/addons/product_flash_sale.php:154
 #: includes/addons/product_image_accordion.php:166
 #: includes/addons/product_accordion.php:187
 #: includes/addons/wl_category.php:138 includes/addons/product_curvy.php:222
@@ -2180,7 +2180,7 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: includes/helper-function.php:651
+#: includes/helper-function.php:658
 msgid "div"
 msgstr ""
 
@@ -2535,7 +2535,7 @@ msgstr ""
 msgid "FAQ Title"
 msgstr ""
 
-#: includes/helper-function.php:1289
+#: includes/helper-function.php:1310
 msgid "Featured"
 msgstr ""
 
@@ -2640,7 +2640,7 @@ msgstr ""
 msgid "Flash Sale Countdown"
 msgstr ""
 
-#: includes/modules/flash-sale/class.flash-sale.php:196
+#: includes/modules/flash-sale/class.flash-sale.php:230
 msgid "Flash Sale!"
 msgstr ""
 
@@ -2705,13 +2705,13 @@ msgstr ""
 msgid "Free shipping"
 msgstr ""
 
-#: includes/modules/flash-sale/class.flash-sale.php:160
+#: includes/modules/flash-sale/class.flash-sale.php:194
 msgid "Free!"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:885
-#: woolentor-blocks/build/blocks/suggest-price/index.php:30
-#: woolentor-blocks/src/blocks/suggest-price/index.php:30
+#: includes/addons/wb_product_suggest_price.php:896
+#: woolentor-blocks/build/blocks/suggest-price/index.php:45
+#: woolentor-blocks/src/blocks/suggest-price/index.php:45
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:30
 msgid "From: "
 msgstr ""
@@ -2720,7 +2720,7 @@ msgstr ""
 msgid "Front Page"
 msgstr ""
 
-#: woolentor-blocks/includes/helper-functions.php:378
+#: woolentor-blocks/includes/helper-functions.php:374
 #: woolentor-blocks/production/includes/helper-functions.php:378
 msgid "Full"
 msgstr ""
@@ -2731,11 +2731,11 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:63
+#: includes/addons/product_flash_sale.php:64
 msgid "General Settings"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:379
+#: includes/addons/product_flash_sale.php:380
 msgid "General Style"
 msgstr ""
 
@@ -2779,27 +2779,27 @@ msgstr ""
 msgid "Gutenberg"
 msgstr ""
 
-#: includes/helper-function.php:644
+#: includes/helper-function.php:651
 msgid "H1"
 msgstr ""
 
-#: includes/helper-function.php:645
+#: includes/helper-function.php:652
 msgid "H2"
 msgstr ""
 
-#: includes/helper-function.php:646
+#: includes/helper-function.php:653
 msgid "H3"
 msgstr ""
 
-#: includes/helper-function.php:647
+#: includes/helper-function.php:654
 msgid "H4"
 msgstr ""
 
-#: includes/helper-function.php:648
+#: includes/helper-function.php:655
 msgid "H5"
 msgstr ""
 
-#: includes/helper-function.php:649
+#: includes/helper-function.php:656
 msgid "H6"
 msgstr ""
 
@@ -2866,7 +2866,7 @@ msgstr ""
 msgid "heartBeat"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:942
+#: includes/addons/product_flash_sale.php:943
 #: includes/addons/wl_onepage_slider.php:448
 #: includes/addons/wl_onepage_slider.php:519
 #: includes/addons/wl_product_video_gallery.php:97
@@ -2886,11 +2886,12 @@ msgstr ""
 msgid "Helping Screenshot"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1224
+#: includes/addons/product_flash_sale.php:1225
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:235
 msgid "Here"
 msgstr ""
 
-#: includes/helper-function.php:1213 includes/helper-function.php:1231
+#: includes/helper-function.php:1220 includes/helper-function.php:1238
 msgid "here"
 msgstr ""
 
@@ -2900,8 +2901,8 @@ msgid ""
 "WooCommerce store."
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:177
-#: includes/addons/product_flash_sale.php:329
+#: includes/addons/product_flash_sale.php:178
+#: includes/addons/product_flash_sale.php:330
 #: includes/addons/wb_product_upsell.php:96
 #: includes/addons/wb_archive_product.php:806
 #: includes/addons/wl_archive_title.php:63
@@ -2990,14 +2991,15 @@ msgstr ""
 msgid "Horizontal Product Filter"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:278
-#: includes/addons/product_flash_sale.php:280
-#: includes/addons/product_flash_sale.php:1030
-#: includes/modules/flash-sale/class.flash-sale.php:448
+#: includes/addons/product_flash_sale.php:279
+#: includes/addons/product_flash_sale.php:281
+#: includes/addons/product_flash_sale.php:1031
+#: includes/modules/flash-sale/class.flash-sale.php:481
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:41
 msgid "Hours"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:723
+#: includes/addons/product_flash_sale.php:724
 #: includes/addons/wl_product_horizontal_filter.php:683
 #: includes/addons/wl_product_horizontal_filter.php:875
 #: includes/addons/special_day_offer.php:720
@@ -3070,7 +3072,7 @@ msgstr ""
 msgid "HT Duplicator"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:241
+#: includes/addons/product_flash_sale.php:242
 msgid "HTML tags are allowed."
 msgstr ""
 
@@ -3087,7 +3089,7 @@ msgstr ""
 msgid "https://your-link.com"
 msgstr ""
 
-#: includes/modules/flash-sale/class.flash-sale.php:438
+#: includes/modules/flash-sale/class.flash-sale.php:471
 msgid "Hurry Up! Offer ends in"
 msgstr ""
 
@@ -3105,7 +3107,7 @@ msgstr ""
 msgid "Icon Background"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:538
+#: includes/addons/product_flash_sale.php:539
 #: includes/addons/wl_breadcrumbs.php:154
 #: includes/addons/wl_store_features.php:264
 #: includes/addons/wb_wishsuite_table.php:311
@@ -3135,7 +3137,7 @@ msgstr ""
 msgid "Icon Position"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:551
+#: includes/addons/product_flash_sale.php:552
 #: includes/addons/wl_breadcrumbs.php:166
 #: includes/addons/wl_store_features.php:294
 #: includes/addons/wl_product_filter.php:358
@@ -3158,7 +3160,7 @@ msgstr ""
 msgid "Icon Width"
 msgstr ""
 
-#: includes/helper-function.php:1283 includes/addons/product_flash_sale.php:133
+#: includes/helper-function.php:1304 includes/addons/product_flash_sale.php:134
 #: includes/addons/product_image_accordion.php:146
 #: includes/addons/product_accordion.php:167
 #: includes/addons/wl_category.php:152 includes/addons/product_curvy.php:202
@@ -3430,7 +3432,7 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:864
+#: includes/addons/product_flash_sale.php:865
 #: includes/addons/wl_product_filter.php:666
 msgid "Label Color"
 msgstr ""
@@ -3607,10 +3609,10 @@ msgstr ""
 msgid "Managing Director"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:386
-#: includes/addons/product_flash_sale.php:453
-#: includes/addons/product_flash_sale.php:475
-#: includes/addons/product_flash_sale.php:801
+#: includes/addons/product_flash_sale.php:387
+#: includes/addons/product_flash_sale.php:454
+#: includes/addons/product_flash_sale.php:476
+#: includes/addons/product_flash_sale.php:802
 #: includes/addons/wb_product_price.php:71
 #: includes/addons/wl_product_horizontal_filter.php:388
 #: includes/addons/wl_product_horizontal_filter.php:474
@@ -3752,8 +3754,9 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1031
-#: includes/modules/flash-sale/class.flash-sale.php:449
+#: includes/addons/product_flash_sale.php:1032
+#: includes/modules/flash-sale/class.flash-sale.php:482
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:42
 msgid "Min"
 msgstr ""
 
@@ -3781,8 +3784,8 @@ msgstr ""
 msgid "Minus Icon Color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:291
-#: includes/addons/product_flash_sale.php:293
+#: includes/addons/product_flash_sale.php:292
+#: includes/addons/product_flash_sale.php:294
 msgid "Minutes"
 msgstr ""
 
@@ -3865,7 +3868,7 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: includes/helper-function.php:1285 includes/addons/product_flash_sale.php:135
+#: includes/helper-function.php:1306 includes/addons/product_flash_sale.php:136
 #: includes/addons/wl_testimonial.php:82 includes/addons/wl_testimonial.php:576
 #: includes/addons/product_image_accordion.php:148
 #: includes/addons/product_accordion.php:169
@@ -3956,7 +3959,7 @@ msgstr ""
 msgid "No Order label"
 msgstr ""
 
-#: includes/helper-function.php:1530
+#: includes/helper-function.php:1551
 msgid "No products were found matching your selection."
 msgstr ""
 
@@ -4013,7 +4016,7 @@ msgstr ""
 msgid "Nonce Varification Faild !"
 msgstr ""
 
-#: includes/helper-function.php:1282 includes/addons/product_flash_sale.php:132
+#: includes/helper-function.php:1303 includes/addons/product_flash_sale.php:133
 #: includes/addons/product_image_accordion.php:145
 #: includes/addons/product_accordion.php:166
 #: includes/addons/product_curvy.php:201
@@ -4025,7 +4028,7 @@ msgid "None"
 msgstr ""
 
 #: includes/addons/wl_faq.php:378 includes/addons/wl_faq.php:625
-#: includes/addons/product_flash_sale.php:653
+#: includes/addons/product_flash_sale.php:654
 #: includes/addons/wl_product_horizontal_filter.php:651
 #: includes/addons/wl_product_horizontal_filter.php:832
 #: includes/addons/special_day_offer.php:633
@@ -4076,8 +4079,8 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:574
-#: includes/addons/product_flash_sale.php:823
+#: includes/addons/product_flash_sale.php:575
+#: includes/addons/product_flash_sale.php:824
 msgid "Number Color"
 msgstr ""
 
@@ -4210,7 +4213,7 @@ msgstr ""
 msgid "Option"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:149
+#: includes/addons/product_flash_sale.php:150
 #: includes/addons/wb_product_upsell.php:80
 #: includes/addons/wb_archive_product.php:144
 #: includes/addons/wb_product_related.php:95
@@ -4240,7 +4243,7 @@ msgstr ""
 msgid "Order By"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:128
+#: includes/addons/product_flash_sale.php:129
 #: includes/addons/wb_archive_product.php:123
 #: includes/addons/product_image_accordion.php:141
 #: includes/addons/product_accordion.php:162
@@ -4260,7 +4263,7 @@ msgstr ""
 msgid "Ordering"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:594
+#: includes/addons/product_flash_sale.php:595
 msgid "Others"
 msgstr ""
 
@@ -4271,7 +4274,7 @@ msgid ""
 "the pro version."
 msgstr ""
 
-#: includes/helper-function.php:1005 includes/helper-function.php:1053
+#: includes/helper-function.php:1012 includes/helper-function.php:1060
 msgid "Out of stock"
 msgstr ""
 
@@ -4279,13 +4282,13 @@ msgstr ""
 msgid "Out of Stock Badge Color"
 msgstr ""
 
-#: includes/helper-function.php:650
+#: includes/helper-function.php:657
 msgid "p"
 msgstr ""
 
 #: includes/addons/wl_faq.php:326 includes/addons/wl_faq.php:395
 #: includes/addons/wl_faq.php:513 includes/addons/wl_faq.php:598
-#: includes/addons/product_flash_sale.php:398
+#: includes/addons/product_flash_sale.php:399
 #: includes/addons/wl_product_horizontal_filter.php:376
 #: includes/addons/wl_product_horizontal_filter.php:462
 #: includes/addons/wl_product_horizontal_filter.php:529
@@ -4509,13 +4512,13 @@ msgstr ""
 msgid "Popup Close Trigger Button"
 msgstr ""
 
-#: includes/modules/popup-builder/includes/class-assets.php:79
+#: includes/modules/popup-builder/includes/class-assets.php:81
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:95
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:60
 msgid "Popup Settings"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:202
+#: includes/addons/product_flash_sale.php:203
 #: includes/addons/wl_testimonial.php:821
 #: includes/addons/wl_testimonial.php:906
 #: includes/addons/wb_archive_product.php:895
@@ -4665,8 +4668,8 @@ msgstr ""
 msgid "Product Add To Cart"
 msgstr ""
 
-#: includes/helper-function.php:1332
-#: woolentor-blocks/includes/helper-functions.php:604
+#: includes/helper-function.php:1353
+#: woolentor-blocks/includes/helper-functions.php:600
 #: woolentor-blocks/production/includes/helper-functions.php:604
 msgid "Product Added"
 msgstr ""
@@ -4751,6 +4754,10 @@ msgstr ""
 msgid "Product Filter"
 msgstr ""
 
+#: includes/modules/flash-sale/includes/Widgets_And_Blocks.php:43
+msgid "Product Flash Sale"
+msgstr ""
+
 #: includes/admin/templates/dashboard-freevspro.php:83
 msgid "Product Grid"
 msgstr ""
@@ -4798,7 +4805,7 @@ msgstr ""
 msgid "Product image border"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:91
+#: includes/addons/product_flash_sale.php:92
 #: includes/addons/product_image_accordion.php:107
 #: includes/addons/product_accordion.php:142
 #: includes/addons/product_curvy.php:177
@@ -4812,7 +4819,7 @@ msgstr ""
 msgid "Product Meta"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:338
+#: includes/addons/product_flash_sale.php:339
 msgid ""
 "Product must have both \"Manage stock\" and \"Initial number in stock\" set "
 "from the \"Inventory\" tab to display the stock progress indicator.\""
@@ -4826,8 +4833,8 @@ msgstr ""
 msgid "Product Per Page"
 msgstr ""
 
-#: classes/class.widgets_control.php:353 includes/helper-function.php:1290
-#: includes/addons/product_flash_sale.php:466
+#: classes/class.widgets_control.php:353 includes/helper-function.php:1311
+#: includes/addons/product_flash_sale.php:467
 #: includes/addons/product_image_accordion.php:411
 #: includes/addons/product_accordion.php:489
 #: includes/addons/product_curvy.php:482 includes/addons/product_tabs.php:1012
@@ -4843,7 +4850,7 @@ msgstr ""
 msgid "Product QR Code"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:529
+#: includes/addons/product_flash_sale.php:530
 #: includes/addons/product_image_accordion.php:474
 #: includes/addons/product_accordion.php:552
 #: includes/addons/product_curvy.php:647
@@ -4948,7 +4955,7 @@ msgid "Product tags does not exists."
 msgstr ""
 
 #: classes/class.widgets_control.php:325
-#: includes/addons/product_flash_sale.php:411
+#: includes/addons/product_flash_sale.php:412
 #: includes/addons/product_image_accordion.php:357
 #: includes/addons/product_curvy.php:410
 #: includes/addons/wb_product_title.php:43
@@ -5063,7 +5070,7 @@ msgstr ""
 msgid "Qunantity Text Color"
 msgstr ""
 
-#: includes/helper-function.php:1288 includes/addons/product_flash_sale.php:138
+#: includes/helper-function.php:1309 includes/addons/product_flash_sale.php:139
 #: includes/addons/wb_product_upsell.php:71
 #: includes/addons/wb_archive_product.php:132
 #: includes/addons/product_image_accordion.php:151
@@ -5157,7 +5164,7 @@ msgstr ""
 msgid "Regular Price"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:508
+#: includes/addons/product_flash_sale.php:509
 #: includes/addons/product_image_accordion.php:440
 #: includes/addons/product_accordion.php:518
 #: includes/addons/product_curvy.php:530 includes/addons/product_curvy.php:546
@@ -5196,9 +5203,9 @@ msgstr ""
 msgid "Rename Label"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:885
-#: woolentor-blocks/build/blocks/suggest-price/index.php:30
-#: woolentor-blocks/src/blocks/suggest-price/index.php:30
+#: includes/addons/wb_product_suggest_price.php:896
+#: woolentor-blocks/build/blocks/suggest-price/index.php:45
+#: woolentor-blocks/src/blocks/suggest-price/index.php:45
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:30
 msgid "Reply-To: "
 msgstr ""
@@ -5395,7 +5402,7 @@ msgstr ""
 msgid "Sale Price"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:488
+#: includes/addons/product_flash_sale.php:489
 #: includes/addons/product_image_accordion.php:420
 #: includes/addons/product_accordion.php:498
 #: includes/addons/product_curvy.php:491 includes/addons/product_curvy.php:506
@@ -5412,7 +5419,7 @@ msgstr ""
 msgid "Sale Tag"
 msgstr ""
 
-#: includes/helper-function.php:1002 includes/helper-function.php:1048
+#: includes/helper-function.php:1009 includes/helper-function.php:1055
 msgid "Sale!"
 msgstr ""
 
@@ -5511,13 +5518,14 @@ msgstr ""
 msgid "Search.."
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1032
-#: includes/modules/flash-sale/class.flash-sale.php:450
+#: includes/addons/product_flash_sale.php:1033
+#: includes/modules/flash-sale/class.flash-sale.php:483
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:43
 msgid "Sec"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:304
-#: includes/addons/product_flash_sale.php:306
+#: includes/addons/product_flash_sale.php:305
+#: includes/addons/product_flash_sale.php:307
 msgid "Seconds"
 msgstr ""
 
@@ -5542,7 +5550,7 @@ msgstr ""
 msgid "Select Content Source"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:80
+#: includes/addons/product_flash_sale.php:81
 msgid "Select Deal"
 msgstr ""
 
@@ -5584,7 +5592,7 @@ msgstr ""
 msgid "Separator"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:603
+#: includes/addons/product_flash_sale.php:604
 msgid "Separator Border Color"
 msgstr ""
 
@@ -5609,7 +5617,7 @@ msgstr ""
 msgid "Set featured image"
 msgstr ""
 
-#: includes/helper-function.php:1213 includes/helper-function.php:1231
+#: includes/helper-function.php:1220 includes/helper-function.php:1238
 msgid "Set the initial stock amount from"
 msgstr ""
 
@@ -5704,12 +5712,20 @@ msgstr ""
 msgid "ShopLentor Blocks"
 msgstr ""
 
+#: includes/admin/include/class.template-manager.php:233
+msgid "ShopLentor Canvas"
+msgstr ""
+
 #: includes/admin/templates/dashboard-element.php:15
 msgid "ShopLentor Element"
 msgstr ""
 
 #: includes/admin/templates/dashboard-freevspro.php:200
 msgid "ShopLentor Free Vs Pro"
+msgstr ""
+
+#: includes/admin/include/class.template-manager.php:234
+msgid "ShopLentor Full width"
 msgstr ""
 
 #: includes/admin/templates/dashboard-sidebar.php:9
@@ -5731,8 +5747,8 @@ msgstr ""
 msgid "ShopLentor – WooCommerce Builder for Elementor & Gutenberg"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:176
-#: includes/addons/product_flash_sale.php:328
+#: includes/addons/product_flash_sale.php:177
+#: includes/addons/product_flash_sale.php:329
 #: includes/addons/wb_product_upsell.php:95
 #: includes/addons/wb_archive_product.php:807
 #: includes/addons/wl_archive_title.php:64
@@ -5781,7 +5797,7 @@ msgstr ""
 msgid "Show Count"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:174
+#: includes/addons/product_flash_sale.php:175
 msgid "Show Countdown Timer"
 msgstr ""
 
@@ -5855,7 +5871,7 @@ msgstr ""
 msgid "Show Result Count"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:326
+#: includes/addons/product_flash_sale.php:327
 msgid "Show Stock Progress Bar"
 msgstr ""
 
@@ -6037,20 +6053,21 @@ msgstr ""
 msgid "Social Share"
 msgstr ""
 
-#: includes/helper-function.php:1226
+#: includes/helper-function.php:1233
 msgid "Sold"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:350
+#: includes/addons/product_flash_sale.php:351
 msgid "Sold Custom Text"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:920
+#: includes/addons/product_flash_sale.php:921
 msgid "Sold Label Color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:352
-#: includes/addons/product_flash_sale.php:1037
+#: includes/addons/product_flash_sale.php:353
+#: includes/addons/product_flash_sale.php:1038
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:48
 msgid "Sold:"
 msgstr ""
 
@@ -6124,9 +6141,9 @@ msgstr ""
 msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:876
-#: woolentor-blocks/build/blocks/suggest-price/index.php:21
-#: woolentor-blocks/src/blocks/suggest-price/index.php:21
+#: includes/addons/wb_product_suggest_price.php:887
+#: woolentor-blocks/build/blocks/suggest-price/index.php:36
+#: woolentor-blocks/src/blocks/suggest-price/index.php:36
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:21
 msgid "Sorry, your nonce verification fail."
 msgstr ""
@@ -6138,23 +6155,23 @@ msgstr ""
 msgid "Sort By"
 msgstr ""
 
-#: includes/helper-function.php:1084
+#: includes/helper-function.php:1091
 msgid "Sort by average rating"
 msgstr ""
 
-#: includes/helper-function.php:1085
+#: includes/helper-function.php:1092
 msgid "Sort by latest"
 msgstr ""
 
-#: includes/helper-function.php:1083
+#: includes/helper-function.php:1090
 msgid "Sort by popularity"
 msgstr ""
 
-#: includes/helper-function.php:1087
+#: includes/helper-function.php:1094
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: includes/helper-function.php:1086
+#: includes/helper-function.php:1093
 msgid "Sort by price: low to high"
 msgstr ""
 
@@ -6177,7 +6194,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: includes/helper-function.php:652
+#: includes/helper-function.php:659
 msgid "span"
 msgstr ""
 
@@ -6219,11 +6236,11 @@ msgstr ""
 msgid "Stock availability does not exist this product."
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:319
+#: includes/addons/product_flash_sale.php:320
 msgid "Stock Progress Bar"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:887
+#: includes/addons/product_flash_sale.php:888
 msgid "Stock Progress Style"
 msgstr ""
 
@@ -6269,7 +6286,7 @@ msgstr ""
 msgid "Style Four"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:190
+#: includes/addons/product_flash_sale.php:191
 #: includes/addons/wl_testimonial.php:56 includes/addons/product_curvy.php:65
 #: includes/addons/wb_image_marker.php:86
 #: includes/addons/wb_customer_review.php:54
@@ -6289,7 +6306,7 @@ msgstr ""
 msgid "Style Three"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:191
+#: includes/addons/product_flash_sale.php:192
 #: includes/addons/wl_testimonial.php:57 includes/addons/product_curvy.php:66
 #: includes/addons/wb_image_marker.php:87
 #: includes/addons/wb_customer_review.php:55
@@ -6357,9 +6374,6 @@ msgstr ""
 msgid "Successfully Settings Saved."
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:884
-#: woolentor-blocks/build/blocks/suggest-price/index.php:29
-#: woolentor-blocks/src/blocks/suggest-price/index.php:29
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:29
 msgid "Suggest For Price"
 msgstr ""
@@ -6690,7 +6704,7 @@ msgid ""
 "been entered correctly, or contact us if you need any help."
 msgstr ""
 
-#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:126
+#: includes/modules/currency-switcher/includes/classes/Admin/Fields.php:142
 msgid "This is a pro features"
 msgstr ""
 
@@ -6710,15 +6724,15 @@ msgstr ""
 msgid "Three"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:222
+#: includes/addons/product_flash_sale.php:223
 msgid "Thumbnail Bottom"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:214
+#: includes/addons/product_flash_sale.php:215
 msgid "Thumbnail Left"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:218
+#: includes/addons/product_flash_sale.php:219
 msgid "Thumbnail Right"
 msgstr ""
 
@@ -6735,9 +6749,9 @@ msgstr ""
 msgid "Thumbnails Position"
 msgstr ""
 
-#: includes/helper-function.php:1286 includes/addons/wl_faq.php:68
-#: includes/addons/wl_faq.php:342 includes/addons/product_flash_sale.php:136
-#: includes/addons/product_flash_sale.php:772
+#: includes/helper-function.php:1307 includes/addons/wl_faq.php:68
+#: includes/addons/wl_faq.php:342 includes/addons/product_flash_sale.php:137
+#: includes/addons/product_flash_sale.php:773
 #: includes/addons/wl_product_horizontal_filter.php:249
 #: includes/addons/wl_product_horizontal_filter.php:422
 #: includes/addons/wl_onepage_slider.php:73
@@ -6772,7 +6786,7 @@ msgstr ""
 msgid "Title Area"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:420
+#: includes/addons/product_flash_sale.php:421
 #: includes/addons/wl_archive_title.php:144
 #: includes/addons/product_image_accordion.php:374
 #: includes/addons/product_accordion.php:414
@@ -6789,7 +6803,7 @@ msgstr ""
 msgid "Title color"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:441
+#: includes/addons/product_flash_sale.php:442
 #: includes/addons/product_image_accordion.php:386
 #: includes/addons/product_curvy.php:456
 msgid "Title Hover Color"
@@ -6810,7 +6824,8 @@ msgstr ""
 msgid "to"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1224
+#: includes/addons/product_flash_sale.php:1225
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:235
 msgid "To show the stock progress bar. Set the initial stock amount from"
 msgstr ""
 
@@ -6848,7 +6863,7 @@ msgstr ""
 msgid "Top On Image"
 msgstr ""
 
-#: includes/helper-function.php:1292
+#: includes/helper-function.php:1313
 msgid "Top Rated"
 msgstr ""
 
@@ -6858,7 +6873,7 @@ msgstr ""
 msgid "Top Rated Products"
 msgstr ""
 
-#: includes/helper-function.php:1291
+#: includes/helper-function.php:1312
 msgid "Top Seller"
 msgstr ""
 
@@ -6979,7 +6994,8 @@ msgstr ""
 msgid "Typography"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1270
+#: includes/addons/product_flash_sale.php:1271
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:282
 msgid "Unfortunately, no products were found in the deal you selected."
 msgstr ""
 
@@ -6995,7 +7011,8 @@ msgstr ""
 msgid "Universal Product"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:52
+#: includes/addons/product_flash_sale.php:53
+#: woolentor-blocks/includes/classes/Api/Api.php:485
 msgid "Unnamed Deal"
 msgstr ""
 
@@ -7618,7 +7635,7 @@ msgid "WL: Product Filter"
 msgstr ""
 
 #: classes/class.widgets_control.php:421
-#: includes/addons/product_flash_sale.php:13
+#: includes/addons/product_flash_sale.php:14
 msgid "WL: Product Flash Sale"
 msgstr ""
 
@@ -7807,14 +7824,6 @@ msgstr ""
 #: woolentor-blocks/includes/classes/Manage_Styles.php:150
 #: woolentor-blocks/production/includes/classes/Manage_Styles.php:150
 msgid "WooLentor Blocks css file update."
-msgstr ""
-
-#: includes/admin/include/class.template-manager.php:233
-msgid "WooLentor Canvas"
-msgstr ""
-
-#: includes/admin/include/class.template-manager.php:234
-msgid "WooLentor Full width"
 msgstr ""
 
 #: includes/admin/templates/dashboard-sidebar.php:8

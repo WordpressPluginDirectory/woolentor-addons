@@ -1,3 +1,6 @@
+.wp-block-woolentor-freewidget{
+  display: block;
+}
 /* Cart page */
 .woocommerce dt.variation-woolentor_cart_flash_sale_label,.woocommerce .variation-woolentor_cart_flash_sale_label.wl-variation-key{
     display: none !important;
@@ -527,7 +530,6 @@
   }
   .single-product .woolentor-flash-product-offer-timer-text{
       text-align: left;
-      margin-bottom: 10px;
       display: inline-block;
       background-color: #272626;
       color: #fff;

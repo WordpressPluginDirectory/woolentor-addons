@@ -832,6 +832,17 @@ class Woolentor_Wb_Product_Suggest_Price_Widget extends Widget_Base {
         $settings = $this->get_settings();
         $id = $this->get_id();
 
+        global $post;
+        if( woolentor_is_preview_mode() ){
+            $product = wc_get_product(woolentor_get_last_product_id());
+        } else{
+            $product = wc_get_product();
+        }
+        if ( empty( $product ) ) { return; }
+        if ( $product && !is_a( $product, 'WC_Product' ) ) {
+            $product = wc_get_product( $post->ID );
+        }
+
         $this->add_render_attribute(
             [
 
@@ -881,7 +892,7 @@ class Woolentor_Wb_Product_Suggest_Price_Widget extends Widget_Base {
 
                             //php mailer variables
                             $sentto  = $settings['send_to_mail'];
-                            $subject = esc_html__("Suggest For Price",'woolentor');
+                            $subject = esc_html__("Suggest Price For - ".$product->get_title(), 'woolentor');
                             $headers = esc_html__('From: ','woolentor'). esc_html( $email ) . "\r\n" . esc_html__('Reply-To: ', 'woolentor') . esc_html( $email ) . "\r\n";
 
                             //Here put your Validation and send mail

@@ -590,6 +590,11 @@
   margin: 0;
 }
 
+.woocommerce [class*="woolentor-grid-style-"] a.added_to_cart {
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 5px;
+}
 
 .ht-product-2:hover .ht-product-image-wrap-2 a img.ht-product-img-zoom {
   transform: scale(1.2);

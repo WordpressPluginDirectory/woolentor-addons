@@ -452,7 +452,18 @@
             } else {
                 $('.woolentor-template-edit-set-default-field.woolentor-template-edit-set-checkbox').show();
             }
-        }
+        },
+
+        MenuForTopBar: function() {
+            return {
+                icon: elementorV2?.icons?.SettingsIcon,
+                title: wlpb_params.label_popup_settings,
+                visible: true,
+                onClick: () => {
+                    popupBuilderAdmin.openModal();
+                },
+            };
+        },
 
     }
 
@@ -476,6 +487,14 @@
         elementor.on("wlpb_conditions_open_elementor", function (e) {
             popupBuilderAdmin.openModal();
         });
+    }
+
+    /**
+     * Popup Menu for Editor Panel.
+     */
+    var appBarMenu = elementorV2.editorAppBar;
+    if( typeof appBarMenu != "undefined" ){
+        appBarMenu.documentOptionsMenu.registerAction({ id: "wlpb_conditions", priority: 20, useProps: popupBuilderAdmin.MenuForTopBar })
     }
 
 })(jQuery);

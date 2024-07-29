@@ -4,10 +4,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$is_editor = ( isset( $_GET['is_editor_mode'] ) && $_GET['is_editor_mode'] == 'yes' ) ? true : false;
+
 $uniqClass 	 = 'woolentorblock-'.$settings['blockUniqId'];
 $areaClasses = array( $uniqClass );
 
 !empty( $settings['className'] ) ? $areaClasses[] = esc_attr( $settings['className'] ) : '';
+
+
+global $post;
+if( $is_editor ){
+	$product = wc_get_product(woolentor_get_last_product_id());
+} else{
+	$product = wc_get_product();
+}
+if ( empty( $product ) ) { return; }
+if ( $product && !is_a( $product, 'WC_Product' ) ) {
+	$product = wc_get_product( $post->ID );
+}
+
 
 $id = $settings['blockUniqId'];
 
@@ -26,7 +41,7 @@ echo '<div class="'.esc_attr(implode(' ', $areaClasses )).'">';
 
 					//php mailer variables
 					$sentto  = $settings['sendToMail'];
-					$subject = esc_html__("Suggest For Price",'woolentor');
+					$subject = esc_html__("Suggest Price For - ".$product->get_title(), 'woolentor');
 					$headers = esc_html__('From: ','woolentor'). esc_html( $email ) . "\r\n" . esc_html__('Reply-To: ', 'woolentor') . esc_html( $email ) . "\r\n";
 
 					//Here put your Validation and send mail

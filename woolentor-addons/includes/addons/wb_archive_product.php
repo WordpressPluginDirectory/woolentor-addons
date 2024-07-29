@@ -957,11 +957,11 @@ class Woolentor_Wb_Archive_Product_Widget extends Widget_Base {
             <div class="<?php echo esc_attr( $wrap_class ); ?>"<?php echo $wrap_attributes; ?>>
                 <div class="<?php echo esc_attr( $content_class ); ?>">
                     <?php
-                    if ( wp_strip_all_tags( $content ) ) {
-                        echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                    } else{
-                        echo $not_found_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                    }
+                        if ( wp_strip_all_tags( $content ) ) {
+                            echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        } else{
+                            echo $not_found_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        }
                     ?>
                 </div>
             </div>
