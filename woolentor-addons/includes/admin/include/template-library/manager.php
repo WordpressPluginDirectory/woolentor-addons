@@ -54,6 +54,19 @@ class Woolentor_Template_Library_Manager{
     }
 
     /**
+     * Delete Remote Data Fetching cache
+     * @return void
+     */
+    public static function delete_transient_cache_data(){
+        if ( get_option( 'woolentor_delete_data_fetch_cache', FALSE ) ) {
+            foreach( self::TRANSIENT_KEYES as $transient_key ){
+                delete_transient( $transient_key );
+            }
+            delete_option('woolentor_delete_data_fetch_cache');
+        }
+    }
+
+    /**
      * Get Remote URL
      *
      * @param [type] $name
@@ -85,6 +98,8 @@ class Woolentor_Template_Library_Manager{
      * @param boolean $force_update
      */
     public static function get_template_remote_data( $type, $endpoint = null, $force_update = false ){
+        self::delete_transient_cache_data();
+
         $transient_key  = self::TRANSIENT_KEYES[$type];
         $endpoint       = $endpoint !== null ? $endpoint : self::get_remote_url($type);
         if ( !get_transient( $transient_key ) || $force_update ) {

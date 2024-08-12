@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 04:39+0000\n"
+"POT-Creation-Date: 2024-08-12 04:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -256,7 +256,7 @@ msgstr ""
 #: includes/addons/wl_recently_viewed_products.php:406
 #: includes/addons/wb_wishsuite_table.php:347
 #: woolentor-blocks/includes/classes/Api/Api.php:258
-#: woolentor-blocks/production/includes/classes/Api/Api.php:243
+#: woolentor-blocks/production/includes/classes/Api/Api.php:258
 msgid "Add To Cart"
 msgstr ""
 
@@ -285,9 +285,9 @@ msgstr ""
 #: woolentor-blocks/includes/helper-functions.php:598
 #: woolentor-blocks/includes/helper-functions.php:599
 #: woolentor-blocks/includes/helper-functions.php:615
-#: woolentor-blocks/production/includes/helper-functions.php:602
-#: woolentor-blocks/production/includes/helper-functions.php:603
-#: woolentor-blocks/production/includes/helper-functions.php:619
+#: woolentor-blocks/production/includes/helper-functions.php:598
+#: woolentor-blocks/production/includes/helper-functions.php:599
+#: woolentor-blocks/production/includes/helper-functions.php:615
 msgid "Add to Compare"
 msgstr ""
 
@@ -1273,7 +1273,7 @@ msgstr ""
 msgid "BUY PRO"
 msgstr ""
 
-#: includes/modules/sales-notification/class.sale_notification.php:243
+#: includes/modules/sales-notification/class.sale_notification.php:241
 msgid "By"
 msgstr ""
 
@@ -1691,7 +1691,7 @@ msgstr ""
 #: includes/helper-function.php:1375
 #: woolentor-blocks/includes/helper-functions.php:615
 #: includes/addons/wb_product_add_to_cart.php:1290
-#: woolentor-blocks/production/includes/helper-functions.php:619
+#: woolentor-blocks/production/includes/helper-functions.php:615
 #: woolentor-blocks/build/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/src/blocks/product-addtocart/manager.php:115
 #: woolentor-blocks/production/src/blocks/product-addtocart/manager.php:115
@@ -2712,7 +2712,7 @@ msgstr ""
 #: includes/addons/wb_product_suggest_price.php:896
 #: woolentor-blocks/build/blocks/suggest-price/index.php:45
 #: woolentor-blocks/src/blocks/suggest-price/index.php:45
-#: woolentor-blocks/production/src/blocks/suggest-price/index.php:30
+#: woolentor-blocks/production/src/blocks/suggest-price/index.php:45
 msgid "From: "
 msgstr ""
 
@@ -2721,7 +2721,7 @@ msgid "Front Page"
 msgstr ""
 
 #: woolentor-blocks/includes/helper-functions.php:374
-#: woolentor-blocks/production/includes/helper-functions.php:378
+#: woolentor-blocks/production/includes/helper-functions.php:374
 msgid "Full"
 msgstr ""
 
@@ -4591,7 +4591,7 @@ msgstr ""
 msgid "price"
 msgstr ""
 
-#: includes/modules/sales-notification/class.sale_notification.php:244
+#: includes/modules/sales-notification/class.sale_notification.php:242
 msgid "Price :"
 msgstr ""
 
@@ -4670,7 +4670,7 @@ msgstr ""
 
 #: includes/helper-function.php:1353
 #: woolentor-blocks/includes/helper-functions.php:600
-#: woolentor-blocks/production/includes/helper-functions.php:604
+#: woolentor-blocks/production/includes/helper-functions.php:600
 msgid "Product Added"
 msgstr ""
 
@@ -5206,7 +5206,7 @@ msgstr ""
 #: includes/addons/wb_product_suggest_price.php:896
 #: woolentor-blocks/build/blocks/suggest-price/index.php:45
 #: woolentor-blocks/src/blocks/suggest-price/index.php:45
-#: woolentor-blocks/production/src/blocks/suggest-price/index.php:30
+#: woolentor-blocks/production/src/blocks/suggest-price/index.php:45
 msgid "Reply-To: "
 msgstr ""
 
@@ -6144,7 +6144,7 @@ msgstr ""
 #: includes/addons/wb_product_suggest_price.php:887
 #: woolentor-blocks/build/blocks/suggest-price/index.php:36
 #: woolentor-blocks/src/blocks/suggest-price/index.php:36
-#: woolentor-blocks/production/src/blocks/suggest-price/index.php:21
+#: woolentor-blocks/production/src/blocks/suggest-price/index.php:36
 msgid "Sorry, your nonce verification fail."
 msgstr ""
 
@@ -6372,10 +6372,6 @@ msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:646
 msgid "Successfully Settings Saved."
-msgstr ""
-
-#: woolentor-blocks/production/src/blocks/suggest-price/index.php:29
-msgid "Suggest For Price"
 msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:43
@@ -7013,6 +7009,7 @@ msgstr ""
 
 #: includes/addons/product_flash_sale.php:53
 #: woolentor-blocks/includes/classes/Api/Api.php:485
+#: woolentor-blocks/production/includes/classes/Api/Api.php:485
 msgid "Unnamed Deal"
 msgstr ""
 

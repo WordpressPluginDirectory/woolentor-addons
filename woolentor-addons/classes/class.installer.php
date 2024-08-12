@@ -50,6 +50,8 @@ class Installer {
      */
     public function add_redirection_flag(){
         add_option( 'woolentor_do_activation_redirect', TRUE );
+        // All Remote data cache Remove
+        add_option( 'woolentor_delete_data_fetch_cache', TRUE );
         flush_rewrite_rules();
     }
 

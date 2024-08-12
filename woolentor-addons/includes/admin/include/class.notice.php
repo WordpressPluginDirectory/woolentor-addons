@@ -52,10 +52,10 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
         public function ajax_dismiss() {
 
             $nonce       = !empty( $_POST['notice_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['notice_nonce'] ) ) : '';
-            $notice_id   = ( isset( $_POST['noticeid'] ) ) ? sanitize_key( $_POST['noticeid'] ) : '';
-            $alreadydid  = ( isset( $_POST['alreadydid'] ) ) ? sanitize_key( $_POST['alreadydid'] ) : '';
-            $expire_time = ( isset( $_POST['expiretime'] ) ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
-            $close_by    = ( isset( $_POST['closeby'] ) ) ? sanitize_key( $_POST['closeby'] ) : '';
+            $notice_id   = isset( $_POST['noticeid'] ) ? sanitize_key( $_POST['noticeid'] ) : '';
+            $alreadydid  = isset( $_POST['alreadydid'] ) ? sanitize_key( $_POST['alreadydid'] ) : '';
+            $expire_time = isset( $_POST['expiretime'] ) ? sanitize_text_field( wp_unslash( $_POST['expiretime'] ) ) : '';
+            $close_by    = isset( $_POST['closeby'] ) ? sanitize_key( $_POST['closeby'] ) : '';
             $notice      = $this->get_notice_by_id( $notice_id );
             $capability  = isset( $notice['capability'] ) ? $notice['capability'] : 'manage_options';
 
@@ -275,6 +275,15 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
             $notice['id'] = 'hastech-notice-id-' . $notice['id'];
             $notice['classes'] = implode( ' ', $classes );
             $notice['data'] .= ' close-by=' . esc_attr( $notice['close_by'] ) . ' ';
+
+            // Hide Screen
+            $current_screen = get_current_screen();
+
+            $hide_screen = ['plugins','plugin-install','update','shoplentor_page_woolentor_templates'];
+
+            if( in_array( $current_screen->id, $hide_screen) ){
+                $notice['is_show'] = false;
+            }
 
             return $notice;
 

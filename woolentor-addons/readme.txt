@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.6
-Stable tag: 2.9.4
+Stable tag: 2.9.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1102,6 +1102,11 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 Elementor Pro is not required. But you can use ShopLentor with Elementor free & Pro.
 
 == Changelog ==
+
+= Version: 2.9.5 - Date: 12-08-2024 =
+* Solved : WooCommerce Deprecated notice issue with Sales Notification Module.
+* Solved : Template Library data showing issue.
+* Compatibility : Latest WordPress and WooCommerce version.
 
 = Version: 2.9.4 - Date: 29-07-2024 =
 * Added : Product title added in suggest Price Email Header.

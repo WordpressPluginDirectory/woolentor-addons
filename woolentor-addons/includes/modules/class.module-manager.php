@@ -184,6 +184,16 @@ class Woolentor_Module_Manager{
             if( (  woolentor_get_option( 'enable', 'woolentor_popup_builder_settings', 'off' ) == 'on' && file_exists($popup_builder_pro_module_file) )){
                 require_once( $popup_builder_pro_module_file );
             }
+
+            // Side Mini Cart
+            if( file_exists( WOOLENTOR_ADDONS_PL_PATH_PRO .'includes/modules/side-mini-cart/side-mini-cart.php') ){
+                require_once( WOOLENTOR_ADDONS_PL_PATH_PRO .'includes/modules/side-mini-cart/side-mini-cart.php' );
+                if( woolentor_get_option( 'mini_side_cart', 'woolentor_others_tabs', 'off' ) == 'on' ){
+                    \Woolentor\Modules\SideMiniCart\woolentor_Side_Mini_Cart( true );
+                } else {
+                    \Woolentor\Modules\SideMiniCart\woolentor_Side_Mini_Cart( false );
+                }
+            }
             
 
         }

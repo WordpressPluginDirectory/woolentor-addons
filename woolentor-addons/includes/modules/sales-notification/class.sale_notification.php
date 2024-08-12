@@ -30,9 +30,9 @@ class Woolentor_Sale_Notification{
         if ( isset( $_POST ) ) {
 
             if ( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'woolentor-ajax-request' ) ) {
-				$errormessage = array(
+				$errormessage = [
 					'message'  => __('Nonce Varification Faild !','woolentor')
-				);
+                ];
 				wp_send_json_error( $errormessage );
 			}
         
@@ -41,24 +41,24 @@ class Woolentor_Sale_Notification{
 
             if ( ! $products ) {
                 
-                $query_args = array(
+                $query_args = [
                     'limit'  => woolentor_get_option( 'notification_limit','woolentor_sales_notification_tabs','5' ),
                     'type'   => 'shop_order',
-                    'status' => array('wc-completed', 'wc-pending', 'wc-processing', 'wc-on-hold'),
+                    'status' => ['wc-completed', 'wc-pending', 'wc-processing', 'wc-on-hold'],
                     'orderby'=> 'ID',
                     'order'  => 'DESC',
-                    'date_query' => array (
+                    'date_query' => [
                         'after' => gmdate('Y-m-d', strtotime('-'.woolentor_get_option('notification_uptodate','woolentor_sales_notification_tabs','5' ).' days'))
-                    )
-                );
+                    ]
+                ];
                 $posts = wc_get_orders( $query_args );
 
-                $products = array();
-                $check_wc_version = version_compare( WC()->version, '3.0', '<') ? true : false;
+                $products = [];
+                $check_wc_version = version_compare(WC()->version, '3.0', '<') ? true : false;
 
                 foreach( $posts as $post ) {
 
-                    $order = new WC_Order( $post->ID );
+                    $order = new WC_Order( $post->get_id() );
                     $order_items = $order->get_items();
 
                     if( !empty( $order_items ) ) {
@@ -69,15 +69,14 @@ class Woolentor_Sale_Notification{
                                 $product = wc_get_product( $item['product_id'] );
                                 if( !empty( $product ) ){
                                     preg_match( '/src="(.*?)"/', $product->get_image( 'thumbnail' ), $imgurl );
-                                    $p = array(
+                                    $p = [
                                         'id'    => $item['order_id'],
                                         'name'  => $product->get_title(),
                                         'url'   => $product->get_permalink(),
-                                        'date'  => $post->post_date_gmt,
                                         'image' => count($imgurl) === 2 ? $imgurl[1] : null,
                                         'price' => $this->woolentor_productprice($check_wc_version ? $product->get_display_price() : wc_get_price_to_display($product) ),
                                         'buyer' => $this->woolentor_buyer_info($order)
-                                    );
+                                    ];
                                     $p = apply_filters( 'woolentor_product_data',$p );
                                     array_push( $products, $p);
                                 }
@@ -90,15 +89,14 @@ class Woolentor_Sale_Notification{
                             $product = wc_get_product( $product_id );
                             if( !empty( $product ) ){
                                 preg_match( '/src="(.*?)"/', $product->get_image( 'thumbnail' ), $imgurl );
-                                $p = array(
+                                $p = [
                                     'id'    => $first_item['order_id'],
                                     'name'  => $product->get_title(),
                                     'url'   => $product->get_permalink(),
-                                    'date'  => $post->post_date_gmt,
                                     'image' => count($imgurl) === 2 ? $imgurl[1] : null,
                                     'price' => $this->woolentor_productprice($check_wc_version ? $product->get_display_price() : wc_get_price_to_display($product) ),
                                     'buyer' => $this->woolentor_buyer_info($order)
-                                );
+                                ];
                                 $p = apply_filters( 'woolentor_product_data',$p );
                                 array_push( $products, $p);
                             }
@@ -109,7 +107,7 @@ class Woolentor_Sale_Notification{
                 }
                 set_transient( $cachekey, $products, 60 ); // Cache the results for 1 minute
             }
-            echo( wp_json_encode( $products ) );
+            echo wp_json_encode( $products );
             wp_die();
         }
 
@@ -139,13 +137,13 @@ class Woolentor_Sale_Notification{
         $show_state = ( woolentor_get_option( 'show_state','woolentor_sales_notification_tabs','off' ) == 'on' );
         $show_country = ( woolentor_get_option( 'show_country','woolentor_sales_notification_tabs','off' ) == 'on' );
 
-        $buyerinfo = array(
+        $buyerinfo = [
             'fname' => ($show_buyer_name && isset( $address['first_name']) && strlen($address['first_name'] ) > 0) ? ucfirst($address['first_name']) : '',
             'lname' => ($show_buyer_name && isset( $address['last_name']) && strlen($address['last_name'] ) > 0) ? ucfirst($address['last_name']) : '',
             'city' => ($show_city && isset( $address['city'] ) && strlen($address['city'] ) > 0) ? ucfirst($address['city']) : 'N/A',
             'state' => ($show_state && isset( $address['state']) && strlen($address['state'] ) > 0) ? ucfirst($address['state']) : 'N/A',
             'country' => ($show_country && isset( $address['country']) && strlen($address['country'] ) > 0) ? WC()->countries->countries[$address['country']] : 'N/A',
-        );
+        ];
         return $buyerinfo;
     }
 

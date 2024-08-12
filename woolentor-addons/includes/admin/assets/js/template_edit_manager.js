@@ -23,7 +23,8 @@
             'reset-password',
             'thankyou',
             'popup',
-            'quickview'
+            'quickview',
+            'minicart'
         ],
 
         init: function() {

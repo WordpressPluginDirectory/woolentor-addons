@@ -157,7 +157,7 @@ class Woolentor_Manage_WC_Template{
      * @param  [int]  $id
      * @return string
      */
-    public static function render_build_content( $id ){
+    public static function render_build_content( $id, $inline_css = false ){
 
         $output = '';
         $document = woolentor_is_elementor_editor() ? Elementor\Plugin::instance()->documents->get( $id ) : false;
@@ -168,6 +168,9 @@ class Woolentor_Manage_WC_Template{
             $content = get_the_content( null, false, $id );
 
             if ( has_blocks( $content ) ) {
+                if( method_exists('\WooLentorBlocks\Manage_Styles','generate_inline_css') && $inline_css === true ){
+                    \WooLentorBlocks\Manage_Styles::instance()->generate_inline_css( $id );
+                }
                 $blocks = parse_blocks( $content );
                 $embed = new WP_Embed();
                 foreach ( $blocks as $block ) {
