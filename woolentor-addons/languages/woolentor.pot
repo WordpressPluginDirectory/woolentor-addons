@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
 "Gutenberg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-12 04:35+0000\n"
+"POT-Creation-Date: 2024-09-01 05:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgid "\"%1$s\" has been added to your cart. %2$s"
 msgstr ""
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: includes/base.php:170
+#: includes/base.php:171
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
@@ -261,8 +261,14 @@ msgid "Add To Cart"
 msgstr ""
 
 #: includes/addons/wb_product_add_to_cart.php:1032
-#: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:1014
+#: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:1018
 msgid "Add to Cart"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Frontend/Popup_Manager.php:91
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:195
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:203
+msgid "Add to cart"
 msgstr ""
 
 #: includes/addons/wb_archive_product.php:542
@@ -280,8 +286,8 @@ msgstr ""
 msgid "Add to Cart Button Text"
 msgstr ""
 
-#: includes/helper-function.php:1351 includes/helper-function.php:1352
-#: includes/helper-function.php:1375
+#: includes/helper-function.php:1353 includes/helper-function.php:1354
+#: includes/helper-function.php:1377
 #: woolentor-blocks/includes/helper-functions.php:598
 #: woolentor-blocks/includes/helper-functions.php:599
 #: woolentor-blocks/includes/helper-functions.php:615
@@ -343,6 +349,7 @@ msgstr ""
 msgid "After"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:104
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:96
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:143
 msgid "After Add To Cart"
@@ -366,6 +373,10 @@ msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:145
 msgid "After Summary"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:174
+msgid "After Text"
 msgstr ""
 
 #: includes/addons/wl_faq.php:246
@@ -704,10 +715,10 @@ msgstr ""
 #: includes/addons/product_curvy.php:384 includes/addons/product_curvy.php:397
 #: includes/addons/product_curvy.php:739 includes/addons/product_curvy.php:771
 #: includes/addons/product_curvy.php:815 includes/addons/wb_just_table.php:123
-#: includes/addons/wb_product_suggest_price.php:236
-#: includes/addons/wb_product_suggest_price.php:335
-#: includes/addons/wb_product_suggest_price.php:433
-#: includes/addons/wb_product_suggest_price.php:510
+#: includes/addons/wb_product_suggest_price.php:247
+#: includes/addons/wb_product_suggest_price.php:346
+#: includes/addons/wb_product_suggest_price.php:444
+#: includes/addons/wb_product_suggest_price.php:521
 #: includes/addons/wl_product_filter.php:279
 #: includes/addons/wl_product_filter.php:349
 #: includes/addons/wl_product_filter.php:399
@@ -743,10 +754,10 @@ msgstr ""
 #: includes/addons/wb_product_call_for_price.php:156
 #: includes/addons/wb_product_call_for_price.php:188
 #: includes/addons/product_accordion.php:65
-#: includes/addons/wb_product_suggest_price.php:629
-#: includes/addons/wb_product_suggest_price.php:661
-#: includes/addons/wb_product_suggest_price.php:772
-#: includes/addons/wb_product_suggest_price.php:804
+#: includes/addons/wb_product_suggest_price.php:640
+#: includes/addons/wb_product_suggest_price.php:672
+#: includes/addons/wb_product_suggest_price.php:783
+#: includes/addons/wb_product_suggest_price.php:815
 #: includes/addons/wl_recently_viewed_products.php:458
 #: includes/addons/wl_recently_viewed_products.php:510
 #: includes/addons/wl_recently_viewed_products.php:614
@@ -776,22 +787,22 @@ msgstr ""
 msgid "Backorder"
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:507
+#: includes/modules/backorder/class.backorder.php:489
 msgid "Backorder Availability"
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:494
+#: includes/modules/backorder/class.backorder.php:476
 msgid "Backorder Limit"
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:498
+#: includes/modules/backorder/class.backorder.php:480
 msgid ""
 "Backorder limit. If this is a variable product this value will be used to "
 "control backorder limit for all variations, unless you define backorder "
 "limit at variation level."
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:104
+#: includes/modules/backorder/class.backorder.php:102
 msgid "Backordered"
 msgstr ""
 
@@ -845,6 +856,7 @@ msgstr ""
 msgid "Before"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:103
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:95
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:142
 msgid "Before Add To Cart"
@@ -852,6 +864,10 @@ msgstr ""
 
 #: includes/addons/wl_category_grid.php:778
 msgid "Before Border Color"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:173
+msgid "Before Text"
 msgstr ""
 
 #: includes/addons/wl_faq.php:245
@@ -914,12 +930,12 @@ msgstr ""
 #: includes/addons/wb_product_call_for_price.php:137
 #: includes/addons/wl_category.php:301 includes/addons/wl_brand.php:250
 #: includes/addons/wl_brand.php:331
-#: includes/addons/wb_product_suggest_price.php:271
-#: includes/addons/wb_product_suggest_price.php:370
-#: includes/addons/wb_product_suggest_price.php:468
-#: includes/addons/wb_product_suggest_price.php:520
-#: includes/addons/wb_product_suggest_price.php:610
-#: includes/addons/wb_product_suggest_price.php:753
+#: includes/addons/wb_product_suggest_price.php:282
+#: includes/addons/wb_product_suggest_price.php:381
+#: includes/addons/wb_product_suggest_price.php:479
+#: includes/addons/wb_product_suggest_price.php:531
+#: includes/addons/wb_product_suggest_price.php:621
+#: includes/addons/wb_product_suggest_price.php:764
 #: includes/addons/wl_product_filter.php:212
 #: includes/addons/wl_product_filter.php:298
 #: includes/addons/wl_product_filter.php:370
@@ -967,8 +983,8 @@ msgstr ""
 #: includes/addons/wb_product_call_for_price.php:199
 #: includes/addons/product_accordion.php:394
 #: includes/addons/product_curvy.php:352 includes/addons/product_curvy.php:368
-#: includes/addons/wb_product_suggest_price.php:672
-#: includes/addons/wb_product_suggest_price.php:815
+#: includes/addons/wb_product_suggest_price.php:683
+#: includes/addons/wb_product_suggest_price.php:826
 #: includes/addons/wb_wishsuite_table.php:241
 #: includes/addons/wb_product_add_to_cart.php:1175
 #: includes/addons/wb_ever_compare_table.php:187
@@ -1012,12 +1028,12 @@ msgstr ""
 #: includes/addons/wl_product_video_gallery.php:134
 #: includes/addons/wl_product_video_gallery.php:180
 #: includes/addons/wl_brand.php:258 includes/addons/wl_brand.php:339
-#: includes/addons/wb_product_suggest_price.php:280
-#: includes/addons/wb_product_suggest_price.php:379
-#: includes/addons/wb_product_suggest_price.php:477
-#: includes/addons/wb_product_suggest_price.php:529
-#: includes/addons/wb_product_suggest_price.php:618
-#: includes/addons/wb_product_suggest_price.php:761
+#: includes/addons/wb_product_suggest_price.php:291
+#: includes/addons/wb_product_suggest_price.php:390
+#: includes/addons/wb_product_suggest_price.php:488
+#: includes/addons/wb_product_suggest_price.php:540
+#: includes/addons/wb_product_suggest_price.php:629
+#: includes/addons/wb_product_suggest_price.php:772
 #: includes/addons/wl_product_filter.php:645
 #: includes/addons/wl_product_filter.php:738
 #: includes/addons/wb_image_marker.php:225
@@ -1196,6 +1212,7 @@ msgstr ""
 msgid "Button Border"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:156
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:224
 msgid "Button custom icon"
 msgstr ""
@@ -1222,6 +1239,11 @@ msgstr ""
 msgid "Button Icon Color"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:168
+msgid "Button icon Position"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:132
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:211
 msgid "Button icon type"
 msgstr ""
@@ -1234,6 +1256,11 @@ msgstr ""
 msgid "Button Phone Number"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:99
+msgid "Button position"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:92
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:49
 msgid "Button Settings"
 msgstr ""
@@ -1252,6 +1279,7 @@ msgstr ""
 msgid "Button Text"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:122
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:193
 msgid "Button text"
 msgstr ""
@@ -1412,6 +1440,10 @@ msgstr ""
 msgid "Check All"
 msgstr ""
 
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:29
+msgid "Check%20this%20"
+msgstr ""
+
 #: includes/modules/variation-swatch/includes/Admin/Attribute_Taxonomy_Metabox.php:296
 msgid "Checking this will allow you to set multiple colors."
 msgstr ""
@@ -1432,12 +1464,21 @@ msgstr ""
 msgid "Choose a table style from here."
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:220
+msgid "Choose a thumbnail layout from here."
+msgstr ""
+
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:237
 msgid "Choose an icon for the compare button from here."
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:212
 msgid "Choose an icon type for the compare button from here."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:133
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:169
+msgid "Choose an icon type for the quickview button from here."
 msgstr ""
 
 #: includes/modules/variation-swatch/includes/Admin.php:51
@@ -1455,6 +1496,10 @@ msgstr ""
 
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:279
 msgid "Choose open/entrance animation."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:188
+msgid "Choose which content should be presented on the popup window."
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:323
@@ -1478,7 +1523,7 @@ msgid "Circle"
 msgstr ""
 
 #: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:849
-#: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:937
+#: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:941
 msgid "Clear"
 msgstr ""
 
@@ -1535,7 +1580,7 @@ msgstr ""
 msgid "Close Animation"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:690
+#: includes/addons/wb_product_suggest_price.php:701
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:475
 msgid "Close Button"
 msgstr ""
@@ -1610,8 +1655,8 @@ msgstr ""
 #: includes/addons/product_accordion.php:665
 #: includes/addons/wl_category.php:348 includes/addons/product_curvy.php:758
 #: includes/addons/product_curvy.php:802
-#: includes/addons/wb_product_suggest_price.php:412
-#: includes/addons/wb_product_suggest_price.php:498
+#: includes/addons/wb_product_suggest_price.php:423
+#: includes/addons/wb_product_suggest_price.php:509
 #: includes/addons/wl_product_filter.php:191
 #: includes/addons/wl_product_filter.php:267
 #: includes/addons/wl_product_filter.php:337
@@ -1681,14 +1726,14 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: includes/helper-function.php:1308 includes/addons/product_flash_sale.php:138
+#: includes/helper-function.php:1310 includes/addons/product_flash_sale.php:138
 #: includes/addons/product_image_accordion.php:150
 #: includes/addons/product_accordion.php:171
 #: includes/addons/product_curvy.php:206 includes/addons/product_tabs.php:165
 msgid "Comment count"
 msgstr ""
 
-#: includes/helper-function.php:1375
+#: includes/helper-function.php:1377
 #: woolentor-blocks/includes/helper-functions.php:615
 #: includes/addons/wb_product_add_to_cart.php:1290
 #: woolentor-blocks/production/includes/helper-functions.php:615
@@ -1917,6 +1962,7 @@ msgstr ""
 #: includes/addons/wb_customer_review.php:69
 #: woolentor-blocks/includes/classes/Scripts.php:127
 #: woolentor-blocks/production/includes/classes/Scripts.php:127
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:247
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:218
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:243
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:413
@@ -1941,7 +1987,12 @@ msgid "Custom heading"
 msgstr ""
 
 #: includes/addons/wl_faq.php:203
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:139
 msgid "Custom Icon"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:140
+msgid "Custom Image"
 msgstr ""
 
 #: includes/addons/product_flash_sale.php:254
@@ -1997,7 +2048,7 @@ msgstr ""
 msgid "Data fetch"
 msgstr ""
 
-#: includes/admin/admin-init.php:450
+#: includes/admin/admin-init.php:451
 msgid "Data Fetch successfully!"
 msgstr ""
 
@@ -2006,11 +2057,11 @@ msgstr ""
 msgid "Data not found."
 msgstr ""
 
-#: includes/admin/admin-init.php:388
+#: includes/admin/admin-init.php:389
 msgid "Data Saved successfully!"
 msgstr ""
 
-#: includes/helper-function.php:1305 includes/addons/product_flash_sale.php:135
+#: includes/helper-function.php:1307 includes/addons/product_flash_sale.php:135
 #: includes/addons/wb_product_upsell.php:66
 #: includes/addons/wb_archive_product.php:127
 #: includes/addons/product_image_accordion.php:147
@@ -2033,6 +2084,7 @@ msgstr ""
 #: includes/admin/include/class.template-manager.php:97
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:283
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:340
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:138
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:217
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:242
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:411
@@ -2044,7 +2096,7 @@ msgstr ""
 msgid "Default Currency"
 msgstr ""
 
-#: includes/helper-function.php:1089
+#: includes/helper-function.php:1091
 msgid "Default sorting"
 msgstr ""
 
@@ -2180,7 +2232,7 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: includes/helper-function.php:658
+#: includes/helper-function.php:660
 msgid "div"
 msgstr ""
 
@@ -2196,8 +2248,8 @@ msgstr ""
 msgid "Do you want to individual icon ?"
 msgstr ""
 
-#: includes/base.php:314 includes/admin/include/admin_field-manager.php:353
-#: includes/admin/include/admin_field-manager.php:488
+#: includes/base.php:315 includes/admin/include/admin_field-manager.php:353
+#: includes/admin/include/admin_field-manager.php:534
 #: includes/admin/templates/dashboard-widget.php:94
 #: includes/admin/templates/dashboard-welcome.php:19
 msgid "Documentation"
@@ -2267,6 +2319,11 @@ msgstr ""
 msgid "Elementor Template"
 msgstr ""
 
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:28
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:264
+msgid "Email"
+msgstr ""
+
 #: includes/admin/templates/dashboard-freevspro.php:153
 msgid "Email Automation"
 msgstr ""
@@ -2275,8 +2332,12 @@ msgstr ""
 msgid "Email Customizer"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:130
+#: includes/addons/wb_product_suggest_price.php:141
 msgid "Email Field Placeholder"
+msgstr ""
+
+#: classes/class.ajax_actions.php:183
+msgid "Email is required."
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:364
@@ -2307,8 +2368,20 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:66
+msgid "Enable / Disable"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:67
+msgid "Enable / disable this module."
+msgstr ""
+
 #: includes/addons/wb_product_qr_code.php:62
 msgid "Enable Add to Cart URL"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:210
+msgid "Enable ajax add to cart"
 msgstr ""
 
 #: includes/admin/templates/dashboard-element.php:19
@@ -2326,12 +2399,44 @@ msgstr ""
 msgid "Enable Multi Color"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:75
+msgid "Enable quick view in Shop / Archive page"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:83
+msgid "Enable quick view on mobile"
+msgstr ""
+
 #: includes/modules/variation-swatch/includes/Admin/Product_Metabox.php:199
 msgid "Enable Shape Inset"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:256
+msgid "Enable share buttons"
+msgstr ""
+
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:273
 msgid "Enable shareable link"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:233
+msgid "Enable social share button"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:236
+msgid "Enable social share button."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:84
+msgid "Enable this option to display a quick view on mobile devices."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:76
+msgid "Enable this option to display a quick view on shop and archive page."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:213
+msgid "Enable this to activate AJAX add to cart feature in the popup window."
 msgstr ""
 
 #: includes/addons/wb_product_add_to_cart.php:72
@@ -2374,12 +2479,20 @@ msgid ""
 "layout addon)"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:123
+msgid "Enter your quickview button text."
+msgstr ""
+
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:381
 msgid "Enter your required image size."
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:372
 msgid "Enter your return to shop button text."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:284
+msgid "Enter your social share button title."
 msgstr ""
 
 #: includes/modules/popup-builder/includes/class-repeater-helper.php:193
@@ -2392,7 +2505,7 @@ msgstr ""
 msgid "Entire Site"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:177
+#: includes/addons/wb_product_suggest_price.php:188
 msgid "Error Message"
 msgstr ""
 
@@ -2424,6 +2537,12 @@ msgstr ""
 msgid "Example: <code>10px</code> or <code>10px 20px 10px 20px</code>"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Frontend/Popup_Manager.php:90
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:194
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:202
+msgid "Excerpt"
+msgstr ""
+
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:131
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:529
 msgid "Exclude"
@@ -2446,7 +2565,14 @@ msgstr ""
 msgid "Extra Option"
 msgstr ""
 
-#: includes/base.php:315
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:12
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:55
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:260
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:272
+msgid "Facebook"
+msgstr ""
+
+#: includes/base.php:316
 msgid "Facebook Group"
 msgstr ""
 
@@ -2535,7 +2661,7 @@ msgstr ""
 msgid "FAQ Title"
 msgstr ""
 
-#: includes/helper-function.php:1310
+#: includes/helper-function.php:1312
 msgid "Featured"
 msgstr ""
 
@@ -2709,7 +2835,7 @@ msgstr ""
 msgid "Free!"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:896
+#: classes/class.ajax_actions.php:197
 #: woolentor-blocks/build/blocks/suggest-price/index.php:45
 #: woolentor-blocks/src/blocks/suggest-price/index.php:45
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:45
@@ -2755,7 +2881,7 @@ msgstr ""
 msgid "Get Support"
 msgstr ""
 
-#: includes/base.php:302 includes/addons/wl_category.php:225
+#: includes/base.php:303 includes/addons/wl_category.php:225
 #: includes/addons/wl_brand.php:229 includes/addons/wl_brand.php:372
 msgid "Go Pro"
 msgstr ""
@@ -2779,27 +2905,27 @@ msgstr ""
 msgid "Gutenberg"
 msgstr ""
 
-#: includes/helper-function.php:651
+#: includes/helper-function.php:653
 msgid "H1"
 msgstr ""
 
-#: includes/helper-function.php:652
+#: includes/helper-function.php:654
 msgid "H2"
 msgstr ""
 
-#: includes/helper-function.php:653
+#: includes/helper-function.php:655
 msgid "H3"
 msgstr ""
 
-#: includes/helper-function.php:654
+#: includes/helper-function.php:656
 msgid "H4"
 msgstr ""
 
-#: includes/helper-function.php:655
+#: includes/helper-function.php:657
 msgid "H5"
 msgstr ""
 
-#: includes/helper-function.php:656
+#: includes/helper-function.php:658
 msgid "H6"
 msgstr ""
 
@@ -2886,16 +3012,16 @@ msgstr ""
 msgid "Helping Screenshot"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1225
-#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:235
+#: includes/addons/product_flash_sale.php:1226
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:236
 msgid "Here"
 msgstr ""
 
-#: includes/helper-function.php:1220 includes/helper-function.php:1238
+#: includes/helper-function.php:1222 includes/helper-function.php:1240
 msgid "here"
 msgstr ""
 
-#: includes/base.php:213
+#: includes/base.php:214
 msgid ""
 "Hi there! Thanks a lot for choosing ShopLentor to build an outstanding "
 "WooCommerce store."
@@ -3010,9 +3136,9 @@ msgstr ""
 #: includes/addons/wb_product_call_for_price.php:170
 #: includes/addons/product_accordion.php:658
 #: includes/addons/product_curvy.php:795
-#: includes/addons/wb_product_suggest_price.php:491
-#: includes/addons/wb_product_suggest_price.php:643
-#: includes/addons/wb_product_suggest_price.php:786
+#: includes/addons/wb_product_suggest_price.php:502
+#: includes/addons/wb_product_suggest_price.php:654
+#: includes/addons/wb_product_suggest_price.php:797
 #: includes/addons/wl_product_filter.php:381
 #: includes/addons/wl_product_filter.php:502
 #: includes/addons/wl_product_filter.php:765
@@ -3093,7 +3219,7 @@ msgstr ""
 msgid "Hurry Up! Offer ends in"
 msgstr ""
 
-#: includes/base.php:220
+#: includes/base.php:221
 msgid "I already did"
 msgstr ""
 
@@ -3160,7 +3286,7 @@ msgstr ""
 msgid "Icon Width"
 msgstr ""
 
-#: includes/helper-function.php:1304 includes/addons/product_flash_sale.php:134
+#: includes/helper-function.php:1306 includes/addons/product_flash_sale.php:134
 #: includes/addons/product_image_accordion.php:146
 #: includes/addons/product_accordion.php:167
 #: includes/addons/wl_category.php:152 includes/addons/product_curvy.php:202
@@ -3177,6 +3303,12 @@ msgstr ""
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:360
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:535
 msgid "If closed (times)"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:243
+msgid ""
+"If you choose default this button comes from ShopLentor otherwise display "
+"from your theme WooCommerce hook."
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:276
@@ -3292,7 +3424,7 @@ msgstr ""
 msgid "Initial number in stock"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:192
+#: includes/addons/wb_product_suggest_price.php:203
 msgid "Input"
 msgstr ""
 
@@ -3301,7 +3433,7 @@ msgstr ""
 msgid "Input Box"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:109
+#: includes/addons/wb_product_suggest_price.php:120
 msgid "Input Field Placeholder"
 msgstr ""
 
@@ -3342,7 +3474,7 @@ msgid ""
 "of Elementor and assigned to corresponding WooCommerce pages."
 msgstr ""
 
-#: includes/base.php:214
+#: includes/base.php:215
 msgid ""
 "It would be greatly appreciated if you consider giving us a review in "
 "WordPress. These reviews help us improve the plugin further and make it "
@@ -3554,6 +3686,13 @@ msgstr ""
 msgid "Link Typography"
 msgstr ""
 
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:24
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:58
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:263
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:275
+msgid "Linkedin"
+msgstr ""
+
 #: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:52
 msgid "List"
 msgstr ""
@@ -3666,11 +3805,11 @@ msgstr ""
 #: includes/addons/wl_product_video_gallery.php:148
 #: includes/addons/wl_brand.php:282
 #: includes/addons/wb_product_categories.php:151
-#: includes/addons/wb_product_suggest_price.php:245
-#: includes/addons/wb_product_suggest_price.php:344
-#: includes/addons/wb_product_suggest_price.php:442
-#: includes/addons/wb_product_suggest_price.php:597
-#: includes/addons/wb_product_suggest_price.php:740
+#: includes/addons/wb_product_suggest_price.php:256
+#: includes/addons/wb_product_suggest_price.php:355
+#: includes/addons/wb_product_suggest_price.php:453
+#: includes/addons/wb_product_suggest_price.php:608
+#: includes/addons/wb_product_suggest_price.php:751
 #: includes/addons/wb_product_rating.php:84
 #: includes/addons/wb_product_title.php:90
 #: includes/addons/wl_product_filter.php:232
@@ -3731,7 +3870,7 @@ msgstr ""
 msgid "Max Width"
 msgstr ""
 
-#: includes/base.php:218
+#: includes/base.php:219
 msgid "Maybe Later"
 msgstr ""
 
@@ -3742,15 +3881,22 @@ msgstr ""
 msgid "Menu Order"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:155
+#: includes/addons/wb_product_suggest_price.php:166
 msgid "Message"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:141
+#: includes/addons/wb_product_suggest_price.php:152
 msgid "Message Field Placeholder"
 msgstr ""
 
+#: classes/class.ajax_actions.php:190
+msgid "Message is required."
+msgstr ""
+
 #: includes/addons/wb_product_meta.php:43
+#: includes/modules/quickview/includes/classes/Frontend/Popup_Manager.php:92
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:196
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:204
 msgid "Meta"
 msgstr ""
 
@@ -3868,7 +4014,7 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: includes/helper-function.php:1306 includes/addons/product_flash_sale.php:136
+#: includes/helper-function.php:1308 includes/addons/product_flash_sale.php:136
 #: includes/addons/wl_testimonial.php:82 includes/addons/wl_testimonial.php:576
 #: includes/addons/product_image_accordion.php:148
 #: includes/addons/product_accordion.php:169
@@ -3883,7 +4029,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:119
+#: includes/addons/wb_product_suggest_price.php:130
 msgid "Name Field Placeholder"
 msgstr ""
 
@@ -3959,7 +4105,7 @@ msgstr ""
 msgid "No Order label"
 msgstr ""
 
-#: includes/helper-function.php:1551
+#: includes/helper-function.php:1568
 msgid "No products were found matching your selection."
 msgstr ""
 
@@ -3975,7 +4121,7 @@ msgstr ""
 msgid "No Results Found"
 msgstr ""
 
-#: includes/helper-function.php:465
+#: includes/helper-function.php:467
 msgid "No saved templates found."
 msgstr ""
 
@@ -3997,7 +4143,7 @@ msgstr ""
 msgid "Nonce Varification fail"
 msgstr ""
 
-#: classes/class.ajax_actions.php:53
+#: classes/class.ajax_actions.php:54
 #: includes/admin/include/template-library.php:154
 #: includes/admin/include/template-library.php:284
 #: includes/admin/include/template-library.php:328
@@ -4016,12 +4162,13 @@ msgstr ""
 msgid "Nonce Varification Faild !"
 msgstr ""
 
-#: includes/helper-function.php:1303 includes/addons/product_flash_sale.php:133
+#: includes/helper-function.php:1305 includes/addons/product_flash_sale.php:133
 #: includes/addons/product_image_accordion.php:145
 #: includes/addons/product_accordion.php:166
 #: includes/addons/product_curvy.php:201
 #: includes/addons/wl_product_filter.php:106
 #: includes/addons/product_tabs.php:160
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:137
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:216
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:241
 msgid "None"
@@ -4043,9 +4190,9 @@ msgstr ""
 #: includes/addons/wb_product_call_for_price.php:85
 #: includes/addons/product_accordion.php:611
 #: includes/addons/product_curvy.php:751
-#: includes/addons/wb_product_suggest_price.php:405
-#: includes/addons/wb_product_suggest_price.php:558
-#: includes/addons/wb_product_suggest_price.php:701
+#: includes/addons/wb_product_suggest_price.php:416
+#: includes/addons/wb_product_suggest_price.php:569
+#: includes/addons/wb_product_suggest_price.php:712
 #: includes/addons/wl_product_filter.php:330
 #: includes/addons/wl_product_filter.php:437
 #: includes/addons/wl_product_filter.php:700
@@ -4093,6 +4240,11 @@ msgstr ""
 msgid "Odd Heading Background"
 msgstr ""
 
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:40
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:267
+msgid "Odnoklassniki"
+msgstr ""
+
 #: includes/addons/wl_product_horizontal_filter.php:1175
 #: woolentor-blocks/build/blocks/product-horizontal-filter/index.php:281
 #: woolentor-blocks/src/blocks/product-horizontal-filter/index.php:281
@@ -4114,7 +4266,7 @@ msgstr ""
 msgid "Offer Tag Line"
 msgstr ""
 
-#: includes/base.php:216
+#: includes/base.php:217
 msgid "Ok, you deserve it!"
 msgstr ""
 
@@ -4188,7 +4340,7 @@ msgstr ""
 msgid "Open Animation"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:547
+#: includes/addons/wb_product_suggest_price.php:558
 msgid "Open Button"
 msgstr ""
 
@@ -4274,7 +4426,7 @@ msgid ""
 "the pro version."
 msgstr ""
 
-#: includes/helper-function.php:1012 includes/helper-function.php:1060
+#: includes/helper-function.php:1014 includes/helper-function.php:1062
 msgid "Out of stock"
 msgstr ""
 
@@ -4282,7 +4434,7 @@ msgstr ""
 msgid "Out of Stock Badge Color"
 msgstr ""
 
-#: includes/helper-function.php:657
+#: includes/helper-function.php:659
 msgid "p"
 msgstr ""
 
@@ -4319,11 +4471,11 @@ msgstr ""
 #: includes/addons/product_accordion.php:344
 #: includes/addons/wl_product_video_gallery.php:193
 #: includes/addons/wl_brand.php:270
-#: includes/addons/wb_product_suggest_price.php:258
-#: includes/addons/wb_product_suggest_price.php:357
-#: includes/addons/wb_product_suggest_price.php:455
-#: includes/addons/wb_product_suggest_price.php:585
-#: includes/addons/wb_product_suggest_price.php:728
+#: includes/addons/wb_product_suggest_price.php:269
+#: includes/addons/wb_product_suggest_price.php:368
+#: includes/addons/wb_product_suggest_price.php:466
+#: includes/addons/wb_product_suggest_price.php:596
+#: includes/addons/wb_product_suggest_price.php:739
 #: includes/addons/wl_product_filter.php:220
 #: includes/addons/wl_product_filter.php:306
 #: includes/addons/wl_product_filter.php:479
@@ -4403,8 +4555,15 @@ msgstr ""
 msgid "Peter Rose"
 msgstr ""
 
-#: includes/base.php:172
+#: includes/base.php:173
 msgid "PHP"
+msgstr ""
+
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:20
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:57
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:262
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:274
+msgid "Pinterest"
 msgstr ""
 
 #: includes/modules/shopify-like-checkout/templates/form-checkout.php:68
@@ -4416,6 +4575,11 @@ msgid ""
 "Place the image size name here. WordPress default image sizes are: thumbnail,"
 " medium, medium_large, large and full. Custom image size also can be used. "
 "Default is: thumbnail"
+msgstr ""
+
+#: includes/modules/quickview/includes/templates/quickview-product-images.php:35
+#: includes/modules/quickview/includes/templates/quickview-product-images.php:56
+msgid "Placeholder"
 msgstr ""
 
 #: includes/admin/include/template-library/popup-template.php:33
@@ -4432,8 +4596,8 @@ msgid "Search Products&hellip;"
 msgstr ""
 
 #: includes/addons/wl_product_horizontal_filter.php:715
-#: includes/addons/wb_product_suggest_price.php:211
-#: includes/addons/wb_product_suggest_price.php:313
+#: includes/addons/wb_product_suggest_price.php:222
+#: includes/addons/wb_product_suggest_price.php:324
 msgid "Placeholder Color"
 msgstr ""
 
@@ -4444,13 +4608,13 @@ msgid ""
 "inquiry."
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:132
-#: includes/addons/wb_product_suggest_price.php:133
+#: includes/addons/wb_product_suggest_price.php:143
+#: includes/addons/wb_product_suggest_price.php:144
 msgid "Please Enter your email"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:121
-#: includes/addons/wb_product_suggest_price.php:122
+#: includes/addons/wb_product_suggest_price.php:132
+#: includes/addons/wb_product_suggest_price.php:133
 msgid "Please Enter your name"
 msgstr ""
 
@@ -4515,6 +4679,7 @@ msgstr ""
 #: includes/modules/popup-builder/includes/class-assets.php:81
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:95
 #: includes/modules/popup-builder/includes/admin/class-manage-metabox.php:60
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:182
 msgid "Popup Settings"
 msgstr ""
 
@@ -4571,7 +4736,7 @@ msgstr ""
 
 #: classes/class.assest_management.php:370
 #: includes/admin/include/admin_field-manager.php:352
-#: includes/admin/include/admin_field-manager.php:487
+#: includes/admin/include/admin_field-manager.php:533
 msgid "Preview"
 msgstr ""
 
@@ -4584,6 +4749,9 @@ msgstr ""
 #: includes/addons/wl_product_filter.php:44
 #: includes/addons/wl_recently_viewed_products.php:362
 #: includes/addons/wb_wishsuite_table.php:175
+#: includes/modules/quickview/includes/classes/Frontend/Popup_Manager.php:89
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:193
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:201
 msgid "Price"
 msgstr ""
 
@@ -4637,7 +4805,7 @@ msgstr ""
 #: includes/admin/include/class.template-manager.php:481
 #: includes/admin/include/admin_field-manager.php:133
 #: includes/admin/include/admin_field-manager.php:335
-#: includes/admin/include/admin_field-manager.php:468
+#: includes/admin/include/admin_field-manager.php:514
 #: includes/admin/templates/dashboard-freevspro.php:215
 #: includes/admin/templates/dashboard-freevspro.php:262
 #: includes/admin/include/template-library/templates_list.php:31
@@ -4668,7 +4836,7 @@ msgstr ""
 msgid "Product Add To Cart"
 msgstr ""
 
-#: includes/helper-function.php:1353
+#: includes/helper-function.php:1355
 #: woolentor-blocks/includes/helper-functions.php:600
 #: woolentor-blocks/production/includes/helper-functions.php:600
 msgid "Product Added"
@@ -4833,7 +5001,7 @@ msgstr ""
 msgid "Product Per Page"
 msgstr ""
 
-#: classes/class.widgets_control.php:353 includes/helper-function.php:1311
+#: classes/class.widgets_control.php:353 includes/helper-function.php:1313
 #: includes/addons/product_flash_sale.php:467
 #: includes/addons/product_image_accordion.php:411
 #: includes/addons/product_accordion.php:489
@@ -4999,7 +5167,7 @@ msgstr ""
 msgid "Products reviews"
 msgstr ""
 
-#: includes/base.php:263 woolentor-blocks/includes/classes/Blocks_List.php:68
+#: includes/base.php:264 woolentor-blocks/includes/classes/Blocks_List.php:68
 #: woolentor-blocks/production/includes/classes/Blocks_List.php:68
 msgid "Promo Banner"
 msgstr ""
@@ -5054,15 +5222,25 @@ msgstr ""
 msgid "Query String Is"
 msgstr ""
 
-#: woolentor-blocks/includes/templates/product-universal.php:160
-#: woolentor-blocks/includes/templates/product-universal.php:207
+#: woolentor-blocks/includes/templates/product-universal.php:161
+#: woolentor-blocks/includes/templates/product-universal.php:210
 #: woolentor-blocks/production/includes/templates/product-universal.php:160
 #: woolentor-blocks/production/includes/templates/product-universal.php:207
-#: woolentor-blocks/build/blocks/universal-product/old_index.php:408
-#: woolentor-blocks/build/blocks/universal-product/old_index.php:455
-#: woolentor-blocks/src/blocks/universal-product/old_index.php:408
-#: woolentor-blocks/src/blocks/universal-product/old_index.php:455
+#: woolentor-blocks/build/blocks/universal-product/old_index.php:409
+#: woolentor-blocks/build/blocks/universal-product/old_index.php:458
+#: woolentor-blocks/src/blocks/universal-product/old_index.php:409
+#: woolentor-blocks/src/blocks/universal-product/old_index.php:458
 msgid "Quick View"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:125
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:126
+msgid "Quick view"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:30
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:38
+msgid "Quick view .. image"
 msgstr ""
 
 #: includes/addons/wb_product_add_to_cart.php:264
@@ -5070,7 +5248,7 @@ msgstr ""
 msgid "Qunantity Text Color"
 msgstr ""
 
-#: includes/helper-function.php:1309 includes/addons/product_flash_sale.php:139
+#: includes/helper-function.php:1311 includes/addons/product_flash_sale.php:139
 #: includes/addons/wb_product_upsell.php:71
 #: includes/addons/wb_archive_product.php:132
 #: includes/addons/product_image_accordion.php:151
@@ -5090,7 +5268,7 @@ msgstr ""
 msgid "Range Slider"
 msgstr ""
 
-#: includes/base.php:316
+#: includes/base.php:317
 msgid "Rate the plugin"
 msgstr ""
 
@@ -5106,6 +5284,9 @@ msgstr ""
 #: includes/addons/wb_archive_product.php:481
 #: includes/addons/wb_product_related.php:85
 #: includes/addons/wb_customer_review.php:561
+#: includes/modules/quickview/includes/classes/Frontend/Popup_Manager.php:88
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:192
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:200
 msgid "Rating"
 msgstr ""
 
@@ -5147,6 +5328,11 @@ msgstr ""
 msgid "Recently Viewed Products"
 msgstr ""
 
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:32
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:265
+msgid "Reddit"
+msgstr ""
+
 #: includes/addons/wl_product_horizontal_filter.php:268
 #: includes/addons/wl_product_filter.php:71
 msgid "Redirect Custom URL"
@@ -5180,6 +5366,7 @@ msgstr ""
 msgid "Remember me"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:161
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:228
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:253
 msgid "Remove"
@@ -5203,7 +5390,7 @@ msgstr ""
 msgid "Rename Label"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:896
+#: classes/class.ajax_actions.php:197
 #: woolentor-blocks/build/blocks/suggest-price/index.php:45
 #: woolentor-blocks/src/blocks/suggest-price/index.php:45
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:45
@@ -5419,7 +5606,7 @@ msgstr ""
 msgid "Sale Tag"
 msgstr ""
 
-#: includes/helper-function.php:1009 includes/helper-function.php:1055
+#: includes/helper-function.php:1011 includes/helper-function.php:1057
 msgid "Sale!"
 msgstr ""
 
@@ -5550,6 +5737,10 @@ msgstr ""
 msgid "Select Content Source"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:187
+msgid "Select content to show"
+msgstr ""
+
 #: includes/addons/product_flash_sale.php:81
 msgid "Select Deal"
 msgstr ""
@@ -5580,7 +5771,7 @@ msgstr ""
 msgid "Select Table"
 msgstr ""
 
-#: includes/helper-function.php:467 includes/addons/wl_faq.php:97
+#: includes/helper-function.php:469 includes/addons/wl_faq.php:97
 msgid "Select Template"
 msgstr ""
 
@@ -5617,11 +5808,11 @@ msgstr ""
 msgid "Set featured image"
 msgstr ""
 
-#: includes/helper-function.php:1220 includes/helper-function.php:1238
+#: includes/helper-function.php:1222 includes/helper-function.php:1240
 msgid "Set the initial stock amount from"
 msgstr ""
 
-#: includes/base.php:299 includes/addons/wl_recently_viewed_products.php:42
+#: includes/base.php:300 includes/addons/wl_recently_viewed_products.php:42
 #: includes/addons/wb_product_add_to_cart.php:87
 #: includes/admin/admin-init.php:110 includes/admin/admin-init.php:111
 #: includes/admin/templates/dashboard-gutenberg.php:15
@@ -5644,12 +5835,20 @@ msgstr ""
 msgid "Shape Style"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:287
+msgid "Share"
+msgstr ""
+
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:281
 msgid "Share link button position"
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:294
 msgid "Share link button text"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:286
+msgid "Share:"
 msgstr ""
 
 #: includes/modules/shopify-like-checkout/templates/form-shipping.php:13
@@ -5700,8 +5899,8 @@ msgstr ""
 msgid "Shopify Style Checkout"
 msgstr ""
 
-#: classes/class.widgets_control.php:40 includes/base.php:171
-#: includes/base.php:210 includes/admin/admin-init.php:99
+#: classes/class.widgets_control.php:40 includes/base.php:172
+#: includes/base.php:211 includes/admin/admin-init.php:99
 #: includes/admin/admin-init.php:100
 #: woolentor-blocks/includes/classes/Block_Patterns_Init.php:55
 #: woolentor-blocks/production/includes/classes/Block_Patterns_Init.php:55
@@ -5903,6 +6102,10 @@ msgstr ""
 msgid "Single Category"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:225
+msgid "Single Image"
+msgstr ""
+
 #: includes/admin/templates/dashboard-freevspro.php:113
 msgid "Single Product Ajax Add To Cart"
 msgstr ""
@@ -5979,6 +6182,7 @@ msgid "slideOutUp"
 msgstr ""
 
 #: includes/addons/wl_onepage_slider.php:44
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:224
 msgid "Slider"
 msgstr ""
 
@@ -6053,7 +6257,15 @@ msgstr ""
 msgid "Social Share"
 msgstr ""
 
-#: includes/helper-function.php:1233
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:242
+msgid "Social share button display from"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:283
+msgid "Social share button title"
+msgstr ""
+
+#: includes/helper-function.php:1235
 msgid "Sold"
 msgstr ""
 
@@ -6092,27 +6304,27 @@ msgstr ""
 msgid "Some thing is worng !"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:179
-#: includes/addons/wb_product_suggest_price.php:180
+#: includes/addons/wb_product_suggest_price.php:190
+#: includes/addons/wb_product_suggest_price.php:191
 msgid "Something is wrong! try again"
 msgstr ""
 
 #. 1: quantity in stock 2: current quantity
-#: includes/modules/backorder/class.backorder.php:197
+#: includes/modules/backorder/class.backorder.php:195
 #, php-format
 msgid ""
 "Sorry, \"%s\" has reached its maximum backorder limit — (%s available). You "
 "already have %s in your cart."
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:139
+#: includes/modules/backorder/class.backorder.php:137
 #, php-format
 msgid ""
 "Sorry, \"%s\" has reached its maximum backorder limit. Orders can be placed "
 "for up to <b>%s</b> units."
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:203
+#: includes/modules/backorder/class.backorder.php:201
 #, php-format
 msgid ""
 "Sorry, \"%s\" was not added to cart because it has reached the maximum "
@@ -6141,7 +6353,7 @@ msgstr ""
 msgid "Sorry, you are not allowed to install themes on this site."
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:887
+#: classes/class.ajax_actions.php:167
 #: woolentor-blocks/build/blocks/suggest-price/index.php:36
 #: woolentor-blocks/src/blocks/suggest-price/index.php:36
 #: woolentor-blocks/production/src/blocks/suggest-price/index.php:36
@@ -6155,23 +6367,23 @@ msgstr ""
 msgid "Sort By"
 msgstr ""
 
-#: includes/helper-function.php:1091
+#: includes/helper-function.php:1093
 msgid "Sort by average rating"
 msgstr ""
 
-#: includes/helper-function.php:1092
+#: includes/helper-function.php:1094
 msgid "Sort by latest"
 msgstr ""
 
-#: includes/helper-function.php:1090
+#: includes/helper-function.php:1092
 msgid "Sort by popularity"
 msgstr ""
 
-#: includes/helper-function.php:1094
+#: includes/helper-function.php:1096
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: includes/helper-function.php:1093
+#: includes/helper-function.php:1095
 msgid "Sort by price: low to high"
 msgstr ""
 
@@ -6194,7 +6406,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: includes/helper-function.php:659
+#: includes/helper-function.php:661
 msgid "span"
 msgstr ""
 
@@ -6336,7 +6548,7 @@ msgid "Submit"
 msgstr ""
 
 #: includes/addons/wl_product_horizontal_filter.php:639
-#: includes/addons/wb_product_suggest_price.php:393
+#: includes/addons/wb_product_suggest_price.php:404
 #: includes/addons/wl_product_filter.php:318
 msgid "Submit Button"
 msgstr ""
@@ -6346,8 +6558,17 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
+#: includes/addons/wb_product_suggest_price.php:108
+msgid "Submit Button Loading Text"
+msgstr ""
+
 #: includes/addons/wb_product_suggest_price.php:97
 msgid "Submit Button Text"
+msgstr ""
+
+#: includes/addons/wb_product_suggest_price.php:110
+#: includes/addons/wb_product_suggest_price.php:111
+msgid "Submitting..."
 msgstr ""
 
 #: includes/admin/templates/dashboard-welcome.php:68
@@ -6366,7 +6587,7 @@ msgstr ""
 msgid "Subtotal"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:165
+#: includes/addons/wb_product_suggest_price.php:176
 msgid "Success Message"
 msgstr ""
 
@@ -6505,6 +6726,13 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:36
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:59
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:266
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:276
+msgid "Telegram"
+msgstr ""
+
 #: includes/admin/include/class.template_cpt.php:47
 #: includes/admin/include/class.template_cpt.php:48
 msgid "Template"
@@ -6594,12 +6822,12 @@ msgstr ""
 #: includes/addons/wb_product_call_for_price.php:92
 #: includes/addons/wb_product_call_for_price.php:177
 #: includes/addons/wb_product_description.php:80
-#: includes/addons/wb_product_suggest_price.php:200
-#: includes/addons/wb_product_suggest_price.php:302
-#: includes/addons/wb_product_suggest_price.php:565
-#: includes/addons/wb_product_suggest_price.php:650
-#: includes/addons/wb_product_suggest_price.php:708
-#: includes/addons/wb_product_suggest_price.php:793
+#: includes/addons/wb_product_suggest_price.php:211
+#: includes/addons/wb_product_suggest_price.php:313
+#: includes/addons/wb_product_suggest_price.php:576
+#: includes/addons/wb_product_suggest_price.php:661
+#: includes/addons/wb_product_suggest_price.php:719
+#: includes/addons/wb_product_suggest_price.php:804
 #: includes/addons/wb_product_stock.php:51
 #: includes/addons/wb_product_add_to_cart.php:1062
 #: includes/addons/wb_product_add_to_cart.php:1151
@@ -6615,12 +6843,12 @@ msgstr ""
 msgid "Text will be displayed if user don't add any products to compare"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:294
+#: includes/addons/wb_product_suggest_price.php:305
 msgid "Textarea"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:167
-#: includes/addons/wb_product_suggest_price.php:168
+#: includes/addons/wb_product_suggest_price.php:178
+#: includes/addons/wb_product_suggest_price.php:179
 msgid "Thank you for contacting with us"
 msgstr ""
 
@@ -6675,7 +6903,7 @@ msgstr ""
 msgid "The resolution to the tablet."
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:508
+#: includes/modules/backorder/class.backorder.php:490
 msgid ""
 "The selected date will show as a message to customer. You can customize the "
 "message as you need from the module settings."
@@ -6685,6 +6913,8 @@ msgstr ""
 msgid "The short description does not set this product."
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:226
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:248
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:412
 msgid "Theme"
 msgstr ""
@@ -6705,7 +6935,7 @@ msgid "This is a pro features"
 msgstr ""
 
 #: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:828
-#: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:910
+#: includes/modules/variation-swatch/includes/Frontend/Woo_Config.php:914
 msgid "This product is currently out of stock and unavailable."
 msgstr ""
 
@@ -6722,6 +6952,10 @@ msgstr ""
 
 #: includes/addons/product_flash_sale.php:223
 msgid "Thumbnail Bottom"
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:219
+msgid "Thumbnail layout"
 msgstr ""
 
 #: includes/addons/product_flash_sale.php:215
@@ -6745,7 +6979,7 @@ msgstr ""
 msgid "Thumbnails Position"
 msgstr ""
 
-#: includes/helper-function.php:1307 includes/addons/wl_faq.php:68
+#: includes/helper-function.php:1309 includes/addons/wl_faq.php:68
 #: includes/addons/wl_faq.php:342 includes/addons/product_flash_sale.php:137
 #: includes/addons/product_flash_sale.php:773
 #: includes/addons/wl_product_horizontal_filter.php:249
@@ -6771,6 +7005,9 @@ msgstr ""
 #: includes/addons/wb_wishsuite_table.php:135
 #: includes/addons/product_tabs.php:164 includes/addons/product_tabs.php:954
 #: includes/addons/add_banner.php:147 includes/addons/wl_category_grid.php:602
+#: includes/modules/quickview/includes/classes/Frontend/Popup_Manager.php:87
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:191
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:199
 msgid "Title"
 msgstr ""
 
@@ -6820,8 +7057,8 @@ msgstr ""
 msgid "to"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1225
-#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:235
+#: includes/addons/product_flash_sale.php:1226
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:236
 msgid "To show the stock progress bar. Set the initial stock amount from"
 msgstr ""
 
@@ -6855,11 +7092,12 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:105
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:97
 msgid "Top On Image"
 msgstr ""
 
-#: includes/helper-function.php:1313
+#: includes/helper-function.php:1315
 msgid "Top Rated"
 msgstr ""
 
@@ -6869,7 +7107,7 @@ msgstr ""
 msgid "Top Rated Products"
 msgstr ""
 
-#: includes/helper-function.php:1312
+#: includes/helper-function.php:1314
 msgid "Top Seller"
 msgstr ""
 
@@ -6887,6 +7125,13 @@ msgstr ""
 
 #: includes/modules/popup-builder/includes/admin/tmpl-popup-builder-modal.php:109
 msgid "Triggers"
+msgstr ""
+
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:16
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:56
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:261
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:273
+msgid "Twitter"
 msgstr ""
 
 #: includes/addons/wl_testimonial.php:197
@@ -6960,8 +7205,8 @@ msgstr ""
 #: includes/addons/wl_category.php:373 includes/addons/product_curvy.php:596
 #: includes/addons/wb_just_table.php:87
 #: includes/addons/wb_product_categories.php:52
-#: includes/addons/wb_product_suggest_price.php:577
-#: includes/addons/wb_product_suggest_price.php:720
+#: includes/addons/wb_product_suggest_price.php:588
+#: includes/addons/wb_product_suggest_price.php:731
 #: includes/addons/wb_product_title.php:82
 #: includes/addons/wl_product_filter.php:203
 #: includes/addons/wl_product_filter.php:289
@@ -6990,8 +7235,8 @@ msgstr ""
 msgid "Typography"
 msgstr ""
 
-#: includes/addons/product_flash_sale.php:1271
-#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:282
+#: includes/addons/product_flash_sale.php:1272
+#: includes/modules/flash-sale/includes/blocks/product-flash-sale/index.php:283
 msgid "Unfortunately, no products were found in the deal you selected."
 msgstr ""
 
@@ -7030,6 +7275,7 @@ msgid "Upgrade to Pro"
 msgstr ""
 
 #: includes/modules/variation-swatch/includes/Admin/Attribute_Taxonomy_Metabox.php:264
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:160
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:227
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:252
 msgid "Upload"
@@ -7039,6 +7285,7 @@ msgstr ""
 msgid "Upload Image"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:157
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:230
 msgid "Upload you custom icon from here."
 msgstr ""
@@ -7185,6 +7432,7 @@ msgstr ""
 msgid "Use image"
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:106
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:98
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:146
 msgid "Use Shortcode"
@@ -7256,7 +7504,7 @@ msgstr ""
 msgid "View Cart"
 msgstr ""
 
-#: includes/modules/backorder/class.backorder.php:195
+#: includes/modules/backorder/class.backorder.php:193
 msgid "View cart"
 msgstr ""
 
@@ -7266,6 +7514,11 @@ msgstr ""
 
 #: includes/admin/include/class.template_cpt.php:59
 msgid "View Templates"
+msgstr ""
+
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:48
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:269
+msgid "VK"
 msgstr ""
 
 #: classes/class.widgets_control.php:460
@@ -7295,6 +7548,11 @@ msgstr ""
 
 #: includes/addons/wl_faq.php:168
 msgid "What Curling Irons Are The Best Ones"
+msgstr ""
+
+#: includes/modules/quickview/includes/templates/quickview-social-share.php:44
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:268
+msgid "WhatsApp"
 msgstr ""
 
 #: includes/addons/product_tabs.php:220
@@ -7843,13 +8101,9 @@ msgstr ""
 msgid "Wrapper Background"
 msgstr ""
 
-#: includes/addons/wb_product_suggest_price.php:143
-#: includes/addons/wb_product_suggest_price.php:144
+#: includes/addons/wb_product_suggest_price.php:154
+#: includes/addons/wb_product_suggest_price.php:155
 msgid "Write your message"
-msgstr ""
-
-#: classes/class.quickview_manage.php:25
-msgid "X"
 msgstr ""
 
 #: includes/addons/wb_image_marker.php:118
@@ -7936,12 +8190,20 @@ msgstr ""
 msgid "You can manage message for maximum product added in the compare table."
 msgstr ""
 
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:148
+msgid "You can manage the button icon."
+msgstr ""
+
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:188
 msgid "You can manage the popup window from here."
 msgstr ""
 
 #: includes/modules/compare/includes/classes/Admin/Admin_Fields.php:311
 msgid "You can manage your maximum compare quantity from here."
+msgstr ""
+
+#: includes/modules/quickview/includes/classes/Admin/Fields.php:257
+msgid "You can manage your social share buttons."
 msgstr ""
 
 #: includes/modules/post-duplicator/class.post-duplicator.php:90

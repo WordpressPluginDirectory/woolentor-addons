@@ -188,12 +188,13 @@ echo '<div class="'.esc_attr( implode(' ', $areaClasses ) ).'">';
                                         echo '</li>';
                                         }
                                     ?>
-
-                                    <li>
-                                        <a href="#" class="woolentor-flash-product-action-btn woolentorquickview" data-quick-id="<?php echo esc_attr($product_id);?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); ?>>
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </li>
+                                    <?php if( true === woolentor_has_quickview() ): ?>
+                                        <li>
+                                            <a href="#" class="woolentor-flash-product-action-btn woolentorquickview" data-product_id="<?php echo esc_attr($product_id);?>" <?php echo wc_implode_html_attributes( ['aria-label'=>$product->get_title()] ); ?>>
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </li>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
 

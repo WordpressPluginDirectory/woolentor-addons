@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, tarekht, aslamhasi
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.6
-Stable tag: 2.9.5
+Stable tag: 2.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1103,6 +1103,17 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 2.9.6 - Date: 1-09-2024 =
+* Added : Quick View Module.
+* Added : Suggest Price Form submission handle from Ajax for better user experience. 
+* Solved : Shipping Method cost calculate issue in Shopify Style checkout Module.
+* Solved : Order overview table width issue with Shopify Style checkout Module.
+* Solved : Single Product Ajax Add to cart data passing issue.
+* Solved : Backorder Meta key showing issue.
+* Solved : Empty data fetching issue.
+* Solved : Variation Swatch module product fetching issue with Gutenberg block theme.
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 2.9.5 - Date: 12-08-2024 =
 * Solved : WooCommerce Deprecated notice issue with Sales Notification Module.
 * Solved : Template Library data showing issue.
@@ -1615,18 +1626,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 = Version: 2.1.5 - Date: 2022-01-03 =
 * Solved : Gutenberg Blocks Console Error issue.
-
-= Version: 2.1.4 - Date: 2022-01-02 =
-* Added : Flash Sale Event Module.
-* Improved : Gutenberg Blocks Assets load.
-* Solved : Product not found message showing issue.
-* Solved : Country, State selection issue in shopify style checkout page.
-* Solved : Translate issue in shopify style checkout page.
-
-= Version: 2.1.3 - Date: 2021-12-21 =
-* Solved : Post Duplicator security issue.
-* Solved : Template library pop style issue.
-* Solved : WAVE Tool empty content error issue.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

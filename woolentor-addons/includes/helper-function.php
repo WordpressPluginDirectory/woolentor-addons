@@ -438,7 +438,7 @@ function woolentor_get_post_types( $args = [] ) {
  * return array
  */
 function woolentor_post_name( $post_type = 'post', $args = [] ){
-    $options = array();
+    $options = [];
     $options['0'] = __('Select','woolentor');
     $perpage = !empty( $args['limit'] ) ? $args['limit'] : woolentor_get_option( 'loadproductlimit', 'woolentor_others_tabs', '20' );
     $all_post = array( 'posts_per_page' => $perpage, 'post_type'=> $post_type );
@@ -448,6 +448,8 @@ function woolentor_post_name( $post_type = 'post', $args = [] ){
             $options[ $term->ID ] = $term->post_title;
         }
         return $options;
+    }else{
+        return [];
     }
 }
 
@@ -1471,6 +1473,21 @@ function woolentor_add_to_wishlist_button( $normalicon = '<i class="fa fa-heart-
 
 }
 
+/**
+ * [woolentor_has_quickview]
+ * @return [bool]
+ */
+function woolentor_has_quickview(){
+    $status = woolentor_get_option( 'enable', 'woolentor_quickview_settings', 'on' );
+
+    if( $status == 'on' ){
+        return true;
+    }else{
+        return apply_filters('woolentor_has_quickview', false);
+    }
+
+}
+
 /*
 * Ajax login Action
 */
@@ -1493,9 +1510,9 @@ function woolentor_ajax_login(){
     $all_notices = wc_print_notices( true );
 
     wp_send_json_success(
-        array(
+        [
             'notices' => $all_notices,
-        )
+        ]
     );
 
     wp_die();

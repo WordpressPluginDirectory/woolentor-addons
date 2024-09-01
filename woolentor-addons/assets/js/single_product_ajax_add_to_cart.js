@@ -47,14 +47,14 @@
             all_data: all_data,
         };
 
-        var alldata = data.all_data + '&product_id='+ data.product_id + '&product_sku='+ data.product_sku + '&quantity='+ data.quantity + '&variation_id='+ data.variation_id + '&variations='+ JSON.stringify( data.variations ) +'&action=woolentor_single_insert_to_cart';
+        var alldata = data.all_data + '&product_id='+ data.product_id + '&product_sku='+ data.product_sku + '&quantity='+ data.quantity + '&variation_id='+ data.variation_id + '&variations='+ JSON.stringify( data.variations );
 
         $( document.body ).trigger('adding_to_cart', [$this, alldata]);
 
         $.ajax({
-            type: 'post',
-            url: $form.attr('action') + '/?wc-ajax=woolentor_single_insert_to_cart',
-            data: alldata,
+            url: WLSPL.ajax_url,
+            type: 'POST',
+            data: 'action=woolentor_add_to_cart_single_product&add-to-cart='+data.product_id+'&'+data.all_data,
 
             beforeSend: function (response) {
                 $this.removeClass('added').addClass('loading');
@@ -65,10 +65,11 @@
             },
 
             success: function (response) {
-                if ( response.error & response.product_url ) {
-                    window.location = response.product_url;
-                    return;
+                if( 0 === response.length ) {
+                    location.reload();
+                    return false;
                 } else {
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
                     $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $this]);
                 }
             },

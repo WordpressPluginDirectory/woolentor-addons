@@ -155,6 +155,7 @@ final class Base {
 				'type'        => 'error',
                 'button'      => $button,
 				'message'     => $message,
+				'is_show'     => true,
 			]
 		);
     }
@@ -273,7 +274,7 @@ final class Base {
                 'dismissible' => true,
                 'message'     => $bannerDescription,
                 'banner'      => $banner,
-                'close_by'    => 'transient',
+                'close_by'    => 'user',
                 'priority'    => 2
             ]
         );
@@ -282,7 +283,7 @@ final class Base {
 
    /**
     * [is_plugins_install] Check Plugin is Installed or not
-    * @param  [string]  $pl_file_path plugin file path
+    * @param  [string] $pl_file_path plugin file path
     * @return boolean  true|false
     */
     public function is_plugins_install( $pl_file_path = NULL ){
@@ -438,7 +439,6 @@ final class Base {
         require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.assest_management.php' );
         require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.widgets_control.php' );
         require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.default_data.php' );
-        require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.quickview_manage.php' );
         require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.icon_list.php' );
         require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.multi_language.php' );
         require( WOOLENTOR_ADDONS_PL_PATH.'classes/class.ajax_actions.php' );

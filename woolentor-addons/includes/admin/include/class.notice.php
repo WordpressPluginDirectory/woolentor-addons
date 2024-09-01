@@ -279,10 +279,11 @@ if ( ! class_exists( 'WooLentor_Notices' ) ){
             // Hide Screen
             $current_screen = get_current_screen();
 
-            $hide_screen = ['plugins','plugin-install','update','shoplentor_page_woolentor_templates'];
+            $hide_screen = ['plugins','plugin-install','update','update-core','shoplentor_page_woolentor_templates'];
 
-            if( in_array( $current_screen->id, $hide_screen) ){
-                $notice['is_show'] = false;
+            // Check If do not Pass is_show from Notice Argument
+            if(  in_array( $current_screen->id, $hide_screen) ){
+                $notice['is_show'] = array_key_exists( 'is_show', $notice_data ) ? $notice_data['is_show'] : false;
             }
 
             return $notice;

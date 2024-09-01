@@ -24,7 +24,8 @@ class Single_Product_Ajax_Add_To_Cart{
         global $post;
         if( function_exists( 'is_product' ) && is_product() ){
             $product = wc_get_product( $post->ID );
-            if ( ( $product->is_type( 'simple' ) || $product->is_type( 'variable' ) ) ) {
+            if ( ( $product->is_type( 'simple' ) || $product->is_type( 'variable' ) || $product->is_type('grouped') ) ) {
+                wp_localize_script( 'jquery-single-product-ajax-cart', 'WLSPL', [ 'ajax_url'=> admin_url( 'admin-ajax.php' )] );
                 wp_enqueue_script( 'jquery-single-product-ajax-cart' );
             }
         }

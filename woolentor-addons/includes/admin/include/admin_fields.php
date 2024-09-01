@@ -3114,7 +3114,7 @@ class Woolentor_Admin_Fields {
                     
                     array(
                         'name'   => 'single_product_sticky_add_to_cartp',
-                        'label'  => esc_html__( 'Product sticky Add to cart', 'woolentor' ),
+                        'label'  => esc_html__( 'Single Product Sticky Add To Cart', 'woolentor' ),
                         'desc'   => esc_html__( 'Sticky Add to Cart on Single Product page', 'woolentor' ),
                         'type'   => 'element',
                         'default'=> 'off',

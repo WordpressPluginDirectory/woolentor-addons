@@ -879,6 +879,10 @@ class Woo_Config {
         }
 
         global $product;
+        if ( !$product && !is_a( $product, 'WC_Product' ) ) {
+            return;
+        }
+
         if ( ! $product->is_type( 'variable' ) ) {
             return;
         }
@@ -958,9 +962,9 @@ class Woo_Config {
    /**
     * The current product attribute is checked to see if it is listed in the catalog mode attributes.
     * 
-    * @param product_attributes An array of all the product attributes.
-    * @param attribute_name The attribute name you want to check.
-    * @param condition check_does_not_match or check_exact_match
+    * @param [product_attributes] An array of all the product attributes.
+    * @param [attribute_name] The attribute name you want to check.
+    * @param [condition] check_does_not_match or check_exact_match
     */
     public function check_catalog_mode_match( $attribute_name ){
         $enable_catalog_mode       = Helper::get_option('pl_enable_catalog_mode');

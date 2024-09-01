@@ -1350,6 +1350,7 @@
 }
 .woolentor-checkout__box .woolentor-checkout__right-sidebar .shop_table {
     background-color: transparent;
+    width: 100%;
 }
 .woolentor-step--payment #order_payment_heading {
     display: none !important;

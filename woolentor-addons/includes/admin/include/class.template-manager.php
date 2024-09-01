@@ -75,7 +75,7 @@ class Woolentor_Template_Manager{
 			esc_html__('Template Builder', 'woolentor'),
 			'manage_options',
 			$link_custom_post,
-            NULL
+            ''
 		);
     }
 

@@ -338,7 +338,7 @@ class Woolentor_Shopify_Like_Checkout extends \WC_Checkout{
             $chosen_method = isset( WC()->session->chosen_shipping_methods[ $i ] ) ? WC()->session->chosen_shipping_methods[ $i ] : '';
         }
 
-        if( is_array($package)  && !empty($package['rates']) ){
+        if( is_array($package)  && !empty($package['rates']) && !empty( $chosen_method )){
             $method_obj  = $package['rates'][$chosen_method];
             if ( WC()->cart->display_prices_including_tax() ) {
                 $method_cost = $method_obj->cost + $method_obj->get_shipping_tax();

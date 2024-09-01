@@ -607,9 +607,6 @@
 							if( !swatchly_params.is_product ){
 								var $product_thumbnail = $(this).get_product_image_selector();
 
-								let $el_product = $(this).closest('.product');
-								$el_product.backup_product_image();
-	
 								$product_thumbnail.attr('src', variation.image.url);
 								$product_thumbnail.attr('srcset', variation.image.srcset);
 							}
@@ -621,7 +618,7 @@
 
 							// some user use single product add to cart button in the product loop
 							// so we need to reset the image for the product loop
-							if( !swatchly_params.is_product ){
+							if( !swatchly_params.is_product && $(this).closest('.single-product').length === 0 ){
 								let $el_product = $(this).closest('.product');
 								$el_product.reset_to_default_image()
 							}

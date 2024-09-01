@@ -123,6 +123,16 @@ class Woolentor_Module_Manager{
             require_once( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/backorder/class.backorder.php' );
         }
 
+        // QuickView
+        if( file_exists( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/quickview/quickview.php') ){
+            require_once( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/quickview/quickview.php' );
+            if( woolentor_get_option( 'enable', 'woolentor_quickview_settings', 'on' ) == 'on' ){
+                \Woolentor\Modules\QuickView\woolentor_QuickView( true );
+            }else{
+                \Woolentor\Modules\QuickView\woolentor_QuickView( false );
+            }
+        }
+
         // Currency Switcher
         if( file_exists( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/currency-switcher/currency-switcher.php') ){
             require_once( WOOLENTOR_ADDONS_PL_PATH .'includes/modules/currency-switcher/currency-switcher.php' );

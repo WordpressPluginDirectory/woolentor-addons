@@ -339,8 +339,9 @@ class Woolentor_Admin_Init{
      */
     public function remove_all_notices(){
         add_action('in_admin_header', function (){
-            $screen = get_current_screen();
-            if ( 'shoplentor_page_woolentor' == $screen->base ) {
+            $current_screen = get_current_screen();
+            $hide_screen = ['shoplentor_page_woolentor','shoplentor_page_woolentor_templates'];
+            if(  in_array( $current_screen->id, $hide_screen) ){
                 remove_all_actions('admin_notices');
                 remove_all_actions('all_admin_notices');
             }
