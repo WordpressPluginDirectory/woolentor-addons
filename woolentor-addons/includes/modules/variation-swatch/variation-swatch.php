@@ -3,6 +3,7 @@ namespace Woolentor\Modules;
 use const Woolentor\Modules\Swatchly\MODULE_PATH;
 use const Woolentor\Modules\Swatchly\MODULE_FILE;
 use const Woolentor\Modules\Swatchly\MODULE_URL;
+use WooLentor\Traits\Singleton;
 
 
 // If this file is accessed directly, exit
@@ -15,29 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-final class Swatchly {
-
-    /**
-     * The single instance of the class
-     *
-     * @since 1.0.0
-     */
-    protected static $_instance = null;
-
-    /**
-     * Main Instance
-     *
-     * Ensures only one instance of this pluin is loaded
-     *
-     * @since 1.0.0
-     */
-    public static function instance() {
-        if ( is_null( self::$_instance ) ) {
-            self::$_instance = new self();
-        }
-        return self::$_instance;
-    }
-
+class Swatchly {
+    use Singleton;
+    
     /**
      * Constructor
      *
@@ -114,4 +95,13 @@ function swatchly_module() { // phpcs:ignore WordPress.NamingConventions.ValidFu
 }
 
 // Kick-off the module
-swatchly_module();
+if( !( is_plugin_active( 'swatchly/swatchly.php') || is_plugin_active( 'swatchly-pro/swatchly-pro.php') ) ){
+    swatchly_module();
+}else{
+    add_filter('woolentor_admin_fields',function( $fields ){
+        $element_keys = array_column( $fields['woolentor_others_tabs']['modules'], 'name' );
+        $unset_key = array_search('swatch_settings', $element_keys);
+        unset( $fields['woolentor_others_tabs']['modules'][$unset_key] );
+        return $fields;
+    });
+}

@@ -1,34 +1,32 @@
 <?php
+namespace Woolentor\Modules\AjaxSearch;
+use WooLentor\Traits\Singleton;
 
-class WooLentor_Ajax_Search_Base{
-
-	private static $instance = null;
-    public static function instance() {
-        if ( is_null( self::$instance ) ) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
+class Ajax_Search{
+	use Singleton;
 
 	/**
 	 * Default Constructor
 	 */
 	public function __construct() {
+		// Ajax Callback
+		add_action( 'wp_ajax_woolentor_ajax_search', [ $this, 'ajax_search_callback' ] );
+        add_action( 'wp_ajax_nopriv_woolentor_ajax_search', [ $this, 'ajax_search_callback' ] );
 
 		//Register Shortcode
 		add_shortcode( 'woolentorsearch', [ $this, 'shortcode' ] );
 
-		// register widget
+		// WP Register widget
 		add_action( 'widgets_init', [ $this, 'register_widget' ] );
 
 	}
 
 	/**
-	 * Register Widget
+	 * Register WP Widget
 	 */
-	function register_widget(){
+	public function register_widget(){
 		require ( __DIR__ . '/widget-product-search-ajax.php' );
-		register_widget( 'WooLentor_Product_Search_Ajax_Widget' );
+		register_widget( '\Woolentor\Modules\AjaxSearch\Ajax_Search_Widget' );
 		// Enqueue Style
 		if( !is_admin() ){
 			wp_enqueue_style( 'woolentor-ajax-search' );
@@ -75,7 +73,7 @@ class WooLentor_Ajax_Search_Base{
 			'operator' 	=> 'NOT IN',
 		);
 
-		$query = new WP_Query( $args );
+		$query = new \WP_Query( $args );
 
 		ob_start();
 		echo '<div class="woolentor_psa_inner_wrapper">';
@@ -143,6 +141,8 @@ class WooLentor_Ajax_Search_Base{
 
 		$show_category = $show_category == '1' ? true : $show_category;
 
+		$selected_cat = sanitize_text_field( wp_unslash( isset($_GET['product_cat']) ? $_GET['product_cat'] : '' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
 		$output = '';
 		ob_start();
 		?>
@@ -154,9 +154,8 @@ class WooLentor_Ajax_Search_Base{
 							<select name="product_cat">
 								<?php
 									foreach( $category_list as $cat_key => $cat ){
-										?>
-											<option value="<?php echo esc_attr( $cat_key );?>"><?php echo esc_html( $cat ); ?></option>
-										<?php
+										$term_object = get_term( $cat_key );
+										echo '<option value="'.esc_attr( $term_object->slug ).'" data-value="'.esc_attr($cat_key).'" '.selected( ($selected_cat === $term_object->slug), true, false ).'>'.esc_html( $cat ).'</option>';
 									}
 								?>
 							</select>
@@ -182,4 +181,4 @@ class WooLentor_Ajax_Search_Base{
 
 }
 
-WooLentor_Ajax_Search_Base::instance();
+Ajax_Search::instance();

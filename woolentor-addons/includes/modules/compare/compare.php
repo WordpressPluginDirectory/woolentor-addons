@@ -1,27 +1,12 @@
 <?php
+use WooLentor\Traits\Singleton;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
 * Plugin Main Class
 */
-final class Woolentor_Ever_Compare{
-
-    /**
-     * [$_instance]
-     * @var null
-     */
-    private static $_instance = null;
-
-    /**
-     * [instance] Initializes a singleton instance
-     * @return [Base]
-     */
-    public static function instance() {
-        if ( is_null( self::$_instance ) ) {
-            self::$_instance = new self();
-        }
-        return self::$_instance;
-    }
+class Woolentor_Ever_Compare{
+    use Singleton;
     
     /**
      * [__construct] Class Constructor
@@ -148,4 +133,6 @@ final class Woolentor_Ever_Compare{
 function woolentor_ever_compare() {
     return Woolentor_Ever_Compare::instance();
 }
-woolentor_ever_compare();
+if( ! class_exists('Ever_Compare') ){
+    woolentor_ever_compare();
+}

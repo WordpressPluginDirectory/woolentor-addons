@@ -1,22 +1,12 @@
 <?php
 namespace Woolentor\Modules\Popup_Builder;
 use Woolentor\Modules\Popup_Builder\Frontend;
+use WooLentor\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Popup_Builder{
-
-    private static $_instance = null;
-
-    /**
-     * Get Instance
-     */
-    public static function get_instance(){
-        if( is_null( self::$_instance ) ){
-            self::$_instance = new self();
-        }
-        return self::$_instance;
-    }
+    use Singleton;
 
     /**
      * Constructor
@@ -43,6 +33,15 @@ class Popup_Builder{
      */
     private function includes() {
         spl_autoload_register( array( $this, 'autoloader' ) );
+
+        // If Pro Active
+        if( is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') && defined( "WOOLENTOR_ADDONS_PL_PATH_PRO" ) ){
+            $popup_builder_pro_module_file = WOOLENTOR_ADDONS_PL_PATH_PRO .'includes/modules/popup-builder-pro/class-popup-builder-pro.php';
+            if( (  file_exists($popup_builder_pro_module_file) )){
+                require_once( $popup_builder_pro_module_file );
+            }
+        }
+
     }
 
     /**
@@ -94,4 +93,4 @@ class Popup_Builder{
     
 }
 
-Popup_Builder::get_instance();
+Popup_Builder::instance();
