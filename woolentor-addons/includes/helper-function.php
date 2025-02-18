@@ -518,6 +518,47 @@ function woolentor_taxonomy_list( $taxonomy = 'product_cat', $option_value = 'sl
     return $options;
 }
 
+/**
+ * User Role List
+ * @return array
+ */
+function woolentor_user_role_list(){
+    $options = [];
+    $roles = get_editable_roles();
+    if ( ! empty( $roles ) && ! is_wp_error( $roles ) ) {
+        foreach ( $roles as $role_key => $role_value ) {
+            $options[$role_key] = $role_value['name'];
+        }
+    }
+    return $options;
+}
+
+/**
+ * Get User Rule List if get_editable_roles is not working
+ * @return array
+ */
+function woolentor_get_editable_roles(){
+    $all_roles = wp_roles()->roles;
+
+	/**
+	 * Filters the list of editable roles.
+	 *
+	 * @since 2.8.0
+	 *
+	 * @param array[] $all_roles Array of arrays containing role information.
+	 */
+	$editable_roles = apply_filters( 'editable_roles', $all_roles );
+
+    $rule_list = [];
+
+    if ( ! empty( $editable_roles ) && ! is_wp_error( $editable_roles ) ) {
+        foreach ( $editable_roles as $role_key => $role_value ) {
+            $rule_list[$role_key] = $role_value['name'];
+        }
+    }
+    return $rule_list;
+}
+
 /*
  * Get Post Type
  * return array
@@ -1008,7 +1049,8 @@ function woolentor_get_html_allowed_tags($tag_type = 'title') {
 * Category list
 * return first one
 */
-function woolentor_get_product_category_list( $id = null, $taxonomy = 'product_cat', $limit = 1 ) { 
+function woolentor_get_product_category_list( $id = null, $taxonomy = 'product_cat', $limit = 1 ) {
+    $limit_to_show = apply_filters('woolentor_universer_category_limit', $limit);
     $terms = get_the_terms( $id, $taxonomy );
     $i = 0;
     if ( is_wp_error( $terms ) )
@@ -1024,7 +1066,7 @@ function woolentor_get_product_category_list( $id = null, $taxonomy = 'product_c
             return $link;
         }
         echo '<a href="' . esc_url( $link ) . '">' . esc_html($term->name) . '</a>';
-        if( $i == $limit ){
+        if( $i == $limit_to_show ){
             break;
         }else{ continue; }
     }
