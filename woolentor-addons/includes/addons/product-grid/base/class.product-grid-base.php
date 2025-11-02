@@ -181,7 +181,25 @@ class WooLentor_Product_Grid_Base {
             $query_settings['max_price'] = $settings['max_price'] ?? '';
         }
 
-        return apply_filters( 'woolentor_product_grid_query_settings', $query_settings, $settings );
+        // Handle pagination
+        if ( ! empty( $settings['enable_pagination'] ) ) {
+            if( isset($settings['paged']) ){
+                $paged = $settings['paged'];
+            }else{
+                $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+            }
+            $query_settings['paged'] = $paged;
+        }
+
+        // If Enable Product Filter Module
+        if ( ! empty( $settings['enable_filters'] ) ) {
+            $filter_args = !empty( $settings['filter_arg'] ) ? $settings['filter_arg'] : []; // If Filter arg is pass in settings
+            $query_settings = apply_filters( 'woolentor_filterable_shortcode_products_query', $query_settings, $filter_args );
+        }
+
+        $query_settings = apply_filters( 'woolentor_product_grid_query_settings', $query_settings, $settings );
+
+        return $query_settings;
     }
 
     /**
@@ -214,25 +232,8 @@ class WooLentor_Product_Grid_Base {
 
         $query_settings = $this->prepare_query_settings( $settings );
 
-        // Handle pagination
-        if ( ! empty( $settings['enable_pagination'] ) ) {
-            if( isset($settings['paged']) ){
-                $paged = $settings['paged'];
-            }else{
-                $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-            }
-            $query_settings['paged'] = $paged;
-        }
-
         // Set Query Manager settings
         $this->query_manager->set_settings( $query_settings );
-
-        // Set filterable if needed
-        if ( ! empty( $settings['enable_filters'] ) ) {
-            if( !isset($settings['run_ajaxfilter'])){
-                $this->query_manager->set_filterable( true, [] );
-            }
-        }
 
         return $this->query_manager->get_products();
     }
@@ -244,10 +245,7 @@ class WooLentor_Product_Grid_Base {
         $classes = [
             'woolentor-product-grid',
             'woolentor-style-' . $settings['style'],
-            'woolentor-layout-' . $settings['layout'],
-            'woolentor-columns-' . $settings['columns'],
-            'woolentor-columns-tablet-' . $settings['columns_tablet'],
-            'woolentor-columns-mobile-' . $settings['columns_mobile'],
+            'woolentor-layout-' . $settings['layout']
         ];
 
         if ( ($settings['pagination_type'] == 'load_more') || ($settings['pagination_type'] == 'infinite') ) {
@@ -297,20 +295,49 @@ class WooLentor_Product_Grid_Base {
     }
 
     /**
-     * Get template path
+     * Allow Style / Template Type
+     *
+     * @return array
      */
-    public function get_template_path( $style, $layout = 'grid' ) {
-        $specific_template = $style . '.php';
-        $template_path = WOOLENTOR_ADDONS_PL_PATH . 'templates/product-grid/' . $specific_template;
+    private function get_allowed_styles() : array {
+        return [
+            'modern',
+        ];
+    }
 
-        return apply_filters( 'woolentor_product_grid_template_path', $template_path, $style, $layout );
+    /**
+     * Get Template Path
+     *
+     * @param string $style
+     * @return string
+     */
+    private function get_template_path( string $style ) : string {
+        $base_dir     = wp_normalize_path( WOOLENTOR_ADDONS_PL_PATH . 'templates/product-grid/' );
+        $candidate    = wp_normalize_path( $base_dir . $style . '.php' );
+        $real_base    = wp_normalize_path( realpath( $base_dir ) );
+        $real_target  = wp_normalize_path( realpath( $candidate ) );
+    
+        // If file doesn’t exist or resolves outside base, fall back
+        if ( ! $real_target || strpos( $real_target, $real_base ) !== 0 || ! is_file( $real_target ) ) {
+            // fall back to default safely
+            $fallback = wp_normalize_path( $base_dir . 'modern.php' );
+            return is_file( $fallback ) ? $fallback : ''; // empty -> handle gracefully
+        }
+    
+        return apply_filters( 'woolentor_product_grid_template_path', $real_target, $style );
     }
 
     /**
      * Load template
      */
     public function load_template( $style, $layout, $products, $settings, $only_items = false ) {
-        $template_path = $this->get_template_path( $style, $layout );
+
+        $style = isset( $style ) ? sanitize_key( $style ) : 'modern';
+        if ( ! in_array( $style, $this->get_allowed_styles(), true ) ) {
+            $style = 'modern';
+        }
+
+        $template_path = $this->get_template_path( $style );
 
         if ( file_exists( $template_path ) ) {
             // Make sure WooCommerce functions are available
@@ -447,8 +474,10 @@ class WooLentor_Product_Grid_Base {
      * Render pagination
      */
     public function render_pagination( $products, $settings ) {
+
+        $query_settings = $this->query_manager->get_settings();
         $total_pages = $products->max_num_pages;
-        $current_page = isset( $settings['paged'] ) ? $settings['paged'] : max( 1, get_query_var( 'paged' ) );
+        $current_page = isset( $query_settings['paged'] ) ? $query_settings['paged'] : max( 1, get_query_var( 'paged' ) );
 
         if ( $total_pages <= 1 ) {
             return;
@@ -458,13 +487,14 @@ class WooLentor_Product_Grid_Base {
 
         switch ( $settings['pagination_type'] ) {
             case 'numbers':
-                echo paginate_links( [
+                echo wp_kses_post(paginate_links( [
                     'current' => $current_page,
                     'total' => $total_pages,
                     'type' => 'list',
                     'prev_text' => '<i class="sli sli-arrow-left"></i>',
                     'next_text' => '<i class="sli sli-arrow-right"></i>',
-                ] );
+                ] ));
+
                 break;
 
             case 'load_more':

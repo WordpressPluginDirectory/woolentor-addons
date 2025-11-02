@@ -353,6 +353,7 @@
         let isLoading = false;
         const $loader = selectorBtn.find('.woolentor-ajax-loader');
         const $grid = $('#' + selectorBtn.data('grid-id'));
+        const paginationArea = productLoadWrapper.find('.woolentor-pagination-infinite');
 
         function loadMoreOnScroll() {
             if (isLoading) return;
@@ -374,6 +375,7 @@
                     return;
                 }
 
+                paginationArea.css('margin-top', '30px');
                 isLoading = true;
                 $loader.show();
 
@@ -410,6 +412,7 @@
                     complete: function() {
                         $loader.hide();
                         isLoading = false;
+                        paginationArea.css('margin-top', '0');
                     },
                     error: function() {
                         $loader.hide();

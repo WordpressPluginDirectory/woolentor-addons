@@ -12,6 +12,20 @@ function woolentor_is_woocommerce() {
 }
 
 /**
+ * Get the appropriate script handle based on WooCommerce version
+ *
+ * @param string $old_handle Old handle for WC < 10.3.0
+ * @param string $new_handle New handle for WC >= 10.3.0
+ * @return string The appropriate handle
+ */
+function woolentor_get_wc_script_handle( $old_handle, $new_handle ) {
+    if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '10.3.0', '>=' ) ) {
+        return $new_handle;
+    }
+    return $old_handle;
+}
+
+/**
  * [woolentor_is_pro]
  * @return [boolean]
  */
@@ -1347,7 +1361,7 @@ if( class_exists('WooCommerce') ){
             $postsperpage = apply_filters( 'product_custom_limit', $limit );
             return $postsperpage;
         }
-        add_filter( 'loop_shop_per_page', 'woolentor_custom_number_of_posts' );
+        add_filter( 'loop_shop_per_page', 'woolentor_custom_number_of_posts', 99 );
     }
 
     // Customize rating html
@@ -1402,6 +1416,48 @@ if( class_exists('WooCommerce') ){
 
                 return $html;
         }
+    }
+
+    // Geneate product rating
+    function woolentor_wc_product_rating_generate( $product_obj = null ){
+        if ( get_option( 'woocommerce_enable_review_rating' ) === 'no' ) { return; }
+
+            if( $product_obj == null ){
+                global $product;
+                $product_obj = $product;
+            }
+
+            if ( $product_obj && is_a( $product_obj, 'WC_Product' ) ) {
+
+                $rating_count = $product_obj->get_rating_count();
+                $average      = $product_obj->get_average_rating();
+                $rating_whole = floor($average);
+                $rating_fraction = $average - $rating_whole;
+                $flug = 0;
+
+                $html = '';
+
+                if ( $rating_count > 0 ) {
+                    ob_start();
+                    for($i = 1; $i <= 5; $i++){
+                        if( $i <= $rating_whole ){
+                            echo '<svg class="star" viewBox="0 0 20 20"><path fill="currentColor" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+                        } else {
+                            if( $rating_fraction > 0 && $flug == 0 ){
+                                echo '<svg class="star empty-half" viewBox="0 0 576 512"><path fill="currentColor" d="M288.1 353.6c10 0 19.9 2.3 29 7l74.4 37.9l-13-82.5c-3.2-20.2 3.5-40.7 17.9-55.2l59-59.1l-82.5-13.1c-20.2-3.2-37.7-15.9-47-34.1l-38-74.4v273.6zM457.4 489c-7.3 5.3-17 6.1-25 2l-144.3-73.4L143.8 491c-8 4.1-17.7 3.3-25-2s-11-14.2-9.6-23.2l25.2-159.9L20 191.4c-6.4-6.4-8.6-15.8-5.8-24.4s10.1-14.9 19.1-16.3l159.9-25.4l73.6-144.2c4.1-8 12.4-13.1 21.4-13.1s17.3 5.1 21.4 13.1L383 125.3l159.9 25.4c8.9 1.4 16.3 7.7 19.1 16.3s.5 18-5.8 24.4L441.7 305.9L467 465.8c1.4 8.9-2.3 17.9-9.6 23.2"/></svg>';
+                                $flug = 1;
+                            } else {
+                                echo '<svg class="star empty" viewBox="0 0 20 20"><path fill="currentColor" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+                            }
+                        }
+                    }
+                    $html = ob_get_clean();
+                }
+
+                return $html;
+
+            }
+
     }
 
     // HTML Markup Render in footer

@@ -141,7 +141,7 @@ class Scripts {
 		if( function_exists('WC') ){
 			wp_enqueue_style('woocommerce-layout', \WC()->plugin_url() . '/assets/css/woocommerce-layout.css', false, \Automattic\Jetpack\Constants::get_constant('WC_VERSION'), 'all' );
 			if ( ! wp_script_is( 'wc-add-to-cart-variation', 'enqueued' ) ) {
-				wp_enqueue_script('wc-add-to-cart-variation', \WC()->plugin_url() . '/assets/js/frontend/add-to-cart-variation.js', array( 'jquery', 'wp-util', 'jquery-blockui' ), \Automattic\Jetpack\Constants::get_constant('WC_VERSION'), 'all' );
+				wp_enqueue_script('wc-add-to-cart-variation', \WC()->plugin_url() . '/assets/js/frontend/add-to-cart-variation.js', array( 'jquery', 'wp-util', woolentor_get_wc_script_handle('jquery-blockui','wc-jquery-blockui') ), \Automattic\Jetpack\Constants::get_constant('WC_VERSION'), 'all' );
 			}
 		}
 		wp_enqueue_style('wishsuite-frontend');

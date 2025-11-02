@@ -3761,7 +3761,7 @@ class Options_Field {
                     'name' => esc_html__( 'Load Products in Elementor Addons', 'woolentor' ),
                     'desc'  => esc_html__( 'Set the number of products to load in Elementor Addons', 'woolentor' ),
                     'min'               => 1,
-                    'max'               => 100,
+                    'max'               => 1000,
                     'step'              => '1',
                     'type'              => 'number',
                     'default'           => '20',

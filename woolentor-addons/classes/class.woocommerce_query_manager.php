@@ -31,18 +31,6 @@ class WooLentor_WooCommerce_Query_Manager {
     private $settings = [];
 
     /**
-     * Filterable flag
-     * @var bool
-     */
-    private $filterable = false;
-
-    /**
-     * Filter args for filterable products
-     * @var array
-     */
-    private $filter_args = [];
-
-    /**
      * Get Instance
      * @return WooLentor_WooCommerce_Query_Manager
      */
@@ -73,15 +61,12 @@ class WooLentor_WooCommerce_Query_Manager {
     }
 
     /**
-     * Set filterable flag
-     * @param bool $filterable
-     * @param array $filter_args
-     * @return $this
+     * Get settings
+     *
+     * @return array
      */
-    public function set_filterable( $filterable = true, $filter_args = [] ) {
-        $this->filterable = $filterable;
-        $this->filter_args = $filter_args;
-        return $this;
+    public function get_settings(){
+        return $this->settings;
     }
 
     /**
@@ -165,11 +150,6 @@ class WooLentor_WooCommerce_Query_Manager {
 
         // Apply custom tax and meta queries
         $this->apply_custom_queries();
-
-        // Apply filterable products query filter (for compatibility with pro modules)
-        if ( true === $this->filterable ) {
-            $this->query_args = apply_filters( 'woolentor_filterable_shortcode_products_query', $this->query_args, $this->filter_args );
-        }
 
         // Allow filtering
         $this->query_args = apply_filters( 'woolentor_wc_query_manager_args', $this->query_args, $this->settings );
@@ -511,6 +491,20 @@ class WooLentor_WooCommerce_Query_Manager {
             }
 
             $this->query_args['tax_query'][] = $tax_query;
+        }else{
+            // Current Category / taxonomy Page, If not set individual categorie from query settings then apply current taxonomy query
+            $termobj = (array)get_queried_object();
+            if( !empty($termobj['term_id']) ){
+                $tax_query = [
+                    [
+                        "taxonomy" => $termobj['taxonomy'],
+                        "terms" => $termobj['term_id'],
+                        "field" => "term_id",
+                        "include_children" => true
+                    ]
+                ];
+                $this->query_args['tax_query'][] = $tax_query;
+            }
         }
     }
 
@@ -768,35 +762,6 @@ class WooLentor_WooCommerce_Query_Manager {
     }
 
     /**
-     * Get query for AJAX requests
-     * @param array $request
-     * @return array
-     */
-    public function get_ajax_query_args( $request = [] ) {
-        // Parse AJAX request parameters
-        if ( isset( $request['paged'] ) ) {
-            $this->settings['paged'] = intval( $request['paged'] );
-        }
-
-        if ( isset( $request['orderby'] ) ) {
-            $this->settings['query_orderby'] = sanitize_text_field( $request['orderby'] );
-        }
-
-        if ( isset( $request['order'] ) ) {
-            $this->settings['query_order'] = sanitize_text_field( $request['order'] );
-        }
-
-        // Apply filters from AJAX request
-        if ( isset( $request['filters'] ) && is_array( $request['filters'] ) ) {
-            foreach ( $request['filters'] as $key => $value ) {
-                $this->settings[$key] = $value;
-            }
-        }
-
-        return $this->build_query_args();
-    }
-
-    /**
      * Get total pages for pagination
      * @param WP_Query $query
      * @return int
@@ -822,8 +787,6 @@ class WooLentor_WooCommerce_Query_Manager {
     public function reset() {
         $this->query_args = [];
         $this->settings = [];
-        $this->filterable = true;
-        $this->filter_args = [];
         return $this;
     }
 }

@@ -4561,6 +4561,17 @@ span.woolentor-order-item-title .product-thumbnail {
   margin-bottom: 30px;
 }
 
+.woocommerce-js div.product .wl-addto-cart form.cart div.quantity, .wl-quantity-cal div.quantity{
+  margin: 0;
+}
+.woocommerce-js .wl-addto-cart .quantity .qty{
+  margin: 0;
+  background: transparent;
+}
+.woocommerce-js div.product .wl-addto-cart form.cart .button, .wl-cart-wrap .button{
+  margin: 0;
+}
+
 .wl-addto-cart.wl-style-2 form.cart .wl-quantity-wrap .wl-quantity-cal {
   display: flex;
   flex-wrap: wrap;

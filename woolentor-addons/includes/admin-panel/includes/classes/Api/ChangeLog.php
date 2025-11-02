@@ -164,6 +164,28 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.2.6',
+                'date'    => '2025-11-02',
+                'changes' => [
+                    'New Features' => [
+                        'Category, review, badge, and pagination style options in the Product Grid – Modern widget.',
+                        'Option to show or hide badges in the Product Grid – Modern widget.',
+                        'Support for current taxonomy page queries in the Product Grid – Modern widget.',
+                        'Custom preloader option for the Quick View module.',
+                    ],
+                    'Fixes' => [
+                        'Add to Cart button styling issue for grouped and external products in the Product Grid – Modern widget.',
+                        'Add to Cart button loader display issue with block-supported themes in the Product Grid – Modern widget.',
+                        'WooCommerce deprecated script warning.',
+                        'Responsive column layout issue.',
+                        'Compare icon color change issue in the Add to Cart widget.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.'
+                    ],
+                ]
+            ],
+            [
                 'version' => '3.1.7',
                 'date'    => '2025-08-04',
                 'changes' => [

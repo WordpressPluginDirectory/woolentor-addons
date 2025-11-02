@@ -77,8 +77,9 @@ $show_list_description = $settings['show_list_description'];
 $grid_description_length = absint($settings['grid_description_length']);
 $list_description_length = absint($settings['list_description_length']);
 $show_quick_view = $settings['show_quick_view'];
-$show_wishlist = $settings['show_wishlist'];
-$show_compare = $settings['show_compare'];
+$show_badges = $settings['show_badges'];
+$show_wishlist = ($settings['show_wishlist'] && true === woolentor_has_wishlist_plugin());
+$show_compare = ($settings['show_compare'] && true === woolentor_exist_compare_plugin());
 
 // Image size
 $image_size = $settings['image_size'];
@@ -112,7 +113,7 @@ if ( $layout_mode === 'grid' ) {
 ?>
 
 <?php if(!$only_items): ?>
-<div class="woolentor-product-grid-modern woolentor-layout-<?php echo esc_attr( $layout_mode_clase ); ?> <?php echo esc_attr( $grid_classes ); ?>" id="<?php echo esc_attr( $grid_id ); ?>">
+<div class="product woolentor-product-grid-modern woolentor-layout-<?php echo esc_attr( $layout_mode_clase ); ?> <?php echo esc_attr( $grid_classes ); ?>" id="<?php echo esc_attr( $grid_id ); ?>">
 <?php endif; ?>
 
     <?php while ( $products->have_posts() ) : $products->the_post(); ?>
@@ -183,10 +184,14 @@ if ( $layout_mode === 'grid' ) {
 
         // Card classes based on layout
         if ( ! $is_in_stock ) {
-            $card_classes[] = 'woolentor-out-of-stock';
+            $card_classes['woolentor-out-of-stock'] = 'woolentor-out-of-stock';
+        }else{
+            $card_classes['woolentor-out-of-stock'] = '';
         }
         if ( $is_on_sale ) {
-            $card_classes[] = 'woolentor-on-sale';
+            $card_classes['woolentor-on-sale'] = 'woolentor-on-sale';
+        }else{
+            $card_classes['woolentor-on-sale'] = '';
         }
         ?>
 
@@ -214,44 +219,47 @@ if ( $layout_mode === 'grid' ) {
                             ?>
 
                             <?php
-                            // Check if Product Badges module is enabled and has badges
-                            $show_template_badges = true;
-                            $module_badges_html = '';
 
-                            if ( defined( 'Woolentor\Modules\Badges\ENABLED' ) && \Woolentor\Modules\Badges\ENABLED ) {
-                                // Module is enabled, check if it has badges for this product
-                                if ( class_exists( '\Woolentor\Modules\Badges\Frontend\Badge_Manager' ) ) {
-                                    $module_badges_html = \Woolentor\Modules\Badges\Frontend\Badge_Manager::instance()->product_badges();
-                                    if ( ! empty( $module_badges_html ) ) {
-                                        // Display module badges
-                                        $show_template_badges = false;
+                            if( $show_badges ){
+
+                                // Check if Product Badges module is enabled and has badges
+                                $show_template_badges = true;
+                                $module_badges_html = '';
+
+                                if ( defined( 'Woolentor\Modules\Badges\ENABLED' ) && \Woolentor\Modules\Badges\ENABLED ) {
+                                    // Module is enabled, check if it has badges for this product
+                                    if ( class_exists( '\Woolentor\Modules\Badges\Frontend\Badge_Manager' ) ) {
+                                        $module_badges_html = \Woolentor\Modules\Badges\Frontend\Badge_Manager::instance()->product_badges();
+                                        if ( ! empty( $module_badges_html ) ) {
+                                            // Display module badges
+                                            $show_template_badges = false;
+                                        }
                                     }
                                 }
-                            }
 
-                            // Show template badges only if module badges aren't shown
-                            if ( $show_template_badges ) : ?>
-                                <!-- Badges -->
-                                <div class="woolentor-badges">
-                                    <?php if ( $show_sale_badge && $is_on_sale ) : ?>
-                                        <span class="woolentor-badge woolentor-sale-badge">
-                                            <?php echo esc_html( $sale_badge_text ); ?>
-                                        </span>
-                                    <?php endif; ?>
+                                // Show template badges only if module badges aren't shown
+                                if ( $show_template_badges ) : ?>
+                                    <!-- Badges -->
+                                    <div class="woolentor-badges">
+                                        <?php if ( $show_sale_badge && $is_on_sale ) : ?>
+                                            <span class="woolentor-badge woolentor-sale-badge">
+                                                <?php echo esc_html( $sale_badge_text ); ?>
+                                            </span>
+                                        <?php endif; ?>
 
-                                    <?php if ( $show_new_badge && $is_new ) : ?>
-                                        <span class="woolentor-badge woolentor-new-badge">
-                                            <?php echo esc_html( $new_badge_text ); ?>
-                                        </span>
-                                    <?php endif; ?>
+                                        <?php if ( $show_new_badge && $is_new ) : ?>
+                                            <span class="woolentor-badge woolentor-new-badge">
+                                                <?php echo esc_html( $new_badge_text ); ?>
+                                            </span>
+                                        <?php endif; ?>
 
-                                    <?php if ( $is_trending ) : ?>
-                                        <span class="woolentor-badge woolentor-trending-badge">
-                                            <?php echo esc_html( $trending_badge_text ); ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
+                                        <?php if ( $is_trending ) : ?>
+                                            <span class="woolentor-badge woolentor-trending-badge">
+                                                <?php echo esc_html( $trending_badge_text ); ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; } ?>
 
                             <?php if ( $show_quick_actions ) : ?>
                                 <div class="woolentor-quick-actions">
@@ -308,9 +316,11 @@ if ( $layout_mode === 'grid' ) {
                         <?php endif; ?>
 
                         <?php
+                            do_action( 'woolentor_product_addon_before_title' );
                             if ( $show_title ){
                                 echo sprintf( "<%s class='woolentor-product-title'><a href='%s' title='%s'>%s</a></%s>", $title_html_tag, esc_url( $product_permalink ), esc_attr( $product_title ), esc_html( $product_title ), $title_html_tag );
                             }
+                            do_action( 'woolentor_product_addon_after_title' );
                         ?>
 
                         <?php if ( $show_grid_description && $product_grid_description ) : ?>
@@ -321,19 +331,19 @@ if ( $layout_mode === 'grid' ) {
 
                         <?php if ( $show_rating && $product->get_average_rating() ) : ?>
                             <div class="woolentor-product-rating">
-                                <?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
+                                <?php echo '<div class="woolentor-product-stars">'.woolentor_wc_product_rating_generate($product).'</div>'; ?>
                                 <span class="woolentor-review-count">(<?php echo esc_html( $product->get_review_count() ); ?>)</span>
                             </div>
                         <?php endif; ?>
 
-                        <?php if ( $show_price ) : ?>
+                        <?php if ( $show_price ) : do_action( 'woolentor_product_addon_before_price' ); ?>
                             <div class="woolentor-product-price">
                                 <?php echo wp_kses_post( $product_price ); ?>
                                 <?php if ( $discount_percentage ) : ?>
                                     <span class="woolentor-discount-percentage"><?php echo esc_html( $discount_percentage ); ?></span>
                                 <?php endif; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php do_action( 'woolentor_product_addon_after_price' ); endif; ?>
 
                         <?php if ( $show_add_to_cart ) : ?>
                             <div class="woolentor-product-actions">
@@ -386,45 +396,46 @@ if ( $layout_mode === 'grid' ) {
                             ?>
 
                             <?php
-                            // Check if Product Badges module is enabled and has badges (List View)
-                            $show_template_badges_list = true;
-                            $module_badges_html_list = '';
+                            if( $show_badges ){
+                                // Check if Product Badges module is enabled and has badges (List View)
+                                $show_template_badges_list = true;
+                                $module_badges_html_list = '';
 
-                            if ( defined( 'Woolentor\Modules\Badges\ENABLED' ) && \Woolentor\Modules\Badges\ENABLED ) {
-                                // Module is enabled, check if it has badges for this product
-                                if ( class_exists( '\Woolentor\Modules\Badges\Frontend\Badge_Manager' ) ) {
-                                    $module_badges_html_list = \Woolentor\Modules\Badges\Frontend\Badge_Manager::instance()->product_badges();
-                                    if ( ! empty( $module_badges_html_list ) ) {
-                                        // Module badges are automatically added to the product image via filter
-                                        // Don't echo here to avoid duplicates - badges are already attached to image
-                                        $show_template_badges_list = false;
+                                if ( defined( 'Woolentor\Modules\Badges\ENABLED' ) && \Woolentor\Modules\Badges\ENABLED ) {
+                                    // Module is enabled, check if it has badges for this product
+                                    if ( class_exists( '\Woolentor\Modules\Badges\Frontend\Badge_Manager' ) ) {
+                                        $module_badges_html_list = \Woolentor\Modules\Badges\Frontend\Badge_Manager::instance()->product_badges();
+                                        if ( ! empty( $module_badges_html_list ) ) {
+                                            // Module badges are automatically added to the product image via filter
+                                            // Don't echo here to avoid duplicates - badges are already attached to image
+                                            $show_template_badges_list = false;
+                                        }
                                     }
                                 }
-                            }
 
-                            // Show template badges only if module badges aren't shown
-                            if ( $show_template_badges_list ) : ?>
-                                <!-- Badges -->
-                                <div class="woolentor-badges">
-                                    <?php if ( $show_sale_badge && $is_on_sale ) : ?>
-                                        <span class="woolentor-badge woolentor-sale-badge">
-                                            <?php echo esc_html( $sale_badge_text ); ?>
-                                        </span>
-                                    <?php endif; ?>
+                                // Show template badges only if module badges aren't shown
+                                if ( $show_template_badges_list ) : ?>
+                                    <!-- Badges -->
+                                    <div class="woolentor-badges">
+                                        <?php if ( $show_sale_badge && $is_on_sale ) : ?>
+                                            <span class="woolentor-badge woolentor-sale-badge">
+                                                <?php echo esc_html( $sale_badge_text ); ?>
+                                            </span>
+                                        <?php endif; ?>
 
-                                    <?php if ( $show_new_badge && $is_new ) : ?>
-                                        <span class="woolentor-badge woolentor-new-badge">
-                                            <?php echo esc_html( $new_badge_text ); ?>
-                                        </span>
-                                    <?php endif; ?>
+                                        <?php if ( $show_new_badge && $is_new ) : ?>
+                                            <span class="woolentor-badge woolentor-new-badge">
+                                                <?php echo esc_html( $new_badge_text ); ?>
+                                            </span>
+                                        <?php endif; ?>
 
-                                    <?php if ( $is_trending ) : ?>
-                                        <span class="woolentor-badge woolentor-trending-badge">
-                                            <?php echo esc_html( $trending_badge_text ); ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
+                                        <?php if ( $is_trending ) : ?>
+                                            <span class="woolentor-badge woolentor-trending-badge">
+                                                <?php echo esc_html( $trending_badge_text ); ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; } ?>
 
                             <?php if ( $show_quick_actions ) : ?>
                                 <div class="woolentor-quick-actions">
@@ -482,9 +493,11 @@ if ( $layout_mode === 'grid' ) {
                                 </div>
                             <?php endif; ?>
                             <?php
+                                do_action( 'woolentor_product_addon_before_title' );
                                 if ( $show_title ){
                                     echo sprintf( "<%s class='woolentor-product-title'><a href='%s' title='%s'>%s</a></%s>", $title_html_tag, esc_url( $product_permalink ), esc_attr( $product_title ), esc_html( $product_title ), $title_html_tag );
                                 }
+                                do_action( 'woolentor_product_addon_after_title' );
                             ?>
                         </div>
 
@@ -506,7 +519,7 @@ if ( $layout_mode === 'grid' ) {
 
                         <?php if ( $show_rating && $product->get_average_rating() ) : ?>
                             <div class="woolentor-product-rating">
-                                <?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
+                                <?php echo '<div class="woolentor-product-stars">'.woolentor_wc_product_rating_generate($product).'</div>'; ?>
                                 <div class="rating-info">
                                     <span class="rating-number"><?php echo esc_html($product->get_average_rating()); ?></span>
                                     <span class="review-count"><?php echo '('.esc_html($product->get_review_count()).' reviews)';?></span>
@@ -516,14 +529,14 @@ if ( $layout_mode === 'grid' ) {
 
                         <div class="woolentor-content-footer">
                             <div class="woolentor-price-stock">
-                                <?php if ( $show_price ) : ?>
+                                <?php if ( $show_price ) : do_action( 'woolentor_product_addon_before_price' ); ?>
                                     <div class="woolentor-product-price">
                                         <?php echo wp_kses_post( $product_price ); ?>
                                         <?php if ( $discount_percentage ) : ?>
                                             <span class="woolentor-discount-percentage"><?php echo esc_html( $discount_percentage ); ?></span>
                                         <?php endif; ?>
                                     </div>
-                                <?php endif; ?>
+                                <?php do_action( 'woolentor_product_addon_after_price' ); endif; ?>
                             </div>
 
                             <?php if ( $show_add_to_cart || $show_quantity_selector ) : ?>

@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, aslamhasib
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.8
-Stable tag: 3.2.5
+Stable tag: 3.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1123,6 +1123,18 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 3.2.6 - Date: 02-11-2025 =
+* Added: Category, review, badge, and pagination style options in the Product Grid – Modern widget.
+* Added: Option to show or hide badges in the Product Grid – Modern widget.
+* Added: Support for current taxonomy page queries in the Product Grid – Modern widget.
+* Added: Custom preloader option for the Quick View module.
+* Fixed: Add to Cart button styling issue for grouped and external products in the Product Grid – Modern widget.
+* Fixed: Add to Cart button loader display issue with block-supported themes in the Product Grid – Modern widget.
+* Fixed: WooCommerce deprecated script warning.
+* Fixed: Responsive column layout issue.
+* Fixed: Compare icon color change issue in the Add to Cart widget.
+* Compatibility: Verified with the latest versions of WordPress and WooCommerce.
+
 = Version: 3.2.5 - Date: 16-10-2025 =
 * Solved: Missing stylesheet issue with product grid modern widget.
 
@@ -1646,19 +1658,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Solved : FOUC Issue in all carousel.
 * Compatibility with latest WooCommerce version.
 * Compatibility with latest WordPress version.
-
-= Version: 2.4.2 - Date: 24-07-2022 =
-* Tweak : The compatibility of the Variation Swatches module with Astra theme.
-* Compatibility with latest WooCommerce version.
-* Compatibility with latest WordPress version.
-
-= Version: 2.4.0 - Date: 04-07-2022 =
-* Added : Options to show Phone Number and Company fields in the Shopify Style Checkout module.
-* Added : Variation Swatches Module.
-* Added : Options to control the Quantity field and 4 layouts for the Add to Cart button.
-* Added : Gutenberg blocks for the Shop, Archive, and Product pages.
-* Tweak : The compatibility of the Shopify Style Checkout module with WooFunnels' Order Bump feature.
-* Solved : A display issue with the share button when no products are available to compare.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

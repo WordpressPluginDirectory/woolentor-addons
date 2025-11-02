@@ -598,7 +598,9 @@ class Woolentor_Wb_Product_Add_To_Cart_Widget extends Widget_Base {
                             'type'      => Controls_Manager::COLOR,
                             'selectors' => [
                                 '{{WRAPPER}} .wl-addto-cart.wl-style-2 form.cart .wl-cart-icon.compare' => 'color: {{VALUE}}',
+                                '{{WRAPPER}} .wl-addto-cart.wl-style-2 form.cart .wl-cart-icon.compare a' => 'color: {{VALUE}}',
                                 '{{WRAPPER}} .wl-addto-cart.wl-style-5 form.cart .wl-cart-icon.compare' => 'color: {{VALUE}}',
+                                '{{WRAPPER}} .wl-addto-cart.wl-style-5 form.cart .wl-cart-icon.compare a' => 'color: {{VALUE}}',
                             ],
                             'condition'=>[
                                 'hide_advance_cart_compare_icon' => '',

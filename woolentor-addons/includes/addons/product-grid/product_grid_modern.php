@@ -191,6 +191,7 @@ class Woolentor_Product_Grid_Modern_Widget extends WooLentor_Product_Grid_Base_W
         // Add Modern-specific settings.
         $modern_settings = [
             'widget_name'               => $this->get_name(),
+            'widget_id'                 => $this->get_id(),
             'show_grid_description'     => $get_val('show_grid_description') === 'yes',
             'grid_description_length'   => $get_val('grid_description_length', 20),
             'show_list_description'     => $get_val('show_list_description') === 'yes',
