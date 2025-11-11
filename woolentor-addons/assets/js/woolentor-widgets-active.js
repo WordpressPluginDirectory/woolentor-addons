@@ -567,6 +567,7 @@
         elementorFrontend.hooks.addAction( 'frontend/element_ready/wl-customer-veview.default', WidgetProductSliderHandler );
 
         elementorFrontend.hooks.addAction( 'frontend/element_ready/woolentor-product-grid-modern.default', WoolentorProductGridModern );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/woolentor-product-grid-luxury.default', WoolentorProductGridModern );
 
     });
 

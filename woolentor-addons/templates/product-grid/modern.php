@@ -113,12 +113,12 @@ if ( $layout_mode === 'grid' ) {
 ?>
 
 <?php if(!$only_items): ?>
-<div class="product woolentor-product-grid-modern woolentor-layout-<?php echo esc_attr( $layout_mode_clase ); ?> <?php echo esc_attr( $grid_classes ); ?>" id="<?php echo esc_attr( $grid_id ); ?>">
+<div class="woolentor-product-grid-modern woolentor-layout-<?php echo esc_attr( $layout_mode_clase ); ?> <?php echo esc_attr( $grid_classes ); ?>" id="<?php echo esc_attr( $grid_id ); ?>">
 <?php endif; ?>
 
     <?php while ( $products->have_posts() ) : $products->the_post(); ?>
         <?php
-        global $product, $woocommerce_loop;
+        global $product;
 
         // Skip if not a valid product
         if ( ! is_a( $product, 'WC_Product' ) ) {
@@ -193,9 +193,10 @@ if ( $layout_mode === 'grid' ) {
         }else{
             $card_classes['woolentor-on-sale'] = '';
         }
+
         ?>
 
-        <div class="woolentor-product-item" data-product-id="<?php echo esc_attr( $product_id ); ?>">
+        <div class="product woolentor-product-item" data-product-id="<?php echo esc_attr( $product_id ); ?>">
             <div class="<?php echo esc_attr( implode( ' ', $card_classes ) ); ?>">
 
                 <!-- GRID VIEW CONTENT -->
@@ -374,7 +375,7 @@ if ( $layout_mode === 'grid' ) {
                     </div>
                 </div>
                 <!-- END GRID VIEW CONTENT -->
-
+                
                 <!-- LIST VIEW CONTENT -->
                 <div class="woolentor-list-view-content">
 

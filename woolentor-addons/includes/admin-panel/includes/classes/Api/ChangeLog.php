@@ -164,6 +164,22 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.2.7',
+                'date'    => '2025-11-11',
+                'changes' => [
+                    'New Features' => [
+                        'Product Grid - Modern Gutenberg Block.',
+                        'Product Grid - Luxury Elementor Widget.',
+                    ],
+                    'Fixes' => [
+                        'Product Grid - Modern compatibility with product Horizontal and Vertical filter widget.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.'
+                    ],
+                ]
+            ],
+            [
                 'version' => '3.2.6',
                 'date'    => '2025-11-02',
                 'changes' => [

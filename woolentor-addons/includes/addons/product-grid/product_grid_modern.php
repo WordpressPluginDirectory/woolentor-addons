@@ -48,7 +48,7 @@ class Woolentor_Product_Grid_Modern_Widget extends WooLentor_Product_Grid_Base_W
      * Get widget icon
      */
     public function get_icon() {
-        return 'eicon-posts-grid';
+        return 'woolentor-widget-new-icon eicon-posts-grid';
     }
 
     /**

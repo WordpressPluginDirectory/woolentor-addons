@@ -302,6 +302,7 @@ class WooLentor_Product_Grid_Base {
     private function get_allowed_styles() : array {
         return [
             'modern',
+            'luxury',
         ];
     }
 
@@ -386,16 +387,15 @@ class WooLentor_Product_Grid_Base {
             $settings = wp_parse_args( $settings, $this->get_default_settings() );
         }
 
+        // Dropdown Filter
+        $order_by = isset( $_GET['orderby'] ) ? $_GET['orderby'] : $settings['orderby'];
+        $settings['orderby'] = $order_by;
+
         // Get products
         $products = $this->get_products( $settings );
 
         // Render filters if enabled
         if ( $settings['layout'] === 'grid_list_tab' && !$only_items ) {
-
-            // Dropdown Filter
-            $order_by = isset( $_GET['orderby'] ) ? $_GET['orderby'] : $settings['orderby'];
-            $settings['orderby'] = $order_by;
-
             $this->render_filters( $settings, $products );
         }
         

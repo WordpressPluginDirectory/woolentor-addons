@@ -4615,7 +4615,7 @@ span.woolentor-order-item-title .product-thumbnail {
 .wl-addto-cart.wl-style-2
   form.cart
   .wl-quantity-wrap
-  .wl-quantity.wl-qunatity-plus {
+  .wl-quantity.wl-quantity-plus {
   padding-right: 0px;
   padding-left: 35px;
 }
@@ -5106,29 +5106,29 @@ span.woolentor-order-item-title .product-thumbnail {
   display: none;
 }
 
-.wl-addto-cart.grouped .wl-quantity-grouped-cal .wl-quantity.wl-qunatity-minus {
+.wl-addto-cart.grouped .wl-quantity-grouped-cal .wl-quantity.wl-quantity-minus {
   border-right: none;
 }
 
-.wl-addto-cart.grouped .wl-quantity-grouped-cal .wl-quantity.wl-qunatity-plus {
+.wl-addto-cart.grouped .wl-quantity-grouped-cal .wl-quantity.wl-quantity-plus {
   border-left: none;
 }
 
 .wl-addto-cart.grouped.wl-style-3
   .wl-quantity-grouped-cal
-  .wl-quantity.wl-qunatity-minus,
+  .wl-quantity.wl-quantity-minus,
 .wl-addto-cart.grouped.wl-style-5
   .wl-quantity-grouped-cal
-  .wl-quantity.wl-qunatity-minus {
+  .wl-quantity.wl-quantity-minus {
   display: none;
 }
 
 .wl-addto-cart.grouped.wl-style-3
   .wl-quantity-grouped-cal
-  .wl-quantity.wl-qunatity-plus,
+  .wl-quantity.wl-quantity-plus,
 .wl-addto-cart.grouped.wl-style-5
   .wl-quantity-grouped-cal
-  .wl-quantity.wl-qunatity-plus {
+  .wl-quantity.wl-quantity-plus {
   display: none;
 }
 

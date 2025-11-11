@@ -67,6 +67,16 @@ class Scripts {
 			$this->load_css();
 		}
 
+		/**
+		 * Localize data
+		 */
+		$localize_data = array(
+			'url' 		=> WOOLENTOR_BLOCK_URL,
+			'ajaxUrl' 	=> admin_url('admin-ajax.php'),
+			'security' 	=> wp_create_nonce('woolentorblock-nonce'),
+		);
+		wp_localize_script( 'woolentor-block-main', 'woolentorLocalizeData', $localize_data );
+
 	}
 
 	/**
@@ -120,6 +130,7 @@ class Scripts {
 				'prostatus'		=> is_admin() ? is_plugin_active('woolentor-addons-pro/woolentor_addons_pro.php') : false,
 				'templatelist'	=> is_admin() ? \Woolentor_Template_Library_Manager::get_gutenberg_templates_info() : array(),
 				'prolink'		=> 'https://woolentor.com/pricing/?utm_source=admin&utm_medium=gtlibrary',
+				'upgradeLink'	=> 'https://woolentor.com/pricing/'
 			);
 
 			// My Account MenuList

@@ -3,7 +3,7 @@ Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, aslamhasib
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
 Tested up to: 6.8
-Stable tag: 3.2.6
+Stable tag: 3.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1122,6 +1122,12 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 Elementor Pro is not required. But you can use ShopLentor with Elementor free & Pro.
 
 == Changelog ==
+
+= Version: 3.2.7 - Date: 11-11-2025 =
+* Added: Product Grid - Modern Gutenberg Block.
+* Added: Product Grid - Luxury Elementor Widget.
+* Solved: Product Grid - Modern compatibility with product Horizontal and Vertical filter widget.
+* Compatibility : Latest WordPress and WooCommerce version.
 
 = Version: 3.2.6 - Date: 02-11-2025 =
 * Added: Category, review, badge, and pagination style options in the Product Grid – Modern widget.

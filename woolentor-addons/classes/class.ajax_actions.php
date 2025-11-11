@@ -220,7 +220,7 @@ class Woolentor_Ajax_Action{
         $product_grid_base = new WooLentor_Product_Grid_Base();
 
         // Verify nonce
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'woolentor_psa_nonce' ) ) {
+        if ( ! isset( $_POST['nonce'] ) || ! (wp_verify_nonce( $_POST['nonce'], 'woolentor_psa_nonce' ) || wp_verify_nonce( $_POST['nonce'], 'woolentorblock-nonce' )) ) {
             wp_send_json_error( array( 'message' => __( 'Security check failed', 'woolentor' ) ) );
         }
 

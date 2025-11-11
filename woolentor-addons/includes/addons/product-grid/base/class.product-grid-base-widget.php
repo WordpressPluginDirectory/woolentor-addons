@@ -930,7 +930,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
         $this->start_controls_section(
             'section_style_container',
             [
-                'label' => esc_html__( 'Container', 'woolentor' ),
+                'label' => esc_html__( 'Product Card', 'woolentor' ),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1243,6 +1243,19 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .woolentor-product-categories .woolentor-product-category' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'category_bg_color',
+            [
+                'label' => esc_html__( 'Background Color', 'woolentor' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .woolentor-product-categories .woolentor-product-category' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -1254,6 +1267,19 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .woolentor-product-categories .woolentor-product-category:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'category_bg_hover_color',
+            [
+                'label' => esc_html__( 'Hover Background Color', 'woolentor' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .woolentor-product-categories .woolentor-product-category:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge:hover' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
@@ -1262,7 +1288,20 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'category_typography',
-                'selector' => '{{WRAPPER}} .woolentor-product-categories .woolentor-product-category',
+                'selector' => '{{WRAPPER}} .woolentor-product-categories .woolentor-product-category,{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'category_padding',
+            [
+                'label' => esc_html__( 'Padding', 'woolentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .woolentor-product-categories' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -1274,6 +1313,20 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
                     '{{WRAPPER}} .woolentor-product-categories' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'category_border_radius',
+            [
+                'label' => esc_html__( 'Border Radius', 'woolentor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .woolentor-product-categories' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-category-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1300,6 +1353,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .woolentor-product-description p' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-subtitle' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1308,7 +1362,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'description_typography',
-                'selector' => '{{WRAPPER}} .woolentor-product-description p',
+                'selector' => '{{WRAPPER}} .woolentor-product-description p,{{WRAPPER}} .woolentor-luxury-card .woolentor-product-subtitle',
             ]
         );
 
@@ -1320,6 +1374,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
                     '{{WRAPPER}} .woolentor-product-description p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-product-subtitle' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1449,6 +1504,18 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .woolentor-product-actions .woolentor-cart-btn:hover' => 'background-color: {{VALUE}}!important;background:{{VALUE}}!important;',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-cart-btn::before' => 'background-color: {{VALUE}};background:{{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'cart_button_hover_border_color',
+            [
+                'label' => esc_html__( 'Border Color', 'woolentor' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .woolentor-product-actions .woolentor-cart-btn:hover' => 'border-color: {{VALUE}};',
                 ],
             ]
         );
@@ -1483,9 +1550,18 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
 				],
                 'selectors' => [ 
                     '{{WRAPPER}} .woolentor-product-actions .woolentor-cart-btn svg'  => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-cart-arrow'  => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
 			]
 		);
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'cart_button_border',
+                'selector' => '{{WRAPPER}} .woolentor-product-actions .woolentor-cart-btn',
+            ]
+        );
 
         $this->add_control(
             'cart_button_border_radius',
@@ -1597,7 +1673,9 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'label' => esc_html__( 'Review Counter Color', 'woolentor' ),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .woolentor-product-grid-modern .woolentor-review-count,{{WRAPPER}} .woolentor-product-rating .rating-info' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-product-grid-modern .woolentor-review-count' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-product-rating .rating-info' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .woolentor-luxury-card .woolentor-rating-text' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -1606,7 +1684,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'review_counter_typography',
-                'selector' => '{{WRAPPER}} .woolentor-product-grid-modern .woolentor-review-count,{{WRAPPER}} .woolentor-product-rating .rating-info',
+                'selector' => '{{WRAPPER}} .woolentor-product-grid-modern .woolentor-review-count,{{WRAPPER}} .woolentor-product-rating .rating-info, {{WRAPPER}} .woolentor-luxury-card .woolentor-rating-text',
             ]
         );
 
@@ -1858,7 +1936,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                 'pagination_space_between',
                 [
                     'type' => Controls_Manager::SLIDER,
-                    'label' => esc_html__( 'Start space between', 'woolentor' ),
+                    'label' => esc_html__( 'Space between', 'woolentor' ),
                     'size_units' => [ 'px', 'em', 'rem', 'custom' ],
                     'range' => [
                         'px' => [
@@ -1898,7 +1976,6 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
                             'label' => esc_html__( 'Color', 'woolentor' ),
                             'type' => Controls_Manager::COLOR,
                             'selectors' => [
-                                '{{WRAPPER}} .woolentor-pagination ul li a' => 'color: {{VALUE}}',
                                 '{{WRAPPER}} .woolentor-pagination ul li a' => 'color: {{VALUE}}',
                             ],
                         ]
@@ -2021,7 +2098,7 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
 
     // Manage LoadMore Button Style control
     protected function add_loadmore_button_style_control(){
-        woolentor_upgrade_pro_notice_elementor($this, Controls_Manager::RAW_HTML, 'woolentor-product-grid-modern', 'pagination_type', ['wlpro_f1']);
+        woolentor_upgrade_pro_notice_elementor($this, Controls_Manager::RAW_HTML, 'woolentor-product-grid-modern', 'pagination_type_style', ['wlpro_f1']);
     }
 
     /**
@@ -2051,7 +2128,13 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
     protected function enqueue_style_assets() {
         $style = $this->grid_style;
 
-        // Enqueue main style
+        if($style === 'luxury' && !wp_script_is( 'woolentor-product-grid-modern', 'enqueued' )){
+            $base_handle = 'woolentor-product-grid-modern';
+            $base_path = WOOLENTOR_ADDONS_PL_URL . 'assets/css/product-grid/modern.css';
+            wp_enqueue_style( $base_handle, $base_path, [], WOOLENTOR_VERSION );
+        }
+
+        // Enqueue style-specific stylesheet (depends on base)
         $css_handle = 'woolentor-product-grid-' . $style;
         $css_path = WOOLENTOR_ADDONS_PL_URL . 'assets/css/product-grid/' . $style . '.css';
         wp_enqueue_style( $css_handle, $css_path, [], WOOLENTOR_VERSION );
