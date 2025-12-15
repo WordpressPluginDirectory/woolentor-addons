@@ -99,32 +99,6 @@ class Woolentor_Product_Grid_Luxury_Widget extends WooLentor_Product_Grid_Base_W
             );
 
             $this->add_control(
-                'show_category_badge',
-                [
-                    'label' => esc_html__( 'Show Category Badge', 'woolentor' ),
-                    'type' => Controls_Manager::SWITCHER,
-                    'label_on' => esc_html__( 'Show', 'woolentor' ),
-                    'label_off' => esc_html__( 'Hide', 'woolentor' ),
-                    'return_value' => 'yes',
-                    'default' => 'yes',
-                    'description' => esc_html__( 'Show category as a badge.', 'woolentor' ),
-                ]
-            );
-
-            $this->add_control(
-                'show_discount_offer_badge',
-                [
-                    'label' => esc_html__( 'Show Discount Percentage Badge', 'woolentor' ),
-                    'type' => Controls_Manager::SWITCHER,
-                    'label_on' => esc_html__( 'Show', 'woolentor' ),
-                    'label_off' => esc_html__( 'Hide', 'woolentor' ),
-                    'return_value' => 'yes',
-                    'default' => 'yes',
-                    'description' => esc_html__( 'Show discount percentage badge if product is on sale status.', 'woolentor' ),
-                ]
-            );
-
-            $this->add_control(
                 'show_view_details',
                 [
                     'label' => esc_html__( 'Show "View Details" Link', 'woolentor' ),
@@ -153,7 +127,6 @@ class Woolentor_Product_Grid_Luxury_Widget extends WooLentor_Product_Grid_Base_W
                 [
                     'label' => esc_html__( 'Add to Cart Text', 'woolentor' ),
                     'type' => Controls_Manager::TEXT,
-                    'default' => esc_html__( 'Add to Collection', 'woolentor' ),
                     'description' => esc_html__( 'Custom text for add to cart button', 'woolentor' ),
                 ]
             );
@@ -175,6 +148,20 @@ class Woolentor_Product_Grid_Luxury_Widget extends WooLentor_Product_Grid_Base_W
             );
 
         $this->end_controls_section();
+    }
+
+    // Add Product Per page Control
+    protected function add_product_per_page_control(){
+        $this->add_control(
+            'posts_per_page',
+            [
+                'label' => esc_html__( 'Products Per Page', 'woolentor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => 3,
+                'min' => 1,
+                'max' => 1000,
+            ]
+        );
     }
 
     /**
@@ -235,6 +222,15 @@ class Woolentor_Product_Grid_Luxury_Widget extends WooLentor_Product_Grid_Base_W
                 ],
             ]
         );
+
+        $this->add_control(
+			'pro_same_height_grid',
+			[
+				'label' => sprintf( esc_html__( 'Same Height Grid %s', 'woolentor' ), '<i class="eicon-pro-icon"></i>' ),
+				'type' => Controls_Manager::SWITCHER,
+				'classes' => 'woolentor-disable-control'
+			]
+		);
 
         $this->end_controls_section();
     }
@@ -321,6 +317,41 @@ class Woolentor_Product_Grid_Luxury_Widget extends WooLentor_Product_Grid_Base_W
         );
 
         $this->end_controls_section();
+    }
+
+    /**
+     * Badge Setting
+     *
+     * @return void
+     */
+    protected function add_additional_badges_settings(){
+        $this->add_control(
+            'show_category_badge',
+            [
+                'label' => esc_html__( 'Show Category Badge', 'woolentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Show', 'woolentor' ),
+                'label_off' => esc_html__( 'Hide', 'woolentor' ),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'description' => esc_html__( 'Show category as a badge.', 'woolentor' ),
+                'separator'=>'before'
+            ]
+        );
+
+        $this->add_control(
+            'show_discount_offer_badge',
+            [
+                'label' => esc_html__( 'Show Discount Percentage Badge', 'woolentor' ),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Show', 'woolentor' ),
+                'label_off' => esc_html__( 'Hide', 'woolentor' ),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'description' => esc_html__( 'Show discount percentage badge if product is on sale status.', 'woolentor' ),
+                'separator'=>'before'
+            ]
+        );
     }
 
     /**
@@ -568,10 +599,10 @@ class Woolentor_Product_Grid_Luxury_Widget extends WooLentor_Product_Grid_Base_W
                     'size' => 48,
                 ],
                 'tablet_default' => [
-                    'size' => 20,
+                    'size' => 30,
                 ],
                 'mobile_default' => [
-                    'size' => 15,
+                    'size' => 30,
                 ],
                 'range' => [
                     'px' => [

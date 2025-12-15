@@ -164,6 +164,39 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.2.9',
+                'date'    => '2025-12-01',
+                'changes' => [
+                    'New Features' => [
+                        'Product Grid - Editorial Gutenberg Block.',
+                        'Product Grid - Magazine Gutenberg Block.',
+                    ],
+                    'Fixes' => [
+                        'Add to button styling issue for grouped and external products in the Product Grid – Modern widget.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.2.8',
+                'date'    => '2025-11-23',
+                'changes' => [
+                    'New Features' => [
+                        'Product Grid - Luxury Gutenberg Block.',
+                        'Product Grid - Editorial Elementor Widget.',
+                        'Product Grid - Magazine Elementor Widget.',
+                    ],
+                    'Fixes' => [
+                        'Two column responsive issue in Product Grid - Luxury widget.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.2.7',
                 'date'    => '2025-11-11',
                 'changes' => [

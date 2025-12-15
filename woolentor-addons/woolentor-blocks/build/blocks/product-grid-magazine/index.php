@@ -1,6 +1,6 @@
 <?php
 /**
- * Product Grid Modern Block - Server-side Rendering
+ * Product Grid Magazine Block - Server-side Rendering
  * Uses same query system as Elementor widget for consistency
  *
  * @package WooLentorBlocks
@@ -34,18 +34,7 @@ if ( ! empty( $settings['className'] ) ) {
 	$areaClasses[] = esc_attr( $settings['className'] );
 }
 
-// Add responsive column classes
-$columns = isset( $settings['columns'] ) ? $settings['columns'] : array();
-if ( ! empty( $columns['desktop'] ) ) {
-	$areaClasses[] = 'woolentor-columns-' . $columns['desktop'];
-}
-if ( ! empty( $columns['tablet'] ) ) {
-	$areaClasses[] = 'woolentor-columns-tablet-' . $columns['tablet'];
-}
-if ( ! empty( $columns['mobile'] ) ) {
-	$areaClasses[] = 'woolentor-columns-mobile-' . $columns['mobile'];
-}
-
+// Add badge style and position classes
 if( !empty($settings['badge_style'])){
 	$areaClasses[] = 'woolentor-badge-style-' . $settings['badge_style'];
 }
@@ -53,14 +42,27 @@ if( !empty($settings['badge_position'])){
 	$areaClasses[] = 'woolentor-badge-pos-' . $settings['badge_position'];
 }
 
+// Add layout class
+if( !empty($settings['layout'])){
+	$areaClasses[] = 'woolentor-layout-' . $settings['layout'];
+}
+
+// Add switcher tab style class
+if( !empty($settings['switcher_tab_style'])){
+	$areaClasses[] = 'woolentor-switcher-style-' . $settings['switcher_tab_style'];
+}
+if( !empty($settings['content_align'])){
+	$areaClasses[] = 'woolentor-content-align-' . $settings['content_align'];
+}
+
 // Prepare grid settings following Elementor widget pattern
 $grid_settings = [
 	// Core settings
-	'style'                 => 'modern',
-	'widget_name'           => 'woolentor-product-grid-modern',
+	'style'                 => 'magazine',
+	'widget_name'           => 'woolentor-product-grid-magazine',
 
 	// Layout settings
-	'columns'               => ! empty( $columns['desktop'] ) ? absint( $columns['desktop'] ) : 3,
+	'layout'                => ! empty( $settings['layout'] ) ? $settings['layout'] : 'grid',
 
 	// Grid ID for AJAX
 	'grid_id'               => $uniqClass,
@@ -70,7 +72,7 @@ $grid_settings = [
 $merge_settings = wp_parse_args( $grid_settings, $settings );
 
 // Apply filter for customization (same as Elementor widget)
-$grid_settings = apply_filters( 'woolentor_product_grid_block_settings', $merge_settings, $settings );
+$grid_settings = apply_filters( 'woolentor_product_grid_magazine_block_settings', $merge_settings, $settings );
 
 // Start output buffering
 ob_start();

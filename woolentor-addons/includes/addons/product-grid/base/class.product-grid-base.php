@@ -264,6 +264,10 @@ class WooLentor_Product_Grid_Base {
             $classes[] = $settings['custom_class'];
         }
 
+        if ( ! empty( $settings['same_height_grid'] ) ) {
+            $classes[] = 'woolentor-same-height-grid';
+        }
+
         return apply_filters( 'woolentor_product_grid_wrapper_classes', $classes, $settings );
     }
 
@@ -303,6 +307,8 @@ class WooLentor_Product_Grid_Base {
         return [
             'modern',
             'luxury',
+            'editorial',
+            'magazine',
         ];
     }
 
@@ -431,41 +437,57 @@ class WooLentor_Product_Grid_Base {
         $order_by = isset( $_GET['orderby'] ) ? $_GET['orderby'] : 'menu_order';
 
         $result_count_formate = 'Showing <strong>%1$s-%2$s</strong> of <strong>%3$s</strong> products';
+
+        $switcher_tab_style = isset( $settings['switcher_tab_style'] ) ? $settings['switcher_tab_style'] : 'one';
+        $default_view = isset( $settings['default_view_mode'] ) ? $settings['default_view_mode'] : 'grid';
+        $grid_active_class = ( $default_view === 'grid' ) ? 'woolentor-active' : '';
+        $list_active_class = ( $default_view === 'list' ) ? 'woolentor-active' : '';
+        $switcher_tab_grid_text = isset( $settings['switcher_tab_grid_text'] ) ? $settings['switcher_tab_grid_text'] : 'Grid View';
+        $switcher_tab_list_text = isset( $settings['switcher_tab_list_text'] ) ? $settings['switcher_tab_list_text'] : 'Editorial View';
         ?>
-        <div class="woolentor-product-filters">
-            <div class="woolentor-filter-row">
+        <div class="woolentor-product-filters woolentor-style-<?php echo esc_attr( $switcher_tab_style ); ?>">
 
-                <div class="woolentor-results-info">
-                    <?php echo sprintf( $result_count_formate, $show_from, $show_to, $found_product); ?>
+            <?php if( $switcher_tab_style === 'two'): ?>
+            <div class="woolentor-layout-switcher-area">
+                <div class="woolentor-layout-switcher">
+                    <button class="woolentor-layout-btn <?php echo esc_attr( $grid_active_class ); ?>" data-layout="grid" aria-label="<?php esc_attr_e( 'Grid view', 'woolentor' ); ?>">
+                        <?php echo esc_html( $switcher_tab_grid_text ); ?>
+                    </button>
+                    <button class="woolentor-layout-btn <?php echo esc_attr( $list_active_class ); ?>" data-layout="list" aria-label="<?php esc_attr_e( 'List view', 'woolentor' ); ?>">
+                        <?php echo esc_html( $switcher_tab_list_text ); ?>
+                    </button>
                 </div>
-
-                <div class="woolentor-view-controls">
-                    <!-- Sorting -->
-                    <div class="woolentor-filter-item woolentor-filter-sort">
-                        <?php woolentor_product_shorting($order_by); ?>
-                    </div>
-
-                    <!-- Layout Switcher -->
-                    <div class="woolentor-filter-item woolentor-layout-switcher">
-                        <?php
-                        $default_view = isset( $settings['default_view_mode'] ) ? $settings['default_view_mode'] : 'grid';
-                        $grid_active_class = ( $default_view === 'grid' ) ? 'woolentor-active' : '';
-                        $list_active_class = ( $default_view === 'list' ) ? 'woolentor-active' : '';
-                        ?>
-                        <button class="woolentor-layout-btn <?php echo esc_attr( $grid_active_class ); ?>" data-layout="grid" aria-label="<?php esc_attr_e( 'Grid view', 'woolentor' ); ?>">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                            </svg>
-                        </button>
-                        <button class="woolentor-layout-btn <?php echo esc_attr( $list_active_class ); ?>" data-layout="list" aria-label="<?php esc_attr_e( 'List view', 'woolentor' ); ?>">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
             </div>
+            <?php else: ?>
+                <div class="woolentor-filter-row">
+
+                    <div class="woolentor-results-info">
+                        <?php echo sprintf( $result_count_formate, $show_from, $show_to, $found_product); ?>
+                    </div>
+
+                    <div class="woolentor-view-controls">
+                        <!-- Sorting -->
+                        <div class="woolentor-filter-item woolentor-filter-sort">
+                            <?php woolentor_product_shorting($order_by); ?>
+                        </div>
+
+                        <!-- Layout Switcher -->
+                        <div class="woolentor-filter-item woolentor-layout-switcher">
+                            <button class="woolentor-layout-btn <?php echo esc_attr( $grid_active_class ); ?>" data-layout="grid" aria-label="<?php esc_attr_e( 'Grid view', 'woolentor' ); ?>">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                                </svg>
+                            </button>
+                            <button class="woolentor-layout-btn <?php echo esc_attr( $list_active_class ); ?>" data-layout="list" aria-label="<?php esc_attr_e( 'List view', 'woolentor' ); ?>">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            <?php endif; ?>
         </div>
         <?php
     }

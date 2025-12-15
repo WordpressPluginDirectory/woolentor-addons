@@ -449,6 +449,43 @@ class Options_Field {
                     'name'   => esc_html__( 'Product Grid - Modern', 'woolentor' ),
                     'type'    => 'element',
                     'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-modern-layout-in-gutenberg/'),
+                    'badge'   => [
+                        'is_active' => true,
+                        'type'      => 'new',
+                        'label'     => esc_html__('New','woolentor')
+                    ]
+                ),
+                array(
+                    'id'    => 'product_grid_luxury',
+                    'name'   => esc_html__( 'Product Grid - Luxury', 'woolentor' ),
+                    'type'    => 'element',
+                    'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-luxury-layout-in-gutenberg/'),
+                    'badge'   => [
+                        'is_active' => true,
+                        'type'      => 'new',
+                        'label'     => esc_html__('New','woolentor')
+                    ]
+                ),
+                array(
+                    'id'    => 'product_grid_editorial',
+                    'name' => esc_html__( 'Product Grid - Editorial', 'woolentor' ),
+                    'type'    => 'element',
+                    'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-editorial-layout-in-gutenberg/'),
+                    'badge'   => [
+                        'is_active' => true,
+                        'type'      => 'new',
+                        'label'     => esc_html__('New','woolentor')
+                    ]
+                ),
+                array(
+                    'id'    => 'product_grid_magazine',
+                    'name' => esc_html__( 'Product Grid - Magazine', 'woolentor' ),
+                    'type'    => 'element',
+                    'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-magazine-layout-in-gutenberg/'),
                     'badge'   => [
                         'is_active' => true,
                         'type'      => 'new',
@@ -1038,11 +1075,11 @@ class Options_Field {
                     'default' => 'on',
                     'label_on' => __( 'ON', 'woolentor' ),
                     'label_off' => __( 'OFF', 'woolentor' ),
-                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-modern-layout-for-elementor-build-a-stylish-woocommerce-shop-grid/'),
+                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-modern-layout-for-elementor/'),
                     'badge'   => [
                         'is_active' => true,
                         'type'      => 'new',
-                        'label'     => esc_html__('New','woolentor-pro')
+                        'label'     => esc_html__('New','woolentor')
                     ]
                 ),
                 array(
@@ -1050,10 +1087,35 @@ class Options_Field {
                     'name' => esc_html__( 'Product Grid - Luxury', 'woolentor' ),
                     'type'    => 'element',
                     'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/how-to-use-product-grid-luxury-widget-for-elementor/'),
                     'badge'   => [
                         'is_active' => true,
                         'type'      => 'new',
-                        'label'     => esc_html__('New','woolentor-pro')
+                        'label'     => esc_html__('New','woolentor')
+                    ]
+                ),
+                array(
+                    'id'    => 'product_grid_editorial',
+                    'name' => esc_html__( 'Product Grid - Editorial', 'woolentor' ),
+                    'type'    => 'element',
+                    'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/product-grid-editorial-layout-for-elementor/'),
+                    'badge'   => [
+                        'is_active' => true,
+                        'type'      => 'new',
+                        'label'     => esc_html__('New','woolentor')
+                    ]
+                ),
+                array(
+                    'id'    => 'product_grid_magazine',
+                    'name' => esc_html__( 'Product Grid - Magazine', 'woolentor' ),
+                    'type'    => 'element',
+                    'default' => 'on',
+                    'documentation' => esc_url('https://woolentor.com/doc/product-grid-magazine-layout-for-elementor/'),
+                    'badge'   => [
+                        'is_active' => true,
+                        'type'      => 'new',
+                        'label'     => esc_html__('New','woolentor')
                     ]
                 ),
                 array(

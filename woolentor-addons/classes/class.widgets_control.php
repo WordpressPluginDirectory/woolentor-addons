@@ -307,6 +307,16 @@ class Widgets_Control{
                     'title'    => esc_html__('Product Grid - Luxury','woolentor'),
                     'is_pro'   => false,
                     'location' => ($is_pro ? WOOLENTOR_ADDONS_PL_PATH_PRO : WOOLENTOR_ADDONS_PL_PATH) . 'includes/addons/product-grid/',
+                ],
+                'product_grid_editorial' => [
+                    'title'    => esc_html__('Product Grid - Editorial','woolentor'),
+                    'is_pro'   => false,
+                    'location' => ($is_pro ? WOOLENTOR_ADDONS_PL_PATH_PRO : WOOLENTOR_ADDONS_PL_PATH) . 'includes/addons/product-grid/'
+                ],
+                'product_grid_magazine' => [
+                    'title'    => esc_html__('Product Grid - Magazine','woolentor'),
+                    'is_pro'   => false,
+                    'location' => ($is_pro ? WOOLENTOR_ADDONS_PL_PATH_PRO : WOOLENTOR_ADDONS_PL_PATH) . 'includes/addons/product-grid/'
                 ]
 
             ],

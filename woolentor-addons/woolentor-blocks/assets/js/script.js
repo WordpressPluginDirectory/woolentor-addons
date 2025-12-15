@@ -381,7 +381,7 @@
     /**
      * Initialize View Switcher for Grid/List Tab Layout
      */
-    viewSwitcher: function ( $grid ) {
+    viewSwitcher: function ( $grid, $selector, $style = 'modern' ) {
       const $viewButtons = $grid.find( '.woolentor-layout-btn' );
 
       if ( $viewButtons.length === 0 ) {
@@ -393,7 +393,9 @@
 
         const $this = $(this);
               const layout = $this.data('layout');
-              const $gridContainer = $this.closest('.woolentor-product-grid, .woolentor-filters-enabled').find('.woolentor-product-grid-modern');
+              const $gridContainer = $this.closest('.woolentor-product-grid, .woolentor-filters-enabled').find($selector);
+
+              // console.log($gridContainer,$selector, $this);
 
               // Update active button state
               $this.siblings().removeClass('woolentor-active');
@@ -411,12 +413,29 @@
                   // Update product card classes
                   const $productCards = $gridContainer.find('.woolentor-product-card');
                   $productCards.removeClass('woolentor-grid-card woolentor-list-card');
-
+                  
                   if (layout === 'grid') {
-                      $productCards.addClass('woolentor-grid-card');
-                  } else if (layout === 'list') {
-                      $productCards.addClass('woolentor-list-card');
-                  }
+                    if($style === 'editorial'){
+                        $productCards.removeClass('woolentor-editorial-list-card');
+                        $productCards.addClass('woolentor-editorial-grid-card');
+                    }else if($style === 'magazine'){
+                        $productCards.removeClass('woolentor-magazine-list-card');
+                        $productCards.addClass('woolentor-magazine-grid-card');
+                    }else{
+                        $productCards.addClass('woolentor-grid-card');
+                    }
+                } else if (layout === 'list') {
+                    if($style === 'editorial'){
+                        $productCards.removeClass('woolentor-editorial-grid-card');
+                        $productCards.addClass('woolentor-editorial-list-card');
+                    }else if($style === 'magazine'){
+                        $productCards.removeClass('woolentor-magazine-grid-card');
+                        $productCards.addClass('woolentor-magazine-list-card');
+                    }else{
+                        $productCards.addClass('woolentor-list-card');
+                    }
+                }
+
               }
 
 
@@ -631,11 +650,16 @@
     // Product Grid Related Script
     initProductGridModern: function(){
       // Initialize all product grids on the page
-      $( "[class*='woolentorblock-'] .woolentor-style-modern" ).each( function() {
+      $( "[class*='woolentorblock-'] .woolentor-product-grid" ).each( function() {
         const $grid = $( this );
 
-        // View Switcher (Grid/List Tab Mode)
-        WooLentorBlocks.viewSwitcher( $grid );
+        if( $grid.hasClass('woolentor-style-editorial') ) {
+          WooLentorBlocks.viewSwitcher( $grid, '.woolentor-product-grid-editorial', 'editorial' );
+        }else if( $grid.hasClass('woolentor-style-magazine') ) {
+          WooLentorBlocks.viewSwitcher( $grid, '.woolentor-product-grid-magazine', 'magazine' );
+        }else{
+          WooLentorBlocks.viewSwitcher( $grid, '.woolentor-product-grid-modern' );
+        }
 
         // Quantity Selectors
         WooLentorBlocks.quantitySelectors( $grid );
@@ -736,5 +760,7 @@
 
   // Product Grid Modern Editor Script Run
   document.addEventListener( "wooLentorProductGridModern", function (event) { WooLentorBlocks.initProductGridModern() }, false );
+  document.addEventListener( "wooLentorProductGridEditorial", function (event) { WooLentorBlocks.initProductGridModern() }, false );
+  document.addEventListener( "wooLentorProductGridMagazine", function (event) { WooLentorBlocks.initProductGridModern() }, false );
 
 })(jQuery, window);

@@ -16,6 +16,7 @@
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .woolentor-luxury-card:hover {
@@ -27,7 +28,6 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    background: #f7f7f6;
     margin-bottom: 32px;
 }
 
@@ -65,6 +65,9 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.woolentor-luxury-card .woolentor-product-image .woolentor-product-badge img{
+    position: static;
 }
 
 .woolentor-luxury-card:hover .woolentor-product-image img {
@@ -192,9 +195,10 @@
     visibility: visible !important;
     opacity: 1 !important;
     overflow: visible;
+    margin-right: 0;
 }
 
-.woolentor-quick-actions .woolentor-wishlist-btn:hover a {
+.woolentor-style-luxury .woolentor-quick-actions .woolentor-wishlist-btn:hover a {
     color: #fff;
 }
 .woolentor-luxury-card .htcompare-btn{
@@ -513,4 +517,25 @@
     top: 20px;
     right: 20px;
     left: auto;
+}
+
+/* Control Mobile Element */
+.show-on-mobile-two-column{
+    display: none;
+}
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+    .woolentor-columns-mobile-2 .woolentor-product-grid .woolentor-products-wrapper > [class*="woolentor-columns-"] .woolentor-luxury-card .woolentor-quick-action {
+        width: 30px;
+        height: 30px;
+    }
+    .woolentor-columns-mobile-2 .woolentor-product-grid .woolentor-products-wrapper > [class*="woolentor-columns-"] .show-on-mobile-two-column{
+        display: flex !important;
+        position: static;
+    }
+    .woolentor-columns-mobile-2 .woolentor-product-grid .woolentor-products-wrapper > [class*="woolentor-columns-"] .woolentor-sale-indicator:not(.show-on-mobile-two-column),
+    .woolentor-columns-mobile-2 .woolentor-product-grid .woolentor-products-wrapper > [class*="woolentor-columns-"] .woolentor-new-badge-indicator:not(.show-on-mobile-two-column){
+        display: none !important;
+    }
 }

@@ -2,8 +2,8 @@
 Contributors: hasthemes, htplugins, devitemsllc, zenaulislam, aslamhasib
 Tags: Elementor, WooCommerce, WooCommerce Elementor, WooCommerce Builder, WooCommerce Product, Woo Builder, Variation Swatches, woocommerce blocks, Product Slider, Product Compare, Wishlist, Product Filter
 Requires at least: 4.7
-Tested up to: 6.8
-Stable tag: 3.2.7
+Tested up to: 6.9
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -1123,6 +1123,26 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 
 == Changelog ==
 
+= Version: 3.3.0 - Date: 15-12-2025 =
+* Solved: Global Selection issue with Editorial Product Grid Widget.
+* Solved: Focus outline issue in (WL: Product Grid - Modern, WL: Product Grid - Luxury/, WL: Product Grid - Editorial, WL: Product Grid - Editorial, WL: Product Grid - Magazine) widget
+* Improved: Template library caching.
+* Compatibility : Latest WordPress and WooCommerce version.
+
+
+= Version: 3.2.9 - Date: 01-12-2025 =
+* Added: Product Grid - Editorial Gutenberg Block
+* Added: Product Grid - Magazine Gutenberg Block
+* Solved: Add to button styling issue for grouped and external products in the Product Grid – Modern widget.
+* Compatibility : Latest WordPress and WooCommerce version.
+
+= Version: 3.2.8 - Date: 23-11-2025 =
+* Added: Product Grid - Luxury Gutenberg Block
+* Added: Product Grid - Editorial Elementor Widget
+* Added: Product Grid - Magazine Elementor Widget
+* Solved: Two column responsive issue in Product Grid - Luxury widget
+* Compatibility : Latest WordPress and WooCommerce version.
+
 = Version: 3.2.7 - Date: 11-11-2025 =
 * Added: Product Grid - Modern Gutenberg Block.
 * Added: Product Grid - Luxury Elementor Widget.
@@ -1630,40 +1650,6 @@ Elementor Pro is not required. But you can use ShopLentor with Elementor free & 
 * Solved : Issue with the overriding of outdated templates.
 * Compatibility with the latest WooCommerce version.
 * Compatibility with the latest WordPress version.
-
-= Version: 2.4.6 - Date: 17-10-2022 =
-* Added :  Hooks  for custom validation.
-* Improved : Gutenberg blocks style option.
-* Solved : Compatibility issue with PHP 7.2 in Variation swatches module.
-* Solved : An activation issue with slick slider  in Universal layout addon.
-* Compatibility with the latest WooCommerce version.
-
-= Version: 2.4.5 - Date: 20-09-2022 =
-* Added : Ordering option in Category grid / List addons.
-* Improved : No limit to showcase products using category grid addon.
-* Improved : The functionality of Gutenberg blocks.
-* Improved : View pre-built templates in a popup.
-* Solved : Latest Product showing issue in Archive default addon.
-* Solved : Sample data showing issue in Elementor editor mode.
-* Solved : Style rendering issue of the Add to cart button 
-* Solved : Block Short-code rendering issue in template content.
-* Compatibility with the German Market Plugin.
-* Compatibility with the latest WooCommerce version.
-
-= Version: 2.4.4 - Date: 23-08-2022 =
-* Improved : Specific page wise blocks register.
-* Compatibility with latest WordPress version.
-* Compatibility with latest WooCommerce version.
-
-= Version: 2.4.3 - Date: 10-08-2022 =
-* Added : Alignment Option add in Product rating addon.
-* Added : Font Size and dimension control option for Add to cart action buttons.
-* Added : Product data tab menu area style option in Product data tab addon.
-* Added : Margin and Padding option in Product description addon.
-* Solved : Unnecessary content showing issue in shopify style checkout  footer for flatsome theme.
-* Solved : FOUC Issue in all carousel.
-* Compatibility with latest WooCommerce version.
-* Compatibility with latest WordPress version.
 
 == Installation ==
 This section describes how to install the ShopLentor - WooCommerce Addons for Elementor Page Builder plugin and get it working.

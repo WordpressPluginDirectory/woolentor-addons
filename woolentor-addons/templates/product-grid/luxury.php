@@ -135,8 +135,7 @@ $pagination_type = isset( $settings['pagination_type'] ) ? $settings['pagination
         if ( $show_new_badge ) {
             $product_date = get_the_date( 'U', $product_id );
             $days_since_published = ( time() - $product_date ) / ( 60 * 60 * 24 );
-            // $is_new = $days_since_published <= absint( $settings['new_badge_days'] );
-            $is_new = $days_since_published <= absint( 60 );
+            $is_new = $days_since_published <= absint( $settings['new_badge_days'] );
         }
 
         // Check if product is trending (featured)
@@ -226,6 +225,19 @@ $pagination_type = isset( $settings['pagination_type'] ) ? $settings['pagination
                                             <?php echo esc_html( $trending_badge_text ); ?>
                                         </span>
                                     <?php endif; ?>
+
+                                    <!-- Show Only For Mobile Device if set two column Start -->
+                                    <?php if ( $show_discount_offer_badge && $is_on_sale && $discount_percentage ) : ?>
+                                        <div class="woolentor-sale-indicator show-on-mobile-two-column" style="display:none;">
+                                            <?php echo esc_html( $discount_percentage ); ?>
+                                        </div>
+                                    <?php elseif ( $show_new_badge && $is_new ) : ?>
+                                        <div class="woolentor-new-badge-indicator show-on-mobile-two-column" style="display:none;">
+                                            <?php echo esc_html( $new_badge_text ); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <!-- Show Only For Mobile Device if set two column end -->
+
                                 </div>
 
                                 <?php if ( $show_discount_offer_badge && $is_on_sale && $discount_percentage ) : ?>
@@ -292,14 +304,14 @@ $pagination_type = isset( $settings['pagination_type'] ) ? $settings['pagination
                     <?php
                         do_action( 'woolentor_product_addon_before_title' );
                         if ( $show_title ){
-                            echo sprintf( "<%s class='woolentor-product-title'><a href='%s' title='%s'>%s</a></%s>", $title_html_tag, esc_url( $product_permalink ), esc_attr( $product_title ), esc_html( $product_title ), $title_html_tag );
+                            echo sprintf( "<%s class='woolentor-product-title'><a href='%s' title='%s'>%s</a></%s>", $title_html_tag, esc_url( $product_permalink ), esc_attr( $product_title ), wp_kses_post( $product_title ), $title_html_tag );
                         }
                         do_action( 'woolentor_product_addon_after_title' );
                     ?>
 
                     <?php if ( $show_subtitle && $product_subtitle ) : ?>
                         <div class="woolentor-product-subtitle">
-                            <?php echo esc_html( $product_subtitle ); ?>
+                            <?php echo wp_kses_post( $product_subtitle ); ?>
                         </div>
                     <?php endif; ?>
 
