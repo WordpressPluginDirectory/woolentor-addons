@@ -164,6 +164,22 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.3.2',
+                'date'    => '2026-02-01',
+                'changes' => [
+                    'New Features' => [
+                        'Add noflow attribute in product filter link.',
+                    ],
+                    'Fixes' => [
+                        'Elementor promotional widget list rendering issue.',
+                        'Infinite scroll and load more product current query issue.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.2.9',
                 'date'    => '2025-12-01',
                 'changes' => [

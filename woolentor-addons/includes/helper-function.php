@@ -179,15 +179,31 @@ function woolentor_include_all($folder_name){
 
 /**
  * Single String Translate
- * @param mixed $name
- * @param mixed $value
- * @return mixed
+ * @param mixed $name String identifier
+ * @param mixed $value Default value
+ * @param string $context Translation context/group (must match registration context)
+ * @return mixed Translated string or original value
  */
-function woolentor_translator( $name, $value ){
+function woolentor_translator( $name, $value, $context = 'ShopLentor' ){
     if( method_exists('\WooLentor\MultiLanguage\Languages','translator') ) {
-        return \WooLentor\MultiLanguage\Languages::translator($name, $value);
+        return \WooLentor\MultiLanguage\Languages::translator( $name, $value, $context );
     }
     return $value;
+}
+
+/**
+ * Register a string for translation with WPML/Polylang
+ * Must be called before woolentor_translator() can find translations
+ *
+ * @param string $name Unique identifier for the string
+ * @param string $value The default string value to register
+ * @param string $group Group name for organization in translation interface
+ * @return void
+ */
+function woolentor_register_string( $name, $value, $group = 'ShopLentor' ){
+    if( method_exists('\WooLentor\MultiLanguage\Languages','register_string') ) {
+        \WooLentor\MultiLanguage\Languages::register_string( $name, $value, $group );
+    }
 }
 
 /**
@@ -659,20 +675,50 @@ function woolentor_post_name( $post_type = 'post', $args = [] ){
  * return array
  */
 function woolentor_elementor_template() {
-    $templates = '';
-    if( class_exists('\Elementor\Plugin') ){
-        $templates = \Elementor\Plugin::instance()->templates_manager->get_source( 'local' )->get_items();
-    }
-    $types = array();
+    $templates = woolentor_get_post_list();
     if ( empty( $templates ) ) {
         $template_lists = [ '0' => __( 'No saved templates found.', 'woolentor' ) ];
     } else {
         $template_lists = [ '0' => __( 'Select Template', 'woolentor' ) ];
         foreach ( $templates as $template ) {
-            $template_lists[ $template['template_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
+            $template_lists[ $template['post_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
         }
     }
     return $template_lists;
+}
+
+/**
+ * Get Post List
+ * return array
+ */
+function woolentor_get_post_list( $args = [] ) {
+
+    $defaults = [
+        'post_type'      => 'elementor_library',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'order'          => 'ASC',
+    ];
+
+    $query_args = wp_parse_args( $args, $defaults );
+
+    $all_posts = new \WP_Query( $query_args );
+
+    $templates = [];
+
+    if ( $all_posts->have_posts() ) {
+        foreach ( $all_posts->get_posts() as $post ) {
+            $post = get_post( $post->ID );
+            $tmpType = $query_args['post_type'] == 'elementor_library' ? get_post_meta( $post->ID, '_elementor_template_type', true ) : '';
+            $templates[] = [
+                'post_id' => $post->ID,
+                'title'   => $post->post_title,
+                'type'    => $tmpType,
+            ];
+        }
+    }
+
+    return $templates;
 }
 
 /*

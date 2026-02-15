@@ -2256,6 +2256,16 @@ abstract class WooLentor_Product_Grid_Base_Widget extends Widget_Base {
             'load_more_complete_text'=> $get_val('load_more_complete_text'),
         ];
 
+        // Only Used for AJAX
+        $termobj = (array)get_queried_object();
+        if( !empty($termobj['term_id']) ){
+            $grid_settings['queried_object'] = [
+                'term_id' => $termobj['term_id'],
+                'taxonomy' => $termobj['taxonomy'],
+                'name' => $termobj['name'],
+            ];
+        }
+
         return apply_filters( 'woolentor_product_grid_widget_settings', $grid_settings, $settings );
     }
 }

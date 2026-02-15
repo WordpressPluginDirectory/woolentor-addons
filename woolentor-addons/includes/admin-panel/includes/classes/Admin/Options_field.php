@@ -113,7 +113,7 @@ class Options_Field {
                     'header' => false,
                     'column' => 1,
                     'title' => __( 'Style Tabs', 'woolentor' ),
-                    'desc'  => __( 'Style Settings for Universal Product Layput', 'woolentor' ),
+                    'desc'  => __( 'Style Settings for Universal Product Layout', 'woolentor' ),
                 ],
             ],
 
@@ -3263,7 +3263,7 @@ class Options_Field {
                             'id'       => 'show_swatch_image_in_tooltip',
                             'name'      => esc_html__('Swatch Image as Tooltip', 'woolentor'),
                             'type'       => 'checkbox',
-                            'desc'       => esc_html__('If you check this options. When a watch type is "image" and has an image. The image will be shown into the tooltip.', 'woolentor'),
+                            'desc'       => esc_html__('If you check this options. When a swatch type is "image" and has an image. The image will be shown into the tooltip.', 'woolentor'),
                             'class'      => 'woolentor-action-field-left',
                             'condition'  => array(
                                 'key'=>'enable',
@@ -3839,6 +3839,17 @@ class Options_Field {
                 array(
                     'id'     => 'quick_checkoutp',
                     'name'    => esc_html__( 'Quick Checkout', 'woolentor' ),
+                    'type'     => 'module',
+                    'default'=> 'off',
+                    'require_settings' => true,
+                    'label_on' => __( 'ON', 'woolentor' ),
+                    'label_off' => __( 'OFF', 'woolentor' ),
+                    'is_pro' => true
+                ),
+
+                array(
+                    'id'     => 'woolentor_google_address_autocomplete_settingp',
+                    'name'    => esc_html__( 'Google Address Autocomplete', 'woolentor' ),
                     'type'     => 'module',
                     'default'=> 'off',
                     'require_settings' => true,

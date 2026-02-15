@@ -1,10 +1,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ShopLentor – WooCommerce Builder for Elementor & "
-"Gutenberg\n"
+"Project-Id-Version: ShopLentor – All-in-One WooCommerce Growth & Store "
+"Enhancement Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-15 04:36+0000\n"
+"POT-Creation-Date: 2026-02-15 08:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.0; wp-6.9.1-alpha-61378; php-8.2.29\n"
+"X-Loco-Version: 2.8.1; wp-6.9.2-alpha-61586; php-8.2.30\n"
 "X-Domain: woolentor"
 
 #: includes/modules/advanced-coupon/includes/classes/Admin/Coupon_Meta_Boxes.php:131
@@ -393,8 +393,8 @@ msgstr ""
 msgid "Add to Collection"
 msgstr ""
 
-#: includes/helper-function.php:1660 includes/helper-function.php:1661
-#: includes/helper-function.php:1684
+#: includes/helper-function.php:1706 includes/helper-function.php:1707
+#: includes/helper-function.php:1730
 #: woolentor-blocks/includes/helper-functions.php:598
 #: woolentor-blocks/includes/helper-functions.php:599
 #: woolentor-blocks/includes/helper-functions.php:615
@@ -2286,7 +2286,7 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: includes/helper-function.php:1605 includes/addons/product_flash_sale.php:138
+#: includes/helper-function.php:1651 includes/addons/product_flash_sale.php:138
 #: includes/addons/product_image_accordion.php:150
 #: includes/addons/product_accordion.php:171
 #: includes/addons/product_curvy.php:206 includes/addons/product_tabs.php:165
@@ -2297,7 +2297,7 @@ msgstr ""
 msgid "Common Settings"
 msgstr ""
 
-#: includes/helper-function.php:1684
+#: includes/helper-function.php:1730
 #: woolentor-blocks/includes/helper-functions.php:615
 #: includes/addons/wb_product_add_to_cart.php:1294
 #: woolentor-blocks/build/blocks/product-addtocart/manager.php:115
@@ -2758,7 +2758,7 @@ msgstr ""
 msgid "Data Saved"
 msgstr ""
 
-#: includes/helper-function.php:1602 includes/addons/product_flash_sale.php:135
+#: includes/helper-function.php:1648 includes/addons/product_flash_sale.php:135
 #: includes/addons/wb_product_upsell.php:66
 #: includes/addons/wb_archive_product.php:127
 #: includes/addons/product_image_accordion.php:147
@@ -2814,7 +2814,7 @@ msgstr ""
 msgid "Default icon"
 msgstr ""
 
-#: includes/helper-function.php:1307
+#: includes/helper-function.php:1353
 msgid "Default sorting"
 msgstr ""
 
@@ -3008,7 +3008,7 @@ msgid ""
 "if the user role condition does not match."
 msgstr ""
 
-#: includes/helper-function.php:861
+#: includes/helper-function.php:907
 msgid "div"
 msgstr ""
 
@@ -3118,7 +3118,7 @@ msgstr ""
 msgid "Email Field Placeholder"
 msgstr ""
 
-#: classes/class.ajax_actions.php:175
+#: classes/class.ajax_actions.php:226
 msgid "Email is required."
 msgstr ""
 
@@ -3637,7 +3637,7 @@ msgstr ""
 msgid "FAQ Title"
 msgstr ""
 
-#: includes/helper-function.php:1607 templates/product-grid/magazine.php:45
+#: includes/helper-function.php:1653 templates/product-grid/magazine.php:45
 #: templates/product-grid/magazine.php:46
 #: includes/addons/product-grid/product_grid_magazine.php:1681
 #: includes/addons/product-grid/product_grid_magazine.php:1693
@@ -3822,6 +3822,10 @@ msgstr ""
 msgid "For (days)"
 msgstr ""
 
+#: classes/class.ajax_actions.php:175
+msgid "Form session expired. Please refresh and try again."
+msgstr ""
+
 #: includes/addons/wl_product_filter.php:262
 msgid "Form Style"
 msgstr ""
@@ -3868,12 +3872,6 @@ msgstr ""
 
 #: includes/modules/abandoned-cart/includes/classes/Admin/Fields.php:180
 msgid "From Reply To Email Address"
-msgstr ""
-
-#: classes/class.ajax_actions.php:189
-#: woolentor-blocks/build/blocks/suggest-price/index.php:45
-#: woolentor-blocks/src/blocks/suggest-price/index.php:45
-msgid "From: "
 msgstr ""
 
 #: includes/modules/popup-builder/includes/class-repeater-helper.php:164
@@ -3954,8 +3952,8 @@ msgstr ""
 msgid "Grid List Tab (Pro)"
 msgstr ""
 
-#: includes/addons/product-grid/base/class.product-grid-base.php:453
-#: includes/addons/product-grid/base/class.product-grid-base.php:476
+#: includes/addons/product-grid/base/class.product-grid-base.php:466
+#: includes/addons/product-grid/base/class.product-grid-base.php:489
 msgid "Grid view"
 msgstr ""
 
@@ -3995,27 +3993,27 @@ msgstr ""
 msgid "Gutenberg"
 msgstr ""
 
-#: includes/helper-function.php:854
+#: includes/helper-function.php:900
 msgid "H1"
 msgstr ""
 
-#: includes/helper-function.php:855
+#: includes/helper-function.php:901
 msgid "H2"
 msgstr ""
 
-#: includes/helper-function.php:856
+#: includes/helper-function.php:902
 msgid "H3"
 msgstr ""
 
-#: includes/helper-function.php:857
+#: includes/helper-function.php:903
 msgid "H4"
 msgstr ""
 
-#: includes/helper-function.php:858
+#: includes/helper-function.php:904
 msgid "H5"
 msgstr ""
 
-#: includes/helper-function.php:859
+#: includes/helper-function.php:905
 msgid "H6"
 msgstr ""
 
@@ -4107,7 +4105,7 @@ msgstr ""
 msgid "Here"
 msgstr ""
 
-#: includes/helper-function.php:1482 includes/helper-function.php:1500
+#: includes/helper-function.php:1528 includes/helper-function.php:1546
 msgid "here"
 msgstr ""
 
@@ -4452,7 +4450,7 @@ msgstr ""
 msgid "Icon Width"
 msgstr ""
 
-#: includes/helper-function.php:1601 includes/addons/product_flash_sale.php:134
+#: includes/helper-function.php:1647 includes/addons/product_flash_sale.php:134
 #: includes/addons/product_image_accordion.php:146
 #: includes/addons/product_accordion.php:167
 #: includes/addons/wl_category.php:152 includes/addons/product_curvy.php:202
@@ -4672,6 +4670,16 @@ msgstr ""
 msgid "Invalid cart ID."
 msgstr ""
 
+#: classes/class.ajax_actions.php:231
+#: woolentor-blocks/build/blocks/suggest-price/index.php:44
+#: woolentor-blocks/src/blocks/suggest-price/index.php:44
+msgid "Invalid email address."
+msgstr ""
+
+#: classes/class.ajax_actions.php:167
+msgid "Invalid form submission."
+msgstr ""
+
 #: settings-panel/includes/classes/Api/Custom_Actions.php:85
 #: includes/admin-panel/includes/classes/Api/Custom_Actions.php:85
 msgid "Invalid nonce"
@@ -4687,6 +4695,10 @@ msgstr ""
 
 #: includes/modules/smart-cross-sell-popup/includes/classes/Frontend.php:125
 msgid "Invalid product ID"
+msgstr ""
+
+#: classes/class.ajax_actions.php:195 classes/class.ajax_actions.php:202
+msgid "Invalid product."
 msgstr ""
 
 #: includes/modules/abandoned-cart/includes/classes/Frontend/Cart_Recovery.php:79
@@ -4975,8 +4987,8 @@ msgstr ""
 msgid "List Item"
 msgstr ""
 
-#: includes/addons/product-grid/base/class.product-grid-base.php:456
-#: includes/addons/product-grid/base/class.product-grid-base.php:481
+#: includes/addons/product-grid/base/class.product-grid-base.php:469
+#: includes/addons/product-grid/base/class.product-grid-base.php:494
 msgid "List view"
 msgstr ""
 
@@ -5239,7 +5251,7 @@ msgstr ""
 msgid "Message Field Placeholder"
 msgstr ""
 
-#: classes/class.ajax_actions.php:182
+#: classes/class.ajax_actions.php:239
 msgid "Message is required."
 msgstr ""
 
@@ -5363,7 +5375,7 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: includes/helper-function.php:1603 includes/addons/product_flash_sale.php:136
+#: includes/helper-function.php:1649 includes/addons/product_flash_sale.php:136
 #: includes/addons/wl_testimonial.php:82 includes/addons/wl_testimonial.php:576
 #: includes/addons/product_image_accordion.php:148
 #: includes/addons/product_accordion.php:169
@@ -5381,6 +5393,22 @@ msgstr ""
 
 #: includes/addons/wb_product_suggest_price.php:130
 msgid "Name Field Placeholder"
+msgstr ""
+
+#: classes/class.ajax_actions.php:214
+msgid "Name is required."
+msgstr ""
+
+#. 1: Sender name, 2: Sender email, 3: Product name, 4: Message
+#: classes/class.ajax_actions.php:257
+#, php-format
+msgid ""
+"Name: %1$s\n"
+"Email: %2$s\n"
+"Product: %3$s\n"
+"\n"
+"Message:\n"
+"%4$s"
 msgstr ""
 
 #: includes/addons/wl_testimonial.php:970
@@ -5525,8 +5553,8 @@ msgstr ""
 msgid "No products found."
 msgstr ""
 
-#: includes/helper-function.php:1875
-#: includes/addons/product-grid/base/class.product-grid-base.php:551
+#: includes/helper-function.php:1921
+#: includes/addons/product-grid/base/class.product-grid-base.php:564
 msgid "No products were found matching your selection."
 msgstr ""
 
@@ -5542,7 +5570,7 @@ msgstr ""
 msgid "No Results Found"
 msgstr ""
 
-#: includes/helper-function.php:668
+#: includes/helper-function.php:680
 msgid "No saved templates found."
 msgstr ""
 
@@ -5589,7 +5617,7 @@ msgstr ""
 msgid "Nonce verification failed."
 msgstr ""
 
-#: includes/helper-function.php:1600 includes/addons/product_flash_sale.php:133
+#: includes/helper-function.php:1646 includes/addons/product_flash_sale.php:133
 #: includes/addons/product_image_accordion.php:145
 #: includes/addons/product_accordion.php:166
 #: includes/addons/product_curvy.php:201
@@ -5967,7 +5995,7 @@ msgstr ""
 msgid "Out of Stock"
 msgstr ""
 
-#: includes/helper-function.php:1220 includes/helper-function.php:1268
+#: includes/helper-function.php:1266 includes/helper-function.php:1314
 msgid "Out of stock"
 msgstr ""
 
@@ -5987,7 +6015,7 @@ msgstr ""
 msgid "Outline (Pro)"
 msgstr ""
 
-#: includes/helper-function.php:860
+#: includes/helper-function.php:906
 msgid "p"
 msgstr ""
 
@@ -6451,7 +6479,7 @@ msgstr ""
 msgid "Product Add To Cart"
 msgstr ""
 
-#: includes/helper-function.php:1662
+#: includes/helper-function.php:1708
 #: woolentor-blocks/includes/helper-functions.php:600
 #: includes/modules/wishlist/includes/classes/Admin/Fields.php:222
 #: includes/modules/wishlist/includes/classes/Admin/Fields.php:223
@@ -6698,7 +6726,7 @@ msgstr ""
 msgid "Product Per Page"
 msgstr ""
 
-#: classes/class.widgets_control.php:375 includes/helper-function.php:1608
+#: classes/class.widgets_control.php:375 includes/helper-function.php:1654
 #: includes/addons/product_flash_sale.php:467
 #: includes/addons/product_image_accordion.php:411
 #: includes/addons/product_accordion.php:480
@@ -6978,7 +7006,7 @@ msgstr ""
 msgid "Qunantity Text Color"
 msgstr ""
 
-#: includes/helper-function.php:1606 includes/addons/product_flash_sale.php:139
+#: includes/helper-function.php:1652 includes/addons/product_flash_sale.php:139
 #: includes/addons/wb_product_upsell.php:71
 #: includes/addons/wb_archive_product.php:132
 #: includes/addons/product_image_accordion.php:151
@@ -7176,12 +7204,6 @@ msgstr ""
 #: settings-panel/includes/templates/dashboard-freevspro.php:93
 #: includes/admin-panel/includes/templates/dashboard-freevspro.php:93
 msgid "Rename Label"
-msgstr ""
-
-#: classes/class.ajax_actions.php:189
-#: woolentor-blocks/build/blocks/suggest-price/index.php:45
-#: woolentor-blocks/src/blocks/suggest-price/index.php:45
-msgid "Reply-To: "
 msgstr ""
 
 #: includes/modules/sales-report-email/includes/classes/Admin/Fields.php:132
@@ -7457,7 +7479,7 @@ msgstr ""
 msgid "SALE!"
 msgstr ""
 
-#: includes/helper-function.php:1217 includes/helper-function.php:1263
+#: includes/helper-function.php:1263 includes/helper-function.php:1309
 msgid "Sale!"
 msgstr ""
 
@@ -7590,11 +7612,11 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: classes/class.ajax_actions.php:224
+#: classes/class.ajax_actions.php:329
 msgid "Security check failed"
 msgstr ""
 
-#: includes/helper-function.php:643
+#: includes/helper-function.php:659
 #: includes/modules/variation-swatch/includes/Admin/Woo_Config.php:30
 msgid "Select"
 msgstr ""
@@ -7700,7 +7722,7 @@ msgstr ""
 msgid "Select Table"
 msgstr ""
 
-#: includes/helper-function.php:670 includes/addons/wl_faq.php:97
+#: includes/helper-function.php:682 includes/addons/wl_faq.php:97
 #: includes/modules/abandoned-cart/includes/classes/Admin/Fields.php:154
 msgid "Select Template"
 msgstr ""
@@ -7812,7 +7834,7 @@ msgstr ""
 msgid "Set the image size for badge image."
 msgstr ""
 
-#: includes/helper-function.php:1482 includes/helper-function.php:1500
+#: includes/helper-function.php:1528 includes/helper-function.php:1546
 msgid "Set the initial stock amount from"
 msgstr ""
 
@@ -7969,7 +7991,7 @@ msgid ""
 msgstr ""
 
 #. Name of the plugin
-msgid "ShopLentor – WooCommerce Builder for Elementor & Gutenberg"
+msgid "ShopLentor – All-in-One WooCommerce Growth & Store Enhancement Plugin"
 msgstr ""
 
 #: includes/addons/product_flash_sale.php:177
@@ -8105,7 +8127,7 @@ msgstr ""
 
 #: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:60
 #: includes/modules/currency-switcher/includes/widgets/wl_currency_switcher.php:89
-msgid "Show Currency flags ?"
+msgid "Show Currency flags?"
 msgstr ""
 
 #: includes/addons/wl_archive_title.php:73
@@ -8532,7 +8554,7 @@ msgstr ""
 msgid "Social share button title"
 msgstr ""
 
-#: includes/helper-function.php:1495
+#: includes/helper-function.php:1541
 msgid "Sold"
 msgstr ""
 
@@ -8594,6 +8616,11 @@ msgstr ""
 msgid "Something is wrong! try again"
 msgstr ""
 
+#: classes/class.ajax_actions.php:208
+#: includes/addons/wb_product_suggest_price.php:869
+msgid "Something went wrong. Please try again."
+msgstr ""
+
 #. 1: quantity in stock 2: current quantity
 #: includes/modules/backorder/backorder.php:185
 #, php-format
@@ -8639,10 +8666,13 @@ msgid ""
 "Sorry, this product is unavailable. Please choose a different combination."
 msgstr ""
 
-#: classes/class.ajax_actions.php:159
 #: woolentor-blocks/build/blocks/suggest-price/index.php:36
 #: woolentor-blocks/src/blocks/suggest-price/index.php:36
 msgid "Sorry, your nonce verification fail."
+msgstr ""
+
+#: classes/class.ajax_actions.php:159
+msgid "Sorry, your nonce verification failed."
 msgstr ""
 
 #: includes/addons/wl_product_horizontal_filter.php:44
@@ -8652,23 +8682,23 @@ msgstr ""
 msgid "Sort By"
 msgstr ""
 
-#: includes/helper-function.php:1309
+#: includes/helper-function.php:1355
 msgid "Sort by average rating"
 msgstr ""
 
-#: includes/helper-function.php:1310
+#: includes/helper-function.php:1356
 msgid "Sort by latest"
 msgstr ""
 
-#: includes/helper-function.php:1308
+#: includes/helper-function.php:1354
 msgid "Sort by popularity"
 msgstr ""
 
-#: includes/helper-function.php:1312
+#: includes/helper-function.php:1358
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: includes/helper-function.php:1311
+#: includes/helper-function.php:1357
 msgid "Sort by price: low to high"
 msgstr ""
 
@@ -8695,7 +8725,7 @@ msgstr ""
 msgid "Spacing"
 msgstr ""
 
-#: includes/helper-function.php:862
+#: includes/helper-function.php:908
 msgid "span"
 msgstr ""
 
@@ -8904,6 +8934,14 @@ msgstr ""
 #: includes/addons/wb_product_suggest_price.php:64
 #: woolentor-blocks/includes/classes/Blocks_List.php:258
 msgid "Suggest Price"
+msgstr ""
+
+#. %s: Product name
+#: classes/class.ajax_actions.php:250
+#: woolentor-blocks/build/blocks/suggest-price/index.php:60
+#: woolentor-blocks/src/blocks/suggest-price/index.php:60
+#, php-format
+msgid "Suggest Price For - %s"
 msgstr ""
 
 #: includes/modules/sales-report-email/includes/classes/Admin/Fields.php:101
@@ -9206,6 +9244,14 @@ msgstr ""
 msgid "Textarea"
 msgstr ""
 
+#: includes/addons/wb_product_suggest_price.php:868
+msgid "Thank you for contacting us"
+msgstr ""
+
+#: classes/class.ajax_actions.php:207
+msgid "Thank you for contacting us."
+msgstr ""
+
 #: includes/addons/wb_product_suggest_price.php:178
 #: includes/addons/wb_product_suggest_price.php:179
 msgid "Thank you for contacting with us"
@@ -9445,7 +9491,7 @@ msgstr ""
 msgid "Timer Message"
 msgstr ""
 
-#: includes/helper-function.php:1604 includes/addons/wl_faq.php:68
+#: includes/helper-function.php:1650 includes/addons/wl_faq.php:68
 #: includes/addons/wl_faq.php:342 includes/addons/product_flash_sale.php:137
 #: includes/addons/product_flash_sale.php:773
 #: includes/addons/wl_product_horizontal_filter.php:264
@@ -9596,7 +9642,7 @@ msgstr ""
 msgid "Top Products"
 msgstr ""
 
-#: includes/helper-function.php:1610
+#: includes/helper-function.php:1656
 msgid "Top Rated"
 msgstr ""
 
@@ -9619,7 +9665,7 @@ msgstr ""
 msgid "Top Right (Pro)"
 msgstr ""
 
-#: includes/helper-function.php:1609
+#: includes/helper-function.php:1655
 msgid "Top Seller"
 msgstr ""
 

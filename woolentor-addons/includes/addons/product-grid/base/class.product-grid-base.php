@@ -199,6 +199,19 @@ class WooLentor_Product_Grid_Base {
 
         $query_settings = apply_filters( 'woolentor_product_grid_query_settings', $query_settings, $settings );
 
+        // If fired from AJAX and pass from widget settings
+        if(!empty($settings['queried_object']) && !empty($settings['queried_object']['term_id']) && wp_doing_ajax()){
+            $tax_query = [
+                [
+                    "taxonomy" => $settings['queried_object']['taxonomy'],
+                    "terms" => $settings['queried_object']['term_id'],
+                    "field" => "term_id",
+                    "include_children" => true
+                ]
+            ];
+            $query_settings['tax_query'][] = $tax_query;
+        }
+
         return $query_settings;
     }
 
