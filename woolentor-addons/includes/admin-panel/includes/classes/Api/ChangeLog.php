@@ -164,6 +164,71 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.3.6',
+                'date'    => '2026-03-29',
+                'changes' => [
+                    'New Features' => [
+                        'Countdown Style option in Flash Sale module.',
+                        'Template library for Elementor editor mode.',
+                    ],
+                    'Fixes' => [
+                        'Product review form showing issue in Elementor editor mode.',
+                        'TaxDomain early register notice issue with Abandon cart module.',
+                        'Template 0 selected issue in ShopLentor > Settings > Others Settings select field if template list not found.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.3.5',
+                'date'    => '2026-03-11',
+                'changes' => [
+                    'New Features' => [
+                        'Product AJAX search Elementor addon.',
+                        'Add AJAX Search product field added and converted all setting with AJAX.',
+                        'Add Elementor Custom control added for product search field.',
+                    ],
+                    'Improved' => [
+                        'Template library improvement with popup Redesign.',
+                    ],
+                    'Fixes' => [
+                        'Enable all and disable all button not working issue in setup wizard module step.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.3.4',
+                'date'    => '2026-02-24',
+                'changes' => [
+                    'New Features' => [
+                        'Add setup wizard.',
+                    ],
+                    'Fixes' => [
+                        'Dashboard layout improvement in laptop screen.'
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.'
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.3.3',
+                'date'    => '2026-02-15',
+                'changes' => [
+                    'Fixes' => [
+                        'Permalink flash issue.'
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.3.2',
                 'date'    => '2026-02-01',
                 'changes' => [

@@ -82,7 +82,7 @@ class Diagnostic_Data {
         $this->project_name = 'ShopLentor';
         $this->project_type = 'wordpress-plugin';
         $this->project_version = WOOLENTOR_VERSION;
-        $this->data_center = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjAwNTY1MDYzZTA0MzM1MjY1NTUzNyI_3D_pc';
+        $this->data_center = 'https://n8n.aslamhasib.com/webhook/484fe1ab-9cdf-4318-8b6f-2b218ac47009';
         $this->privacy_policy = 'https://woolentor.com/privacy-policy/';
 
         $this->project_pro_slug = 'woolentor-addons-pro/woolentor_addons_pro.php';
@@ -467,7 +467,96 @@ class Diagnostic_Data {
     /**
      * Show notices.
      */
+    /**
+     * Check if this plugin should show the diagnostic data notice.
+     * Returns false if already agreed, dismissed, or another HT plugin takes priority.
+     */
+    public function should_show_notice() {
+        if ( get_option( 'woolentor_diagnostic_data_agreed' ) === 'yes' || get_option( 'woolentor_diagnostic_data_notice' ) === 'no' ) {
+            return false;
+        }
+
+        $sibling_plugins = array(
+            'ht-mega-for-elementor/htmega_addons_elementor.php' => array(
+                'agreed'  => 'htmega_diagnostic_data_agreed',
+                'notice'  => 'htmega_diagnostic_data_notice',
+            ),
+            'ht-easy-google-analytics/ht-easy-google-analytics.php' => array(
+                'agreed'  => 'htga4_diagnostic_data_agreed',
+                'notice'  => 'htga4_diagnostic_data_notice',
+            ),
+            'ht-contactform/contact-form-widget-elementor.php' => array(
+                'agreed'  => 'ht_contactform_diagnostic_data_agreed',
+                'notice'  => 'ht_contactform_diagnostic_data_notice',
+            ),
+            'hashbar-wp-notification-bar/init.php' => array(
+                'agreed'  => 'hashbar_diagnostic_data_agreed',
+                'notice'  => 'hashbar_diagnostic_data_notice',
+            ),
+            'support-genix-lite/support-genix-lite.php' => array(
+                'agreed'  => 'support_genix_lite_diagnostic_data_agreed',
+                'notice'  => 'support_genix_lite_diagnostic_data_notice',
+            ),
+            'pixelavo/pixelavo.php' => array(
+                'agreed'  => 'pixelavo_diagnostic_data_agreed',
+                'notice'  => 'pixelavo_diagnostic_data_notice',
+            ),
+            'swatchly/swatchly.php' => array(
+                'agreed'  => 'swatchly_diagnostic_data_agreed',
+                'notice'  => 'swatchly_diagnostic_data_notice',
+            ),
+            'extensions-for-cf7/extensions-for-cf7.php' => array(
+                'agreed'  => 'ht_cf7extensions_diagnostic_data_agreed',
+                'notice'  => 'ht_cf7extensions_diagnostic_data_notice',
+            ),
+            'whols/whols.php' => array(
+                'agreed'  => 'whols_diagnostic_data_agreed',
+                'notice'  => 'whols_diagnostic_data_notice',
+            ),
+            'wp-plugin-manager/plugin-main.php' => array(
+                'agreed'  => 'htpm_diagnostic_data_agreed',
+                'notice'  => 'htpm_diagnostic_data_notice',
+            ),
+            'just-tables/just-tables.php' => array(
+                'agreed'  => 'justtables_diagnostic_data_agreed',
+                'notice'  => 'justtables_diagnostic_data_notice',
+            ),
+            'really-simple-google-tag-manager/really-simple-google-tag-manager.php' => array(
+                'agreed'  => 'simple_googletag_diagnostic_data_agreed',
+                'notice'  => 'simple_googletag_diagnostic_data_notice',
+            ),
+            'insert-headers-and-footers-script/init.php' => array(
+                'agreed'  => 'ihafs_diagnostic_data_agreed',
+                'notice'  => 'ihafs_diagnostic_data_notice',
+            ),
+        );
+
+        foreach ( $sibling_plugins as $plugin_slug => $options ) {
+            if ( get_option( $options['agreed'] ) === 'yes' ) {
+                update_option( 'woolentor_diagnostic_data_agreed', 'yes' );
+                update_option( 'woolentor_diagnostic_data_notice', 'no' );
+                return false;
+            }
+        }
+
+        // Ensure only one HT plugin shows the diagnostic notice per request.
+        global $woolentor_diagnostic_notice_owner;
+        if ( isset( $woolentor_diagnostic_notice_owner ) && $woolentor_diagnostic_notice_owner !== 'woolentor' ) {
+            return false;
+        }
+        $woolentor_diagnostic_notice_owner = 'woolentor';
+
+        return true;
+    }
+
+    /**
+     * Show notices.
+     */
     private function show_notices() {
+
+        if ( !$this->should_show_notice() ) {
+            return;
+        }
 
         $action = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : '';
 
@@ -517,6 +606,55 @@ class Diagnostic_Data {
         $notice = sprintf( '<div class="woolentor-diagnostic-data-thanks notice notice-success is-dismissible"><p>%1$s</p><button type="button" class="notice-dismiss"><span class="screen-reader-text"></span></button></div>', wp_kses_post( $message ) );
 
         return $notice;
+    }
+
+    /**
+     * Collect and send diagnostic data directly from onboarding
+     */
+    public function collect_and_send_data( $nonce = '', $from_cron = false ) {
+        // Skip nonce and capability checks when running from WP Cron
+        // (already verified during wizard completion)
+        if ( ! $from_cron ) {
+            // Verify nonce if provided
+            if (!empty($nonce) && !wp_verify_nonce($nonce, 'woolentor-diagonstic-data-ajax-request')) {
+                return;
+            }
+
+            // Verify user capabilities
+            if (!current_user_can('manage_options')) {
+                return;
+            }
+        }
+
+        $data = $this->get_data();
+        if (empty($data)) {
+            return;
+        }
+
+        $data = $this->get_data();
+        if (empty($data)) {
+            return;
+        }
+        $site_url = wp_parse_url(home_url(), PHP_URL_HOST);
+        
+        $headers = array(
+            'user-agent' => $this->project_name . '/' . md5($site_url) . ';',
+            'Accept' => 'application/json',
+        );
+
+        wp_remote_post($this->data_center, array(
+            'method' => 'POST',
+            'timeout' => 45,
+            'redirection' => 5,
+            'httpversion' => '1.0',
+            'blocking' => false,
+            'headers' => $headers,
+            'body' => $data,
+            'cookies' => array()
+        ));
+
+        update_option('woolentor_diagnostic_data_agreed', 'yes');
+        update_option('woolentor_diagnostic_data_notice', 'no');
     }
 
 }

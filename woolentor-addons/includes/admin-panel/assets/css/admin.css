@@ -96,11 +96,13 @@
     border: none;
     box-shadow: none;
     padding: 0;
+    min-height: inherit;
   }
   input[type=checkbox]:focus, input[type=color]:focus, input[type=date]:focus, input[type=datetime-local]:focus, input[type=datetime]:focus, input[type=email]:focus, input[type=month]:focus, input[type=number]:focus, input[type=password]:focus, input[type=radio]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=time]:focus, input[type=url]:focus, input[type=week]:focus, select:focus, textarea:focus {
     border: none;
     box-shadow: none;
     outline: none;
+    min-height: inherit;
   }
 
   #wpbody-content>.notice, #wpbody-content>.error {
@@ -114,9 +116,12 @@
     width: calc(100% - 425px);
     margin-right: auto;
   }
+  .woolentor-options-wrapper-full{
+    height: 100vh;
+  }
 
-  @media only screen and (min-width: 1200px) and (max-width: 1549px) {
-    .woolentor-options-wrapper {
+  @media only screen and (min-width: 1281px) and (max-width: 1549px) {
+    .woolentor-options-wrapper:not(.woolentor-options-wrapper-full) {
       width: calc(100% - 350px) !important;
   }
 }
@@ -283,6 +288,9 @@
 .woolentor-card-field-label {
   width: 55%;
 }
+.woolentor-admin-option-field.woolentor-filed-type-html {
+  padding: 0 !important;
+}
 /* .woolentor-opt-field-dimensions .woolentor-card-field-label {
   width: 45%;
 } */
@@ -393,6 +401,7 @@
   padding: 0;
   list-style: none;
   text-align: left;
+  margin-top: 0px;
 }
 .woolentor-pro-banner-options li {
   padding-left: 25px;
@@ -523,7 +532,7 @@ a.woolentor-admin-btn:hover {
   border-color: rgb(221, 51, 51) !important;
   color: #FFFFFF !important;
 }
-a.woolentor-admin-settings-link {
+a.woolentor-admin-settings-link, span.woolentor-admin-settings-link {
   line-height: 1;
   box-shadow: none;
   outline: none;
@@ -643,32 +652,132 @@ a.woolentor-admin-settings-link {
 .el-popper .el-menu--horizontal li.el-menu-item{
   margin-bottom: 0;
 }
-.el-popper .el-menu--horizontal li.el-menu-item span.wli {
+.el-popper .el-menu--horizontal li.el-menu-item span.wli, .el-popper .el-menu--horizontal li.el-menu-item span.dashicons {
     margin-right: 10px;
+}
+.el-popper .el-menu--horizontal li.el-menu-item span.dashicons{
+  width: 14px;
+  height: 18px;
+  font-size: 16px;
+}
+
+/* Enable Disabled Status in Module settings */
+/* .woolentor-filed-type-module .el-button, .woolentor-filed-type-abandon-cart .el-button{
+  position: relative;
+}
+.woolentor-filed-type-module .el-button::before, .woolentor-filed-type-abandon-cart .el-button::before{
+    content: "Disabled";
+    right: 20px;
+    position: absolute;
+    font-size: 12px;
+    padding: 3px 7px;
+    background: #f4f4f5;
+    border-radius: 4px;
+    color: #a8abb2;
+    line-height: 14px;
+    font-weight: 400;
+}
+.woolentor-filed-type-module .el-button.is-active:before, .woolentor-filed-type-abandon-cart .el-button.is-active:before {
+    content: "Enabled";
+    background: #d9ecff;
+    color: #409eff;
+} */
+
+/* Ajax Select  Field */
+.woolentor-field-ajaxselect .el-select--large .el-select__input{
+  padding: 0 !important;
+  min-height: inherit !important;
 }
 
 /* Normal  :1366px. */
 @media (min-width: 1200px) and (max-width: 1400px) {
 }
 
+@media (min-width: 992px) and (max-width: 1400px) {
+  .template-library-container .el-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
 /* Normal desktop :992px. */
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1280px) {
   .woolentor-options-content-wrapper {
     gap: 20px;
+    flex-direction: column;
   }
   .woolentor-options-wrapper{
-    width: calc(100% - 200px) !important;
+    width: 100% !important;
   }
   .woolentor-options-sidebar {
-    width: 220px !important;
+    width: 100% !important;
   }
   .woolentor-rating {
     flex-direction: column;
-    padding: 15px;
     text-align: left;
   }
   .el-menu--popup-container ul li span.wli {
     margin-right: 7px;
+  }
+  .woolentor-rating-icon{
+    align-self: self-start;
+    margin-bottom:5px;
+  }
+  .woolentor-rating-intro{
+    padding-left: 0px;
+  }
+  .woolentor-pro-banner-logo{
+    justify-content: flex-start;
+  }
+  .woolentor-pro-banner-summary{
+    text-align: left;
+  }
+  .woolentor-admin-sidebar a{
+    align-self: self-start;
+  }
+
+  .extension-list{
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .extension-list .el-card__body{
+    display: flex;
+    gap: 15px;
+  }
+  .extension-item{
+    border: 1px solid #eee !important;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .extension-info{
+    flex-direction: column;
+  }
+  .subscribe-content-area{
+    padding: 15px 25px !important;
+  }
+  .video-wrapper iframe {
+    height: 450px !important;
+  }
+  .template-library-container .header-title{
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .video-card{
+    margin-top: 1.5em;
+  }
+  .el-dialog.template-import-dialog{
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1140px) {
+  .el-dialog.woolentor-module-setting-popup{
+    width: 60%;
+  }
+  .subscribe-form-wrapper{
+    margin-top: 20px;
   }
 }
 
@@ -680,7 +789,37 @@ a.woolentor-admin-settings-link {
   }
   .el-menu--popup-container ul li span.wli {
     margin-right: 7px;
+  }
+  .template-library-container .header-title{
+    display: none;
+  }
+  .video-card{
+    margin-top: 1.5em;
+  }
+  .woolentor-pro-banner-logo{
+    justify-content: flex-start;
+  }
+  .woolentor-pro-banner-summary{
+    text-align: left;
+  }
+  .woolentor-options-sidebar .woolentoropt-wrap a{
+    align-self: self-start;
+  }
+  .el-dialog.template-import-dialog{
+    width: 50%;
+  }
+  .el-dialog.woolentor-module-setting-popup{
+    width: 70%;
+  }
+  .el-dialog.woolentor-video-preview-popup{
+    width: 90vw;
+  }
 }
+
+@media screen and (max-width: 782px) {
+  .pricing-filter .el-select__wrapper {
+      min-height: 40px !important;
+  }
 }
 
 /* small mobile :320px. */
@@ -692,9 +831,69 @@ a.woolentor-admin-settings-link {
   .el-menu--popup-container ul li span.wli{
     margin-right: 7px;
   }
+  .welcome-header h3{
+    font-size: 1.6rem !important;
+  }
+  .woolentor-right-menu{
+    display: none;
+  }
+  .subscribe-text h3{
+    font-size: 1.5rem !important;
+  }
+  .woolentor-options-wrapper .el-container{
+    flex-direction: column;
+  }
+  .shoplentor_page_woolentor #wpbody-content{
+    padding-bottom: 0;
+  }
+  .template-library-container .header-title{
+    font-size: 16px;
+  }
+  .template-library-container{
+    height: auto !important;
+  }
+  .templates-content{
+    display: inline-block !important;
+  }
+  .templates-grid{
+    height: 100vh !important;
+  }
+  .pricing-filter .el-select__wrapper {
+      min-height: 40px !important;
+  }
+  .el-dialog.template-preview-dialog{
+    width: 75vw;
+  }
+  .welcome-content{
+    padding-right: 0 !important;
+  }
+  .video-card{
+    margin-top: 1.5em;
+    min-height: 150px !important;
+  }
+  .video-content{
+    min-height: 150px !important;
+  }
+  .el-dialog.template-import-dialog{
+    width: 80%;
+  }
+  .el-dialog.woolentor-module-setting-popup{
+    width: 80%;
+  }
+  .el-dialog.woolentor-video-preview-popup{
+    width: 90vw;
+  }
 }
 
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  
+
+  .video-card{
+    margin-top: 1.5em;
+    min-height: 250px !important;
+  }
+  .video-content{
+    min-height: 250px !important;
+  }
+
 }
