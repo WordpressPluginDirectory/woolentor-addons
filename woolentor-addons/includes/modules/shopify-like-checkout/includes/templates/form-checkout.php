@@ -7,12 +7,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$slc = woolentor_shopify_like_checkout();
+
 $blog_info       = get_bloginfo( 'name' );
 $get_custom_logo = woolentor_get_option( 'logo', 'woolentor_shopify_checkout_settings', '' );
 $get_logo_url_type = woolentor_get_option( 'logo_page', 'woolentor_shopify_checkout_settings', '' );
 $get_logo_custom_url = woolentor_get_option( 'logo_custom_url', 'woolentor_shopify_checkout_settings', '' );
 $get_custom_logo_url = $get_logo_url_type == 'custom' ? $get_logo_custom_url : ( !empty( $get_logo_url_type ) ? get_permalink( $get_logo_url_type ) : "" );
 $get_custom_menu_id = woolentor_get_option( 'custommenu', 'woolentor_shopify_checkout_settings', '0' );
+$wl_slc_enable_header_footer = woolentor_get_option( 'enable_header_footer', 'woolentor_shopify_checkout_settings', 'off' ) === 'on';
+$wl_slc_hide_checkout_logo   = $wl_slc_enable_header_footer && woolentor_get_option( 'hide_logo_on_header_footer', 'woolentor_shopify_checkout_settings', 'off' ) === 'on';
 $has_footer_menu = '';
 $menu_html = '';
 
@@ -114,8 +118,9 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
 
         <div class="woolentor-checkout__left-sidebar">
             <div class="woolentor-checkout__header">
+                <?php if ( ! $wl_slc_hide_checkout_logo ) : ?>
                 <div class="woolentor-checkout__logo">
-                    <?php 
+                    <?php
                         if( !empty( $get_custom_logo ) ){
                             if( !empty($get_custom_logo_url) ){
                                 echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>',esc_url($get_custom_logo_url),esc_url( $get_custom_logo ), esc_attr($blog_info) );
@@ -129,6 +134,7 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
                         }
                     ?>
                 </div>
+                <?php endif; ?>
                 <ul class="woolentor-checkout__breadcrumb">
 
                     <?php if(!$hide_cart_nivigation): ?>
@@ -371,8 +377,9 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
         <div class="woolentor-checkout__right-sidebar woolentor-shipping-status--<?php echo esc_attr(WC()->cart->needs_shipping_address() ? 'yes' : 'no') ?>">
             
             <div class="woolentor-checkout__header woolentor-checkout-header__responsive">
+                <?php if ( ! $wl_slc_hide_checkout_logo ) : ?>
                 <div class="woolentor-checkout__logo">
-                    <?php 
+                    <?php
                         if( !empty( $get_custom_logo ) ){
                             if( !empty($get_custom_logo_url) ){
                                 echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>',esc_url($get_custom_logo_url),esc_url( $get_custom_logo ), esc_attr($blog_info) );
@@ -386,6 +393,7 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
                         }
                     ?>
                 </div>
+                <?php endif; ?>
                 <ul class="woolentor-checkout__breadcrumb">
                     <?php if(!$hide_cart_nivigation): ?>
                         <li class="woolentor-checkout__breadcrumb-item">
@@ -411,7 +419,7 @@ $labels = apply_filters( 'woolentor_slc_labels', $labels );
             <div class="woolentor-checkout__prduct-box">
                 <?php
                     // Converted to method to avoid duplicate coding and comatibiltity with Order bump plugin
-                    Woolentor_Shopify_Like_Checkout::review_order_mini_cart_html();
+                    $slc->review_order_mini_cart_html();
                 ?>
             </div>
 

@@ -4,6 +4,8 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$slc = woolentor_shopify_like_checkout();
 ?>
 <div class="woocommerce-shipping-fields">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
@@ -23,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 				$fields = $checkout->get_checkout_fields( 'shipping' );
 
 				foreach ( $fields as $key => $field ) {
-					Woolentor_Shopify_Like_Checkout::woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+					$slc->woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 				}
 				?>
 			</div>
@@ -47,7 +49,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="woocommerce-additional-fields__field-wrapper">
 			<?php foreach ( $checkout->get_checkout_fields( 'order' ) as $key => $field ) : ?>
-				<?php Woolentor_Shopify_Like_Checkout::woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+				<?php $slc->woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 			<?php endforeach; ?>
 		</div>
 

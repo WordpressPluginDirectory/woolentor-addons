@@ -6,6 +6,8 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$slc = woolentor_shopify_like_checkout();
 ?>
 
 <div class="woocommerce-billing-fields">
@@ -13,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 			$fields = $checkout->get_checkout_fields( 'billing' );
 			if( array_key_exists('billing_email', $fields) ){
-				Woolentor_Shopify_Like_Checkout::woocommerce_form_field( 'billing_email', $fields['billing_email'], $checkout->get_value( 'billing_email' ) );
+				$slc->woocommerce_form_field( 'billing_email', $fields['billing_email'], $checkout->get_value( 'billing_email' ) );
 			}
 		?>
 	</div>
@@ -38,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 				if($key == 'billing_email'){
 					continue;
 				}
-				Woolentor_Shopify_Like_Checkout::woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+				$slc->woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
 			}
 		?>
 	</div>
@@ -64,7 +66,7 @@ defined( 'ABSPATH' ) || exit;
 
 			<div class="create-account">
 				<?php foreach ( $checkout->get_checkout_fields( 'account' ) as $key => $field ) : ?>
-					<?php Woolentor_Shopify_Like_Checkout::woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+					<?php $slc->woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 				<?php endforeach; ?>
 				<div class="clear"></div>
 			</div>

@@ -163,9 +163,9 @@ class Woolentor_Module_Manager{
                     'section' => 'woolentor_shopify_checkout_settings',
                     'default' => 'off'
                 ],
-                'main_class' => '',
+                'main_class' => '\Woolentor\Modules\ShopifyLikeCheckout\Shopify_Like_Checkout',
                 'is_pro'     => false,
-                'manage_setting' => false
+                'manage_setting' => true
             ],
             'variation-swatch' => [
                 'slug'   =>'variation-swatch',
@@ -323,7 +323,20 @@ class Woolentor_Module_Manager{
                 'main_class' => '\Woolentor\Modules\AbandonedCart\Abandoned_Cart',
                 'is_pro'     => false,
                 'manage_setting' => true
-            ]
+            ],
+
+            'free-shipping-bar' => [
+                'slug'   => 'free-shipping-bar',
+                'title'  => esc_html( 'Free Shipping Bar' ),
+                'option' => [
+                    'key'     => 'enable',
+                    'section' => 'woolentor_free_shipping_bar_settings',
+                    'default' => 'off'
+                ],
+                'main_class'     => '\Woolentor\Modules\FreeShippingBar\Free_Shipping_Bar',
+                'is_pro'         => false,
+                'manage_setting' => true
+            ],
 
         ];
 

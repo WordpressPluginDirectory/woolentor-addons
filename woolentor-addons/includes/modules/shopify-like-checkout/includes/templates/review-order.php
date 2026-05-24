@@ -4,6 +4,8 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$slc = woolentor_shopify_like_checkout();
 ?>
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<tfoot>
@@ -24,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 
 			<tr class="woolentor-shipping-cost">
 				<th><?php echo esc_html__('Shipping', 'woolentor') ?></th>
-				<td><span class="woolentor-order-reivew-shipping-cost"><?php echo wc_price( Woolentor_Shopify_Like_Checkout::get_cart_totals_shipping_cost() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span></td>
+				<td><span class="woolentor-order-reivew-shipping-cost"><?php echo wc_price( $slc->get_cart_totals_shipping_cost() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span></td>
 			</tr>
 
 		<?php endif; ?>

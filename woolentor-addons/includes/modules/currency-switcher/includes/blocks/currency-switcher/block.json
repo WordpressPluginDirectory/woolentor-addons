@@ -1,7 +1,7 @@
 {
 	"name": "woolentor/currency-switcher",
     "category": "woolentor-blocks",
-    "title": "WL : Currency Switcher",
+    "title": "WL: Currency Switcher",
     "description":"Display currency list added from Module.",
     "keywords": ["woolentor","currency","multi currency","WooCommerce currency"],
     "attributes": {
@@ -41,6 +41,14 @@
             "type":"string",
             "default":"dropdown"
         },
+        "showCurrencyName":{
+            "type": "boolean",
+            "default": true
+        },
+        "showCurrencySymbol":{
+            "type": "boolean",
+            "default": true
+        },
         "showFlags":{
             "type": "boolean",
             "default": true
@@ -50,17 +58,34 @@
             "default":"circle"
         },
 
+        "selectedShowCurrencyName":{
+            "type": "boolean",
+            "default": true
+        },
+        "selectedShowCurrencySymbol":{
+            "type": "boolean",
+            "default": true
+        },
+
         "currencyColor":{
             "type":"string",
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown ul li:not(.active-currency){ color:{{currencyColor}}; }"
             }
         },
+        "currencyTypography": {
+            "type": "object",
+            "style": {
+                "selector": "{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown ul li:not(.active-currency)"
+            }
+        },
         "currencySize":{
             "type":"string",
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown ul li:not(.active-currency){ font-size:{{currencySize}}; }"
-            }
+            },
+            "deprecated": true,
+            "_comment": "legacy font size before currencyTypography"
         },
         "currencyBorder":{
             "type":"object",
@@ -94,6 +119,27 @@
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown ul li:not(.active-currency):hover{ background-color:{{currencyHoverBgColor}}; }"
             }
         },
+        "currencyDropdownWidth":{
+            "type": "number",
+            "style" : {
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown { width: {{currencyDropdownWidth}}px; }"
+            }
+        },
+        "selectedCurrencyWidth":{
+            "type": "number",
+            "style" : {
+                "dependency": [
+                    [
+                        {
+                            "key": "currencyStyle", 
+                            "condition": "==", 
+                            "value": "dropdown"
+                        }
+                    ]
+                ],
+                "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-selected-currency-wrap { width: {{selectedCurrencyWidth}}px; }"
+            }
+        },
 
         "currenctCurrencyColor":{
             "type":"string",
@@ -116,11 +162,19 @@
                 ]
             }
         },
+        "currenctCurrencyTypography": {
+            "type": "object",
+            "style": {
+                "selector": "{{WOOLENTOR_WRAPPER}} .woolentor-selected-currency-wrap span.woolentor-selected-currency,{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown.list-style ul li.active-currency"
+            }
+        },
         "currenctCurrencySize":{
             "type":"string",
             "style" : {
                 "selector":"{{WOOLENTOR_WRAPPER}} .woolentor-selected-currency-wrap span.woolentor-selected-currency,{{WOOLENTOR_WRAPPER}} .woolentor-currency-dropdown.list-style ul li.active-currency{ font-size:{{currenctCurrencySize}}; }"
-            }
+            },
+            "deprecated": true,
+            "_comment": "legacy font size before currenctCurrencyTypography"
         },
         "currenctCurrencyBorder":{
             "type":"object",

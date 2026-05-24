@@ -164,6 +164,74 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.4.0',
+                'date'    => '2026-05-24',
+                'changes' => [
+                    'New Features' => [
+                        'Free Shipping Bar Module'
+                    ],
+                    'Fixes' => [
+                        'Minor Issues'
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.3.9',
+                'date'    => '2026-05-03',
+                'changes' => [
+                    'New Features' => [
+                        'Animation control and box-shadow control option in Modern, Editorial and Luxury Elementor addon.',
+                        'Overlay control and overlay color option added in Special day offer banner Elementor addon.',
+                        'Typography option has been added in WL: Breadcrumbs Elementor widget.',
+                        'Typography option in Gutenberg all Block.',
+                        'Minimum and Maximum price range calculate dynamically base on category archive page value.',
+                        'Coupon field height control option in cart table (list style) (Pro)'
+                    ],
+                    'Improved' => [
+                        'Template library design for batter UI.',
+                        'Currency Switcher field with search input.',
+                        'Description hide show toggle issue in Cart table List style Elementor addon. (pro)'
+                    ],
+                    'Fixes' => [
+                        'Wishlist icon render issue with cart table list style addon.',
+                        'Elementor widget product expanding grid spacing issue.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+
+            [
+                'version' => '3.3.8',
+                'date'    => '2026-04-12',
+                'changes' => [
+                    'New Features' => [
+                        'Show Currency Name and Show Currency Symbol option added in currency Switcher Elementor addon and Gutenberg block.',
+                        'Dropdown and currency selected area width control option in Elementor addon and Gutenberg block.',
+                        'Link Share button style option added in Compare table elementor addon.',
+                        'Shopify like Checkout module Theme Header and Footer enable/disable option and logo area enable/disable option if theme header footer enable.',
+                        'Nested Tree view in category list elementor widget. (Pro)'
+                    ],
+                    'Improved' => [
+                        'Template library design for batter UI.',
+                        'Currency Switcher field with search input.',
+                    ],
+                    'Fixes' => [
+                        'Wishlist table setting heading saving issue if column is empty.',
+                        'Compare table setting heading saving issue if column is empty.',
+                        'Lighthouse accessibility audit failures issue with slick slider.',
+                        'Single Product Navigation Gutenberg block Icon showing issue. (Pro)'
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.3.6',
                 'date'    => '2026-03-29',
                 'changes' => [
