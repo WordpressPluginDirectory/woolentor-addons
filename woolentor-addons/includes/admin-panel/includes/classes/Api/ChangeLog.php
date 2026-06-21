@@ -164,6 +164,44 @@ class ChangeLog extends WP_REST_Controller {
     private function get_changelog_data() {
         return [
             [
+                'version' => '3.4.4',
+                'date'    => '2026-06-21',
+                'changes' => [
+                    'New Features' => [
+                        'Express Checkout Button Widget for Elementor (Pro)',
+                        'Express Checkout Button Gutenberg Block. (Pro)',
+                        'Muti-Bar render issue. (Pro)'
+                    ],
+                    'Fixes' => [
+                        'Minor Issues.',
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.4.3',
+                'date'    => '2026-06-15',
+                'changes' => [
+                    'New Features' => [
+                        'Free Shipping Bar Widget in Elementor.',
+                        'Free Shipping Bar Block in Gutenberg.',
+                        'Cart table - Aura style Widget in Elementor. (Pro)',
+                        'Cart Total - Aura style Widget in Elementor. (Pro)',
+                        'Cart Cross Sell - Aura style Widget in Elementor. (Pro)',
+                        'Empty Cart - Aura style Widget in Elementor. (Pro)'
+                    ],
+                    'Fixes' => [
+                        'Module Drawer Settings icon issue in Module Settings Page.',
+                        'Widget Icon CSS Issue.'
+                    ],
+                    'Compatibility' => [
+                        'Latest WordPress and WooCommerce version.',
+                    ],
+                ],
+            ],
+            [
                 'version' => '3.4.1',
                 'date'    => '2026-06-07',
                 'changes' => [
